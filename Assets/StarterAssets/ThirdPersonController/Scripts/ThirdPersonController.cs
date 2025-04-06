@@ -84,6 +84,8 @@ namespace StarterAssets
 
         [Header("Spectral Vsion")]
         [SerializeField] private UniversalRendererData rendererData;
+        [SerializeField] private Volume volume;
+        [SerializeField] private float transitionSpeed = 2f;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -111,6 +113,8 @@ namespace StarterAssets
         // spectral vision
         private bool isSenseActive = false;
         private ScriptableRendererFeature spectralVision;
+        private float targetWeight = 0f;
+        private ColorAdjustments colorAdjustments;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -174,6 +178,12 @@ namespace StarterAssets
                         break;
                     }
                 }
+            }
+
+            if (volume.profile.TryGet<ColorAdjustments>(out var ca))
+            {
+                colorAdjustments = ca;
+                colorAdjustments.active = false;
             }
         }
 
@@ -432,9 +442,24 @@ namespace StarterAssets
 
         private void SpectralVision()
         {
+            if (volume != null)
+            {
+                volume.weight = Mathf.Lerp(volume.weight, targetWeight, Time.deltaTime * transitionSpeed);
+
+                if (volume.weight <= 0.01f && targetWeight == 0f)
+                {
+                    if (colorAdjustments != null)
+                        colorAdjustments.active = false;
+                }
+            }
+
             if (_input.spectralVision && !isSenseActive)
             {
                 isSenseActive = true;
+                targetWeight = 1f;
+
+                if (colorAdjustments != null)
+                    colorAdjustments.active = true;
 
                 if (spectralVision != null)
                     spectralVision.SetActive(true);
@@ -442,6 +467,7 @@ namespace StarterAssets
             else if (!_input.spectralVision && isSenseActive)
             {
                 isSenseActive = false;
+                targetWeight = 0f;   
 
                 if (spectralVision != null)
                     spectralVision.SetActive(false);
