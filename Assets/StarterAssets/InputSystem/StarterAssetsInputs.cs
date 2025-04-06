@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
         public bool interact;
+		public bool spectralVision;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,6 +50,11 @@ namespace StarterAssets
         {
             InteractInput(value.isPressed);
         }
+
+        public void OnSpectralVision(InputValue value)
+        {
+            SpectralVisionInput(value.isPressed);
+        }
 #endif
 
 
@@ -75,6 +81,11 @@ namespace StarterAssets
         public void InteractInput(bool newInteractState)
         {
             interact = newInteractState;
+        }
+
+        public void SpectralVisionInput(bool newSpectralVisionState)
+        {
+            spectralVision = newSpectralVisionState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

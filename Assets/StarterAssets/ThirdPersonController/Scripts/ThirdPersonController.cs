@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -80,6 +82,9 @@ namespace StarterAssets
         [Header("Interact")]
         [SerializeField] private float interactRange = 2f;
 
+        [Header("Spectral Vsion")]
+        [SerializeField] private UniversalRendererData rendererData;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -102,6 +107,10 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+
+        // spectral vision
+        private bool isSenseActive = false;
+        private ScriptableRendererFeature spectralVision;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -154,6 +163,18 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            if (rendererData != null)
+            {
+                foreach (var feature in rendererData.rendererFeatures)
+                {
+                    if (feature.name == "RenderOutlines")
+                    {
+                        spectralVision = feature;
+                        break;
+                    }
+                }
+            }
         }
 
         private void Update()
@@ -164,6 +185,7 @@ namespace StarterAssets
             GroundedCheck();
             Move();
             Interact();
+            SpectralVision();
         }
 
         private void LateUpdate()
@@ -406,6 +428,24 @@ namespace StarterAssets
             }
 
             return closestInteractuable;
+        }
+
+        private void SpectralVision()
+        {
+            if (_input.spectralVision && !isSenseActive)
+            {
+                isSenseActive = true;
+
+                if (spectralVision != null)
+                    spectralVision.SetActive(true);
+            }
+            else if (!_input.spectralVision && isSenseActive)
+            {
+                isSenseActive = false;
+
+                if (spectralVision != null)
+                    spectralVision.SetActive(false);
+            }
         }
 
         private void OnDrawGizmosSelected()

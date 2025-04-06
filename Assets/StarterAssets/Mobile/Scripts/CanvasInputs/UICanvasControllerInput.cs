@@ -33,6 +33,11 @@ namespace StarterAssets
             starterAssetsInputs.InteractInput(virtualInteractState);
         }
 
+        public void VirtualSpectralVisionInput(bool virtualSpectralVisionState)
+        {
+            starterAssetsInputs.SpectralVisionInput(virtualSpectralVisionState);
+        }
+
     }
 
 }
