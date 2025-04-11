@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4965463671522244991}
   - component: {fileID: 8295683412922223368}
   m_Layer: 0
-  m_Name: InputDetector
+  m_Name: GamaManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: {fileID: 0}
+  pc: E
+  gamepad: "\u25B3"

@@ -7,6 +7,8 @@ using UnityEngine.InputSystem.LowLevel;
 public class InputDetector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI interactText;
+    [SerializeField] private string pc;
+    [SerializeField] private string gamepad;
 
     private string controlUsed;
 
@@ -39,11 +41,11 @@ public class InputDetector : MonoBehaviour
 
     private void UpdateUIForGamepad()
     {
-        interactText.text = "X";
+        interactText.text = gamepad;
     }
 
     private void UpdateUIForKeyboard()
     {
-        interactText.text = "E";
+        interactText.text = pc;
     }
 }

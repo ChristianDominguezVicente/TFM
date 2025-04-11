@@ -38,6 +38,11 @@ namespace StarterAssets
             starterAssetsInputs.SpectralVisionInput(virtualSpectralVisionState);
         }
 
+
+        public void VirtualCancelInput(bool virtualCancelState)
+        {
+            starterAssetsInputs.CancelInput(virtualCancelState);
+        }
     }
 
 }

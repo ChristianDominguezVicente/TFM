@@ -87,6 +87,9 @@ namespace StarterAssets
         [SerializeField] private Volume volume;
         [SerializeField] private float transitionSpeed = 2f;
 
+        [Header("GameManager")]
+        [SerializeField] private PossessionManager possesionManager;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -196,6 +199,7 @@ namespace StarterAssets
             Move();
             Interact();
             SpectralVision();
+            Cancel();
         }
 
         private void LateUpdate()
@@ -471,6 +475,19 @@ namespace StarterAssets
 
                 if (spectralVision != null)
                     spectralVision.SetActive(false);
+            }
+        }
+
+        private void Cancel()
+        {
+            if (_input.cancel)
+            {
+                if (possesionManager.IsPossessing)
+                {
+                    possesionManager.CancelPossession();
+                }
+
+                _input.cancel = false;
             }
         }
 

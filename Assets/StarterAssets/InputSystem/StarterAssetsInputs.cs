@@ -14,6 +14,7 @@ namespace StarterAssets
 		public bool sprint;
         public bool interact;
 		public bool spectralVision;
+		public bool cancel;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -55,6 +56,11 @@ namespace StarterAssets
         {
             SpectralVisionInput(value.isPressed);
         }
+
+        public void OnCancel(InputValue value)
+        {
+            CancelInput(value.isPressed);
+        }
 #endif
 
 
@@ -86,6 +92,11 @@ namespace StarterAssets
         public void SpectralVisionInput(bool newSpectralVisionState)
         {
             spectralVision = newSpectralVisionState;
+        }
+
+        public void CancelInput(bool cancelState)
+        {
+            cancel = cancelState;
         }
 
         private void OnApplicationFocus(bool hasFocus)
