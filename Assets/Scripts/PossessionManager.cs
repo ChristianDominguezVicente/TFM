@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +17,18 @@ public class PossessionManager : MonoBehaviour
     private float currentTime;
     private float maxTime;
     private bool isPossessing = false;
-    private NPCInteractuable currentNPC;
+    private NPCPossessable currentNPC;
+    private ThirdPersonController currentController;
 
     public bool CanPossess => !isPossessing && currentTime >= maxTime;
 
     public bool IsPossessing { get => isPossessing; set => isPossessing = value; }
+    public ThirdPersonController CurrentController { get => currentController; set => currentController = value; }
+
+    private void Start()
+    {
+        currentController = player.GetComponent<ThirdPersonController>();
+    }
 
     private void Update()
     {
@@ -42,7 +50,7 @@ public class PossessionManager : MonoBehaviour
         }
     }
 
-    public void StartPossession(NPCInteractuable npc, float duration)
+    public void StartPossession(NPCPossessable npc, float duration)
     {
         if (CanPossess)
         {
@@ -54,6 +62,8 @@ public class PossessionManager : MonoBehaviour
             npc.EnablePossession();
 
             player.SetActive(false);
+
+            currentController = npc.GetComponent<ThirdPersonController>();
         }
     }
 
@@ -69,6 +79,8 @@ public class PossessionManager : MonoBehaviour
 
             currentNPC.DisablePossession();
             currentNPC = null;
+
+            currentController = player.GetComponent<ThirdPersonController>();
         }
     }
 

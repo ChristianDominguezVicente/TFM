@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4965463671522244991}
   - component: {fileID: 8295683412922223368}
+  - component: {fileID: 8615435743980592730}
   m_Layer: 0
   m_Name: GamaManager
   m_TagString: Untagged
@@ -46,4 +47,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactText: {fileID: 0}
   pc: E
-  gamepad: "\u25B3"
+  gamepad: T
+  pcFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  gamepadFont: {fileID: 11400000, guid: a7a6f72d75e3dac42b04447d30240caa, type: 2}
+--- !u!114 &8615435743980592730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982192134690391558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009a809a0adc3aa4e8a53332d559f4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possessBarFill: {fileID: 0}
+  drainSpeed: 1
+  rechargeSpeed: 1
+  player: {fileID: 0}
+  layerCollision:
+    serializedVersion: 2
+    m_Bits: 64
+  spawnOffset: 1.5

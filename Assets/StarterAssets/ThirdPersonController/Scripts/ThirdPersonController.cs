@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
@@ -115,7 +117,8 @@ namespace StarterAssets
 
         // spectral vision
         private bool isSenseActive = false;
-        private ScriptableRendererFeature spectralVision;
+        private ScriptableRendererFeature spectralVisionInteractuable;
+        private ScriptableRendererFeature spectralVisionPossessable;
         private float targetWeight = 0f;
         private ColorAdjustments colorAdjustments;
 
@@ -155,7 +158,7 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -177,8 +180,11 @@ namespace StarterAssets
                 {
                     if (feature.name == "RenderOutlines")
                     {
-                        spectralVision = feature;
-                        break;
+                        spectralVisionInteractuable = feature;
+                    }
+                    else if (feature.name == "RenderObjects")
+                    {
+                        spectralVisionPossessable = feature;
                     }
                 }
             }
@@ -401,47 +407,55 @@ namespace StarterAssets
             // detect the input button
             if (_input.interact)
             {
-                // check if there is an IInteractuable
-                IInteractuable interactuable = GetInteractuable();
-                if (interactuable != null)
+                var target = GetInteractuables();
+                if (target is IInteractuable interactuable)
                 {
                     interactuable.Interact(transform);
                 }
+                else if (target is IPossessable possessable)
+                {
+                    possessable.Possess(transform);
+                }
+
                 _input.interact = false;
             }
         }
 
-        public IInteractuable GetInteractuable()
+        public object GetInteractuables()
         {
-            List<IInteractuable> interactuableList = new List<IInteractuable>();
-            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange); // detect all colliders in the sphere
+            object closest = null;
+            float closestDistance = float.MaxValue;
+
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
-                if (collider.TryGetComponent(out IInteractuable interactuable)) // check the IInteractuable in the sphere
+                if (possesionManager.IsPossessing)
                 {
-                    interactuableList.Add(interactuable);
-                }
-            }
-
-            IInteractuable closestInteractuable = null;
-            foreach (IInteractuable interactuable in interactuableList)
-            {
-                if(closestInteractuable == null)
-                {
-                    closestInteractuable = interactuable;
+                    if (collider.TryGetComponent(out IInteractuable interactuable))
+                    {
+                        float distance = Vector3.Distance(transform.position, interactuable.GetTransform().position);
+                        if (distance < closestDistance)
+                        {
+                            closest = interactuable;
+                            closestDistance = distance;
+                        }
+                    }
                 }
                 else
                 {
-                    // check the closest IInteractuable in the scene
-                    if (Vector3.Distance(transform.position, interactuable.GetTransform().position) < 
-                        Vector3.Distance(transform.position, closestInteractuable.GetTransform().position))
+                    if (collider.TryGetComponent(out IPossessable possessable))
                     {
-                        closestInteractuable = interactuable;
+                        float distance = Vector3.Distance(transform.position, possessable.GetTransform().position);
+                        if (distance < closestDistance)
+                        {
+                            closest = possessable;
+                            closestDistance = distance;
+                        }
                     }
                 }
             }
 
-            return closestInteractuable;
+            return closest;
         }
 
         private void SpectralVision()
@@ -465,16 +479,21 @@ namespace StarterAssets
                 if (colorAdjustments != null)
                     colorAdjustments.active = true;
 
-                if (spectralVision != null)
-                    spectralVision.SetActive(true);
+                if (spectralVisionInteractuable != null)
+                    spectralVisionInteractuable.SetActive(true);
+                if (spectralVisionPossessable != null)
+                    spectralVisionPossessable.SetActive(true);
+
             }
             else if (!_input.spectralVision && isSenseActive)
             {
                 isSenseActive = false;
-                targetWeight = 0f;   
+                targetWeight = 0f;
 
-                if (spectralVision != null)
-                    spectralVision.SetActive(false);
+                if (spectralVisionInteractuable != null)
+                    spectralVisionInteractuable.SetActive(false);
+                if (spectralVisionPossessable != null)
+                    spectralVisionPossessable.SetActive(false);
             }
         }
 
@@ -526,6 +545,54 @@ namespace StarterAssets
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
+            }
+        }
+        public void DeactivateControl()
+        {
+            if (_hasAnimator)
+            {
+                _animator.SetFloat(_animIDSpeed, 0f);
+                _animator.SetFloat(_animIDMotionSpeed, 0f);
+            }
+
+            _verticalVelocity = 0f;
+
+            if (_hasAnimator)
+            {
+                _animator.SetBool(_animIDJump, false);
+                _animator.SetBool(_animIDFreeFall, false);
+                _animator.SetBool(_animIDGrounded, true);
+            }
+
+            StartCoroutine(HandleDeactivationDelay());
+        }
+
+        private IEnumerator HandleDeactivationDelay()
+        {
+            _verticalVelocity = 0f;
+
+            while (!Grounded)
+            {
+                _verticalVelocity -= -Gravity * Time.deltaTime;
+                _controller.Move(new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+                yield return null;
+            }
+
+            _verticalVelocity = 0f;
+
+            if (_hasAnimator)
+            {
+                _animator.SetBool(_animIDJump, false);
+                _animator.SetBool(_animIDFreeFall, false);
+                _animator.SetBool(_animIDGrounded, true);
+            }
+
+            yield return new WaitForSeconds(0.5f); 
+
+            if (_hasAnimator)
+            {
+                _animator.SetFloat(_animIDSpeed, 0f);
+                _animator.SetFloat(_animIDMotionSpeed, 0f);
             }
         }
     }

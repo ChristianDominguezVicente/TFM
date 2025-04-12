@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.Windows;
 
-public class NPCInteractuable : MonoBehaviour, IInteractuable
+public class NPCPossessable : MonoBehaviour, IPossessable
 {
     [SerializeField] private string interactText;
     [SerializeField] private PossessionManager possessionManager;
@@ -27,10 +27,10 @@ public class NPCInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private StarterAssetsInputs playerSAI;
     [SerializeField] private Transform playerTarget;
 
-    public string GetInteractText() => interactText;
+    public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
 
-    public void Interact(Transform interactorTransform)
+    public void Possess(Transform interactorTransform)
     {
         if (possessionManager.CanPossess)
         {
@@ -55,6 +55,8 @@ public class NPCInteractuable : MonoBehaviour, IInteractuable
 
     public void DisablePossession()
     {
+        npcTPC.DeactivateControl();
+
         npcInput.enabled = false;
         npcTPC.enabled = false;
         npcBRBP.enabled = false;

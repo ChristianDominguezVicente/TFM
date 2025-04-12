@@ -5,23 +5,39 @@ using UnityEngine;
 public class PlayerInteractUI : MonoBehaviour
 {
     [SerializeField] private GameObject containerGameObject;
-    [SerializeField] private ThirdPersonController player;
+    [SerializeField] private PossessionManager possessionManager;
     [SerializeField] private TextMeshProUGUI interactText;
     private void Update()
     {
-        if (player.GetInteractuable() != null)
+        var player = possessionManager.CurrentController;
+        if (player == null) return;
+
+        var target = player.GetInteractuables();
+        if (target != null)
         {
-            Show(player.GetInteractuable());
+            Show(target);
         }
         else
         {
             Hide();
         }
     }
-    private void Show(IInteractuable interactuable)
+    private void Show(object interactable)
     {
         containerGameObject.SetActive(true);
-        interactText.text = interactuable.GetInteractText();
+
+        if (interactable is IInteractuable interactuable)
+        {
+            interactText.text = interactuable.GetInteractText();
+        }
+        else if (interactable is IPossessable possessable)
+        {
+            interactText.text = possessable.GetPossessText();
+        }
+        else
+        {
+            interactText.text = "";
+        }
     }
 
     private void Hide()

@@ -9,6 +9,8 @@ public class InputDetector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI interactText;
     [SerializeField] private string pc;
     [SerializeField] private string gamepad;
+    [SerializeField] private TMP_FontAsset pcFont;
+    [SerializeField] private TMP_FontAsset gamepadFont;
 
     private string controlUsed;
 
@@ -42,10 +44,12 @@ public class InputDetector : MonoBehaviour
     private void UpdateUIForGamepad()
     {
         interactText.text = gamepad;
+        interactText.font = gamepadFont;
     }
 
     private void UpdateUIForKeyboard()
     {
         interactText.text = pc;
+        interactText.font = pcFont;
     }
 }
