@@ -40,33 +40,40 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     public void EnablePossession()
     {
+        // disables the original player components
         playerInput.enabled = false;
         playerTPC.enabled = false;
         playerBRBP.enabled = false;
         playerSAI.enabled = false;
 
+        // activate the NPC components to receive control
         npcInput.enabled = true;
         npcTPC.enabled = true;
         npcBRBP.enabled = true;
         npcSAI.enabled = true;
 
+        // change the camera focus to the NPC
         virtualCamera.Follow = npcTarget;
     }
 
     public void DisablePossession()
     {
+        // disables NPC movement
         npcTPC.DeactivateControl();
 
+        // disables all NPC components
         npcInput.enabled = false;
         npcTPC.enabled = false;
         npcBRBP.enabled = false;
         npcSAI.enabled = false;
 
+        // reactivates all components of the original player
         playerInput.enabled = true;
         playerTPC.enabled = true;
         playerBRBP.enabled = true;
         playerSAI.enabled = true;
 
+        // returns the camera to the player
         virtualCamera.Follow = playerTarget;
     }
 }

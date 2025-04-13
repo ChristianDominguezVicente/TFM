@@ -176,6 +176,7 @@ namespace StarterAssets
 
             if (rendererData != null)
             {
+                // cycle through the available rendering features in rendererData
                 foreach (var feature in rendererData.rendererFeatures)
                 {
                     if (feature.name == "RenderOutlines")
@@ -189,6 +190,7 @@ namespace StarterAssets
                 }
             }
 
+            // attempt to get the ColorAdjustments effect from the post-processing profile
             if (volume.profile.TryGet<ColorAdjustments>(out var ca))
             {
                 colorAdjustments = ca;
@@ -407,11 +409,15 @@ namespace StarterAssets
             // detect the input button
             if (_input.interact)
             {
+                // find the nearest interactuable object
                 var target = GetInteractuables();
+
+                // if the object implements the IInteractuable interface
                 if (target is IInteractuable interactuable)
                 {
                     interactuable.Interact(transform);
                 }
+                // if the object implements the IPossessable interface
                 else if (target is IPossessable possessable)
                 {
                     possessable.Possess(transform);
@@ -426,13 +432,16 @@ namespace StarterAssets
             object closest = null;
             float closestDistance = float.MaxValue;
 
+            // get all colliders within a defined radius around the player
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
+                // if the player is already possessing something, they can only interact
                 if (possesionManager.IsPossessing)
                 {
                     if (collider.TryGetComponent(out IInteractuable interactuable))
                     {
+                        // calculate the distance to the interactuable object
                         float distance = Vector3.Distance(transform.position, interactuable.GetTransform().position);
                         if (distance < closestDistance)
                         {
@@ -441,10 +450,12 @@ namespace StarterAssets
                         }
                     }
                 }
+                // if you are not possessing, you can only possess
                 else
                 {
                     if (collider.TryGetComponent(out IPossessable possessable))
                     {
+                        // calculate the distance to the possessable object
                         float distance = Vector3.Distance(transform.position, possessable.GetTransform().position);
                         if (distance < closestDistance)
                         {
@@ -454,7 +465,7 @@ namespace StarterAssets
                     }
                 }
             }
-
+            // return the closest object found 
             return closest;
         }
 
@@ -462,36 +473,46 @@ namespace StarterAssets
         {
             if (volume != null)
             {
+                // smooth transition of volume weight towards the target
                 volume.weight = Mathf.Lerp(volume.weight, targetWeight, Time.deltaTime * transitionSpeed);
-
+                
+                // if it was completely disabled and the target was 0, disables color adjustments
                 if (volume.weight <= 0.01f && targetWeight == 0f)
                 {
                     if (colorAdjustments != null)
                         colorAdjustments.active = false;
                 }
             }
-
+            
+            // if the spectral vision button is pressed and it is not yet active
             if (_input.spectralVision && !isSenseActive)
             {
                 isSenseActive = true;
+                // 100% of the visual effect
                 targetWeight = 1f;
 
+                // activate color settings
                 if (colorAdjustments != null)
                     colorAdjustments.active = true;
-
+                // enables highlighting of interactuable objects
                 if (spectralVisionInteractuable != null)
                     spectralVisionInteractuable.SetActive(true);
+                // enables highlighting of possessable objects
                 if (spectralVisionPossessable != null)
                     spectralVisionPossessable.SetActive(true);
 
             }
+            // if the button is released and was active, it is deactivated
             else if (!_input.spectralVision && isSenseActive)
             {
                 isSenseActive = false;
+                // 100% of the visual effect
                 targetWeight = 0f;
 
+                // disables highlighting of interactuable objects
                 if (spectralVisionInteractuable != null)
                     spectralVisionInteractuable.SetActive(false);
+                // disables highlighting of possessable objects
                 if (spectralVisionPossessable != null)
                     spectralVisionPossessable.SetActive(false);
             }
@@ -501,6 +522,7 @@ namespace StarterAssets
         {
             if (_input.cancel)
             {
+                // if the player is possessing something, cancel the possession
                 if (possesionManager.IsPossessing)
                 {
                     possesionManager.CancelPossession();
@@ -549,14 +571,17 @@ namespace StarterAssets
         }
         public void DeactivateControl()
         {
+            // if the object has an animator, reset the speed values in the animations
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, 0f);
                 _animator.SetFloat(_animIDMotionSpeed, 0f);
             }
 
+            // reset vertical speed
             _verticalVelocity = 0f;
 
+            // ensures that animation flags are the corrects
             if (_hasAnimator)
             {
                 _animator.SetBool(_animIDJump, false);
@@ -564,22 +589,29 @@ namespace StarterAssets
                 _animator.SetBool(_animIDGrounded, true);
             }
 
+            // start the coroutine that waits for the character to touch the ground
             StartCoroutine(HandleDeactivationDelay());
         }
 
         private IEnumerator HandleDeactivationDelay()
         {
+            // reset vertical speed
             _verticalVelocity = 0f;
 
+            // as long as the character is not touching the ground
             while (!Grounded)
             {
+                // simulate the gravity to push it towards the ground
                 _verticalVelocity -= -Gravity * Time.deltaTime;
+                // applies vertical movement downwards
                 _controller.Move(new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
                 yield return null;
             }
 
+            // reset vertical speed
             _verticalVelocity = 0f;
 
+            // ensures that animation flags are the corrects
             if (_hasAnimator)
             {
                 _animator.SetBool(_animIDJump, false);
@@ -587,8 +619,9 @@ namespace StarterAssets
                 _animator.SetBool(_animIDGrounded, true);
             }
 
-            yield return new WaitForSeconds(0.5f); 
+            yield return new WaitForSeconds(0.5f);
 
+            // if the object has an animator, reset the speed values in the animations
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, 0f);

@@ -27,6 +27,7 @@ public class PossessionManager : MonoBehaviour
 
     private void Start()
     {
+        // set the player controller as the active one
         currentController = player.GetComponent<ThirdPersonController>();
     }
 
@@ -34,9 +35,11 @@ public class PossessionManager : MonoBehaviour
     {
         if (isPossessing)
         {
+            // if possessed, reduces time and refreshes bar
             currentTime -= Time.deltaTime * drainSpeed;
             UpdateBar();
 
+            // if time runs out, possession is automatically cancelled
             if (currentTime <= 0)
             {
                 StopPossession();
@@ -44,6 +47,7 @@ public class PossessionManager : MonoBehaviour
         }
         else if (currentTime < maxTime)
         {
+            // if not possessed, refills the bar to the maximum
             currentTime += Time.deltaTime * rechargeSpeed;
             currentTime = Mathf.Min(currentTime, maxTime);
             UpdateBar();
@@ -59,10 +63,13 @@ public class PossessionManager : MonoBehaviour
             maxTime = duration;
             currentTime = duration;
 
+            // activate the NPC to receive control
             npc.EnablePossession();
 
+            // hide the original player
             player.SetActive(false);
 
+            // change the current controller to the NPC's
             currentController = npc.GetComponent<ThirdPersonController>();
         }
     }
@@ -73,13 +80,17 @@ public class PossessionManager : MonoBehaviour
 
         if (currentNPC != null)
         {
+            // calculate a safe position to respawn
             Vector3 spawnPos = SpawnPosition(currentNPC.transform.position);
+            // move and activate the player
             player.transform.position = spawnPos;
             player.SetActive(true);
 
+            // deactivate the NPC and release the reference
             currentNPC.DisablePossession();
             currentNPC = null;
 
+            // reuse the player controller
             currentController = player.GetComponent<ThirdPersonController>();
         }
     }
@@ -101,6 +112,7 @@ public class PossessionManager : MonoBehaviour
 
     private Vector3 SpawnPosition(Vector3 center)
     {
+        // possible addresses to try to spawn in
         Vector3[] directions = new Vector3[]
         {
             Vector3.forward,
@@ -110,17 +122,18 @@ public class PossessionManager : MonoBehaviour
         };
         float checkRadius = 0.6f;
 
+        // check each address looking for a free space
         foreach (var dir in directions)
         {
             Vector3 checkPos = center + dir.normalized * spawnOffset;
             Collider[] overlaps = Physics.OverlapSphere(checkPos, checkRadius, layerCollision);
             if (overlaps.Length == 0)
             {
-
+                // if ther are no collisions, return that position
                 return checkPos;
             }
         }
-
+        // if all positions are occupied, respawn at the NPC's original position
         return center;
     }
 }

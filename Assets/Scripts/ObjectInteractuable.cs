@@ -9,6 +9,7 @@ public class ObjectInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // deactivates the object in the scene when interacted with
         gameObject.SetActive(false);
     }
 
