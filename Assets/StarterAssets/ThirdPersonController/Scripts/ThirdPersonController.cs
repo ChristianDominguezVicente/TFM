@@ -1,12 +1,15 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Internal.Commands;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -92,6 +95,13 @@ namespace StarterAssets
         [Header("GameManager")]
         [SerializeField] private PossessionManager possesionManager;
 
+        [Header("Dialogue History")]
+        [SerializeField] private DialogueHistory dialogueHistory;
+        [SerializeField] private GameObject historyPanel;
+        [SerializeField] private TextMeshProUGUI historyText;
+        [SerializeField] private ScrollRect scrollRect;
+        [SerializeField] private float scrollSpeed;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -121,6 +131,10 @@ namespace StarterAssets
         private ScriptableRendererFeature spectralVisionPossessable;
         private float targetWeight = 0f;
         private ColorAdjustments colorAdjustments;
+
+        // dialogue history
+        private bool showingHistory = false;
+        private Vector2 scrollInput;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -200,6 +214,16 @@ namespace StarterAssets
 
         private void Update()
         {
+            if (possesionManager.IsTalking)
+            {
+                Interact();
+                History();
+                UI_Move();
+                Auto();
+                Skip();
+                return;
+            }
+
             _hasAnimator = TryGetComponent(out _animator);
 
             JumpAndGravity();
@@ -212,7 +236,10 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            CameraRotation();
+            if (!possesionManager.IsTalking)
+            { 
+                CameraRotation();
+            }
         }
 
         private void AssignAnimationIDs()
@@ -406,6 +433,26 @@ namespace StarterAssets
 
         private void Interact()
         {
+            var t = GetInteractuables();
+            bool auto = false;
+            bool skip = false;
+
+            if (t is IPossessable p)
+            {
+                if (p is NPCPossessable npcP)
+                {
+                    auto = npcP.AutoTalking;
+                    skip = npcP.SkipTalking;
+                }
+            }
+
+            if (showingHistory || auto || skip)
+            {
+                _input.interact = false;
+                return;
+            }
+                
+
             // detect the input button
             if (_input.interact)
             {
@@ -436,9 +483,12 @@ namespace StarterAssets
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
             foreach (Collider collider in colliderArray)
             {
-                // if the player is already possessing something, they can only interact
+                // if the player is already possessing something, they can only interact or talk to other NPCs
                 if (possesionManager.IsPossessing)
                 {
+                    if (collider.gameObject == gameObject)
+                        continue;
+
                     if (collider.TryGetComponent(out IInteractuable interactuable))
                     {
                         // calculate the distance to the interactuable object
@@ -446,6 +496,16 @@ namespace StarterAssets
                         if (distance < closestDistance)
                         {
                             closest = interactuable;
+                            closestDistance = distance;
+                        }
+                    }
+                    else if (collider.TryGetComponent(out IPossessable possessable))
+                    {
+                        // calculate the distance to the possessable object
+                        float distance = Vector3.Distance(transform.position, possessable.GetTransform().position);
+                        if (distance < closestDistance)
+                        {
+                            closest = possessable;
                             closestDistance = distance;
                         }
                     }
@@ -467,6 +527,131 @@ namespace StarterAssets
             }
             // return the closest object found 
             return closest;
+        }
+
+        private void History()
+        {
+            var t = GetInteractuables();
+            bool auto = false;
+            bool skip = false;
+
+            if (t is IPossessable p)
+            {
+                if (p is NPCPossessable npcP)
+                {
+                    auto = npcP.AutoTalking;
+                    skip = npcP.SkipTalking;
+                }
+            }
+
+            if (!_input.history || !possesionManager.IsTalking || auto || skip)
+            {
+                _input.history = false;
+                return;
+            }
+
+            showingHistory = !showingHistory;
+            historyPanel.SetActive(showingHistory);
+
+            if (showingHistory)
+            {
+                List<string> lines = dialogueHistory.GetHistory();
+                historyText.text = string.Join("\n", lines);
+
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            _input.history = false;
+        }
+
+        private void UI_Move()
+        {
+            if (!showingHistory || !possesionManager.IsTalking)
+                return;
+
+            scrollInput = _input.ui_move;
+
+            if (Mathf.Abs(scrollInput.y) > 0.1f)
+            {
+                scrollRect.verticalNormalizedPosition += scrollInput.y * scrollSpeed * Time.deltaTime;
+                scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition);
+            }
+        }
+
+        private void Auto()
+        {
+            var t = GetInteractuables();
+            bool skip = false;
+
+            if (t is IPossessable p)
+            {
+                if (p is NPCPossessable npcP)
+                {
+                    skip = npcP.SkipTalking;
+                }
+            }
+
+            if (showingHistory || skip)
+            {
+                _input.auto = false;
+                return;
+            }
+
+            if (_input.auto)
+            {
+                var target = GetInteractuables();
+
+                if (target is IPossessable possessable)
+                {
+                    if (possessable is NPCPossessable npcPossessable)
+                    {
+                        npcPossessable.AutoTalk();
+                    }
+                }
+
+                _input.auto = false;
+            }
+        }
+
+        private void Skip()
+        {
+            var t = GetInteractuables();
+            bool auto = false;
+
+            if (t is IPossessable p)
+            {
+                if (p is NPCPossessable npcP)
+                {
+                    auto = npcP.AutoTalking;
+                }
+            }
+
+            if (showingHistory || auto)
+            {
+                _input.skip = false;
+                return;
+            }
+
+            if (_input.skip)
+            {
+                var target = GetInteractuables();
+
+                if (target is IPossessable possessable)
+                {
+                    if (possessable is NPCPossessable npcPossessable)
+                    {
+                        npcPossessable.SkipTalk();
+                    }
+                }
+
+                _input.skip = false;
+            }
         }
 
         private void SpectralVision()

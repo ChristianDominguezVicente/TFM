@@ -9,11 +9,15 @@ namespace StarterAssets
 	{
 		[Header("Character Input Values")]
 		public Vector2 move;
-		public Vector2 look;
+        public Vector2 ui_move;
+        public Vector2 look;
 		public bool jump;
 		public bool sprint;
         public bool interact;
-		public bool spectralVision;
+        public bool history;
+        public bool auto;
+        public bool skip;
+        public bool spectralVision;
 		public bool cancel;
 
         [Header("Movement Settings")]
@@ -24,12 +28,17 @@ namespace StarterAssets
 		public bool cursorInputForLook = true;
 
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
-		{
-			MoveInput(value.Get<Vector2>());
-		}
+        public void OnMove(InputValue value)
+        {
+            MoveInput(value.Get<Vector2>());
+        }
 
-		public void OnLook(InputValue value)
+        public void OnUI_Move(InputValue value)
+        {
+            UI_MoveInput(value.Get<Vector2>());
+        }
+
+        public void OnLook(InputValue value)
 		{
 			if(cursorInputForLook)
 			{
@@ -52,6 +61,21 @@ namespace StarterAssets
             InteractInput(value.isPressed);
         }
 
+        public void OnHistory(InputValue value)
+        {
+            HistoryInput(value.isPressed);
+        }
+
+        public void OnAuto(InputValue value)
+        {
+            AutoInput(value.isPressed);
+        }
+
+        public void OnSkip(InputValue value)
+        {
+            SkipInput(value.isPressed);
+        }
+
         public void OnSpectralVision(InputValue value)
         {
             SpectralVisionInput(value.isPressed);
@@ -65,11 +89,16 @@ namespace StarterAssets
 
 
         public void MoveInput(Vector2 newMoveDirection)
-		{
-			move = newMoveDirection;
-		} 
+        {
+            move = newMoveDirection;
+        }
 
-		public void LookInput(Vector2 newLookDirection)
+        public void UI_MoveInput(Vector2 newUI_MoveDirection)
+        {
+            ui_move = newUI_MoveDirection;
+        }
+
+        public void LookInput(Vector2 newLookDirection)
 		{
 			look = newLookDirection;
 		}
@@ -87,6 +116,21 @@ namespace StarterAssets
         public void InteractInput(bool newInteractState)
         {
             interact = newInteractState;
+        }
+
+        public void HistoryInput(bool newHistoryState)
+        {
+            history = newHistoryState;
+        }
+
+        public void AutoInput(bool newAutoState)
+        {
+            auto = newAutoState;
+        }
+
+        public void SkipInput(bool newSkipState)
+        {
+            skip = newSkipState;
         }
 
         public void SpectralVisionInput(bool newSpectralVisionState)

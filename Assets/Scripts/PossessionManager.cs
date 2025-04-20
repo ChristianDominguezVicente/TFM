@@ -19,11 +19,14 @@ public class PossessionManager : MonoBehaviour
     private bool isPossessing = false;
     private NPCPossessable currentNPC;
     private ThirdPersonController currentController;
+    private bool isTalking = false;
 
     public bool CanPossess => !isPossessing && currentTime >= maxTime;
 
     public bool IsPossessing { get => isPossessing; set => isPossessing = value; }
     public ThirdPersonController CurrentController { get => currentController; set => currentController = value; }
+    public bool IsTalking { get => isTalking; set => isTalking = value; }
+    public NPCPossessable CurrentNPC { get => currentNPC; set => currentNPC = value; }
 
     private void Start()
     {
@@ -33,7 +36,7 @@ public class PossessionManager : MonoBehaviour
 
     private void Update()
     {
-        if (isPossessing)
+        if (isPossessing && !isTalking)
         {
             // if possessed, reduces time and refreshes bar
             currentTime -= Time.deltaTime * drainSpeed;
@@ -45,7 +48,7 @@ public class PossessionManager : MonoBehaviour
                 StopPossession();
             }
         }
-        else if (currentTime < maxTime)
+        else if (!isPossessing && currentTime < maxTime)
         {
             // if not possessed, refills the bar to the maximum
             currentTime += Time.deltaTime * rechargeSpeed;

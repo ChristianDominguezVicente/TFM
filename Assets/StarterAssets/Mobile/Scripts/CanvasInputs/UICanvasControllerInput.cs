@@ -13,6 +13,11 @@ namespace StarterAssets
             starterAssetsInputs.MoveInput(virtualMoveDirection);
         }
 
+        public void VirtualUI_MoveInput(Vector2 virtualUI_MoveDirection)
+        {
+            starterAssetsInputs.UI_MoveInput(virtualUI_MoveDirection);
+        }
+
         public void VirtualLookInput(Vector2 virtualLookDirection)
         {
             starterAssetsInputs.LookInput(virtualLookDirection);
@@ -33,11 +38,25 @@ namespace StarterAssets
             starterAssetsInputs.InteractInput(virtualInteractState);
         }
 
+        public void VirtualHistoryInput(bool virtualHistoryState)
+        {
+            starterAssetsInputs.HistoryInput(virtualHistoryState);
+        }
+
+        public void VirtualAutoInput(bool virtualAutoState)
+        {
+            starterAssetsInputs.AutoInput(virtualAutoState);
+        }
+
+        public void VirtualSkipInput(bool virtualSkipState)
+        {
+            starterAssetsInputs.SkipInput(virtualSkipState);
+        }
+
         public void VirtualSpectralVisionInput(bool virtualSpectralVisionState)
         {
             starterAssetsInputs.SpectralVisionInput(virtualSpectralVisionState);
         }
-
 
         public void VirtualCancelInput(bool virtualCancelState)
         {
