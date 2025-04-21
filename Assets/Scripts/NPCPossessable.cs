@@ -33,10 +33,12 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [SerializeField] private Transform playerTarget;
 
     [Header("Dialogue System")]
-    [SerializeField, TextArea(1, 5)] private string[] phrases;
+    //[SerializeField, TextArea(1, 5)] private string[] phrases;
+    [SerializeField] private DialogueData dialogueData;
     [SerializeField] private float timeBtwLetters;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private ChoicesUI choicePanel;
 
     [Header("Dialogue History")]
     [SerializeField] private DialogueHistory dialogueHistory;
@@ -49,7 +51,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [SerializeField] private float skipTalkDelay;
 
     private bool talking = false;
-    private int currentIndex = -1;
+    private int currentIndex = 0;
+    private DialogueQuestion currentQuestion;
+    private Coroutine writePhraseCoroutine;
 
     private Transform interactor;
 
@@ -61,6 +65,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
+    public string NpcName { get => npcName; set => npcName = value; }
 
     public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
@@ -72,7 +77,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         if (possessionManager.IsPossessing)
         {
             dialogueBox.SetActive(true);
-            if (!talking)
+            if (!talking && !choicePanel.IsShowing && currentQuestion == null)
             {
                 NextPhrase();
             }
@@ -128,15 +133,23 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private void NextPhrase()
     {
-        currentIndex++;
-        if (currentIndex >= phrases.Length)
+        if (currentIndex < 0 || currentIndex >= dialogueData.nodes.Length)
         {
             EndDialogue();
+            return;
         }
-        else
+
+        possessionManager.IsTalking = true;
+
+        DialogueNode node = dialogueData.nodes[currentIndex];
+
+        if (node is DialoguePhrase phrase)
         {
-            possessionManager.IsTalking = true;
-            StartCoroutine(WritePhrase());
+            writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
+        }
+        else if (node is DialogueQuestion question)
+        {
+            ShowChoices(question);
         }
     }
     private void EndDialogue()
@@ -144,7 +157,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         possessionManager.IsTalking = false;
         talking = false;
         dialogueText.text = "";
-        currentIndex = -1;
+        currentIndex = 0;
         dialogueBox.SetActive(false);
         interactor = null;
         dialogueHistory.AddSeparator();
@@ -155,27 +168,82 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         skipTalking = false;
     }
     
-    private IEnumerator WritePhrase()
+    private IEnumerator WritePhrase(string phrase)
     {
         talking = true;
         dialogueText.text = "";
-        // subdivide the sentence into characters
-        char[] phraseCharacters = phrases[currentIndex].ToCharArray();
-        foreach (char character in phraseCharacters)
+
+        foreach (char c in phrase)
         {
-            dialogueText.text += character;
-            yield return new WaitForSeconds(timeBtwLetters);
+            dialogueText.text += c;
+            if (skipTalking)
+            {
+                yield return new WaitForSeconds(timeBtwLetters * 0.1f);
+            }
+            else
+            {
+                yield return new WaitForSeconds(timeBtwLetters);
+            }
         }
+
         talking = false;
-        dialogueHistory.AddLine(npcName, phrases[currentIndex]);
+        dialogueHistory.AddLine(npcName, phrase);
+
+        DialogueNode node = dialogueData.nodes[currentIndex];
+        if (node is DialoguePhrase p)
+        {
+            currentIndex = p.nextIndex;
+        }
     }
 
     private void CompletedPhrase()
     {
-        StopAllCoroutines();
-        dialogueText.text = phrases[currentIndex];
+        DialogueNode node = dialogueData.nodes[currentIndex];
+
+        if (node is DialoguePhrase phrase)
+        {
+            if (writePhraseCoroutine != null)
+            {
+                StopCoroutine(writePhraseCoroutine);
+                writePhraseCoroutine = null;
+                currentIndex = phrase.nextIndex;
+            }
+
+            dialogueText.text = phrase.npcText;
+            dialogueHistory.AddLine(npcName, phrase.npcText);
+            talking = false;
+            writePhraseCoroutine = null;
+        }
+    }
+
+    private void ShowChoices(DialogueQuestion question)
+    {
         talking = false;
-        dialogueHistory.AddLine(npcName, phrases[currentIndex]);
+        currentQuestion = question;
+        dialogueText.text = question.npcText;
+        dialogueHistory.AddLine(npcName, question.npcText);
+        choicePanel.Show(question.responses);
+    }
+
+    public void SelectCurrentChoice()
+    {
+        if (currentQuestion == null || choicePanel == null)
+            return;
+
+        int index = choicePanel.SelectedIndex;
+
+        if (index < 0 || index >= currentQuestion.responses.Length)
+        {
+            EndDialogue();
+            return;
+        }
+
+        dialogueHistory.AddLine(possessionManager.CurrentNPC.npcName + " (Player)", currentQuestion.responses[index].playerText);
+
+        currentIndex = currentQuestion.responses[index].nextIndex;
+        choicePanel.Hide();
+        currentQuestion = null;
+        NextPhrase();
     }
 
     public void AutoTalk()
@@ -202,7 +270,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         while (autoTalking)
         {
-            if (!talking)
+            if (!talking && !choicePanel.IsShowing)
             {
                 NextPhrase();
             }
@@ -235,7 +303,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         while (skipTalking)
         {
-            if (!talking)
+            if (!talking && !choicePanel.IsShowing)
             {
                 NextPhrase();
             }

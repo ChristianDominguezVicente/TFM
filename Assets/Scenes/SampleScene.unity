@@ -180,6 +180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1778294885}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: choicePanel
+      value: 
+      objectReference: {fileID: 372833793}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: historyText
       value: 
       objectReference: {fileID: 944125299}
@@ -747,6 +751,138 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364386709}
   m_CullTransparentMesh: 1
+--- !u!1 &372833787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372833788}
+  - component: {fileID: 372833790}
+  - component: {fileID: 372833789}
+  - component: {fileID: 372833792}
+  - component: {fileID: 372833791}
+  - component: {fileID: 372833793}
+  m_Layer: 5
+  m_Name: ChoicesPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &372833788
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372833787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1611379734}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -347.82}
+  m_SizeDelta: {x: -941.917, y: 356.887}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &372833789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372833787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &372833790
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372833787}
+  m_CullTransparentMesh: 1
+--- !u!114 &372833791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372833787}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &372833792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372833787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &372833793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372833787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75275fc6cdffc8d42b185472433587d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  choiceButtonPrefab: {fileID: 4685965575106111638, guid: acd5381297b35184080a71c5313498b7, type: 3}
+  choicePanel: {fileID: 372833788}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,6 +1867,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1488120499}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: choicePanel
+      value: 
+      objectReference: {fileID: 372833793}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 716854771}
@@ -1738,6 +1878,10 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 1488120497}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e0754de4edc3bc46bdec9ea0130e2ce, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueText
       value: 
@@ -2031,6 +2175,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1778294885}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: choicePanel
+      value: 
+      objectReference: {fileID: 372833793}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyText
       value: 
       objectReference: {fileID: 944125299}
@@ -2312,6 +2460,7 @@ RectTransform:
   m_Children:
   - {fileID: 716854772}
   - {fileID: 1778294880}
+  - {fileID: 372833788}
   m_Father: {fileID: 2178928543987387139}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3015,6 +3164,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1488120499}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: choicePanel
+      value: 
+      objectReference: {fileID: 372833793}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueBox
       value: 
       objectReference: {fileID: 716854771}
@@ -3022,6 +3175,10 @@ PrefabInstance:
       propertyPath: playerInput
       value: 
       objectReference: {fileID: 1488120497}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: af7ae9cd0ffb9604ab4de9d62bf3b9cb, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueText
       value: 
@@ -3082,6 +3239,10 @@ PrefabInstance:
       propertyPath: scrollRect
       value: 
       objectReference: {fileID: 1778294885}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: choicePanel
+      value: 
+      objectReference: {fileID: 372833793}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyText
       value: 

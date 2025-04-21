@@ -3,7 +3,7 @@ using NUnit.Framework.Internal.Commands;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Android.Gradle.Manifest;
+//using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
@@ -101,6 +101,7 @@ namespace StarterAssets
         [SerializeField] private TextMeshProUGUI historyText;
         [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private float scrollSpeed;
+        [SerializeField] private ChoicesUI choicePanel;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -135,6 +136,10 @@ namespace StarterAssets
         // dialogue history
         private bool showingHistory = false;
         private Vector2 scrollInput;
+
+        // dialogue choice
+        private float inputCooldown = 0.2f;
+        private float lastInputTime = 0f;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -433,6 +438,17 @@ namespace StarterAssets
 
         private void Interact()
         {
+            if (choicePanel.IsShowing && _input.interact)
+            {
+                if (GetInteractuables() is NPCPossessable npcP)
+                {
+                    npcP.SelectCurrentChoice();
+                }
+
+                _input.interact = false;
+                return;
+            }
+
             var t = GetInteractuables();
             bool auto = false;
             bool skip = false;
@@ -450,8 +466,7 @@ namespace StarterAssets
             {
                 _input.interact = false;
                 return;
-            }
-                
+            }       
 
             // detect the input button
             if (_input.interact)
@@ -544,7 +559,7 @@ namespace StarterAssets
                 }
             }
 
-            if (!_input.history || !possesionManager.IsTalking || auto || skip)
+            if (!_input.history || !possesionManager.IsTalking || auto || skip || choicePanel.IsShowing)
             {
                 _input.history = false;
                 return;
@@ -572,6 +587,23 @@ namespace StarterAssets
 
         private void UI_Move()
         {
+            if (choicePanel.IsShowing)
+            {
+                scrollInput = _input.ui_move;
+
+                if (Time.time - lastInputTime > inputCooldown)
+                {
+                    if (Mathf.Abs(scrollInput.y) > 0.5f) 
+                    {
+                        int direction = scrollInput.y > 0 ? -1 : 1;
+                        choicePanel.MoveSelection(direction);
+                        lastInputTime = Time.time;
+                    }
+                }
+
+                return;
+            }
+
             if (!showingHistory || !possesionManager.IsTalking)
                 return;
 
@@ -597,7 +629,7 @@ namespace StarterAssets
                 }
             }
 
-            if (showingHistory || skip)
+            if (showingHistory || skip || choicePanel.IsShowing)
             {
                 _input.auto = false;
                 return;
@@ -632,7 +664,7 @@ namespace StarterAssets
                 }
             }
 
-            if (showingHistory || auto)
+            if (showingHistory || auto || choicePanel.IsShowing)
             {
                 _input.skip = false;
                 return;
