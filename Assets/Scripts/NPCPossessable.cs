@@ -33,11 +33,11 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [SerializeField] private Transform playerTarget;
 
     [Header("Dialogue System")]
-    //[SerializeField, TextArea(1, 5)] private string[] phrases;
     [SerializeField] private DialogueData dialogueData;
     [SerializeField] private float timeBtwLetters;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI speakerText;
     [SerializeField] private ChoicesUI choicePanel;
 
     [Header("Dialogue History")]
@@ -63,9 +63,14 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     private bool skipTalking = false;
     private Coroutine skipTalkCoroutine;
 
+    private bool cinematicFlag = false;
+    public System.Action OnDialogueEnded;
+
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
     public string NpcName { get => npcName; set => npcName = value; }
+    public bool Talking { get => talking; set => talking = value; }
+    public GameObject Player { get => player; set => player = value; }
 
     public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
@@ -73,10 +78,26 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         interactor = interactorTransform;
-        // if you are already possessing, we interpret this call as an attempt to speak
-        if (possessionManager.IsPossessing)
+
+        if (cinematicFlag)
         {
+            if (!talking && !choicePanel.IsShowing && currentQuestion == null)
+            {
+                NextPhrase();
+            }
+            else
+            {
+                CompletedPhrase();
+            }
+        }
+        // if you are already possessing, we interpret this call as an attempt to speak
+        else if (possessionManager.IsPossessing)
+        {
+            possessionManager.CurrentController.DeactivateControl();
+            speakerText.text = npcName;
             dialogueBox.SetActive(true);
+            cinematicFlag = false;
+
             if (!talking && !choicePanel.IsShowing && currentQuestion == null)
             {
                 NextPhrase();
@@ -166,8 +187,13 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             StopCoroutine(autoTalkCoroutine);
         autoTalking = false;
         skipTalking = false;
+
+        cinematicFlag = false;
+        OnDialogueEnded?.Invoke();
+        OnDialogueEnded = null;
+        CinematicDialogue.CurrentNPC = null;
     }
-    
+
     private IEnumerator WritePhrase(string phrase)
     {
         talking = true;
@@ -238,7 +264,23 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             return;
         }
 
-        dialogueHistory.AddLine(possessionManager.CurrentNPC.npcName + " (Player)", currentQuestion.responses[index].playerText);
+        string speaker;
+        if (cinematicFlag)
+        {
+            if (possessionManager.CurrentNPC != null)
+            {
+                speaker = possessionManager.CurrentNPC.npcName + " (Player)";
+            }
+            else
+            {
+                speaker = "Player";
+            }
+        }
+        else
+        {
+            speaker = possessionManager.CurrentNPC.npcName + " (Player)";
+        }
+        dialogueHistory.AddLine(speaker, currentQuestion.responses[index].playerText);
 
         currentIndex = currentQuestion.responses[index].nextIndex;
         choicePanel.Hide();
@@ -314,7 +356,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private void Update()
     {
-        if (talking && interactor != null)
+        if (talking && interactor != null && !cinematicFlag)
         {
             Vector3 transformLookPos = new Vector3(interactor.position.x, transform.position.y, interactor.position.z);
             Quaternion transformRotation = Quaternion.LookRotation(transformLookPos - transform.position);
@@ -323,6 +365,62 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             Vector3 interactorLookPos = new Vector3(transform.position.x, interactor.position.y, transform.position.z);
             Quaternion interactorRotation = Quaternion.LookRotation(interactorLookPos - interactor.position);
             interactor.rotation = Quaternion.Slerp(interactor.rotation, interactorRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    public void SetDialogueIndex(int index)
+    {
+        currentIndex = index;
+    }
+    public void StartCinematicDialogue(Transform cinematicInteractor)
+    {
+        if (possessionManager.CurrentController != null)
+        {
+            possessionManager.CurrentController.DeactivateControl();
+        }
+        else
+        {
+            player.GetComponent<ThirdPersonController>().DeactivateControl();
+        }
+
+        interactor = cinematicInteractor;
+        cinematicFlag = true;
+        speakerText.text = npcName;
+        dialogueBox.SetActive(true);
+        talking = false;
+        currentQuestion = null;
+
+        if (!choicePanel.IsShowing)
+        {
+            NextPhrase();
+        }
+    }
+
+    public void SetLookTarget(Transform lookTarget)
+    {
+        if (lookTarget == transform) return;
+
+        if (!Talking)
+        {
+            StartCoroutine(LookAtTarget(lookTarget));
+        }
+    }
+
+    private IEnumerator LookAtTarget(Transform lookTarget)
+    {
+        float rotationSpeed = 2f;
+        while (true)
+        {
+            if (lookTarget == null) yield break;
+
+            Vector3 lookPos = new Vector3(lookTarget.position.x, transform.position.y, lookTarget.position.z);
+            Quaternion targetRot = Quaternion.LookRotation(lookPos - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+
+            //if (Quaternion.Angle(transform.rotation, targetRot) < 1f)
+                //break;
+
+            yield return null;
         }
     }
 }

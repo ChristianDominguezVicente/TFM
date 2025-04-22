@@ -505,7 +505,7 @@
                 {
                     "name": "",
                     "id": "024eda14-a439-4e9a-9990-7ef0589dabb9",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",

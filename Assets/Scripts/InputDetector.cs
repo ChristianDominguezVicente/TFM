@@ -7,8 +7,20 @@ using UnityEngine.InputSystem.LowLevel;
 public class InputDetector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI interactText;
-    [SerializeField] private string pc;
-    [SerializeField] private string gamepad;
+    [SerializeField] private TextMeshProUGUI nextText;
+    [SerializeField] private TextMeshProUGUI autoText;
+    [SerializeField] private TextMeshProUGUI historyText;
+    [SerializeField] private TextMeshProUGUI skipText;
+    [SerializeField] private string pcInteract;
+    [SerializeField] private string pcNext;
+    [SerializeField] private string pcAuto;
+    [SerializeField] private string pcHistory;
+    [SerializeField] private string pcSkip;
+    [SerializeField] private string gamepadInteract;
+    [SerializeField] private string gamepadNext;
+    [SerializeField] private string gamepadAuto;
+    [SerializeField] private string gamepadHistory;
+    [SerializeField] private string gamepadSkip;
     [SerializeField] private TMP_FontAsset pcFont;
     [SerializeField] private TMP_FontAsset gamepadFont;
 
@@ -48,13 +60,29 @@ public class InputDetector : MonoBehaviour
 
     private void UpdateUIForGamepad()
     {
-        interactText.text = gamepad;
+        interactText.text = gamepadInteract;
+        nextText.text = gamepadNext;
+        autoText.text = gamepadAuto;
+        historyText.text = gamepadHistory;
+        skipText.text = gamepadSkip;
         interactText.font = gamepadFont;
+        nextText.font = gamepadFont;
+        autoText.font = gamepadFont;
+        historyText.font = gamepadFont;
+        skipText.font = gamepadFont;
     }
 
     private void UpdateUIForKeyboard()
     {
-        interactText.text = pc;
+        interactText.text = pcInteract;
+        nextText.text = pcNext;
+        autoText.text = pcAuto;
+        historyText.text = pcHistory;
+        skipText.text = pcSkip;
         interactText.font = pcFont;
+        nextText.font = pcFont;
+        autoText.font = pcFont;
+        historyText.font = pcFont;
+        skipText.font = pcFont;
     }
 }

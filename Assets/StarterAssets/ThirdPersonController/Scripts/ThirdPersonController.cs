@@ -2,6 +2,7 @@
 using NUnit.Framework.Internal.Commands;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 //using Unity.Android.Gradle.Manifest;
 using UnityEngine;
@@ -219,7 +220,7 @@ namespace StarterAssets
 
         private void Update()
         {
-            if (possesionManager.IsTalking)
+            if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null)
             {
                 Interact();
                 History();
@@ -438,6 +439,24 @@ namespace StarterAssets
 
         private void Interact()
         {
+            if (CinematicDialogue.CurrentNPC != null)
+            {
+                if (_input.interact && !showingHistory)
+                {
+                    if (choicePanel.IsShowing)
+                    {
+                        CinematicDialogue.CurrentNPC.SelectCurrentChoice();
+                    }
+                    else if (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                    {
+                        CinematicDialogue.CurrentNPC.Possess(transform);
+                    }
+                }
+
+                _input.interact = false;
+                return;
+            }
+
             if (choicePanel.IsShowing && _input.interact)
             {
                 if (GetInteractuables() is NPCPossessable npcP)
@@ -546,6 +565,32 @@ namespace StarterAssets
 
         private void History()
         {
+            if (CinematicDialogue.CurrentNPC != null)
+            {
+                if (_input.history && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                {
+                    showingHistory = !showingHistory;
+                    historyPanel.SetActive(showingHistory);
+
+                    if (showingHistory)
+                    {
+                        List<string> lines = dialogueHistory.GetHistory();
+                        historyText.text = string.Join("\n", lines);
+
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.None;
+                    }
+                    else
+                    {
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+
+                    _input.history = false;
+                }
+                return;
+            }
+
             var t = GetInteractuables();
             bool auto = false;
             bool skip = false;
@@ -587,6 +632,39 @@ namespace StarterAssets
 
         private void UI_Move()
         {
+            if (CinematicDialogue.CurrentNPC != null)
+            {
+                if (choicePanel.IsShowing)
+                {
+                    scrollInput = _input.ui_move;
+
+                    if (Time.time - lastInputTime > inputCooldown)
+                    {
+                        if (Mathf.Abs(scrollInput.y) > 0.5f)
+                        {
+                            int direction = scrollInput.y > 0 ? -1 : 1;
+                            choicePanel.MoveSelection(direction);
+                            lastInputTime = Time.time;
+                        }
+                    }
+
+                    return;
+                }
+
+                if (!showingHistory)
+                    return;
+
+                scrollInput = _input.ui_move;
+
+                if (Mathf.Abs(scrollInput.y) > 0.1f)
+                {
+                    scrollRect.verticalNormalizedPosition += scrollInput.y * scrollSpeed * Time.deltaTime;
+                    scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition);
+                }
+
+                return;
+            }
+
             if (choicePanel.IsShowing)
             {
                 scrollInput = _input.ui_move;
@@ -618,6 +696,17 @@ namespace StarterAssets
 
         private void Auto()
         {
+            if (CinematicDialogue.CurrentNPC != null)
+            {
+                if (_input.auto && !showingHistory && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPC.SkipTalking)
+                {
+                    CinematicDialogue.CurrentNPC.AutoTalk();
+                }
+
+                _input.auto = false;
+                return;
+            }
+
             var t = GetInteractuables();
             bool skip = false;
 
@@ -653,6 +742,17 @@ namespace StarterAssets
 
         private void Skip()
         {
+            if (CinematicDialogue.CurrentNPC != null)
+            {
+                if (_input.skip && !showingHistory && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPC.AutoTalking)
+                {
+                    CinematicDialogue.CurrentNPC.SkipTalk();
+                }
+
+                _input.skip = false;
+                return;
+            }
+
             var t = GetInteractuables();
             bool auto = false;
 

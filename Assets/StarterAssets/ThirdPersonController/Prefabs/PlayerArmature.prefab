@@ -1158,6 +1158,12 @@ MonoBehaviour:
   volume: {fileID: 0}
   transitionSpeed: 2
   possesionManager: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  historyPanel: {fileID: 0}
+  historyText: {fileID: 0}
+  scrollRect: {fileID: 0}
+  scrollSpeed: 1.5
+  choicePanel: {fileID: 0}
 --- !u!114 &5885216827943657505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,10 +1194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
+  ui_move: {x: 0, y: 0}
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
   interact: 0
+  history: 0
+  auto: 0
+  skip: 0
   spectralVision: 0
   cancel: 0
   analogMovement: 0
