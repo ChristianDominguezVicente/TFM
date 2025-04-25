@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// Represents a question that the NPC asks the player,
+// with answer options available.
 [Serializable]
 public class DialogueQuestion : DialogueNode
 {

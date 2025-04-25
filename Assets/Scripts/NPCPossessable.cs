@@ -78,7 +78,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         interactor = interactorTransform;
-
+        // Cinematic Mode
         if (cinematicFlag)
         {
             if (!talking && !choicePanel.IsShowing && currentQuestion == null)
@@ -154,6 +154,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private void NextPhrase()
     {
+        // if the current index is out of bounds end the dialog
         if (currentIndex < 0 || currentIndex >= dialogueData.nodes.Length)
         {
             EndDialogue();
@@ -161,7 +162,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         }
 
         possessionManager.IsTalking = true;
-
+        // current node of the dialogue
         DialogueNode node = dialogueData.nodes[currentIndex];
 
         if (node is DialoguePhrase phrase)
@@ -175,6 +176,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     }
     private void EndDialogue()
     {
+        // end the current dialogue resetting everything
         possessionManager.IsTalking = false;
         talking = false;
         dialogueText.text = "";
@@ -198,7 +200,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         talking = true;
         dialogueText.text = "";
-
+        // add each character in the provided phrase
         foreach (char c in phrase)
         {
             dialogueText.text += c;
@@ -214,8 +216,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
         talking = false;
         dialogueHistory.AddLine(npcName, phrase);
-
+        // current node of the dialogue
         DialogueNode node = dialogueData.nodes[currentIndex];
+        // update the index to advance the dialogue
         if (node is DialoguePhrase p)
         {
             currentIndex = p.nextIndex;
@@ -224,8 +227,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private void CompletedPhrase()
     {
+        // current node of the dialogue
         DialogueNode node = dialogueData.nodes[currentIndex];
-
+        // if the coroutine is running, it stops
         if (node is DialoguePhrase phrase)
         {
             if (writePhraseCoroutine != null)
@@ -255,29 +259,35 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         if (currentQuestion == null || choicePanel == null)
             return;
-
+        // index of the option selected by the player
         int index = choicePanel.SelectedIndex;
-
+        // if the current index is out of bounds end the dialog
         if (index < 0 || index >= currentQuestion.responses.Length)
         {
             EndDialogue();
             return;
         }
-
+        // determine who is talking
         string speaker;
+        // Cinematic Mode
         if (cinematicFlag)
         {
+            // if there is a possessed NPC
             if (possessionManager.CurrentNPC != null)
             {
+                // the player talk as the speaker
                 speaker = possessionManager.CurrentNPC.npcName + " (Player)";
             }
+            // if there is not a possessed NPC
             else
             {
+                // the player is talking
                 speaker = "Player";
             }
         }
         else
         {
+            // the player talk as the speaker
             speaker = possessionManager.CurrentNPC.npcName + " (Player)";
         }
         dialogueHistory.AddLine(speaker, currentQuestion.responses[index].playerText);
@@ -285,6 +295,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         currentIndex = currentQuestion.responses[index].nextIndex;
         choicePanel.Hide();
         currentQuestion = null;
+        // advance to the next node in the dialog
         NextPhrase();
     }
 
@@ -292,17 +303,19 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         if (!dialogueBox.activeSelf)
             return;
-
+        // change the state of the automatic conversation
         autoTalking = !autoTalking;
 
         if (autoTalking)
         {
             if (autoTalkCoroutine != null)
                 StopCoroutine(autoTalkCoroutine);
+            // starts the auto coroutine
             autoTalkCoroutine = StartCoroutine(AutoTalkCoroutine());
         }
         else
         {
+            // stops the auto coroutine
             if (autoTalkCoroutine != null)
                 StopCoroutine(autoTalkCoroutine);
         }
@@ -314,6 +327,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         {
             if (!talking && !choicePanel.IsShowing)
             {
+                // advance to the next node in the dialog
                 NextPhrase();
             }
 
@@ -325,17 +339,19 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         if (!dialogueBox.activeSelf)
             return;
-
+        // change the state of the skip conversation
         skipTalking = !skipTalking;
 
         if (skipTalking)
         {
             if (skipTalkCoroutine != null)
                 StopCoroutine(skipTalkCoroutine);
+            // starts the skip coroutine
             skipTalkCoroutine = StartCoroutine(SkipTalkCoroutine());
         }
         else
         {
+            // stops the skip coroutine
             if (skipTalkCoroutine != null)
                 StopCoroutine(skipTalkCoroutine);
         }
@@ -347,6 +363,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         {
             if (!talking && !choicePanel.IsShowing)
             {
+                // advance to the next node in the dialog
                 NextPhrase();
             }
 
@@ -370,16 +387,20 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     public void SetDialogueIndex(int index)
     {
+        // assigns the provided index to the current index of the dialog
         currentIndex = index;
     }
     public void StartCinematicDialogue(Transform cinematicInteractor)
     {
+        // if there is already a possessed NPC
         if (possessionManager.CurrentController != null)
         {
+            // deactivate possessed NPC
             possessionManager.CurrentController.DeactivateControl();
         }
         else
         {
+            // deactivate player
             player.GetComponent<ThirdPersonController>().DeactivateControl();
         }
 
@@ -392,16 +413,19 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
         if (!choicePanel.IsShowing)
         {
+            // advance to the next node in the dialog
             NextPhrase();
         }
     }
 
     public void SetLookTarget(Transform lookTarget)
     {
+        // if the target is the itself, doesn't do nothing
         if (lookTarget == transform) return;
-
+        // if the NPC is not talking
         if (!Talking)
         {
+            // start looking toward the target
             StartCoroutine(LookAtTarget(lookTarget));
         }
     }
@@ -409,6 +433,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     private IEnumerator LookAtTarget(Transform lookTarget)
     {
         float rotationSpeed = 2f;
+        // loop that runs as long as the NPC has a target to look at
         while (true)
         {
             if (lookTarget == null) yield break;
