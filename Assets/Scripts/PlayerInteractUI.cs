@@ -38,7 +38,16 @@ public class PlayerInteractUI : MonoBehaviour
         // if it is a IPossessable object, its possess text is displayed
         else if (interactable is IPossessable possessable)
         {
-            interactText.text = possessable.GetPossessText();
+            string text = possessable.GetPossessText();
+            if (possessionManager.IsPossessing)
+            {
+                int firstSpaceIndex = text.IndexOf(' ');
+                if (firstSpaceIndex != -1)
+                {
+                    text = "Talk" + text.Substring(firstSpaceIndex);
+                }
+            }
+            interactText.text = text;
         }
         // otherwise, the text is cleared
         else

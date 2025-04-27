@@ -17,13 +17,14 @@ MonoBehaviour:
   - rid: 9085787330668658902
   - rid: 9085787330668658905
   - rid: 9085787330668658906
+  - rid: 9085787457693155394
   references:
     version: 2
     RefIds:
     - rid: 9085787330668658901
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: kaksldfjaoi
+        npcText: 'kaksldfjaoi jasifjaisjdfi jasifdjias '
         nextIndex: 1
     - rid: 9085787330668658902
       type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
@@ -37,10 +38,15 @@ MonoBehaviour:
     - rid: 9085787330668658905
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: jasdlfkj
-        nextIndex: -1
+        npcText: asdfasdf fasdfasdf fdsafasdf dafas
+        nextIndex: 4
     - rid: 9085787330668658906
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: hhjfg4rerfdsfgasd
+        nextIndex: -1
+    - rid: 9085787457693155394
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: asdf asdfasd fadsfasd adsf
         nextIndex: -1
