@@ -129,6 +129,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
         // change the camera focus to the NPC
         virtualCamera.Follow = npcTarget;
+        virtualCamera.LookAt = npcTarget;
     }
 
     public void DisablePossession()
@@ -150,6 +151,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
         // returns the camera to the player
         virtualCamera.Follow = playerTarget;
+        virtualCamera.LookAt = playerTarget;
     }
 
     private void NextPhrase()
