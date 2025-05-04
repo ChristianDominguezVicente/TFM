@@ -45,6 +45,7 @@ public class CinematicDialogue : MonoBehaviour
                 }
             }
             // if the speaker is the player
+            /*
             if (entry.speaker.Player != null && entry.speaker.Player.transform != speakerTransform)
             {
                 Transform playerTransform = entry.speaker.Player.transform;
@@ -52,7 +53,7 @@ public class CinematicDialogue : MonoBehaviour
                 Quaternion targetRot = Quaternion.LookRotation(lookPos - playerTransform.position);
                 playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRot, 1f);
             }
-
+            */
             entry.speaker.SetDialogueIndex(entry.startIndex);
             // sets a callback function that will be executed when the dialog ends
             entry.speaker.OnDialogueEnded = () => dialogueFinished = true;

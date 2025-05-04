@@ -38,6 +38,16 @@ namespace StarterAssets
             starterAssetsInputs.InteractInput(virtualInteractState);
         }
 
+        public void VirtualListenInput(bool virtualListenState)
+        {
+            starterAssetsInputs.ListenInput(virtualListenState);
+        }
+
+        public void VirtualHintInput(bool virtualHintState)
+        {
+            starterAssetsInputs.HintInput(virtualHintState);
+        }
+
         public void VirtualHistoryInput(bool virtualHistoryState)
         {
             starterAssetsInputs.HistoryInput(virtualHistoryState);

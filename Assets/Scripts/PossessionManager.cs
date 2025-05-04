@@ -38,6 +38,8 @@ public class PossessionManager : MonoBehaviour
     {
         if (isPossessing && !isTalking)
         {
+
+
             // if possessed, reduces time and refreshes bar
             currentTime -= Time.deltaTime * drainSpeed;
             UpdateBar();

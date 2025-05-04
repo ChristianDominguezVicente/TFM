@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: ListenNPC 1
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 8849633793444413515
+  - rid: 8849633793444413516
+  references:
+    version: 2
+    RefIds:
+    - rid: 8849633793444413515
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Listen Listen Listen Listen Listen Listen
+        nextIndex: 1
+    - rid: 8849633793444413516
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Listen2 Listen2 Listen2 Listen2 Listen2 Listen2
+        nextIndex: -1

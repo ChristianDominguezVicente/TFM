@@ -2,6 +2,7 @@
 using NUnit.Framework.Internal.Commands;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using TMPro;
 //using Unity.Android.Gradle.Manifest;
@@ -95,6 +96,7 @@ namespace StarterAssets
 
         [Header("GameManager")]
         [SerializeField] private PossessionManager possesionManager;
+        [SerializeField] private HintManager hintManager;
 
         [Header("Dialogue History")]
         [SerializeField] private DialogueHistory dialogueHistory;
@@ -221,13 +223,22 @@ namespace StarterAssets
         private void Update()
         {
             // if the player is talking or in a cinematic
-            if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null)
+            if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
             {
                 Interact();
                 History();
                 UI_Move();
                 Auto();
                 Skip();
+
+                // reset buttons that had the same input
+                _input.jump = false;
+                _input.interact = false;
+                _input.auto = false;
+                _input.skip = false;
+                _input.listen = false;
+                _input.hint = false;
+
                 return;
             }
 
@@ -237,8 +248,18 @@ namespace StarterAssets
             GroundedCheck();
             Move();
             Interact();
+            Listen();
+            Hint();
             SpectralVision();
             Cancel();
+
+            // reset buttons that had the same input
+            _input.jump = false;
+            _input.interact = false;
+            _input.auto = false;
+            _input.skip = false;
+            _input.listen = false;
+            _input.hint = false;
         }
 
         private void LateUpdate()
@@ -463,6 +484,18 @@ namespace StarterAssets
                 _input.interact = false;
                 return;
             }
+            else if (HintManager.CurrentHint != null)
+            {
+                if(_input.interact && !showingHistory)
+                {
+                    if(!HintManager.CurrentHint.AutoTalking && !HintManager.CurrentHint.SkipTalking)
+                    {
+                        HintManager.CurrentHint.Possess(transform);
+                    }
+                }
+            }
+
+
             // if the player presses the interact button and the choices are being displayed
             if (choicePanel.IsShowing && _input.interact)
             {
@@ -571,6 +604,45 @@ namespace StarterAssets
             return closest;
         }
 
+        private void Listen()
+        {
+            var t = GetInteractuables();
+
+            if (t is NPCPossessable n)
+            {
+                if (n.Talking || n.AutoTalking || n.SkipTalking || n.Listening)
+                {
+                    _input.listen = false;
+                    return;
+                }
+            }
+
+            if (_input.listen)
+            {
+                var target = GetInteractuables();
+
+                if (target is NPCPossessable npc)
+                {
+                    npc.StartListeningDialogue(transform);
+                }
+
+                _input.listen = false;
+            }
+        }
+
+        private void Hint()
+        {
+            if (_input.hint)
+            {
+                if (!possesionManager.IsTalking && CinematicDialogue.CurrentNPC == null)
+                {
+                    hintManager.Possess(transform);
+                }
+
+                _input.hint = false;
+            }
+        }
+
         private void History()
         {
             // Cinematic Mode
@@ -603,6 +675,36 @@ namespace StarterAssets
                 }
                 return;
             }
+            else if (HintManager.CurrentHint != null)
+            {
+                // if the history button is pressed, choices panel, auto-talking mode and skip-talking mode are not available
+                if (_input.history && !choicePanel.IsShowing && !HintManager.CurrentHint.AutoTalking && !HintManager.CurrentHint.SkipTalking)
+                {
+                    // activates or desactivates the history
+                    showingHistory = !showingHistory;
+                    historyPanel.SetActive(showingHistory);
+                    // if history is active
+                    if (showingHistory)
+                    {
+                        // get the dialog history and display it
+                        List<string> lines = dialogueHistory.GetHistory();
+                        historyText.text = string.Join("\n", lines);
+                        // cursor visible
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.None;
+                    }
+                    else
+                    {
+                        // hide the cursor
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+
+                    _input.history = false;
+                }
+                return;
+            }
+
             // get the closest interactuable object
             var t = GetInteractuables();
             bool auto = false;
@@ -648,7 +750,7 @@ namespace StarterAssets
         private void UI_Move()
         {
             // Cinematic Mode
-            if (CinematicDialogue.CurrentNPC != null)
+            if (CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
             {
                 // if choices are being displayed
                 if (choicePanel.IsShowing)
@@ -686,6 +788,7 @@ namespace StarterAssets
 
                 return;
             }
+
             // choices are beign displayed
             if (choicePanel.IsShowing)
             {
@@ -695,7 +798,7 @@ namespace StarterAssets
                 if (Time.time - lastInputTime > inputCooldown)
                 {
                     // if the movement is on the Y
-                    if (Mathf.Abs(scrollInput.y) > 0.5f) 
+                    if (Mathf.Abs(scrollInput.y) > 0.5f)
                     {
                         // up or down
                         int direction = scrollInput.y > 0 ? -1 : 1;
@@ -736,6 +839,19 @@ namespace StarterAssets
                 _input.auto = false;
                 return;
             }
+            else if (HintManager.CurrentHint != null)
+            {
+                // if the auto button is pressed, history, choices panel and skip-talking mode are not available
+                if (_input.auto && !showingHistory && !choicePanel.IsShowing && !HintManager.CurrentHint.SkipTalking)
+                {
+                    // start auto-talking
+                    HintManager.CurrentHint.AutoTalk();
+                }
+
+                _input.auto = false;
+                return;
+            }
+
             // get the closest interactuable object
             var t = GetInteractuables();
             bool skip = false;
@@ -787,6 +903,19 @@ namespace StarterAssets
                 _input.skip = false;
                 return;
             }
+            else if (HintManager.CurrentHint != null)
+            {
+                // if the skip button is pressed, history, choices panel and auto-talking mode are not available
+                if (_input.skip && !showingHistory && !choicePanel.IsShowing && !HintManager.CurrentHint.AutoTalking)
+                {
+                    // start skip-talking
+                    HintManager.CurrentHint.SkipTalk();
+                }
+
+                _input.skip = false;
+                return;
+            }
+
             // get the closest interactuable object
             var t = GetInteractuables();
             bool auto = false;

@@ -14,6 +14,8 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
         public bool interact;
+        public bool listen;
+        public bool hint;
         public bool history;
         public bool auto;
         public bool skip;
@@ -59,6 +61,16 @@ namespace StarterAssets
         public void OnInteract(InputValue value)
         {
             InteractInput(value.isPressed);
+        }
+
+        public void OnListen(InputValue value)
+        {
+            ListenInput(value.isPressed);
+        }
+
+        public void OnHint(InputValue value)
+        {
+            HintInput(value.isPressed);
         }
 
         public void OnHistory(InputValue value)
@@ -116,6 +128,16 @@ namespace StarterAssets
         public void InteractInput(bool newInteractState)
         {
             interact = newInteractState;
+        }
+
+        public void ListenInput(bool newListenState)
+        {
+            listen = newListenState;
+        }
+
+        public void HintInput(bool newHintState)
+        {
+            hint = newHintState;
         }
 
         public void HistoryInput(bool newHistoryState)

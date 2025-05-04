@@ -50,6 +50,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [Header("Dialogue Skip")]
     [SerializeField] private float skipTalkDelay;
 
+    [Header("Listening Dialogue")]
+    [SerializeField] private DialogueData listeningDialogueData;
+
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -66,11 +69,15 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     private bool cinematicFlag = false;
     public System.Action OnDialogueEnded;
 
+    private DialogueData originalDialogueData;
+    private bool listening = false;
+
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
     public string NpcName { get => npcName; set => npcName = value; }
     public bool Talking { get => talking; set => talking = value; }
     public GameObject Player { get => player; set => player = value; }
+    public bool Listening { get => listening; set => listening = value; }
 
     public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
@@ -196,6 +203,13 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         OnDialogueEnded?.Invoke();
         OnDialogueEnded = null;
         CinematicDialogue.CurrentNPC = null;
+
+        if (originalDialogueData != null)
+        {
+            dialogueData = originalDialogueData;
+            originalDialogueData = null;
+        }
+        listening = false;
     }
 
     private IEnumerator WritePhrase(string phrase)
@@ -448,6 +462,43 @@ public class NPCPossessable : MonoBehaviour, IPossessable
                 //break;
 
             yield return null;
+        }
+    }
+
+    public void StartListeningDialogue(Transform listener)
+    {
+        // if there is already a possessed NPC
+        if (possessionManager.CurrentController != null)
+        {
+            // deactivate possessed NPC
+            possessionManager.CurrentController.DeactivateControl();
+        }
+        else
+        {
+            // deactivate player
+            player.GetComponent<ThirdPersonController>().DeactivateControl();
+        }
+
+        interactor = listener;
+        cinematicFlag = true;
+        speakerText.text = npcName;
+        dialogueBox.SetActive(true);
+        talking = false;
+        currentQuestion = null;
+        listening = true;
+
+        // original dialoqueData
+        if (originalDialogueData == null)
+        {
+            originalDialogueData = dialogueData;
+        }
+        // change dialogueData
+        dialogueData = listeningDialogueData;
+
+        if (!choicePanel.IsShowing)
+        {
+            // advance to the next node in the dialog
+            NextPhrase();
         }
     }
 }

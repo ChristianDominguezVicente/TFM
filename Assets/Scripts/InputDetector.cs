@@ -7,16 +7,19 @@ using UnityEngine.InputSystem.LowLevel;
 public class InputDetector : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI interactText;
+    [SerializeField] private TextMeshProUGUI listenText;
     [SerializeField] private TextMeshProUGUI nextText;
     [SerializeField] private TextMeshProUGUI autoText;
     [SerializeField] private TextMeshProUGUI historyText;
     [SerializeField] private TextMeshProUGUI skipText;
     [SerializeField] private string pcInteract;
+    [SerializeField] private string pcListen;
     [SerializeField] private string pcNext;
     [SerializeField] private string pcAuto;
     [SerializeField] private string pcHistory;
     [SerializeField] private string pcSkip;
     [SerializeField] private string gamepadInteract;
+    [SerializeField] private string gamepadListen;
     [SerializeField] private string gamepadNext;
     [SerializeField] private string gamepadAuto;
     [SerializeField] private string gamepadHistory;
@@ -61,11 +64,13 @@ public class InputDetector : MonoBehaviour
     private void UpdateUIForGamepad()
     {
         interactText.text = gamepadInteract;
+        listenText.text = gamepadListen;
         nextText.text = gamepadNext;
         autoText.text = gamepadAuto;
         historyText.text = gamepadHistory;
         skipText.text = gamepadSkip;
         interactText.font = gamepadFont;
+        listenText.font = gamepadFont;
         nextText.font = gamepadFont;
         autoText.font = gamepadFont;
         historyText.font = gamepadFont;
@@ -75,11 +80,13 @@ public class InputDetector : MonoBehaviour
     private void UpdateUIForKeyboard()
     {
         interactText.text = pcInteract;
+        listenText.text = pcListen;
         nextText.text = pcNext;
         autoText.text = pcAuto;
         historyText.text = pcHistory;
         skipText.text = pcSkip;
         interactText.font = pcFont;
+        listenText.font = pcFont;
         nextText.font = pcFont;
         autoText.font = pcFont;
         historyText.font = pcFont;
