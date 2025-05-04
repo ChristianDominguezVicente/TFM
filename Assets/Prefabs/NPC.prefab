@@ -363,6 +363,13 @@ MonoBehaviour:
   volume: {fileID: 0}
   transitionSpeed: 2
   possesionManager: {fileID: 0}
+  hintManager: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  historyPanel: {fileID: 0}
+  historyText: {fileID: 0}
+  scrollRect: {fileID: 0}
+  scrollSpeed: 1.5
+  choicePanel: {fileID: 0}
 --- !u!114 &239614636559514455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,10 +400,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
+  ui_move: {x: 0, y: 0}
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
   interact: 0
+  listen: 0
+  hint: 0
+  history: 0
+  auto: 0
+  skip: 0
   spectralVision: 0
   cancel: 0
   analogMovement: 0
@@ -516,7 +529,7 @@ MonoBehaviour:
   possessionManager: {fileID: 0}
   virtualCamera: {fileID: 0}
   player: {fileID: 0}
-  maxPossessTime: 5
+  maxPossessTime: 30
   npcInput: {fileID: 1479897121961865426}
   npcTPC: {fileID: 8613984027607038701}
   npcBRBP: {fileID: 239614636559514455}
@@ -527,6 +540,19 @@ MonoBehaviour:
   playerBRBP: {fileID: 0}
   playerSAI: {fileID: 0}
   playerTarget: {fileID: 0}
+  dialogueData: {fileID: 11400000, guid: 8d58a14f3a3e5d34a8a49a5eff808a01, type: 2}
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerText: {fileID: 0}
+  choicePanel: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  npcName: NPC 0
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 11400000, guid: 60f2a164bcce30e4dbf75f5986edede8, type: 2}
+  otherImage: {fileID: 0}
+  volume: {fileID: 0}
 --- !u!1 &1231291725892598420
 GameObject:
   m_ObjectHideFlags: 0

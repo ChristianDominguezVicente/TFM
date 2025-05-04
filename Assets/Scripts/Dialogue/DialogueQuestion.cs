@@ -11,6 +11,7 @@ public class DialogueQuestion : DialogueNode
     {
         public string playerText;
         public int nextIndex = -1;
+        public Sprite responseImage;
     }
 
     public Response[] responses;

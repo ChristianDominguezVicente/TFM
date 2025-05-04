@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8295683412922223368}
   - component: {fileID: 8615435743980592730}
   - component: {fileID: 6726350205254521712}
+  - component: {fileID: 820842915883611427}
   m_Layer: 0
   m_Name: GamaManager
   m_TagString: Untagged
@@ -47,20 +48,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: {fileID: 0}
+  listenText: {fileID: 0}
   nextText: {fileID: 0}
   autoText: {fileID: 0}
   historyText: {fileID: 0}
   skipText: {fileID: 0}
   pcInteract: E
+  pcListen: Z
   pcNext: E
   pcAuto: R
   pcHistory: H
   pcSkip: Z
-  gamepadInteract: T
-  gamepadNext: T
+  gamepadInteract: X
+  gamepadListen: S
+  gamepadNext: X
   gamepadAuto: S
   gamepadHistory: B
-  gamepadSkip: R
+  gamepadSkip: T
   pcFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   gamepadFont: {fileID: 11400000, guid: a7a6f72d75e3dac42b04447d30240caa, type: 2}
 --- !u!114 &8615435743980592730
@@ -103,3 +107,28 @@ MonoBehaviour:
   - speaker: {fileID: 0}
     startIndex: 3
   choicePanel: {fileID: 0}
+--- !u!114 &820842915883611427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982192134690391558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ee42f522a085b4dae423b8b6ebcf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possessionManager: {fileID: 8615435743980592730}
+  dialogueData: {fileID: 11400000, guid: 4023b87b4833d964693532487f670be6, type: 2}
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerText: {fileID: 0}
+  choicePanel: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  nameHints: Enmsis
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  otherImage: {fileID: 0}
+  volume: {fileID: 0}

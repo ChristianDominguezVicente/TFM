@@ -22,9 +22,11 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ASDFASDF
+        image: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
         nextIndex: 1
     - rid: 8849633793444413516
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: asdfasdfasd fasdf asdf asdf fasd fasd fasd
+        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         nextIndex: -1

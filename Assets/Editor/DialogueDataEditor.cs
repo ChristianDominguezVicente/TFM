@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CustomEditor(typeof(DialogueData))]
 public class DialogueDataEditor : Editor
@@ -40,11 +41,13 @@ public class DialogueDataEditor : Editor
                 // showing the fields
                 phrase.npcText = EditorGUILayout.TextField("NPC Text", phrase.npcText);
                 phrase.nextIndex = EditorGUILayout.IntField("Next Index", phrase.nextIndex);
+                phrase.image = (Sprite)EditorGUILayout.ObjectField("Image", phrase.image, typeof(Sprite), false);
             }
             // if the node is DialogueQuestion
             else if (node is DialogueQuestion question)
             {
                 question.npcText = EditorGUILayout.TextField("NPC Question", question.npcText);
+                question.image = (Sprite)EditorGUILayout.ObjectField("Image", question.image, typeof(Sprite), false);
                 // if there are no responses
                 if (question.responses == null)
                     question.responses = new DialogueQuestion.Response[0]; // an empty array is initializated
@@ -56,9 +59,10 @@ public class DialogueDataEditor : Editor
                 {
                     // showing the fields
                     var response = question.responses[j];
-                    EditorGUILayout.BeginHorizontal();
+                    EditorGUILayout.BeginVertical();
                     response.playerText = EditorGUILayout.TextField($"Text {j}", response.playerText);
                     response.nextIndex = EditorGUILayout.IntField("Next", response.nextIndex);
+                    response.responseImage = (Sprite)EditorGUILayout.ObjectField("Image", response.responseImage, typeof(Sprite), false);
                     // button to remove the response
                     if (GUILayout.Button("X", GUILayout.Width(20)))
                     {

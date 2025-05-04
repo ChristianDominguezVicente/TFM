@@ -3,6 +3,9 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class HintManager : MonoBehaviour, IPossessable
 {
@@ -18,6 +21,8 @@ public class HintManager : MonoBehaviour, IPossessable
     [SerializeField] private string nameHints = "Enmsis";
     [SerializeField] private float autoTalkDelay;
     [SerializeField] private float skipTalkDelay;
+    [SerializeField] private Image otherImage;
+    [SerializeField] private Volume volume;
 
     private bool talking = false;
     private int currentIndex = 0;
@@ -32,6 +37,8 @@ public class HintManager : MonoBehaviour, IPossessable
 
     private static HintManager hintManager;
 
+    private DepthOfField blur;
+
     public static HintManager CurrentHint { get => hintManager; set => hintManager = value; }
 
     public bool IsTalking { get => talking; set => talking = value; }
@@ -40,6 +47,11 @@ public class HintManager : MonoBehaviour, IPossessable
 
     public string GetPossessText() => "Enmsis";
     public Transform GetTransform() => transform;
+
+    private void Awake()
+    {
+        volume.profile.TryGet<DepthOfField>(out blur);
+    }
 
     public void Possess(Transform interactorTransform)
     {
@@ -66,15 +78,25 @@ public class HintManager : MonoBehaviour, IPossessable
         }
 
         possessionManager.IsTalking = true;
+
+        if (blur != null)
+        {
+            StartCoroutine(SetBlur(true));
+        }
+
         // current node of the dialogue
         DialogueNode node = dialogueData.nodes[currentIndex];
 
         if (node is DialoguePhrase phrase)
         {
+            otherImage.sprite = phrase.image;
+            otherImage.gameObject.SetActive(phrase.image != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)
         {
+            otherImage.sprite = question.image;
+            otherImage.gameObject.SetActive(question.image != null);
             ShowChoices(question);
         }
     }
@@ -88,6 +110,11 @@ public class HintManager : MonoBehaviour, IPossessable
         dialogueBox.SetActive(false);
         dialogueHistory.AddSeparator();
 
+        if (blur != null)
+        {
+            StartCoroutine(SetBlur(false));
+        }
+
         if (autoTalkCoroutine != null)
             StopCoroutine(autoTalkCoroutine);
         autoTalking = false;
@@ -95,6 +122,8 @@ public class HintManager : MonoBehaviour, IPossessable
 
         CinematicDialogue.CurrentNPC = null;
         hintManager = null;
+
+        otherImage.gameObject.SetActive(false);
     }
 
     private IEnumerator WritePhrase(string phrase)
@@ -247,6 +276,27 @@ public class HintManager : MonoBehaviour, IPossessable
             }
 
             yield return new WaitForSeconds(skipTalkDelay);
+        }
+    }
+
+    private IEnumerator SetBlur(bool flag)
+    {
+        if (blur == null) yield break;
+
+        float focus;
+        if (flag)
+            focus = 0.1f;
+        else
+            focus = 10f;
+        float duration = 0.5f;
+        float time = 0;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            blur.focusDistance.value = Mathf.Lerp(blur.focusDistance.value, focus, t);
+            yield return null;
         }
     }
 }

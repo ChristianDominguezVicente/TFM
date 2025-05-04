@@ -9,8 +9,10 @@ public class ChoicesUI : MonoBehaviour
 {
     [SerializeField] private GameObject choiceButtonPrefab;
     [SerializeField] private Transform choicePanel;
+    [SerializeField] private Image possessImage;
 
     private List<Button> currentButtons = new List<Button>();
+    private DialogueQuestion.Response[] currentChoices;
     private int selectedIndex = 0;
 
     public bool IsShowing => gameObject.activeSelf;
@@ -23,6 +25,7 @@ public class ChoicesUI : MonoBehaviour
         Clear();
         // reset the index
         selectedIndex = 0;
+        currentChoices = choices;
 
         // creates a button for each choice
         foreach (var choice in choices)
@@ -66,6 +69,7 @@ public class ChoicesUI : MonoBehaviour
             Destroy(button.gameObject);
         }
         currentButtons.Clear();
+        possessImage.gameObject.SetActive(false);
     }
 
     private void UpdatePanel()
@@ -84,5 +88,8 @@ public class ChoicesUI : MonoBehaviour
             }
             currentButtons[i].colors = colors;
         }
+
+        possessImage.sprite = currentChoices[selectedIndex].responseImage;
+        possessImage.gameObject.SetActive(currentChoices[selectedIndex].responseImage != null);
     }
 }

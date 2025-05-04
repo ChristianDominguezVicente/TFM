@@ -25,28 +25,35 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: 'kaksldfjaoi jasifjaisjdfi jasifdjias '
+        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
         nextIndex: 1
     - rid: 9085787330668658902
       type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
       data:
         npcText: Pregunta?
+        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
         responses:
         - playerText: adfas
           nextIndex: 2
+          responseImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         - playerText: adsfa
           nextIndex: 3
+          responseImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
     - rid: 9085787330668658905
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: asdfasdf fasdfasdf fdsafasdf dafas
+        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         nextIndex: 4
     - rid: 9085787330668658906
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: hhjfg4rerfdsfgasd
+        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
         nextIndex: -1
     - rid: 9085787457693155394
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: asdf asdfasd fadsfasd adsf
+        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
         nextIndex: -1

@@ -7,4 +7,5 @@ using UnityEngine;
 public abstract class DialogueNode
 {
     public string npcText;
+    public Sprite image;
 }

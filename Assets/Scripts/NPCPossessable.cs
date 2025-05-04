@@ -5,6 +5,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 using UnityEngine.Windows;
@@ -53,6 +55,12 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [Header("Listening Dialogue")]
     [SerializeField] private DialogueData listeningDialogueData;
 
+    [Header("Dialogue Image")]
+    [SerializeField] private Image otherImage;
+
+    [Header("Camera Effects")]
+    [SerializeField] private Volume volume;
+
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -72,6 +80,8 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     private DialogueData originalDialogueData;
     private bool listening = false;
 
+    private DepthOfField blur;
+
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
     public string NpcName { get => npcName; set => npcName = value; }
@@ -81,6 +91,11 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
+
+    private void Awake()
+    {
+        volume.profile.TryGet<DepthOfField>(out blur);
+    }
 
     public void Possess(Transform interactorTransform)
     {
@@ -171,17 +186,27 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         }
 
         possessionManager.IsTalking = true;
+
+        if (blur != null)
+        {
+            StartCoroutine(SetBlur(true));
+        }
+
         // current node of the dialogue
         DialogueNode node = dialogueData.nodes[currentIndex];
 
         if (node is DialoguePhrase phrase)
         {
+            otherImage.sprite = phrase.image;
+            otherImage.gameObject.SetActive(phrase.image != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)
         {
+            otherImage.sprite = question.image;
+            otherImage.gameObject.SetActive(question.image != null);
             ShowChoices(question);
-        }
+        }    
     }
     private void EndDialogue()
     {
@@ -193,6 +218,11 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         dialogueBox.SetActive(false);
         interactor = null;
         dialogueHistory.AddSeparator();
+
+        if (blur != null)
+        {
+            StartCoroutine(SetBlur(false));
+        }
 
         if (autoTalkCoroutine != null)
             StopCoroutine(autoTalkCoroutine);
@@ -210,6 +240,8 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             originalDialogueData = null;
         }
         listening = false;
+
+        otherImage.gameObject.SetActive(false);      
     }
 
     private IEnumerator WritePhrase(string phrase)
@@ -499,6 +531,27 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         {
             // advance to the next node in the dialog
             NextPhrase();
+        }
+    }
+
+    private IEnumerator SetBlur(bool flag)
+    {
+        if (blur == null) yield break;
+
+        float focus;
+        if (flag)
+            focus = 0.1f;
+        else
+            focus = 10f;
+        float duration = 0.5f;
+        float time = 0;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            blur.focusDistance.value = Mathf.Lerp(blur.focusDistance.value, focus, t);
+            yield return null;
         }
     }
 }
