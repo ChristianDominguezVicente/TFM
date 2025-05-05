@@ -265,7 +265,7 @@ namespace StarterAssets
         private void LateUpdate()
         {
             if (!possesionManager.IsTalking)
-            { 
+            {
                 CameraRotation();
             }
         }
@@ -484,12 +484,16 @@ namespace StarterAssets
                 _input.interact = false;
                 return;
             }
+            // Hint Mode
             else if (HintManager.CurrentHint != null)
             {
-                if(_input.interact && !showingHistory)
+                // if the player presses the interact button and the history is not being displayed
+                if (_input.interact && !showingHistory)
                 {
-                    if(!HintManager.CurrentHint.AutoTalking && !HintManager.CurrentHint.SkipTalking)
+                    // if no auto or skip
+                    if (!HintManager.CurrentHint.AutoTalking && !HintManager.CurrentHint.SkipTalking)
                     {
+                        // next dialogue
                         HintManager.CurrentHint.Possess(transform);
                     }
                 }
@@ -606,6 +610,7 @@ namespace StarterAssets
 
         private void Listen()
         {
+            // get the closest interactuable object
             var t = GetInteractuables();
 
             if (t is NPCPossessable n)
@@ -619,10 +624,12 @@ namespace StarterAssets
 
             if (_input.listen)
             {
+                // get the closest interactuable object
                 var target = GetInteractuables();
 
                 if (target is NPCPossessable npc)
                 {
+                    // start listening
                     npc.StartListeningDialogue(transform);
                 }
 
@@ -634,8 +641,10 @@ namespace StarterAssets
         {
             if (_input.hint)
             {
+                // if there is no dialogue active an there is no cinematic
                 if (!possesionManager.IsTalking && CinematicDialogue.CurrentNPC == null)
                 {
+                    // hints appear
                     hintManager.Possess(transform);
                 }
 
@@ -675,6 +684,7 @@ namespace StarterAssets
                 }
                 return;
             }
+            // Hint Mode
             else if (HintManager.CurrentHint != null)
             {
                 // if the history button is pressed, choices panel, auto-talking mode and skip-talking mode are not available
@@ -749,7 +759,7 @@ namespace StarterAssets
 
         private void UI_Move()
         {
-            // Cinematic Mode
+            // Cinematic Mode || Hint Mode
             if (CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
             {
                 // if choices are being displayed
@@ -839,6 +849,7 @@ namespace StarterAssets
                 _input.auto = false;
                 return;
             }
+            // Hint Mode
             else if (HintManager.CurrentHint != null)
             {
                 // if the auto button is pressed, history, choices panel and skip-talking mode are not available
@@ -903,6 +914,7 @@ namespace StarterAssets
                 _input.skip = false;
                 return;
             }
+            // Hint Mode
             else if (HintManager.CurrentHint != null)
             {
                 // if the skip button is pressed, history, choices panel and auto-talking mode are not available

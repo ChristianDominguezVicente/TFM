@@ -1,4 +1,6 @@
 using Cinemachine;
+using StarterAssets;
+using System.Collections;
 using UnityEngine;
 
 public class Stairs : MonoBehaviour

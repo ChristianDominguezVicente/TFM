@@ -78,7 +78,7 @@ public class DialogueDataEditor : Editor
                     AddResponse(question);
                 }
                 // button to remove the responses
-                if (GUILayout.Button("Delete Response"))
+                if (GUILayout.Button("Delete Responses"))
                 {
                     question.responses = new DialogueQuestion.Response[0];
                 }
