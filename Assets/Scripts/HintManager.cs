@@ -50,6 +50,7 @@ public class HintManager : MonoBehaviour, IPossessable
 
     private void Awake()
     {
+        // save the blur
         volume.profile.TryGet<DepthOfField>(out blur);
     }
 
@@ -81,6 +82,7 @@ public class HintManager : MonoBehaviour, IPossessable
 
         if (blur != null)
         {
+            // set the blur
             StartCoroutine(SetBlur(true));
         }
 
@@ -89,12 +91,14 @@ public class HintManager : MonoBehaviour, IPossessable
 
         if (node is DialoguePhrase phrase)
         {
+            // show the expression image
             otherImage.sprite = phrase.image;
             otherImage.gameObject.SetActive(phrase.image != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)
         {
+            // show the expression image
             otherImage.sprite = question.image;
             otherImage.gameObject.SetActive(question.image != null);
             ShowChoices(question);
@@ -112,6 +116,7 @@ public class HintManager : MonoBehaviour, IPossessable
 
         if (blur != null)
         {
+            // remove the blur
             StartCoroutine(SetBlur(false));
         }
 

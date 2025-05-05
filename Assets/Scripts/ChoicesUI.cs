@@ -25,6 +25,7 @@ public class ChoicesUI : MonoBehaviour
         Clear();
         // reset the index
         selectedIndex = 0;
+        // save the choices
         currentChoices = choices;
 
         // creates a button for each choice
@@ -88,7 +89,7 @@ public class ChoicesUI : MonoBehaviour
             }
             currentButtons[i].colors = colors;
         }
-
+        // the selected choice show his image
         possessImage.sprite = currentChoices[selectedIndex].responseImage;
         possessImage.gameObject.SetActive(currentChoices[selectedIndex].responseImage != null);
     }
