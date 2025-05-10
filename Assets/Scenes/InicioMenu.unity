@@ -1836,6 +1836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnResolucion: {fileID: 1108066364}
+  textoResolucion: {fileID: 909371233}
   resoluciones:
   - ancho: 1280
     alto: 720

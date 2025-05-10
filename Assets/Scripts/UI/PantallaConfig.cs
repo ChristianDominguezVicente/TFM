@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class PantallaConfig : MonoBehaviour
 
     [Header("UI Resolución")]
     [SerializeField] private Button btnResolucion;
+    [SerializeField] private TextMeshProUGUI textoResolucion;
     [SerializeField] private Resolucion[] resoluciones;
 
     [Header("Modos de Pantalla")]
@@ -25,6 +27,8 @@ public class PantallaConfig : MonoBehaviour
     private int indiceModoPantalla = 0;
     private bool usandoMando;
 
+
+
     private FullScreenMode[] modosPantalla = {
         FullScreenMode.Windowed,
         FullScreenMode.FullScreenWindow,
@@ -33,8 +37,8 @@ public class PantallaConfig : MonoBehaviour
 
     private void Start()
     {
-        CargarConfiguracion();
         ConfigurarBotones();
+        InicializarConfiguracion();
     }
 
     private void Update()
@@ -44,7 +48,14 @@ public class PantallaConfig : MonoBehaviour
             usandoMando = true;
     }
 
+    private void InicializarConfiguracion()
+    {
+        // 1. Cargar configuración guardada
+        CargarConfiguracion();
 
+        // 2. Forzar aplicación de la configuración
+        AplicarPorDefectoPantalla(true);
+    }
     private void ConfigurarBotones()
     {
         btnResolucion.onClick.RemoveAllListeners();
@@ -78,12 +89,6 @@ public class PantallaConfig : MonoBehaviour
         indiceModoPantalla = PlayerPrefs.GetInt("ModoPantallaIndex", 0);
         AplicarConfiguracion();
     }
-    public void CambiarModoPantallaDireccional(int direccion)
-    {
-        indiceModoPantalla = Mathf.Clamp(indiceModoPantalla + direccion, 0, modosPantalla.Length - 1);
-        Debug.Log(indiceModoPantalla);
-        AplicarConfiguracion();
-    }
 
     private void AplicarConfiguracion()
     {
@@ -94,7 +99,10 @@ public class PantallaConfig : MonoBehaviour
             modosPantalla[indiceModoPantalla],
             Screen.currentResolution.refreshRateRatio
         );
-
+        if (modosPantalla[indiceModoPantalla] == FullScreenMode.Windowed)
+        {
+            StartCoroutine(AjustarVentana(resoluciones[indiceResolucion].ancho, resoluciones[indiceResolucion].alto));
+        }
         // Guardar
         GuardarConfiguracion();
     }
@@ -120,8 +128,8 @@ public class PantallaConfig : MonoBehaviour
         {
             if (res.nombre == nombreResolucion)
             {
-                Screen.SetResolution(res.ancho, res.alto, Screen.fullScreenMode);
-                Debug.Log($"Resolución cambiada a: {res.ancho}x{res.alto}");
+                Screen.SetResolution(res.ancho, res.alto, modosPantalla[indiceModoPantalla]);
+                //     Debug.Log($"Resolución cambiada a: {res.ancho}x{res.alto}");
                 return true;
             }
         }
@@ -129,5 +137,35 @@ public class PantallaConfig : MonoBehaviour
         return false;
     }
 
+    private void AplicarPorDefectoPantalla(bool forzar = false)
+    {
+        try
+        {
+            //  forzando 1280x720
+                Screen.SetResolution(
+                    1280,
+                    720,
+                    modosPantalla[indiceModoPantalla]
+                );
 
+         //       Debug.Log($"Resolución aplicada: {ancho}x{alto}");
+
+            GuardarConfiguracion();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error aplicando configuración: {e.Message}");
+
+            // Fallback a la primera resolución
+            indiceResolucion = 0;
+            indiceModoPantalla = 0;
+            AplicarPorDefectoPantalla(true);
+        }
+    }
+
+    private IEnumerator AjustarVentana(int ancho, int alto)
+    {
+        yield return new WaitForEndOfFrame();
+        Screen.SetResolution(ancho, alto, FullScreenMode.Windowed);
+    }
 }

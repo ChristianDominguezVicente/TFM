@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static MenuInicial;
+using static UnityEngine.Rendering.STP;
 
 public class MenuInicial : MonoBehaviour
 {
@@ -70,7 +72,6 @@ public class MenuInicial : MonoBehaviour
     {
         MenuActivo = this;
         seleccionBotonIndice = 0;
-
         UpdatePanel();
     }
     private void OnDisable()
