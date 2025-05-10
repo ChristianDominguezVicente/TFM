@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class PlayerMenu : MonoBehaviour
 {
-   // [SerializeField] private MenuInicial botonesUI;
+    // [SerializeField] private MenuInicial botonesUI;
     private PlayerInput _playerInput;
     private StarterAssetsInputs _input;
 
@@ -31,10 +31,11 @@ public class PlayerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MenuInicial.MenuActivo !=null)
+        if (MenuInicial.MenuActivo != null)
         {
             UI_Move();
             UI_Interact();
+
         }
     }
 
@@ -79,7 +80,7 @@ public class PlayerMenu : MonoBehaviour
                 // Confirmar selección y salir del modo ajuste
                 MenuInicial.MenuActivo.ToggleModoAjuste();
             }
-            else if (MenuInicial.MenuActivo.IsAdjustingSlider()) 
+            else if (MenuInicial.MenuActivo.IsAdjustingSlider())
             {
                 MenuInicial.MenuActivo.ToggleAjusteSlider();
             }
@@ -100,6 +101,4 @@ public class PlayerMenu : MonoBehaviour
             _input.interact = false;
         }
     }
-
-
 }

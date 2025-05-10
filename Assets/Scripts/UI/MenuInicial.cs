@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,11 +23,24 @@ public class MenuInicial : MonoBehaviour
         public Button botonToggle;
         public bool esToggle = false; // botones con texto deslizante
         public string[] opcionesToggle;
+        public int indiceOpcionToggle = 0;
 
         [Header("Botón Slider")]
         public Slider slider;
         public bool esSlider = false; //boton slider
         public Image fillImage;
+
+        [Header("Configuración Pantalla")]
+        public bool esConfiguracionPantalla = false;
+        public TipoConfigPantalla tipoConfigPantalla;
+
+
+    }
+    public enum TipoConfigPantalla
+    {
+        Ninguno,
+        Resolucion,
+        ModoPantalla
     }
 
     [Header("Configuración")]
@@ -40,7 +54,6 @@ public class MenuInicial : MonoBehaviour
 
     //Toggle
     private bool ajustandoToggle = false;
-    private int opcionesBotonindice = 0;
 
     //Slider 
     private int sliderIndice = 0;
@@ -57,6 +70,7 @@ public class MenuInicial : MonoBehaviour
     {
         MenuActivo = this;
         seleccionBotonIndice = 0;
+
         UpdatePanel();
     }
     private void OnDisable()
@@ -221,7 +235,7 @@ public class MenuInicial : MonoBehaviour
                 TextMeshProUGUI textoBoton = config.botonToggle.GetComponentInChildren<TextMeshProUGUI>();
                 if (textoBoton != null)
                 {
-                    textoBoton.text = config.opcionesToggle[opcionesBotonindice];
+                    textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
                 }
             }
         }
@@ -231,7 +245,7 @@ public class MenuInicial : MonoBehaviour
     {
         if (config.opcionesToggle != null && config.opcionesToggle.Length > 0)
         {
-            opcionesBotonindice = (opcionesBotonindice + 1) % config.opcionesToggle.Length;
+            config.indiceOpcionToggle = (config.indiceOpcionToggle + 1) % config.opcionesToggle.Length;
 
             // Actualiza el texto del botón toggle asociado
             if (config.botonToggle != null)
@@ -239,20 +253,11 @@ public class MenuInicial : MonoBehaviour
                 TextMeshProUGUI textoBoton = config.botonToggle.GetComponentInChildren<TextMeshProUGUI>();
                 if (textoBoton != null)
                 {
-                    textoBoton.text = config.opcionesToggle[opcionesBotonindice];
+                    textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
                 }
             }
-
-            ProcesarOpcionToggle(config);
         }
-    }
-    private void ProcesarOpcionToggle(BotonConfig config)
-    {
-        // Implementa aquí la lógica que debe ejecutarse cuando cambia el toggle
-        // Puedes acceder a la opción actual con config.opcionesToggle[config.indiceOpcionActual]
-
-        // Ejemplo:
-        // if (config.opcionesToggle[config.indiceOpcionActual] == "On") { ... }
+        ProcesarOpcionToggle(config);
     }
 
 
@@ -315,8 +320,8 @@ public class MenuInicial : MonoBehaviour
         var config = botones[seleccionBotonIndice];
         if (config.esToggle && ajustandoToggle)
         {
-            opcionesBotonindice =
-                (opcionesBotonindice + direccion + config.opcionesToggle.Length) % config.opcionesToggle.Length;
+            config.indiceOpcionToggle =
+                (config.indiceOpcionToggle + direccion + config.opcionesToggle.Length) % config.opcionesToggle.Length;
 
             // Actualiza el texto del botón toggle
             if (config.botonToggle != null)
@@ -324,13 +329,40 @@ public class MenuInicial : MonoBehaviour
                 TextMeshProUGUI textoBoton = config.botonToggle.GetComponentInChildren<TextMeshProUGUI>();
                 if (textoBoton != null)
                 {
-                    textoBoton.text = config.opcionesToggle[opcionesBotonindice];
+                    textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
                 }
             }
-
             ProcesarOpcionToggle(config);
+
         }
     }
+
+    private void ProcesarOpcionToggle(BotonConfig config)
+    {
+        // pantalla resol y modo 
+
+        PantallaConfig pantallaConfig = FindFirstObjectByType<PantallaConfig>();
+        if (pantallaConfig != null)
+        {
+            string opcionActual = config.opcionesToggle[config.indiceOpcionToggle];
+
+            switch (config.tipoConfigPantalla)
+            {
+                case TipoConfigPantalla.Resolucion:
+                    // Parsea el texto (ej: "1920x1080")
+                    pantallaConfig.AplicarResolucionPorNombre(opcionActual);
+                    break;
+
+                case TipoConfigPantalla.ModoPantalla:
+                    pantallaConfig.AplicarModoPantalla(config.indiceOpcionToggle);
+                    break;
+            }
+        }
+        // Aquí puedes añadir más lógica para otros tipos de toggles
+    }
+
+
+
     public bool IsAdjustingToggle()
     {
         if (seleccionBotonIndice < 0 || seleccionBotonIndice >= botones.Count)
@@ -356,5 +388,27 @@ public class MenuInicial : MonoBehaviour
     }
 
 
+    public string ObtenerTextoBotonSeleccionado()
+    {
+        if (seleccionBotonIndice >= 0 && seleccionBotonIndice < botones.Count)
+        {
+            TextMeshProUGUI textoBoton = botones[seleccionBotonIndice].boton.GetComponentInChildren<TextMeshProUGUI>();
+            if (textoBoton != null)
+            {
+                return textoBoton.text;
+            }
+        }
+        return string.Empty;
+    }
+
+
+    public BotonConfig GetCurrentButtonConfig()
+    {
+        if (seleccionBotonIndice >= 0 && seleccionBotonIndice < botones.Count)
+        {
+            return botones[seleccionBotonIndice];
+        }
+        return null;
+    }
 
 }

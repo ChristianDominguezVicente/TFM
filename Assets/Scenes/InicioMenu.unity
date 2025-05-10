@@ -335,9 +335,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1457696195}
     menuDestino: {fileID: 2090075059}
     esSalir: 0
@@ -346,9 +349,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1903718790}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -357,9 +363,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 2090075059}
 --- !u!1 &38729452
 GameObject:
@@ -529,9 +538,12 @@ MonoBehaviour:
     opcionesToggle:
     - Habilitada
     - Deshabilitada
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1523293482}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -540,9 +552,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 599591287}
     esSlider: 1
     fillImage: {fileID: 1874637410}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 82482880}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -551,9 +566,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 1714311704}
     esSlider: 1
     fillImage: {fileID: 1240544275}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1292831920}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -562,9 +580,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 582639771}
 --- !u!114 &45929525
 MonoBehaviour:
@@ -1785,6 +1806,68 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &270847313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270847315}
+  - component: {fileID: 270847314}
+  m_Layer: 0
+  m_Name: PantallaManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &270847314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270847313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd869d8840800444aba8a2f2e9486779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnResolucion: {fileID: 1108066364}
+  resoluciones:
+  - ancho: 1280
+    alto: 720
+    nombre: "1280\xD7720"
+  - ancho: 1920
+    alto: 1080
+    nombre: "1920\xD71080"
+  - ancho: 2560
+    alto: 1440
+    nombre: "2560\xD71440"
+  - ancho: 3840
+    alto: 2160
+    nombre: "3840\xD72160"
+  - ancho: 960
+    alto: 540
+    nombre: "960\xD7540"
+  btnModoPantalla: {fileID: 1877098452}
+--- !u!4 &270847315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270847313}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 375.00357, y: 247.63054, z: -8.331665}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &272681686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,9 +2266,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 866599728}
     esSlider: 1
     fillImage: {fileID: 1289274049}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1549192008}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -2194,9 +2280,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 1614676995}
     esSlider: 1
     fillImage: {fileID: 780184109}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1629887811}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -2205,9 +2294,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 595427978}
     esSlider: 1
     fillImage: {fileID: 1720683234}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1881968192}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -2216,9 +2308,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 1649319782}
     esSlider: 1
     fillImage: {fileID: 1339151744}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 464876777}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -2227,9 +2322,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 582639771}
 --- !u!114 &295239179
 MonoBehaviour:
@@ -4092,9 +4190,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1655878032}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -4103,9 +4204,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 238897731}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -4114,9 +4218,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 582639771}
 --- !u!114 &555357423
 MonoBehaviour:
@@ -4365,9 +4472,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 2134592748}
     menuDestino: {fileID: 1683854284}
     esSalir: 0
@@ -4376,9 +4486,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 95552481}
     menuDestino: {fileID: 295239176}
     esSalir: 0
@@ -4387,9 +4500,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 372845666}
     menuDestino: {fileID: 1507113422}
     esSalir: 0
@@ -4398,9 +4514,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1266233076}
     menuDestino: {fileID: 555357420}
     esSalir: 0
@@ -4409,9 +4528,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1504246863}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -4420,9 +4542,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 2090075059}
 --- !u!1 &588143564
 GameObject:
@@ -11170,6 +11295,7 @@ GameObject:
   - component: {fileID: 1468193358}
   - component: {fileID: 1468193357}
   - component: {fileID: 1468193356}
+  - component: {fileID: 1468193359}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11251,6 +11377,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468193359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468193355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1484872301
 GameObject:
   m_ObjectHideFlags: 0
@@ -11761,9 +11931,12 @@ MonoBehaviour:
     opcionesToggle:
     - English (no disponible)
     - "Espa\xF1ol"
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1546838463}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -11772,9 +11945,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 582639771}
 --- !u!114 &1507113425
 MonoBehaviour:
@@ -14041,9 +14217,12 @@ MonoBehaviour:
     - Ventana
     - Pantalla Completa
     - Sin Bordes
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 1
+    tipoConfigPantalla: 2
   - boton: {fileID: 2108739438}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -14052,14 +14231,17 @@ MonoBehaviour:
     botonToggle: {fileID: 1108066364}
     esToggle: 1
     opcionesToggle:
-    - "960\xD7540"
     - "1280\xD7720"
     - "1920\xD71080"
     - "2560\xD71440"
     - "3840\xD72160"
+    - "960\xD7540"
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 1
+    tipoConfigPantalla: 1
   - boton: {fileID: 1025956806}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -14068,9 +14250,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 1054479311}
     esSlider: 1
     fillImage: {fileID: 1992174259}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 707826750}
     menuDestino: {fileID: 0}
     esSalir: 0
@@ -14079,9 +14264,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 582639771}
 --- !u!114 &1683854287
 MonoBehaviour:
@@ -15566,9 +15754,9 @@ AudioSource:
   m_GameObject: {fileID: 1987569539}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7056049523499337, guid: 9049ebf97f3055f499d0c23e204460bb, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 626e472248d9a18489fae01287b5eea9, type: 3}
-  m_Resource: {fileID: 8300000, guid: 626e472248d9a18489fae01287b5eea9, type: 3}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 9049ebf97f3055f499d0c23e204460bb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -16238,9 +16426,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1713410034}
     menuDestino: {fileID: 582639771}
     esSalir: 0
@@ -16249,9 +16440,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 298767132}
     menuDestino: {fileID: 2090075059}
     esSalir: 0
@@ -16260,9 +16454,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 2074848347}
     menuDestino: {fileID: 2090075059}
     esSalir: 0
@@ -16271,9 +16468,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   - boton: {fileID: 1082324645}
     menuDestino: {fileID: 0}
     esSalir: 1
@@ -16282,9 +16482,12 @@ MonoBehaviour:
     botonToggle: {fileID: 0}
     esToggle: 0
     opcionesToggle: []
+    indiceOpcionToggle: 0
     slider: {fileID: 0}
     esSlider: 0
     fillImage: {fileID: 0}
+    esConfiguracionPantalla: 0
+    tipoConfigPantalla: 0
   menuAnterior: {fileID: 2090075059}
 --- !u!1 &2106681187
 GameObject:
@@ -16914,3 +17117,4 @@ SceneRoots:
   - {fileID: 2005866068}
   - {fileID: 1367074417}
   - {fileID: 1987569542}
+  - {fileID: 270847315}
