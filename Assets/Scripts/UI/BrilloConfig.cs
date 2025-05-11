@@ -33,4 +33,11 @@ public class BrilloConfig : MonoBehaviour
 
         PlayerPrefs.SetFloat("Brightness", brightnessValue);
     }
+
+    public void ResetBrillo()
+    {
+        brightnessSlider.value = defaultBrightness; // Usa el valor por defecto
+        ApplyBrightness(defaultBrightness); 
+        PlayerPrefs.SetFloat("Brightness", defaultBrightness); // Guarda
+    }
 }

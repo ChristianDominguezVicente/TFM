@@ -64,6 +64,9 @@ public class MenuInicial : MonoBehaviour
 
 
 
+    private Color normal = new Color(1f, 0.9529f, 0.6902f);// FFF3B0
+
+
     private void Start()
     {
         ConfigurarBotones();
@@ -115,7 +118,8 @@ public class MenuInicial : MonoBehaviour
                     ActualizarTextoBotonToggle(config);
 
                     // Configura el onClick para el botón principal
-                    config.boton.onClick.AddListener(() => {
+                    config.boton.onClick.AddListener(() =>
+                    {
                         if (!ajustandoToggle) // Solo alterna si no está en modo ajuste
                         {
                             AlternarOpcion(config);
@@ -189,8 +193,7 @@ public class MenuInicial : MonoBehaviour
             {
                 var colors = config.boton.colors;
                 colors.normalColor = isSelected ?
-                    (ajustandoToggle ? Color.yellow : Color.white) :
-                    Color.gray;
+                    (ajustandoToggle ? Color.white : Color.white) : normal;
                 config.boton.colors = colors;
             }
 
@@ -198,22 +201,22 @@ public class MenuInicial : MonoBehaviour
             if (config.esToggle && config.botonToggle != null)
             {
                 var toggleColors = config.botonToggle.colors;
-                toggleColors.normalColor = ajustandoToggle ? Color.green : Color.white;
+                toggleColors.normalColor = ajustandoToggle ? Color.white : normal;
                 config.botonToggle.colors = toggleColors;
             }
-        
 
-        // Configuración para sliders adjuntos
-        if (botones[i].esSlider && botones[i].slider != null)
+
+            // Configuración para sliders adjuntos
+            if (botones[i].esSlider && botones[i].slider != null)
             {
                 Image handle = botones[i].slider.handleRect.GetComponent<Image>();
-                handle.color = ajustandoSlider ? Color.red : Color.white;
+                handle.color = ajustandoSlider ? normal : Color.white;
 
                 // Opcional: Resaltar fill cuando está activo
                 if (botones[i].slider.fillRect != null)
                 {
                     botones[i].slider.fillRect.GetComponent<Image>().color =
-                        ajustandoSlider ? new Color(1, 0.5f, 0) : new Color(1, 1, 1, 0.5f);
+                        ajustandoSlider ? normal : normal;
                 }
             }
         }
@@ -287,7 +290,7 @@ public class MenuInicial : MonoBehaviour
     {
         if (botones[seleccionBotonIndice].esSlider)
         {
-            ajustandoSlider =!ajustandoSlider;
+            ajustandoSlider = !ajustandoSlider;
             UpdatePanel();
         }
     }
@@ -340,26 +343,21 @@ public class MenuInicial : MonoBehaviour
 
     private void ProcesarOpcionToggle(BotonConfig config)
     {
-        // pantalla resol y modo 
-
         PantallaConfig pantallaConfig = FindFirstObjectByType<PantallaConfig>();
         if (pantallaConfig != null)
         {
             string opcionActual = config.opcionesToggle[config.indiceOpcionToggle];
 
-            switch (config.tipoConfigPantalla)
+            if (config.tipoConfigPantalla == TipoConfigPantalla.Resolucion)
             {
-                case TipoConfigPantalla.Resolucion:
-                    // Parsea el texto (ej: "1920x1080")
-                    pantallaConfig.AplicarResolucionPorNombre(opcionActual);
-                    break;
-
-                case TipoConfigPantalla.ModoPantalla:
-                    pantallaConfig.AplicarModoPantalla(config.indiceOpcionToggle);
-                    break;
+                // Asegúrate que el formato coincida (ej: "1280x720")
+                pantallaConfig.AplicarResolucionPorNombre(config.indiceOpcionToggle);
+            }
+            else if (config.tipoConfigPantalla == TipoConfigPantalla.ModoPantalla)
+            {
+                pantallaConfig.AplicarModoPantalla(config.indiceOpcionToggle);
             }
         }
-        // Aquí puedes añadir más lógica para otros tipos de toggles
     }
 
 
@@ -412,4 +410,61 @@ public class MenuInicial : MonoBehaviour
         return null;
     }
 
+    public void ResetearTodo()
+    {
+        // 1. Resetear índices del menú actual
+        seleccionBotonIndice = 0;
+        sliderIndice = 0;
+        ajustandoToggle = false;
+        ajustandoSlider = false;
+
+        // 2. Resetear todos los BotonConfig en este menú
+        foreach (var config in botones)
+        {
+            if (config.esToggle)
+            {
+                config.indiceOpcionToggle = 0; // Resetear toggle a la primera opción
+                ActualizarTextoBotonToggle(config); // Actualizar UI
+            }
+
+            if (config.esSlider && config.slider != null)
+            {
+                config.slider.value = 0; // Resetear sliders a 0
+            }
+        }
+
+        // 3. Opcional: Resetear también en otros menús (recursivamente)
+        ResetearMenusAnidados();
+
+        UpdatePanel(); // Actualizar visualización
+
+    }
+
+    private void ResetearMenusAnidados()
+    {
+        MenuInicial[] todosLosMenus = FindObjectsByType<MenuInicial>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        foreach (var menu in todosLosMenus)
+        {
+            if (menu != this) // Evitar resetear este menú dos veces
+            {
+                menu.seleccionBotonIndice = 0;
+                menu.sliderIndice = 0;
+
+                foreach (var config in menu.botones)
+                {
+                    if (config.esToggle)
+                    {
+                        config.indiceOpcionToggle = 0;
+                        menu.ActualizarTextoBotonToggle(config);
+                    }
+
+                    if (config.esSlider && config.slider != null)
+                    {
+                        config.slider.value = 0;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,10 +1,14 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class RestablecerValoresDefecto : MonoBehaviour
 {
-    // --- Audio ---
+    [SerializeField] private Button btnRestablecer; // Botón que activa el reset
+    // --- Audio 
     [Header("Configuración de Audio")]
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider masterSlider;
@@ -13,58 +17,98 @@ public class RestablecerValoresDefecto : MonoBehaviour
     [SerializeField] private Slider voiceSlider;
 
 
-    // Parámetros
+    // Parámetros audio
     private const string MASTER_VOL = "VolumenMaster";
     private const string MUSIC_VOL = "VolumenMusica";
     private const string SFX_VOL = "VolumenSFX";
     private const string VOICE_VOL = "VolumenVoces";
 
-    // Valores por defecto
+    // Valores por defecto audio
     private const float DEFAULT_MASTER = 0.75f;
     private const float DEFAULT_MUSIC = 0.75f;
     private const float DEFAULT_SFX = 0.75f;
     private const float DEFAULT_VOICE = 0.75f;
 
 
+    // ---- Demás
+    [Header("Demás")]
+    [SerializeField] private PantallaConfig pantallaConfig;
+    [SerializeField] private MenuInicial menuInicial;
+    [SerializeField] private BrilloConfig brilloConfig;
 
-    // --- Futuras Configs (ejemplo) ---
-    [Header("Otras Configuraciones")]
-    [SerializeField] private Toggle fullscreenToggle;
-    [SerializeField] private Dropdown resolutionDropdown;
+    private bool primeraActivacion = true;
 
-
-
-
-
-
-
-
-    void Start()
+    private void OnEnable()
     {
-        CargarConfiguracion();
+        if (primeraActivacion)
+        {
+            primeraActivacion = false;
+            StartCoroutine(ConfigurarPrimeraVez());
+        }
+        else
+        {
+            ConfigurarBoton();
+        }
     }
 
-    public void ResetearTodo()
+    private IEnumerator ConfigurarPrimeraVez()
     {
-        // 1. Resetear Audio
+        yield return new WaitForEndOfFrame(); // Espera crítica
+
+        // Obtener referencias si son nulas
+
+        if (menuInicial == null)
+            menuInicial = FindFirstObjectByType<MenuInicial>(FindObjectsInactive.Include);
+
+        if (brilloConfig == null)
+            brilloConfig = FindFirstObjectByType<BrilloConfig>(FindObjectsInactive.Include);
+
+        if (pantallaConfig == null)
+            pantallaConfig = FindFirstObjectByType<PantallaConfig>(FindObjectsInactive.Include);
+
+        ConfigurarBoton();
+    }
+
+    private void ConfigurarBoton()
+    {
+        btnRestablecer.onClick.RemoveAllListeners();
+        btnRestablecer.onClick.AddListener(() => StartCoroutine(ResetCompleto()));
+    }
+
+    private IEnumerator ResetCompleto()
+    {
+        yield return null; // Frame adicional de seguridad
+
+        Debug.Log("Iniciando reset completo...");
+
+        // 1. Resetear menús
+        if (MenuInicial.MenuActivo != null)
+            MenuInicial.MenuActivo.ResetearTodo();
+
+        // 2. Resetear brillo
+        if (brilloConfig != null)
+            brilloConfig.ResetBrillo();
+
+        // 3. Resetear audio
         ResetearAudio();
 
-        // 2. Resetear otras configuraciones
-        ResetearGraficos();
+        // 4. Resetear gráficos
+        if (pantallaConfig != null)
+            pantallaConfig.AplicarPorDefectoTodo();
 
-        // 3. Guardar cambios
+        // 5. Guardar cambios
         GuardarConfiguracion();
 
-        Debug.Log("¡Configuración restablecida a valores predeterminados!");
+        Debug.Log("Reset completado correctamente");
     }
 
     private void ResetearAudio()
     {
         // Aplicar valores a sliders
-        masterSlider.value = DEFAULT_MASTER;
-        musicSlider.value = DEFAULT_MUSIC;
-        sfxSlider.value = DEFAULT_SFX;
-        voiceSlider.value = DEFAULT_VOICE;
+        if (masterSlider != null) masterSlider.value = DEFAULT_MASTER;
+        if (musicSlider != null) musicSlider.value = DEFAULT_MUSIC;
+        if (sfxSlider != null) sfxSlider.value = DEFAULT_SFX;
+        if (voiceSlider != null) voiceSlider.value = DEFAULT_VOICE;
 
         // Aplicar al AudioMixer
         SetVolume(MASTER_VOL, DEFAULT_MASTER);
@@ -73,34 +117,20 @@ public class RestablecerValoresDefecto : MonoBehaviour
         SetVolume(VOICE_VOL, DEFAULT_VOICE);
     }
 
-    private void ResetearGraficos()
-    {
-        // Ejemplo para futuras configuraciones
-        fullscreenToggle.isOn = true;
-        resolutionDropdown.value = 0; // Primera opción
-    }
-
     private void SetVolume(string param, float value)
     {
-        float dB = Mathf.Log10(value) * 20f;
-        audioMixer.SetFloat(param, dB);
+        if (audioMixer != null)
+        {
+            float dB = value > 0 ? Mathf.Log10(value) * 20f : -80f;
+            audioMixer.SetFloat(param, dB);
+        }
         PlayerPrefs.SetFloat(param, value);
-    }
-
-    private void CargarConfiguracion()
-    {
-        // Audio
-        masterSlider.value = PlayerPrefs.GetFloat(MASTER_VOL, DEFAULT_MASTER);
-        musicSlider.value = PlayerPrefs.GetFloat(MUSIC_VOL, DEFAULT_MUSIC);
-        sfxSlider.value = PlayerPrefs.GetFloat(SFX_VOL, DEFAULT_SFX);
-        voiceSlider.value = PlayerPrefs.GetFloat(VOICE_VOL, DEFAULT_VOICE);
-
-        // Gráficos (ejemplo)
-        fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
     }
 
     public void GuardarConfiguracion()
     {
         PlayerPrefs.Save();
+        Debug.Log("Configuración guardada");
     }
+
 }
