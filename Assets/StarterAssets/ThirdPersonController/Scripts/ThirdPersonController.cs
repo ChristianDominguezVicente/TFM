@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using TMPro;
+using UnityEditor;
 //using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 

@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -20,7 +21,7 @@ namespace StarterAssets
         public bool auto;
         public bool skip;
         public bool spectralVision;
-		public bool cancel;
+        public bool cancel;
 
         [Header("Movement Settings")]
 		public bool analogMovement;

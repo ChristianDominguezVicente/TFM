@@ -72,6 +72,7 @@ namespace StarterAssets
         {
             starterAssetsInputs.CancelInput(virtualCancelState);
         }
+
     }
 
 }
