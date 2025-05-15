@@ -9,6 +9,7 @@ using TMPro;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -97,6 +98,7 @@ namespace StarterAssets
         [Header("GameManager")]
         [SerializeField] private PossessionManager possesionManager;
         [SerializeField] private HintManager hintManager;
+        [SerializeField] private ObjectManager objectManager;
 
         [Header("Dialogue History")]
         [SerializeField] private DialogueHistory dialogueHistory;
@@ -144,6 +146,10 @@ namespace StarterAssets
         private float inputCooldown = 0.2f;
         private float lastInputTime = 0f;
 
+        // input detector
+        private string controlUsed;
+        private float rotationSpeed;
+
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
 #endif
@@ -174,6 +180,36 @@ namespace StarterAssets
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            }
+        }
+
+        private void OnEnable()
+        {
+            // subscribe to the global input system event when this script is triggered
+            InputSystem.onEvent += OnInputEvent;
+        }
+
+        private void OnDisable()
+        {
+            // unsubscribe from the event when this script is deactivated
+            InputSystem.onEvent -= OnInputEvent;
+        }
+
+        private void OnInputEvent(InputEventPtr eventPtr, InputDevice device)
+        {
+            // ignore events that are not of type "state" or "state delta" 
+            if (!eventPtr.IsA<StateEvent>() && !eventPtr.IsA<DeltaStateEvent>())
+                return;
+
+            // if a Gamepad is detected and it was not the previous controller, update to Gamepad
+            if (device is Gamepad && controlUsed != "Gamepad")
+            {
+                rotationSpeed = 0.005f;
+            }
+            // if a Keyboard or Mouse is detected and it was not the previous controller, update to Keyboard
+            else if ((device is Keyboard || device is Mouse) && controlUsed != "Keyboard")
+            {
+                rotationSpeed = 0.5f;
             }
         }
 
@@ -232,12 +268,16 @@ namespace StarterAssets
                 Skip();
 
                 // reset buttons that had the same input
-                _input.jump = false;
-                _input.interact = false;
-                _input.auto = false;
-                _input.skip = false;
-                _input.listen = false;
-                _input.hint = false;
+                ResetInputs();
+
+                return;
+            }
+            else if (objectManager.Looking)
+            {
+                LookingObject();
+                Cancel();
+
+                ResetInputs();
 
                 return;
             }
@@ -254,6 +294,11 @@ namespace StarterAssets
             Cancel();
 
             // reset buttons that had the same input
+            ResetInputs();
+        }
+
+        private void ResetInputs()
+        {
             _input.jump = false;
             _input.interact = false;
             _input.auto = false;
@@ -264,7 +309,7 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            if (!possesionManager.IsTalking)
+            if (!possesionManager.IsTalking && !objectManager.Looking)
             {
                 CameraRotation();
             }
@@ -1013,10 +1058,31 @@ namespace StarterAssets
             }
         }
 
+        private void LookingObject()
+        {
+            Vector2 lookInput = _input.look;
+
+            float threshold = 0.1f;
+            if (lookInput.sqrMagnitude < threshold * threshold)
+                return;
+
+            objectManager.LookingObject.Rotate(Vector3.up, lookInput.x * rotationSpeed, Space.World);
+            objectManager.LookingObject.Rotate(Vector3.left, lookInput.y * rotationSpeed, Space.World);
+        }
+
         private void Cancel()
         {
             if (_input.cancel)
             {
+                if (objectManager != null && objectManager.Looking)
+                {
+                    objectManager.Looking = false;
+
+                    _input.cancel = false;
+
+                    return;
+                }
+
                 // if the player is possessing something, cancel the possession
                 if (possesionManager.IsPossessing)
                 {
