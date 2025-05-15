@@ -449,6 +449,7 @@ namespace StarterAssets
                 }
 
                 // Jump
+                /*
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
@@ -460,7 +461,7 @@ namespace StarterAssets
                         _animator.SetBool(_animIDJump, true);
                     }
                 }
-
+                */
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
@@ -1060,6 +1061,7 @@ namespace StarterAssets
 
         private void LookingObject()
         {
+            possesionManager.CurrentController.DeactivateControl();
             Vector2 lookInput = _input.look;
 
             float threshold = 0.1f;
