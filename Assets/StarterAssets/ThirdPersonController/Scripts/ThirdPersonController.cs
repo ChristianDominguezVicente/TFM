@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using TMPro;
+using UnityEditor;
+
 //using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
@@ -252,6 +254,7 @@ namespace StarterAssets
             Hint();
             SpectralVision();
             Cancel();
+            Pause();
 
             // reset buttons that had the same input
             _input.jump = false;
@@ -1024,6 +1027,16 @@ namespace StarterAssets
                 }
 
                 _input.cancel = false;
+            }
+        }
+
+        private void Pause()
+        {
+            if (_input.pause)
+            {
+                UnityEngine.Debug.Log(_input.pause);
+
+                _input.pause = false;
             }
         }
 
