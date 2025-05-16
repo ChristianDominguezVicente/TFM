@@ -14,8 +14,11 @@ public class PossessionManager : MonoBehaviour
     [SerializeField] private LayerMask layerCollision;
     [SerializeField] private float spawnOffset = 1.5f;
 
-    [Header("ObjectManager")]
+    [Header("Managers")]
     [SerializeField] private ObjectManager objectManager;
+
+    [Header("UI")]
+    [SerializeField] private CodeUI codeUI;
 
     private float currentTime;
     private float maxTime;
@@ -39,7 +42,7 @@ public class PossessionManager : MonoBehaviour
 
     private void Update()
     {
-        if (isPossessing && !isTalking && !objectManager.Looking)
+        if (isPossessing && !isTalking && !objectManager.Looking && !codeUI.Active)
         {
             // if possessed, reduces time and refreshes bar
             currentTime -= Time.deltaTime * drainSpeed;

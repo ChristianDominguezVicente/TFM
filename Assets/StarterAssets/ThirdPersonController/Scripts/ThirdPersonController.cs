@@ -109,6 +109,9 @@ namespace StarterAssets
         [SerializeField] private float scrollSpeed;
         [SerializeField] private ChoicesUI choicePanel;
 
+        [Header("CodeUI")]
+        [SerializeField] private CodeUI codeUI;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -259,6 +262,15 @@ namespace StarterAssets
 
         private void Update()
         {
+            if (codeUI != null && codeUI.Active)
+            {
+                possesionManager.CurrentController.DeactivateControl();
+                codeUI.Inputs(_input.ui_move, _input.interact, _input.cancel);
+                ResetInputs();
+
+                return;
+            }
+
             // if the player is talking or in a cinematic
             if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
             {
@@ -306,6 +318,7 @@ namespace StarterAssets
             _input.skip = false;
             _input.listen = false;
             _input.hint = false;
+            _input.cancel = false;
         }
 
         private void LateUpdate()
