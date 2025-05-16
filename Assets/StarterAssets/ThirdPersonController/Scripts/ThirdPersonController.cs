@@ -75,6 +75,7 @@ namespace StarterAssets
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
+        public GameObject PlayerFollowCamera;
 
         [Tooltip("How far in degrees can you move the camera up")]
         public float TopClamp = 70.0f;
@@ -99,6 +100,8 @@ namespace StarterAssets
         [Header("GameManager")]
         [SerializeField] private PossessionManager possesionManager;
         [SerializeField] private HintManager hintManager;
+        [SerializeField] private MenuPause pauseManager;
+       
 
         [Header("Dialogue History")]
         [SerializeField] private DialogueHistory dialogueHistory;
@@ -146,6 +149,7 @@ namespace StarterAssets
         private float inputCooldown = 0.2f;
         private float lastInputTime = 0f;
 
+
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
 #endif
@@ -182,7 +186,6 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -224,14 +227,49 @@ namespace StarterAssets
 
         private void Update()
         {
-            // if the player is talking or in a cinematic
-            if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
+            if (pauseManager.IsPaused) //game paused
             {
+                if (MenuInicial.MenuActivo != null)
+                {
+                    PlayerFollowCamera.SetActive(false);
+                    UI_Move_Paused();
+                    UI_Interact();
+                }
+            }
+            else
+            {
+                PlayerFollowCamera.SetActive(true);
+                // if the player is talking or in a cinematic
+                if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
+                {
+                    Interact();
+                    History();
+                    UI_Move();
+                    Auto();
+                    Skip();
+
+                    // reset buttons that had the same input
+                    _input.jump = false;
+                    _input.interact = false;
+                    _input.auto = false;
+                    _input.skip = false;
+                    _input.listen = false;
+                    _input.hint = false;
+
+                    return;
+                }
+
+                _hasAnimator = TryGetComponent(out _animator);
+
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
                 Interact();
-                History();
-                UI_Move();
-                Auto();
-                Skip();
+                Listen();
+                Hint();
+                SpectralVision();
+                Cancel();
+                Pause();
 
                 // reset buttons that had the same input
                 _input.jump = false;
@@ -240,30 +278,75 @@ namespace StarterAssets
                 _input.skip = false;
                 _input.listen = false;
                 _input.hint = false;
-
-                return;
             }
-
-            _hasAnimator = TryGetComponent(out _animator);
-
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
-            Interact();
-            Listen();
-            Hint();
-            SpectralVision();
-            Cancel();
-            Pause();
-
-            // reset buttons that had the same input
-            _input.jump = false;
-            _input.interact = false;
-            _input.auto = false;
-            _input.skip = false;
-            _input.listen = false;
-            _input.hint = false;
         }
+
+        private void UI_Interact()
+        {
+            if (_input.interact)
+            {
+                if (MenuInicial.MenuActivo.IsAdjustingToggle())
+                {
+                    // Confirmar selección y salir del modo ajuste
+                    MenuInicial.MenuActivo.ToggleModoAjuste();
+                }
+                else if (MenuInicial.MenuActivo.IsAdjustingSlider())
+                {
+                    MenuInicial.MenuActivo.ToggleAjusteSlider();
+                }
+                else if (MenuInicial.MenuActivo.CurrentButtonIsToggle())
+                {
+                    // Entrar en modo ajuste
+                    MenuInicial.MenuActivo.ToggleModoAjuste();
+                }
+                else if (MenuInicial.MenuActivo.CurrentButtonHasAdjacentSlider())
+                {
+                    MenuInicial.MenuActivo.ToggleAjusteSlider();
+                }
+                else
+                {
+                    // Acción normal del botón
+                    MenuInicial.MenuActivo.ActivateSelectedButton();
+                }
+                _input.interact = false;
+            }
+        }
+
+        private void UI_Move_Paused()
+        {
+            //Time.unscaledTime en vez de Time.time
+            if (MenuInicial.MenuActivo == null) return;
+
+            Vector2 input = _input.ui_move;
+            float deadzone = 0.7f;
+
+            if (Time.unscaledTime - lastInputTime < inputCooldown) return;
+
+            // Modo ajuste de toggle
+            if (MenuInicial.MenuActivo.IsAdjustingToggle() && Mathf.Abs(input.x) > deadzone)
+            {
+                int direction = input.x > 0 ? 1 : -1;
+                MenuInicial.MenuActivo.CambiarOpcionToggle(direction);
+                lastInputTime = Time.unscaledTime;
+            }
+            // Modo ajuste de slider (mantén tu código existente)
+            else if (MenuInicial.MenuActivo.IsAdjustingSlider() && Mathf.Abs(input.x) > deadzone)
+            {
+                int direction = input.x > 0 ? 1 : -1;
+                MenuInicial.MenuActivo.MoveSelection(direction);
+                lastInputTime = Time.unscaledTime;
+            }
+            // Navegación normal (vertical)
+            else if (Mathf.Abs(input.y) > deadzone)
+            {
+                int direction = input.y > 0 ? -1 : 1;
+                MenuInicial.MenuActivo.MoveSelection(direction);
+                lastInputTime = Time.unscaledTime;
+            }
+        }
+
+
+
 
         private void LateUpdate()
         {
@@ -1034,8 +1117,8 @@ namespace StarterAssets
         {
             if (_input.pause)
             {
-                UnityEngine.Debug.Log(_input.pause);
-
+             //   UnityEngine.Debug.Log(_input.pause);
+                pauseManager.IsPaused = true;
                 _input.pause = false;
             }
         }

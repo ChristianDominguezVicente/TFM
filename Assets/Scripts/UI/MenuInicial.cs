@@ -48,6 +48,7 @@ public class MenuInicial : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private List<BotonConfig> botones;
     [SerializeField] private GameObject menuAnterior; // Solo necesario para esVolver
+    [SerializeField] private MenuPause menuPausa;
     private List<Button> currentButtons = new List<Button>();
     public static MenuInicial MenuActivo { get; private set; }
 
@@ -114,6 +115,10 @@ public class MenuInicial : MonoBehaviour
                 }
                 else if (config.esToggle)
                 {
+                    if(config.esConfiguracionPantalla) // si estoy en las graficos
+                    {
+                        ProcesarCargaToggle(config);
+                    }
                     // Inicializa el texto del botón
                     ActualizarTextoBotonToggle(config);
 
@@ -156,6 +161,10 @@ public class MenuInicial : MonoBehaviour
     {
         if (menuAnterior != null)
         {
+            if(menuPausa != null && menuPausa.IsPaused) //paused game
+            {
+                menuPausa.ResumeGame();
+            }
             gameObject.SetActive(false);
             menuAnterior.SetActive(true);
         }
@@ -240,6 +249,7 @@ public class MenuInicial : MonoBehaviour
                 if (textoBoton != null)
                 {
                     textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
+                    Debug.Log("Menu inicial ACTUALIZARBOTONTOGGLE : " + textoBoton.text);
                 }
             }
         }
@@ -255,6 +265,7 @@ public class MenuInicial : MonoBehaviour
             if (config.botonToggle != null)
             {
                 TextMeshProUGUI textoBoton = config.botonToggle.GetComponentInChildren<TextMeshProUGUI>();
+                Debug.Log("Menu inicial alternraropcion : " + textoBoton.text);
                 if (textoBoton != null)
                 {
                     textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
@@ -331,6 +342,7 @@ public class MenuInicial : MonoBehaviour
             if (config.botonToggle != null)
             {
                 TextMeshProUGUI textoBoton = config.botonToggle.GetComponentInChildren<TextMeshProUGUI>();
+                Debug.Log("Menu inicial cambiaropciontoggle : " + textoBoton.text);
                 if (textoBoton != null)
                 {
                     textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
@@ -346,11 +358,9 @@ public class MenuInicial : MonoBehaviour
         PantallaConfig pantallaConfig = FindFirstObjectByType<PantallaConfig>();
         if (pantallaConfig != null)
         {
-            string opcionActual = config.opcionesToggle[config.indiceOpcionToggle];
 
             if (config.tipoConfigPantalla == TipoConfigPantalla.Resolucion)
             {
-                // Asegúrate que el formato coincida (ej: "1280x720")
                 pantallaConfig.AplicarResolucionPorNombre(config.indiceOpcionToggle);
             }
             else if (config.tipoConfigPantalla == TipoConfigPantalla.ModoPantalla)
@@ -392,6 +402,7 @@ public class MenuInicial : MonoBehaviour
         if (seleccionBotonIndice >= 0 && seleccionBotonIndice < botones.Count)
         {
             TextMeshProUGUI textoBoton = botones[seleccionBotonIndice].boton.GetComponentInChildren<TextMeshProUGUI>();
+                            Debug.Log("Menu inicial ObtenertextoBotonSele : "+ textoBoton.text);
             if (textoBoton != null)
             {
                 return textoBoton.text;
@@ -464,6 +475,28 @@ public class MenuInicial : MonoBehaviour
                         config.slider.value = 0;
                     }
                 }
+            }
+        }
+    }
+
+
+    private void ProcesarCargaToggle(BotonConfig config)
+    {
+        PantallaConfig pantallaConfig = FindFirstObjectByType<PantallaConfig>();
+        if (pantallaConfig != null)
+        {
+
+            if (config.tipoConfigPantalla == TipoConfigPantalla.Resolucion)
+            {
+                config.indiceOpcionToggle = PlayerPrefs.GetInt("ResolucionIndex", 0);
+                ActualizarTextoBotonToggle(config);
+                pantallaConfig.AplicarResolucionPorNombre(config.indiceOpcionToggle);
+            }
+            else if (config.tipoConfigPantalla == TipoConfigPantalla.ModoPantalla)
+            {
+                config.indiceOpcionToggle = PlayerPrefs.GetInt("ModoPantallaIndex", 0);
+                ActualizarTextoBotonToggle(config);
+                pantallaConfig.AplicarModoPantalla(config.indiceOpcionToggle);
             }
         }
     }

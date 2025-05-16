@@ -18,6 +18,7 @@ public class PantallaConfig : MonoBehaviour
     [Header("UI Resolución")]
     [SerializeField] private Button btnResolucion;
     [SerializeField] private TextMeshProUGUI textoResolucion;
+    [SerializeField] private bool esMenuInicio;
     private Resolucion[] resoluciones = new Resolucion[]
     {
         new Resolucion { ancho = 1920, alto = 1080, nombre = "1920x1080" }, // Índice 0
@@ -42,18 +43,25 @@ public class PantallaConfig : MonoBehaviour
 
     private void Awake()
     {
-        // Establecer 1920x1080 como valor por defecto (índice 0)
-        indiceResolucion = 0;
-
-        PlayerPrefs.SetInt("ResolucionIndex", 0); // 1920x1080
-        PlayerPrefs.SetInt("ModoPantallaIndex", 0); // FullScreenWindow
-    //    Debug.Log($"PlayerPrefs Resolución: {PlayerPrefs.GetInt("ResolucionIndex", -1)}");
-        AplicarConfiguracionInmediata(true);
+        if (esMenuInicio)
+        {
+            // Establecer 1920x1080 como valor por defecto (índice 0)
+            indiceResolucion = 0;
+            PlayerPrefs.SetInt("ResolucionIndex", 0); // 1920x1080
+            PlayerPrefs.SetInt("ModoPantallaIndex", 0); // FullScreenWindow
+                                                        //    Debug.Log($"PlayerPrefs Resolución: {PlayerPrefs.GetInt("ResolucionIndex", -1)}");
+            AplicarConfiguracionInmediata(true);
+        }
+        else
+        {
+            //niveles normales aplicar config
+            PlayerPrefs.GetInt("ResolucionIndex", 0); 
+            PlayerPrefs.GetInt("ModoPantallaIndex", 0); 
+        }
     }
 
     private void Start()
     {
-        // Cargar configuración guardada (sobrescribe el valor por defecto si existe)
         CargarConfiguracion();
         ConfigurarBotones();
 
@@ -63,7 +71,7 @@ public class PantallaConfig : MonoBehaviour
 
     private void CargarConfiguracion()
     {
-        indiceResolucion = PlayerPrefs.GetInt("ResolucionIndex", 0); // 0 = 1920x1080 por defecto
+        indiceResolucion = PlayerPrefs.GetInt("ResolucionIndex", 0); 
         indiceModoPantalla = PlayerPrefs.GetInt("ModoPantallaIndex", 0);
         AplicarConfiguracion();
     }
@@ -72,7 +80,9 @@ public class PantallaConfig : MonoBehaviour
     {
         if (textoResolucion != null)
         {
+
             textoResolucion.text = resoluciones[indiceResolucion].nombre;
+            Debug.Log("pantalla config: "+textoResolucion.text);
         }
     }
 
@@ -131,23 +141,25 @@ public class PantallaConfig : MonoBehaviour
         }
     }
 
-    public bool AplicarResolucionPorNombre(int indiceResolucion)
+    public bool AplicarResolucionPorNombre(int indiceDadoRes)
     {
         for (int i = 0; i < resoluciones.Length; i++)
         {
-            if (i == indiceResolucion)
+            if (i == indiceDadoRes)
             {
-                indiceResolucion = i; // Actualizar el índice para mantener sincronización
+                indiceDadoRes = i; // Actualizar el índice para mantener sincronización
                 Screen.SetResolution(resoluciones[i].ancho, resoluciones[i].alto, modosPantalla[indiceModoPantalla]);
-                Debug.Log($"Resolución cambiada por nombre: {indiceResolucion} (Índice: {i})");
+                indiceResolucion= i;
+                GuardarConfiguracion();
+               // ActualizarUI();
+                Debug.Log($"Resolución cambiada por nombre: {indiceDadoRes} (Índice: {i})");
                 return true;
             }
         }
-        Debug.LogError($"Resolución no encontrada: {indiceResolucion}");
+        Debug.LogError($"Resolución no encontrada: {indiceDadoRes}");
         return false;
     }
 
-    // Resto de los métodos permanecen igual...
     private void GuardarConfiguracion()
     {
         PlayerPrefs.SetInt("ResolucionIndex", indiceResolucion);
@@ -184,7 +196,7 @@ public class PantallaConfig : MonoBehaviour
                 StartCoroutine(AjustarVentana(ancho, alto));
             }
 
-            Debug.Log($"Configuración inmediata aplicada: {ancho}x{alto}");
+         //   Debug.Log($"Configuración inmediata aplicada: {ancho}x{alto}");
         }
         catch (System.Exception e)
         {
