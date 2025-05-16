@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &798508483 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7427453715833980016, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4124741246235428449, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
   m_PrefabInstance: {fileID: 798508480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &798508484 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7709865572227251556, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1704310800385999435, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
   m_PrefabInstance: {fileID: 798508480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
