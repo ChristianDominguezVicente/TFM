@@ -82,8 +82,8 @@ public class RestablecerValoresDefecto : MonoBehaviour
         Debug.Log("Iniciando reset completo...");
 
         // 1. Resetear menús
-        if (MenuInicial.MenuActivo != null)
-            MenuInicial.MenuActivo.ResetearTodo();
+        if (MenuInicial.menuActivo != null)
+            MenuInicial.menuActivo.ResetearTodo();
 
         // 2. Resetear brillo
         if (brilloConfig != null)

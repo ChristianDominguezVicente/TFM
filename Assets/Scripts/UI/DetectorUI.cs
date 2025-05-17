@@ -4,32 +4,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.UI;
 
 public class DetectorUI : MonoBehaviour
 {
-    /*
-    [SerializeField] private TextMeshProUGUI interactText;
-    [SerializeField] private TextMeshProUGUI listenText;
-    [SerializeField] private TextMeshProUGUI nextText;
-    [SerializeField] private TextMeshProUGUI autoText;
-    [SerializeField] private TextMeshProUGUI historyText;
-    [SerializeField] private TextMeshProUGUI skipText;
-    [SerializeField] private string pcInteract;
-    [SerializeField] private string pcListen;
-    [SerializeField] private string pcNext;
-    [SerializeField] private string pcAuto;
-    [SerializeField] private string pcHistory;
-    [SerializeField] private string pcSkip;
-    [SerializeField] private string gamepadInteract;
-    [SerializeField] private string gamepadListen;
-    [SerializeField] private string gamepadNext;
-    [SerializeField] private string gamepadAuto;
-    [SerializeField] private string gamepadHistory;
-    [SerializeField] private string gamepadSkip;
-    [SerializeField] private TMP_FontAsset pcFont;
-    [SerializeField] private TMP_FontAsset gamepadFont;
-    */
+    // Controls Settings 
+    [SerializeField] private Sprite psImage;
+    [SerializeField] private Sprite pcImage;
+    [SerializeField] private Sprite xboxImage;
+    [SerializeField] private Image imageGeneral;
+
     private string controlUsed;
+    private Sprite imageControls;
 
     private void OnEnable()
     {
@@ -52,14 +38,34 @@ public class DetectorUI : MonoBehaviour
         // if a Gamepad is detected and it was not the previous controller, update to Gamepad
         if (device is Gamepad && controlUsed != "Gamepad")
         {
+            if (device.name.Contains("xbox") || device.name.Contains("xinput") || UnityEngine.InputSystem.Gamepad.current is UnityEngine.InputSystem.XInput.XInputController)
+            {
+          //      Debug.Log("Mando de Xbox conectado");
+                imageControls = xboxImage;
+            }
+            else
+            {
+          //      Debug.Log("Mando de PlayStation conectado");
+                imageControls = psImage;
+            }
             controlUsed = "Gamepad";
             UpdateUIForGamepad();
         }
         // if a Keyboard or Mouse is detected and it was not the previous controller, update to Keyboard
         else if ((device is Keyboard || device is Mouse) && controlUsed != "Keyboard")
         {
+            imageControls = pcImage;
             controlUsed = "Keyboard";
             UpdateUIForKeyboard();
+        }
+        UpdateUiForControls();
+    }
+
+    private void UpdateUiForControls()
+    {
+        if (imageGeneral != null && imageControls != null)
+        {
+            imageGeneral.sprite = imageControls;
         }
     }
 

@@ -82,7 +82,7 @@ public class PantallaConfig : MonoBehaviour
         {
 
             textoResolucion.text = resoluciones[indiceResolucion].nombre;
-            Debug.Log("pantalla config: "+textoResolucion.text);
+         //   Debug.Log("pantalla config: "+textoResolucion.text);
         }
     }
 

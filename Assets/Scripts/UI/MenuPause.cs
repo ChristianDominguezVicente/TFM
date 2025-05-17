@@ -10,6 +10,8 @@ public class MenuPause : MonoBehaviour
     [SerializeField] private DetectorUI gameManager;
     [SerializeField] private InputDetector inputDetector;
 
+    [SerializeField] private GameObject menuHUD;
+
     private bool isPaused = false;
     private bool firstTimePaused = true;
     public bool IsPaused { get => isPaused; set => isPaused = value; }
@@ -19,6 +21,7 @@ public class MenuPause : MonoBehaviour
     {
         if (isPaused && firstTimePaused)
         {
+            menuHUD.SetActive(false);
             PauseGame();
             inputDetector.enabled = false;
             gameManager.enabled = true;
@@ -36,6 +39,7 @@ public class MenuPause : MonoBehaviour
 
     public void ResumeGame()
     {
+        menuHUD.SetActive(true);
         firstTimePaused = true;
         gameManager.enabled = false;
         inputDetector.enabled = true;

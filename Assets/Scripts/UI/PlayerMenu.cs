@@ -31,7 +31,7 @@ public class PlayerMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MenuInicial.MenuActivo != null)
+        if (MenuInicial.menuActivo != null)
         {
             UI_Move();
             UI_Interact();
@@ -41,7 +41,7 @@ public class PlayerMenu : MonoBehaviour
 
     private void UI_Move()
     {
-        if (MenuInicial.MenuActivo == null) return;
+        if (MenuInicial.menuActivo == null) return;
 
         Vector2 input = _input.ui_move;
         float deadzone = 0.7f;
@@ -49,24 +49,24 @@ public class PlayerMenu : MonoBehaviour
         if (Time.time - lastInputTime < inputCooldown) return;
 
         // Modo ajuste de toggle
-        if (MenuInicial.MenuActivo.IsAdjustingToggle() && Mathf.Abs(input.x) > deadzone)
+        if (MenuInicial.menuActivo.IsAdjustingToggle() && Mathf.Abs(input.x) > deadzone)
         {
             int direction = input.x > 0 ? 1 : -1;
-            MenuInicial.MenuActivo.CambiarOpcionToggle(direction);
+            MenuInicial.menuActivo.CambiarOpcionToggle(direction);
             lastInputTime = Time.time;
         }
         // Modo ajuste de slider (mantén tu código existente)
-        else if (MenuInicial.MenuActivo.IsAdjustingSlider() && Mathf.Abs(input.x) > deadzone)
+        else if (MenuInicial.menuActivo.IsAdjustingSlider() && Mathf.Abs(input.x) > deadzone)
         {
             int direction = input.x > 0 ? 1 : -1;
-            MenuInicial.MenuActivo.MoveSelection(direction);
+            MenuInicial.menuActivo.MoveSelection(direction);
             lastInputTime = Time.time;
         }
         // Navegación normal (vertical)
         else if (Mathf.Abs(input.y) > deadzone)
         {
             int direction = input.y > 0 ? -1 : 1;
-            MenuInicial.MenuActivo.MoveSelection(direction);
+            MenuInicial.menuActivo.MoveSelection(direction);
             lastInputTime = Time.time;
         }
     }
@@ -75,28 +75,28 @@ public class PlayerMenu : MonoBehaviour
     {
         if (_input.interact)
         {
-            if (MenuInicial.MenuActivo.IsAdjustingToggle())
+            if (MenuInicial.menuActivo.IsAdjustingToggle())
             {
                 // Confirmar selección y salir del modo ajuste
-                MenuInicial.MenuActivo.ToggleModoAjuste();
+                MenuInicial.menuActivo.ToggleModoAjuste();
             }
-            else if (MenuInicial.MenuActivo.IsAdjustingSlider())
+            else if (MenuInicial.menuActivo.IsAdjustingSlider())
             {
-                MenuInicial.MenuActivo.ToggleAjusteSlider();
+                MenuInicial.menuActivo.ToggleAjusteSlider();
             }
-            else if (MenuInicial.MenuActivo.CurrentButtonIsToggle())
+            else if (MenuInicial.menuActivo.CurrentButtonIsToggle())
             {
                 // Entrar en modo ajuste
-                MenuInicial.MenuActivo.ToggleModoAjuste();
+                MenuInicial.menuActivo.ToggleModoAjuste();
             }
-            else if (MenuInicial.MenuActivo.CurrentButtonHasAdjacentSlider())
+            else if (MenuInicial.menuActivo.CurrentButtonHasAdjacentSlider())
             {
-                MenuInicial.MenuActivo.ToggleAjusteSlider();
+                MenuInicial.menuActivo.ToggleAjusteSlider();
             }
             else
             {
                 // Acción normal del botón
-                MenuInicial.MenuActivo.ActivateSelectedButton();
+                MenuInicial.menuActivo.ActivateSelectedButton();
             }
             _input.interact = false;
         }

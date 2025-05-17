@@ -50,7 +50,7 @@ public class MenuInicial : MonoBehaviour
     [SerializeField] private GameObject menuAnterior; // Solo necesario para esVolver
     [SerializeField] private MenuPause menuPausa;
     private List<Button> currentButtons = new List<Button>();
-    public static MenuInicial MenuActivo { get; private set; }
+    public static MenuInicial menuActivo { get; private set; }
 
     // Indices 
     private int seleccionBotonIndice = 0;
@@ -74,16 +74,16 @@ public class MenuInicial : MonoBehaviour
     }
     private void OnEnable()
     {
-        MenuActivo = this;
+        menuActivo = this;
         seleccionBotonIndice = 0;
         UpdatePanel();
     }
     private void OnDisable()
     {
         // Si este menú era el activo, limpia la referencia
-        if (MenuActivo == this)
+        if (menuActivo == this)
         {
-            MenuActivo = null;
+            menuActivo = null;
         }
     }
 
@@ -249,7 +249,7 @@ public class MenuInicial : MonoBehaviour
                 if (textoBoton != null)
                 {
                     textoBoton.text = config.opcionesToggle[config.indiceOpcionToggle];
-                    Debug.Log("Menu inicial ACTUALIZARBOTONTOGGLE : " + textoBoton.text);
+             //       Debug.Log("Menu inicial ACTUALIZARBOTONTOGGLE : " + textoBoton.text);
                 }
             }
         }
