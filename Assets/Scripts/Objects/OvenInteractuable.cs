@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,10 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private ObjectManager objectManager;
     [SerializeField] private string nextScene;
     [SerializeField] private CanvasGroup fadeOut;
+    [SerializeField] private PossessionManager possessionManager;
+
+    [Header("Restricted NPCs")]
+    [SerializeField] private string[] restrictedNPCs;
 
     private string originalText;
     private bool showingWarning = false;
@@ -24,7 +29,13 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
     {
         if (showingWarning) return;
 
-        if (!objectManager.ValveActive)
+        var currentNpc = possessionManager.CurrentNPC;
+
+        if (currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
+        {
+            StartCoroutine(ShowWarning($"<color=red>Children should not use it</color>"));
+        }
+        else if (!objectManager.ValveActive)
         {
             StartCoroutine(ShowWarning("<color=red>You must turn the valve first</color>"));
         }

@@ -4,6 +4,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -61,6 +62,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [Header("Camera Effects")]
     [SerializeField] private Volume volume;
 
+    [Header("Return NPC")]
+    [SerializeField] private Transform teleportPoint;
+   
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -82,12 +86,20 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private DepthOfField blur;
 
+    // Return NPC
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    private NavMeshAgent navAgent;
+    private Animator anim;
+    private bool flagTP = false;
+
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
     public string NpcName { get => npcName; set => npcName = value; }
     public bool Talking { get => talking; set => talking = value; }
     public GameObject Player { get => player; set => player = value; }
     public bool Listening { get => listening; set => listening = value; }
+    public bool FlagTP { get => flagTP; set => flagTP = value; }
 
     public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
@@ -96,6 +108,13 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         // save the blur
         volume.profile.TryGet<DepthOfField>(out blur);
+        // return NPC
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
+        navAgent = GetComponent<NavMeshAgent>();
+        if (navAgent != null)
+            navAgent.enabled = false;
+        anim = GetComponent<Animator>();
     }
 
     public void Possess(Transform interactorTransform)
@@ -175,6 +194,56 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         // returns the camera to the player
         virtualCamera.Follow = playerTarget;
         virtualCamera.LookAt = playerTarget;
+
+        if (navAgent != null)
+        {
+            navAgent.enabled = true;
+
+            if (teleportPoint != null && flagTP)
+            {
+                StartCoroutine(PathFinding());
+            }
+            else
+            {
+                navAgent.SetDestination(originalPosition);
+                StartCoroutine(OriginalRotation());
+            }
+        }
+    }
+
+    private IEnumerator PathFinding()
+    {
+        navAgent.SetDestination(teleportPoint.position);
+
+        while (navAgent.pathPending || navAgent.remainingDistance > navAgent.stoppingDistance)
+        {
+            yield return null;
+        }
+
+        navAgent.SetDestination(originalPosition);
+        StartCoroutine(OriginalRotation());
+    }
+
+    private IEnumerator OriginalRotation()
+    {
+        while (navAgent.pathPending || navAgent.remainingDistance > navAgent.stoppingDistance)
+        {
+            yield return null;
+        }
+
+        float duration = 0.5f;
+        float elapsed = 0;
+        Quaternion startRot = transform.rotation;
+
+        while (elapsed < duration)
+        {
+            transform.rotation = Quaternion.Slerp(startRot, originalRotation, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.rotation = originalRotation;
+        navAgent.enabled = false;
     }
 
     private void NextPhrase()
@@ -435,6 +504,17 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             Vector3 interactorLookPos = new Vector3(transform.position.x, interactor.position.y, transform.position.z);
             Quaternion interactorRotation = Quaternion.LookRotation(interactorLookPos - interactor.position);
             interactor.rotation = Quaternion.Slerp(interactor.rotation, interactorRotation, Time.deltaTime * 5f);
+        }
+
+        if (navAgent != null && navAgent.enabled && navAgent.remainingDistance > 0.1f)
+        {
+            float currentSpeed = navAgent.velocity.magnitude;
+            anim.SetFloat("Speed", currentSpeed);
+            anim.SetFloat("MotionSpeed", currentSpeed > 0.1f ? 1f : 0f);
+        }
+        else
+        {
+            anim.SetFloat("Speed", 0f);
         }
     }
 
