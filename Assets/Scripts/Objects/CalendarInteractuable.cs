@@ -18,6 +18,7 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // save original position and rotation
         if (!hasOriginalTransform)
         {
             originalPosition = transform.parent.position;
@@ -25,10 +26,12 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
             hasOriginalTransform = true;
         }
 
+        // activate looking
         if (!looking)
         {
             StartLooking();
         }
+        // deactivate looking
         else
         {
             StopLooking();
@@ -63,13 +66,16 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
 
     private void Update()
     {
+        // if player is looking
         if (looking && objectManager.Looking)
         {
+            // rotate the object
             if (offset != null)
             {
                 transform.parent.position = Vector3.Lerp(transform.parent.position, offset.position, 0.2f);
             }
         }
+        // if player is not looking
         else if (objectManager.LookingObject != null && !objectManager.Looking)
         {
             StopLooking();

@@ -22,31 +22,38 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
 
     private void Start()
     {
+        // save original text
         originalText = interactText;
     }
 
     public void Interact(Transform interactorTransform)
     {
+        // if there is a warning
         if (showingWarning) return;
 
         var currentNpc = possessionManager.CurrentNPC;
 
+        // if player possess a restricted NPC
         if (currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
         {
             StartCoroutine(ShowWarning($"<color=red>Children should not use it</color>"));
         }
+        // if valve is not activated
         else if (!objectManager.ValveActive)
         {
             StartCoroutine(ShowWarning("<color=red>You must turn the valve first</color>"));
         }
+        // if player hasn't taken the recipes
         else if (!(objectManager.Recipe1 && objectManager.Recipe2))
         {
             StartCoroutine(ShowWarning("<color=red>You need both recipes</color>"));
         }
+        // if player hasn't taken the ingredients
         else if (!(objectManager.Flour && objectManager.Eggs && objectManager.Sugar))
         {
             StartCoroutine(ShowWarning("<color=red>Missing ingredients</color>"));
         }
+        // if everything is ok
         else
         {
             StartCoroutine(FadeOut());
@@ -76,6 +83,7 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
             yield return null;
         }
 
+        // load next level
         SceneManager.LoadScene(nextScene);
     }
 }

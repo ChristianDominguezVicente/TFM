@@ -17,6 +17,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     {
         if (!open)
         {
+            // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;
         }
@@ -27,12 +28,14 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     {
         if (open)
         {
+            // if current rotation has not reach final rotation
             if (Quaternion.Angle(transform.parent.rotation, rotation) > 0.1f)
             {
                 transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, rotation, Time.deltaTime * rotationSpeed);
             }
             else
             {
+                // destroy script
                 Destroy(this);
             }
         }

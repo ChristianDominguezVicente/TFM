@@ -10,6 +10,7 @@ public class Recipe2Interactuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // mark it in the ObjectManager
         objectManager.Recipe2 = true;
         // deactivates the object in the scene when interacted with
         gameObject.SetActive(false);

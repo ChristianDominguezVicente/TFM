@@ -84,9 +84,10 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     private DialogueData originalDialogueData;
     private bool listening = false;
 
+    // camera effects
     private DepthOfField blur;
 
-    // Return NPC
+    // return NPC
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private NavMeshAgent navAgent;
@@ -199,10 +200,12 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         {
             navAgent.enabled = true;
 
+            // if there is a TP and the player have used one
             if (teleportPoint != null && flagTP)
             {
                 StartCoroutine(PathFinding());
             }
+            // if the player have not used a TP
             else
             {
                 navAgent.SetDestination(originalPosition);
@@ -213,19 +216,23 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private IEnumerator PathFinding()
     {
+        // move to the TP
         navAgent.SetDestination(teleportPoint.position);
 
+        // wait the NPC to reach the TP
         while (navAgent.pathPending || navAgent.remainingDistance > navAgent.stoppingDistance)
         {
             yield return null;
         }
 
+        // then move to the original point and rotates
         navAgent.SetDestination(originalPosition);
         StartCoroutine(OriginalRotation());
     }
 
     private IEnumerator OriginalRotation()
     {
+        // wait the NPC to reach the TP
         while (navAgent.pathPending || navAgent.remainingDistance > navAgent.stoppingDistance)
         {
             yield return null;
@@ -495,25 +502,31 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private void Update()
     {
+        // if player is talking and not in a cinematic
         if (talking && interactor != null && !cinematicFlag)
         {
+            // NPC look interactor
             Vector3 transformLookPos = new Vector3(interactor.position.x, transform.position.y, interactor.position.z);
             Quaternion transformRotation = Quaternion.LookRotation(transformLookPos - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, transformRotation, Time.deltaTime * 5f);
-
+            
+            // interactor look NPC
             Vector3 interactorLookPos = new Vector3(transform.position.x, interactor.position.y, transform.position.z);
             Quaternion interactorRotation = Quaternion.LookRotation(interactorLookPos - interactor.position);
             interactor.rotation = Quaternion.Slerp(interactor.rotation, interactorRotation, Time.deltaTime * 5f);
         }
 
+        // if NPC's navAgent is active and moving
         if (navAgent != null && navAgent.enabled && navAgent.remainingDistance > 0.1f)
         {
             float currentSpeed = navAgent.velocity.magnitude;
+            // update parameters of the animation
             anim.SetFloat("Speed", currentSpeed);
             anim.SetFloat("MotionSpeed", currentSpeed > 0.1f ? 1f : 0f);
         }
         else
         {
+            // if NPC is not moving
             anim.SetFloat("Speed", 0f);
         }
     }

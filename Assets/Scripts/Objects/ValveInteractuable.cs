@@ -14,7 +14,9 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // mark it in the ObjectManager
         objectManager.ValveActive = true;
+        // valve rotation
         StartCoroutine(Rotate());
     }
 
@@ -31,6 +33,7 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
             yield return null;
         }
 
+        // destroy script
         Destroy(this);
     }
 }

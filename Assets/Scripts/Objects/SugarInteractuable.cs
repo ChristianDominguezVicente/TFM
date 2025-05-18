@@ -10,6 +10,7 @@ public class SugarInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // mark it in the ObjectManager
         objectManager.Sugar = true;
         // deactivates the object in the scene when interacted with
         gameObject.SetActive(false);

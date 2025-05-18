@@ -10,6 +10,7 @@ public class EggsInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // mark it in the ObjectManager
         objectManager.Eggs = true;
         // deactivates the object in the scene when interacted with
         gameObject.SetActive(false);

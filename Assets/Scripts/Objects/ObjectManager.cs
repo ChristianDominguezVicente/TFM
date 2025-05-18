@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    // looking object
     private bool looking = false;
     private Transform lookingObject;
 
+    // flags
     private bool masterKeyTaken = false;
     private bool valveActive = false;
     private bool sugar = false;

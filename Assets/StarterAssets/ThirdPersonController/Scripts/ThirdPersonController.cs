@@ -262,10 +262,15 @@ namespace StarterAssets
 
         private void Update()
         {
+            // if the player is entering a code
             if (codeUI != null && codeUI.Active)
             {
+                // reset animations
                 possesionManager.CurrentController.DeactivateControl();
+                // detect inputs available
                 codeUI.Inputs(_input.ui_move, _input.interact, _input.cancel);
+
+                // reset buttons that had the same input
                 ResetInputs();
 
                 return;
@@ -285,11 +290,13 @@ namespace StarterAssets
 
                 return;
             }
+            // if the player is looking a object
             else if (objectManager.Looking)
             {
                 LookingObject();
                 Cancel();
 
+                // reset buttons that had the same input
                 ResetInputs();
 
                 return;
@@ -1075,13 +1082,14 @@ namespace StarterAssets
 
         private void LookingObject()
         {
+            // reset animations
             possesionManager.CurrentController.DeactivateControl();
             Vector2 lookInput = _input.look;
-
+            // minimum threshold
             float threshold = 0.1f;
             if (lookInput.sqrMagnitude < threshold * threshold)
                 return;
-
+            // rotate object
             objectManager.LookingObject.Rotate(Vector3.up, lookInput.x * rotationSpeed, Space.World);
             objectManager.LookingObject.Rotate(Vector3.left, lookInput.y * rotationSpeed, Space.World);
         }
@@ -1090,6 +1098,7 @@ namespace StarterAssets
         {
             if (_input.cancel)
             {
+                // if the player is looking a object
                 if (objectManager != null && objectManager.Looking)
                 {
                     objectManager.Looking = false;

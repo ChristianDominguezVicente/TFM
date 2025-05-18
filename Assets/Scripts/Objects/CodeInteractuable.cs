@@ -19,15 +19,18 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // show UI
         codeUI.Show(this);
     }
 
+    // when the correct code is entered
     public void OpenDrawer()
     {
         codeUI.Hide();
         StartCoroutine(MoveDrawer());
     }
 
+    // drawer opening animation
     private IEnumerator MoveDrawer()
     {
         Vector3 startPos = drawerObject.localPosition;
@@ -43,7 +46,9 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
         drawerObject.localPosition = targetPos;
 
+        // activate master key
         masterKey.SetActive(true);
+        // destroy script
         Destroy(this);
     }
 }
