@@ -19,6 +19,7 @@ public class MenuInicial : MonoBehaviour
         public GameObject menuDestino;  // Dejar null para acciones especiales
         public bool esSalir = false;
         public bool esVolver = false;
+        public bool esNuevaPartida = false;
         public bool esCargarPartida = false;
 
         [Header("Botón cambiante")]
@@ -101,9 +102,12 @@ public class MenuInicial : MonoBehaviour
             {
                 currentButtons.Add(config.boton);
                 config.boton.onClick.RemoveAllListeners();
-                if (config.esCargarPartida)
+                if (config.esNuevaPartida)
                 {
                     config.boton.onClick.AddListener(EntrarJuego);
+                }else if (config.esCargarPartida)
+                {
+                    config.boton.onClick.AddListener(CargarPartida);
                 }
                 else if (config.esSalir)
                 {
@@ -146,8 +150,17 @@ public class MenuInicial : MonoBehaviour
         }
     }
 
+    private void CargarPartida()
+    {
+
+            SaveSystem.SetNewGameMode(false); // Modo cargar partida
+            SceneManager.LoadScene("Greybox");
+        
+    }
+
     private void EntrarJuego()
     {
+        SaveSystem.SetNewGameMode(true); // Forzar nueva partida
         SceneManager.LoadScene("Greybox");
     }
 
