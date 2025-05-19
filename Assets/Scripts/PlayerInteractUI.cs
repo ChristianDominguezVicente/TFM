@@ -28,26 +28,46 @@ public class PlayerInteractUI : MonoBehaviour
     }
     private void Show(object interactable)
     {
-        containerGameObject.SetActive(true);
-
         // if it is a IInteractuable object, its interaction text is displayed
         if (interactable is IInteractuable interactuable)
         {
+            containerGameObject.SetActive(true);
             interactText.text = interactuable.GetInteractText();
         }
         // if it is a IPossessable object, its possess text is displayed
         else if (interactable is IPossessable possessable)
         {
-            string text = possessable.GetPossessText();
-            if (possessionManager.IsPossessing)
+            if (possessable is NPCPossessable npcP)
             {
-                int firstSpaceIndex = text.IndexOf(' ');
-                if (firstSpaceIndex != -1)
+                containerGameObject.SetActive(true);
+                string text = possessable.GetPossessText();
+                if (possessionManager.IsPossessing)
                 {
-                    text = "Talk" + text.Substring(firstSpaceIndex);
+                    int firstSpaceIndex = text.IndexOf(' ');
+                    if (firstSpaceIndex != -1)
+                    {
+                        text = "Talk" + text.Substring(firstSpaceIndex);
+                    }
                 }
+                interactText.text = text;
             }
-            interactText.text = text;
+            else if (possessable is NPCNonPossessable npcNP)
+            {
+                if (possessionManager.CurrentNPC != null)
+                {
+                    containerGameObject.SetActive(true);
+                    string text = possessable.GetPossessText();
+                    if (possessionManager.IsPossessing)
+                    {
+                        int firstSpaceIndex = text.IndexOf(' ');
+                        if (firstSpaceIndex != -1)
+                        {
+                            text = "Talk" + text.Substring(firstSpaceIndex);
+                        }
+                    }
+                    interactText.text = text;
+                }
+            }    
         }
         // otherwise, the text is cleared
         else

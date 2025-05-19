@@ -575,6 +575,11 @@ namespace StarterAssets
                     // selects the current choice
                     npcP.SelectCurrentChoice();
                 }
+                else if (GetInteractuables() is NPCNonPossessable npcNP)
+                {
+                    // selects the current choice
+                    npcNP.SelectCurrentChoice();
+                }
 
                 _input.interact = false;
                 return;
@@ -590,6 +595,11 @@ namespace StarterAssets
                 {
                     auto = npcP.AutoTalking;
                     skip = npcP.SkipTalking;
+                }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    auto = npcNP.AutoTalking;
+                    skip = npcNP.SkipTalking;
                 }
             }
             // if history is being displayed or auto-talking is active or skip-talking is active
@@ -613,7 +623,15 @@ namespace StarterAssets
                 // if the object implements the IPossessable interface
                 else if (target is IPossessable possessable)
                 {
-                    possessable.Possess(transform);
+                    if (possessable is NPCPossessable npcP)
+                    {
+                        possessable.Possess(transform);
+                    }
+                    else if (possessable is NPCNonPossessable npcNP)
+                    {
+                        if (possesionManager.CurrentNPC != null || npcNP.Listening)
+                            possessable.Possess(transform);
+                    }
                 }
 
                 _input.interact = false;
@@ -688,6 +706,14 @@ namespace StarterAssets
                     return;
                 }
             }
+            else if (t is NPCNonPossessable nn)
+            {
+                if (nn.Talking || nn.AutoTalking || nn.SkipTalking || nn.Listening)
+                {
+                    _input.listen = false;
+                    return;
+                }
+            }
 
             if (_input.listen)
             {
@@ -698,6 +724,11 @@ namespace StarterAssets
                 {
                     // start listening
                     npc.StartListeningDialogue(transform);
+                }
+                else if (target is NPCNonPossessable npcNon)
+                {
+                    // start listening
+                    npcNon.StartListeningDialogue(transform);
                 }
 
                 _input.listen = false;
@@ -793,6 +824,11 @@ namespace StarterAssets
                 {
                     auto = npcP.AutoTalking;
                     skip = npcP.SkipTalking;
+                }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    auto = npcNP.AutoTalking;
+                    skip = npcNP.SkipTalking;
                 }
             }
             // if auto-talking, skip-talking or choice panel is active the history will not be displayed
@@ -940,6 +976,10 @@ namespace StarterAssets
                 {
                     skip = npcP.SkipTalking;
                 }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    skip = npcNP.SkipTalking;
+                }
             }
             // if history, skip-talking or choice panel is active auto-talking will not activate
             if (showingHistory || skip || choicePanel.IsShowing)
@@ -959,6 +999,11 @@ namespace StarterAssets
                     {
                         // start auto-talking
                         npcPossessable.AutoTalk();
+                    }
+                    else if (possessable is NPCNonPossessable npcNonPossessable)
+                    {
+                        // start auto-talking
+                        npcNonPossessable.AutoTalk();
                     }
                 }
 
@@ -1005,6 +1050,10 @@ namespace StarterAssets
                 {
                     auto = npcP.AutoTalking;
                 }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    auto = npcNP.AutoTalking;
+                }
             }
             // if history, auto-talking or choice panel is active skip-talking will not activate
             if (showingHistory || auto || choicePanel.IsShowing)
@@ -1024,6 +1073,11 @@ namespace StarterAssets
                     {
                         // start skip-talking
                         npcPossessable.SkipTalk();
+                    }
+                    else if (possessable is NPCNonPossessable npcNonPossessable)
+                    {
+                        // start skip-talking
+                        npcNonPossessable.SkipTalk();
                     }
                 }
 
