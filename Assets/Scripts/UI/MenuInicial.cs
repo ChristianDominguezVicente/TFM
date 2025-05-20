@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
@@ -20,7 +21,12 @@ public class MenuInicial : MonoBehaviour
         public bool esSalir = false;
         public bool esVolver = false;
         public bool esNuevaPartida = false;
-        public bool esCargarPartida = false;
+
+        [Header("Botones de Slot de Guardado")]
+        public bool esSlotCargandoPartida = false; // cargado partida
+        public bool esGuardarPartida = false; //guardado partida
+        public int indiceSlot = 0; // 0, 1, 2 para los slots
+        public int indiceSlotGuardado = 0;
 
         [Header("Botón cambiante")]
         public Button botonToggle;
@@ -72,12 +78,15 @@ public class MenuInicial : MonoBehaviour
     private void Start()
     {
         ConfigurarBotones();
+       
     }
     private void OnEnable()
     {
         menuActivo = this;
+        
         seleccionBotonIndice = 0;
         UpdatePanel();
+
     }
     private void OnDisable()
     {
@@ -105,9 +114,12 @@ public class MenuInicial : MonoBehaviour
                 if (config.esNuevaPartida)
                 {
                     config.boton.onClick.AddListener(EntrarJuego);
-                }else if (config.esCargarPartida)
+                }else if (config.esSlotCargandoPartida) // cargar partida
                 {
-                    config.boton.onClick.AddListener(CargarPartida);
+                    ConfigureForLoadData(config);
+                } else if (config.esGuardarPartida) // guardar partida
+                {
+                    ConfigureSaveButton(config);
                 }
                 else if (config.esSalir)
                 {
@@ -150,17 +162,48 @@ public class MenuInicial : MonoBehaviour
         }
     }
 
-    private void CargarPartida()
+    private void ConfigureSaveButton(BotonConfig config)
     {
+        TextMeshProUGUI textoBoton = config.boton.GetComponentInChildren<TextMeshProUGUI>();
+        textoBoton.text = $"Guardar en Slot {config.indiceSlotGuardado + 1}";
 
-            SaveSystem.SetNewGameMode(false); // Modo cargar partida
-            SceneManager.LoadScene("Greybox");
-        
+        config.boton.onClick.AddListener(() => {
+            SaveSystemMult saveSystem = FindFirstObjectByType<SaveSystemMult>();
+            saveSystem.SaveGame(config.indiceSlotGuardado);
+            UpdateSingleSaveSlotUI(config.indiceSlotGuardado);
+        });
     }
+
+    private void ConfigureForLoadData(BotonConfig config)
+    {
+        SaveSystemMult saveSystem = FindFirstObjectByType<SaveSystemMult>();
+        TextMeshProUGUI textoBoton = config.boton.GetComponentInChildren<TextMeshProUGUI>();
+        textoBoton.text = saveSystem.GetSaveInfo(config.indiceSlot);
+
+        config.boton.onClick.AddListener(() => {
+            SaveSystemMult.CurrentSlot = config.indiceSlot;
+            if (saveSystem.HasSave(config.indiceSlot))
+            {
+                saveSystem.LoadGame(config.indiceSlot); // cargo partida
+            }
+            else
+            {
+                Debug.Log("NUEVA PARTIDAAA");
+                SceneManager.LoadScene("Greybox"); // Nueva partida
+            }
+        });
+    }
+    private void UpdateSingleSaveSlotUI(int slotIndex)
+    {
+        SaveSystemMult saveSystem = FindFirstObjectByType<SaveSystemMult>();
+        SlotUpdateLoad slotUpdateLoad = FindFirstObjectByType<SlotUpdateLoad>();
+        slotUpdateLoad.UpdateText(slotIndex, saveSystem.GetSaveInfo(slotIndex));
+      //  Debug.Log("Guardado en el texto: "+ slotIndex);
+    }
+
 
     private void EntrarJuego()
     {
-        SaveSystem.SetNewGameMode(true); // Forzar nueva partida
         SceneManager.LoadScene("Greybox");
     }
 

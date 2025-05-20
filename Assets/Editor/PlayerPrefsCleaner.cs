@@ -19,9 +19,15 @@ public class PlayerPrefsCleaner : EditorWindow
         Debug.Log($"Modo Pantalla: {PlayerPrefs.GetInt("ModoPantallaIndex", -1)}");
 
         //player pos
-        Debug.Log($"PlayerPosX: {PlayerPrefs.GetFloat("PlayerPosX", -1)}");
-        Debug.Log($"PlayerPosY: {PlayerPrefs.GetFloat("PlayerPosY", -1)}");
-        Debug.Log($"PlayerPosZ: {PlayerPrefs.GetFloat("PlayerPosZ", -1)}");
+        for (int i = 0; i < 3; i++) // Suponiendo 3 slots
+        {
+            Debug.Log($"<color=cyan>--- Slot {i + 1} ---</color>");
+            Debug.Log($"Slot{i}_PosX: {PlayerPrefs.GetFloat($"Slot{i}_PosX", -999f)}");
+            Debug.Log($"Slot{i}_PosY: {PlayerPrefs.GetFloat($"Slot{i}_PosY", -999f)}");
+            Debug.Log($"Slot{i}_PosZ: {PlayerPrefs.GetFloat($"Slot{i}_PosZ", -999f)}");
+            Debug.Log($"Slot{i}_Scene: {PlayerPrefs.GetString($"Slot{i}_Scene", "N/A")}");
+            Debug.Log($"Slot{i}_PlayTime: {PlayerPrefs.GetFloat($"Slot{i}_PlayTime", -1f)}");
+        }
 
         Debug.Log("<color=yellow>------------------------</color>");
     }
