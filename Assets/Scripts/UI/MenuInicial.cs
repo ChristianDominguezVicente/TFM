@@ -17,7 +17,7 @@ public class MenuInicial : MonoBehaviour
     {
         [Header("Botones normales")]
         public Button boton;
-        public GameObject menuDestino;  // Dejar null para acciones especiales
+        public GameObject menuDestino;  // Leave null for special actions
         public bool esSalir = false;
         public bool esVolver = false;
         public bool esNuevaPartida = false;
@@ -188,7 +188,6 @@ public class MenuInicial : MonoBehaviour
             }
             else
             {
-                Debug.Log("NUEVA PARTIDAAA");
                 SceneManager.LoadScene("Greybox"); // Nueva partida
             }
         });
