@@ -6,16 +6,23 @@ public class SaveSystemMult : MonoBehaviour
 {
     [Header("Configuración player")]
     [SerializeField] private GameObject player;
+    [SerializeField] private PossessionManager possessionManager;
     public static int CurrentSlot { get; set; } = -1;
     private const string PlayerTag = "Player";
     private const string SceneName = "Greybox"; // Nombre de la escena del juego
 
-    // Claves para PlayerPrefs
+    // save pos player, scene and play time 
     private static string GetPositionXKey(int slot) => $"Slot{slot}_PosX";
     private static string GetPositionYKey(int slot) => $"Slot{slot}_PosY";
     private static string GetPositionZKey(int slot) => $"Slot{slot}_PosZ";
     private static string GetSceneKey(int slot) => $"Slot{slot}_Scene";
     private static string GetPlayTimeKey(int slot) => $"Slot{slot}_PlayTime";
+
+    // save possesion bar
+    private static string GetPossessionFillKey(int slot) => $"Slot{slot}_PossessionFill";
+    private static string GetPossessionCurrentTimeKey(int slot) => $"Slot{slot}_PossessionCurrentTime";
+    private static string GetPossessionMaxTimeKey(int slot) => $"Slot{slot}_PossessionMaxTime";
+
 
     private float sessionStartTime;
     private float currentPlayTime;
@@ -42,8 +49,8 @@ public class SaveSystemMult : MonoBehaviour
         {
             FindPlayer();
             LoadPlayerPosition();
-            Debug.Log($"Posición del jugador DESPUÉS de cargar: {player.transform.position}");
             LoadPlayTime(); // Cargar el tiempo de juego al cargar una partida
+            LoadPossessionBar();
         }
         else if (scene.name == SceneName)
         {
@@ -91,6 +98,20 @@ public class SaveSystemMult : MonoBehaviour
             PlayerPrefs.SetFloat(GetPositionZKey(slotIndex), player.transform.position.z);
             PlayerPrefs.SetString(GetSceneKey(slotIndex), SceneManager.GetActiveScene().name);
             PlayerPrefs.SetFloat(GetPlayTimeKey(slotIndex), currentPlayTime); // Guardar el tiempo actual de la partida
+
+            if (possessionManager != null) // bar posses
+            {
+                PlayerPrefs.SetFloat(GetPossessionCurrentTimeKey(slotIndex), possessionManager.GetCurrentTime());
+                PlayerPrefs.SetFloat(GetPossessionMaxTimeKey(slotIndex), possessionManager.GetMaxTime());
+                Debug.Log($"Barra de posesión guardada: CurrentTime={possessionManager.GetCurrentTime()}, MaxTime={possessionManager.GetMaxTime()}");
+            }
+            else
+            {
+                Debug.LogWarning("PossessionManager no está asignado en SaveSystemMult. No se pudo guardar la barra de posesión.");
+            }
+
+
+
             PlayerPrefs.Save();
             Debug.Log($"Partida guardada en Slot {slotIndex} en la escena {SceneManager.GetActiveScene().name} con tiempo de juego: {FormatPlayTime(currentPlayTime)}");
         }
@@ -156,6 +177,22 @@ public class SaveSystemMult : MonoBehaviour
         int minutes = Mathf.FloorToInt((seconds % 3600) / 60);
         int secs = Mathf.FloorToInt(seconds % 60);
         return $"{hours:00}:{minutes:00}:{secs:00}";
+    }
+
+    void LoadPossessionBar()
+    {
+        if (possessionManager != null)
+        {
+            float savedCurrentTime = PlayerPrefs.GetFloat(GetPossessionCurrentTimeKey(CurrentSlot), possessionManager.GetDefaultMaxPossessionTime()); // O 0f si siempre empieza vacía en una nueva partida
+            float savedMaxTime = PlayerPrefs.GetFloat(GetPossessionMaxTimeKey(CurrentSlot), possessionManager.GetDefaultMaxPossessionTime());
+
+            possessionManager.SetPossessionTimes(savedCurrentTime, savedMaxTime);
+            Debug.Log($"Barra de posesión cargada: CurrentTime={savedCurrentTime}, MaxTime={savedMaxTime} para Slot {CurrentSlot}");
+        }
+        else
+        {
+            Debug.LogWarning("PossessionManager no está asignado en SaveSystemMult. No se pudo cargar la barra de posesión.");
+        }
     }
 
 }
