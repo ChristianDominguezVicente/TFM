@@ -125,7 +125,6 @@ public class HintManager : MonoBehaviour, IPossessable
         autoTalking = false;
         skipTalking = false;
 
-        CinematicDialogue.CurrentNPC = null;
         hintManager = null;
 
         otherImage.gameObject.SetActive(false);

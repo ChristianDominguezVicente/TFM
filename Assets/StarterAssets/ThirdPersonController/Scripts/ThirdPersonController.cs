@@ -277,7 +277,7 @@ namespace StarterAssets
             }
 
             // if the player is talking or in a cinematic
-            if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
+            if (possesionManager.IsTalking || (CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null) || HintManager.CurrentHint != null)
             {
                 Interact();
                 History();
@@ -529,22 +529,40 @@ namespace StarterAssets
         private void Interact()
         {
             // Cinematic Mode
-            if (CinematicDialogue.CurrentNPC != null)
+            if (CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null)
             {
                 // if the player presses the interact button and the history is not being displayed
                 if (_input.interact && !showingHistory)
                 {
-                    // if the choices are being displayed
-                    if (choicePanel.IsShowing)
+                    if (CinematicDialogue.CurrentNPC != null)
                     {
-                        // selects the current choice
-                        CinematicDialogue.CurrentNPC.SelectCurrentChoice();
+                        // if the choices are being displayed
+                        if (choicePanel.IsShowing)
+                        {
+                            // selects the current choice
+                            CinematicDialogue.CurrentNPC.SelectCurrentChoice();
+                        }
+                        // if no auto or skip
+                        else if (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                        {
+                            // next dialogue
+                            CinematicDialogue.CurrentNPC.Possess(transform);
+                        }
                     }
-                    // if no auto or skip
-                    else if (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                    else if (CinematicDialogue.CurrentNPCNon != null)
                     {
-                        // next dialogue
-                        CinematicDialogue.CurrentNPC.Possess(transform);
+                        // if the choices are being displayed
+                        if (choicePanel.IsShowing)
+                        {
+                            // selects the current choice
+                            CinematicDialogue.CurrentNPCNon.SelectCurrentChoice();
+                        }
+                        // if no auto or skip
+                        else if (!CinematicDialogue.CurrentNPCNon.AutoTalking && !CinematicDialogue.CurrentNPCNon.SkipTalking)
+                        {
+                            // next dialogue
+                            CinematicDialogue.CurrentNPCNon.Possess(transform);
+                        }
                     }
                 }
 
@@ -740,7 +758,7 @@ namespace StarterAssets
             if (_input.hint)
             {
                 // if there is no dialogue active an there is no cinematic
-                if (!possesionManager.IsTalking && CinematicDialogue.CurrentNPC == null)
+                if (!possesionManager.IsTalking && (CinematicDialogue.CurrentNPC == null || CinematicDialogue.CurrentNPCNon == null))
                 {
                     // hints appear
                     hintManager.Possess(transform);
@@ -756,7 +774,36 @@ namespace StarterAssets
             if (CinematicDialogue.CurrentNPC != null)
             {
                 // if the history button is pressed, choices panel, auto-talking mode and skip-talking mode are not available
-                if (_input.history && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                if (_input.history && !choicePanel.IsShowing && (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking))
+                {
+                    // activates or desactivates the history
+                    showingHistory = !showingHistory;
+                    historyPanel.SetActive(showingHistory);
+                    // if history is active
+                    if (showingHistory)
+                    {
+                        // get the dialog history and display it
+                        List<string> lines = dialogueHistory.GetHistory();
+                        historyText.text = string.Join("\n", lines);
+                        // cursor visible
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.None;
+                    }
+                    else
+                    {
+                        // hide the cursor
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+
+                    _input.history = false;
+                }
+                return;
+            }
+            else if (CinematicDialogue.CurrentNPCNon != null)
+            {
+                // if the history button is pressed, choices panel, auto-talking mode and skip-talking mode are not available
+                if (_input.history && !choicePanel.IsShowing && (!CinematicDialogue.CurrentNPCNon.AutoTalking && !CinematicDialogue.CurrentNPCNon.SkipTalking))
                 {
                     // activates or desactivates the history
                     showingHistory = !showingHistory;
@@ -863,7 +910,7 @@ namespace StarterAssets
         private void UI_Move()
         {
             // Cinematic Mode || Hint Mode
-            if (CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
+            if ((CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null) || HintManager.CurrentHint != null)
             {
                 // if choices are being displayed
                 if (choicePanel.IsShowing)
@@ -952,6 +999,18 @@ namespace StarterAssets
                 _input.auto = false;
                 return;
             }
+            else if (CinematicDialogue.CurrentNPCNon != null)
+            {
+                // if the auto button is pressed, history, choices panel and skip-talking mode are not available
+                if (_input.auto && !showingHistory && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPCNon.SkipTalking)
+                {
+                    // start auto-talking
+                    CinematicDialogue.CurrentNPCNon.AutoTalk();
+                }
+
+                _input.auto = false;
+                return;
+            }
             // Hint Mode
             else if (HintManager.CurrentHint != null)
             {
@@ -1021,6 +1080,18 @@ namespace StarterAssets
                 {
                     // start skip-talking
                     CinematicDialogue.CurrentNPC.SkipTalk();
+                }
+
+                _input.skip = false;
+                return;
+            }
+            else if (CinematicDialogue.CurrentNPCNon != null)
+            {
+                // if the skip button is pressed, history, choices panel and auto-talking mode are not available
+                if (_input.skip && !showingHistory && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPCNon.AutoTalking)
+                {
+                    // start skip-talking
+                    CinematicDialogue.CurrentNPCNon.SkipTalk();
                 }
 
                 _input.skip = false;

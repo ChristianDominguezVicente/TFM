@@ -157,7 +157,7 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         cinematicFlag = false;
         OnDialogueEnded?.Invoke();
         OnDialogueEnded = null;
-        CinematicDialogue.CurrentNPC = null;
+        CinematicDialogue.CurrentNPCNon = null;
 
         if (originalDialogueData != null)
         {

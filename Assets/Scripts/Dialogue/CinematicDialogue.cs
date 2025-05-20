@@ -7,7 +7,7 @@ public class CinematicDialogue : MonoBehaviour
     [System.Serializable]
     public class DialogueEntry
     {
-        public NPCPossessable speaker;
+        public MonoBehaviour speaker;
         public int startIndex;
     }
 
@@ -15,8 +15,10 @@ public class CinematicDialogue : MonoBehaviour
     [SerializeField] private GameObject choicePanel;
 
     private static NPCPossessable currentNPC;
+    private static NPCNonPossessable currentNPCNon;
 
     public static NPCPossessable CurrentNPC { get => currentNPC; set => currentNPC = value; }
+    public static NPCNonPossessable CurrentNPCNon { get => currentNPCNon; set => currentNPCNon = value; }
 
     public void PlayDialogue()
     {
@@ -30,8 +32,10 @@ public class CinematicDialogue : MonoBehaviour
         foreach (var entry in dialogueSequence)
         {
             bool dialogueFinished = false;
-            // sets the current NPC for this dialogue
-            CurrentNPC = entry.speaker;
+            
+            // identify NPC's type
+            NPCPossessable possessable = entry.speaker as NPCPossessable;
+            NPCNonPossessable nonPossessable = entry.speaker as NPCNonPossessable;
 
             Transform speakerTransform = entry.speaker.transform;
             // assigns the gaze of other NPCs to the current speaker
@@ -40,24 +44,35 @@ public class CinematicDialogue : MonoBehaviour
                 // if the other NPC is not the same as the current speaker
                 if (otherEntry.speaker != entry.speaker)
                 {
+                    NPCPossessable otherPossessable = otherEntry.speaker as NPCPossessable;
+                    NPCNonPossessable otherNonPossessable = otherEntry.speaker as NPCNonPossessable;
+
                     // directs them to look at the speaker
-                    otherEntry.speaker.SetLookTarget(speakerTransform);
+                    if (otherPossessable != null)
+                        otherPossessable.SetLookTarget(speakerTransform);
+                    else if (otherNonPossessable != null)
+                        otherNonPossessable.SetLookTarget(speakerTransform);
                 }
             }
-            // if the speaker is the player
-            /*
-            if (entry.speaker.Player != null && entry.speaker.Player.transform != speakerTransform)
+
+            // sets the current NPC for this dialogue
+            if (possessable != null)
             {
-                Transform playerTransform = entry.speaker.Player.transform;
-                Vector3 lookPos = new Vector3(speakerTransform.position.x, playerTransform.position.y, speakerTransform.position.z);
-                Quaternion targetRot = Quaternion.LookRotation(lookPos - playerTransform.position);
-                playerTransform.rotation = Quaternion.Slerp(playerTransform.rotation, targetRot, 1f);
+                CurrentNPC = possessable;
+                possessable.SetDialogueIndex(entry.startIndex);
+                // sets a callback function that will be executed when the dialog ends
+                possessable.OnDialogueEnded = () => dialogueFinished = true;
+                possessable.StartCinematicDialogue(speakerTransform);
             }
-            */
-            entry.speaker.SetDialogueIndex(entry.startIndex);
-            // sets a callback function that will be executed when the dialog ends
-            entry.speaker.OnDialogueEnded = () => dialogueFinished = true;
-            entry.speaker.StartCinematicDialogue(speakerTransform);
+            else if (nonPossessable != null)
+            {
+                CurrentNPCNon = nonPossessable;
+                nonPossessable.SetDialogueIndex(entry.startIndex);
+                // sets a callback function that will be executed when the dialog ends
+                nonPossessable.OnDialogueEnded = () => dialogueFinished = true;
+                nonPossessable.StartCinematicDialogue(speakerTransform);
+            }
+
             // wait until the dialog has finished
             while (!dialogueFinished)
             {
