@@ -72,6 +72,11 @@ namespace StarterAssets
         {
             starterAssetsInputs.CancelInput(virtualCancelState);
         }
+
+        public void VirtualPauseInput(bool virtualPauseState)
+        {
+            starterAssetsInputs.PauseInput(virtualPauseState);
+        }
     }
 
 }

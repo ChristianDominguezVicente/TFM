@@ -16,13 +16,18 @@ public class PossessionManager : MonoBehaviour
 
     private float currentTime;
     private float maxTime;
+
+    // bar posses
+    public float GetCurrentTime() => currentTime;
+    public float GetMaxTime() => maxTime;
+
+
     private bool isPossessing = false;
     private NPCPossessable currentNPC;
     private ThirdPersonController currentController;
     private bool isTalking = false;
-
     public bool CanPossess => !isPossessing && currentTime >= maxTime;
-
+    private float defaultMaxPossessionTime = 10f;
     public bool IsPossessing { get => isPossessing; set => isPossessing = value; }
     public ThirdPersonController CurrentController { get => currentController; set => currentController = value; }
     public bool IsTalking { get => isTalking; set => isTalking = value; }
@@ -38,8 +43,6 @@ public class PossessionManager : MonoBehaviour
     {
         if (isPossessing && !isTalking)
         {
-
-
             // if possessed, reduces time and refreshes bar
             currentTime -= Time.deltaTime * drainSpeed;
             UpdateBar();
@@ -141,4 +144,13 @@ public class PossessionManager : MonoBehaviour
         // if all positions are occupied, respawn at the NPC's original position
         return center;
     }
+
+    public void SetPossessionTimes(float savedCurrentTime, float savedMaxTime)
+    {
+        
+        maxTime = Mathf.Max(savedMaxTime, 0.01f); // Asegura que maxTime sea al menos un pequeño número positivo
+        currentTime = Mathf.Min(savedCurrentTime, maxTime); // Asegura que currentTime no exceda maxTime
+        UpdateBar();
+    }
+    public float GetDefaultMaxPossessionTime() => defaultMaxPossessionTime;
 }
