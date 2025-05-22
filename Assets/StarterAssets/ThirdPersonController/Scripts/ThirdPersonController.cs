@@ -11,6 +11,7 @@ using UnityEditor;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -102,6 +103,7 @@ namespace StarterAssets
         [SerializeField] private HintManager hintManager;
         [SerializeField] private MenuPause pauseManager;
        
+        [SerializeField] private ObjectManager objectManager;
 
         [Header("Dialogue History")]
         [SerializeField] private DialogueHistory dialogueHistory;
@@ -110,6 +112,9 @@ namespace StarterAssets
         [SerializeField] private ScrollRect scrollRect;
         [SerializeField] private float scrollSpeed;
         [SerializeField] private ChoicesUI choicePanel;
+
+        [Header("CodeUI")]
+        [SerializeField] private CodeUI codeUI;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -149,6 +154,9 @@ namespace StarterAssets
         private float inputCooldown = 0.2f;
         private float lastInputTime = 0f;
 
+        // input detector
+        private string controlUsed;
+        private float rotationSpeed;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -180,6 +188,36 @@ namespace StarterAssets
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            }
+        }
+
+        private void OnEnable()
+        {
+            // subscribe to the global input system event when this script is triggered
+            InputSystem.onEvent += OnInputEvent;
+        }
+
+        private void OnDisable()
+        {
+            // unsubscribe from the event when this script is deactivated
+            InputSystem.onEvent -= OnInputEvent;
+        }
+
+        private void OnInputEvent(InputEventPtr eventPtr, InputDevice device)
+        {
+            // ignore events that are not of type "state" or "state delta" 
+            if (!eventPtr.IsA<StateEvent>() && !eventPtr.IsA<DeltaStateEvent>())
+                return;
+
+            // if a Gamepad is detected and it was not the previous controller, update to Gamepad
+            if (device is Gamepad && controlUsed != "Gamepad")
+            {
+                rotationSpeed = 0.005f;
+            }
+            // if a Keyboard or Mouse is detected and it was not the previous controller, update to Keyboard
+            else if ((device is Keyboard || device is Mouse) && controlUsed != "Keyboard")
+            {
+                rotationSpeed = 0.5f;
             }
         }
 
@@ -227,8 +265,7 @@ namespace StarterAssets
 
         private void Update()
         {
-            if (pauseManager.IsPaused) //game paused
-            {
+            if (pauseManager.IsPaused) {
                 if (MenuInicial.menuActivo != null)
                 {
                     PlayerFollowCamera.SetActive(false);
@@ -236,11 +273,22 @@ namespace StarterAssets
                     UI_Interact();
                 }
             }
-            else
+            else{
+            PlayerFollowCamera.SetActive(true);
+
+            if (codeUI != null && codeUI.Active)
             {
-                PlayerFollowCamera.SetActive(true);
-                // if the player is talking or in a cinematic
-                if (possesionManager.IsTalking || CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
+                // reset animations
+                possesionManager.CurrentController.DeactivateControl();
+                // detect inputs available
+                codeUI.Inputs(_input.ui_move, _input.interact, _input.cancel);
+
+                // reset buttons that had the same input
+                ResetInputs();
+
+                return;
+            } 
+            if (possesionManager.IsTalking || (CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null) || HintManager.CurrentHint != null)
                 {
                     Interact();
                     History();
@@ -248,38 +296,54 @@ namespace StarterAssets
                     Auto();
                     Skip();
 
-                    // reset buttons that had the same input
-                    _input.jump = false;
-                    _input.interact = false;
-                    _input.auto = false;
-                    _input.skip = false;
-                    _input.listen = false;
-                    _input.hint = false;
+                // reset buttons that had the same input
+                ResetInputs();
 
-                    return;
-                }
-
-                _hasAnimator = TryGetComponent(out _animator);
-
-                JumpAndGravity();
-                GroundedCheck();
-                Move();
-                Interact();
-                Listen();
-                Hint();
-                SpectralVision();
+                return;
+            }
+            // if the player is looking a object
+            else if (objectManager.Looking)
+            {
+                LookingObject();
                 Cancel();
-                Pause();
 
                 // reset buttons that had the same input
-                _input.jump = false;
-                _input.interact = false;
-                _input.auto = false;
-                _input.skip = false;
-                _input.listen = false;
-                _input.hint = false;
+                ResetInputs();
+
+                return;
             }
+
+            _hasAnimator = TryGetComponent(out _animator);
+
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
+            Interact();
+            Listen();
+            Hint();
+            SpectralVision();
+            Cancel();
+            Pause();
+
+            // reset buttons that had the same input
+            ResetInputs();
         }
+        }
+        
+        
+
+        private void ResetInputs()
+        {
+            _input.jump = false;
+            _input.interact = false;
+            _input.auto = false;
+            _input.skip = false;
+            _input.listen = false;
+            _input.hint = false;
+            _input.cancel = false;
+        }
+    
+
 
         private void UI_Interact()
         {
@@ -350,7 +414,7 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            if (!possesionManager.IsTalking)
+            if (!possesionManager.IsTalking && !objectManager.Looking)
             {
                 CameraRotation();
             }
@@ -490,6 +554,7 @@ namespace StarterAssets
                 }
 
                 // Jump
+                /*
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
@@ -501,7 +566,7 @@ namespace StarterAssets
                         _animator.SetBool(_animIDJump, true);
                     }
                 }
-
+                */
                 // jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
@@ -548,22 +613,40 @@ namespace StarterAssets
         private void Interact()
         {
             // Cinematic Mode
-            if (CinematicDialogue.CurrentNPC != null)
+            if (CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null)
             {
                 // if the player presses the interact button and the history is not being displayed
                 if (_input.interact && !showingHistory)
                 {
-                    // if the choices are being displayed
-                    if (choicePanel.IsShowing)
+                    if (CinematicDialogue.CurrentNPC != null)
                     {
-                        // selects the current choice
-                        CinematicDialogue.CurrentNPC.SelectCurrentChoice();
+                        // if the choices are being displayed
+                        if (choicePanel.IsShowing)
+                        {
+                            // selects the current choice
+                            CinematicDialogue.CurrentNPC.SelectCurrentChoice();
+                        }
+                        // if no auto or skip
+                        else if (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                        {
+                            // next dialogue
+                            CinematicDialogue.CurrentNPC.Possess(transform);
+                        }
                     }
-                    // if no auto or skip
-                    else if (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                    else if (CinematicDialogue.CurrentNPCNon != null)
                     {
-                        // next dialogue
-                        CinematicDialogue.CurrentNPC.Possess(transform);
+                        // if the choices are being displayed
+                        if (choicePanel.IsShowing)
+                        {
+                            // selects the current choice
+                            CinematicDialogue.CurrentNPCNon.SelectCurrentChoice();
+                        }
+                        // if no auto or skip
+                        else if (!CinematicDialogue.CurrentNPCNon.AutoTalking && !CinematicDialogue.CurrentNPCNon.SkipTalking)
+                        {
+                            // next dialogue
+                            CinematicDialogue.CurrentNPCNon.Possess(transform);
+                        }
                     }
                 }
 
@@ -594,6 +677,11 @@ namespace StarterAssets
                     // selects the current choice
                     npcP.SelectCurrentChoice();
                 }
+                else if (GetInteractuables() is NPCNonPossessable npcNP)
+                {
+                    // selects the current choice
+                    npcNP.SelectCurrentChoice();
+                }
 
                 _input.interact = false;
                 return;
@@ -609,6 +697,11 @@ namespace StarterAssets
                 {
                     auto = npcP.AutoTalking;
                     skip = npcP.SkipTalking;
+                }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    auto = npcNP.AutoTalking;
+                    skip = npcNP.SkipTalking;
                 }
             }
             // if history is being displayed or auto-talking is active or skip-talking is active
@@ -632,7 +725,15 @@ namespace StarterAssets
                 // if the object implements the IPossessable interface
                 else if (target is IPossessable possessable)
                 {
-                    possessable.Possess(transform);
+                    if (possessable is NPCPossessable npcP)
+                    {
+                        possessable.Possess(transform);
+                    }
+                    else if (possessable is NPCNonPossessable npcNP)
+                    {
+                        if (possesionManager.CurrentNPC != null || npcNP.Listening)
+                            possessable.Possess(transform);
+                    }
                 }
 
                 _input.interact = false;
@@ -707,6 +808,14 @@ namespace StarterAssets
                     return;
                 }
             }
+            else if (t is NPCNonPossessable nn)
+            {
+                if (nn.Talking || nn.AutoTalking || nn.SkipTalking || nn.Listening)
+                {
+                    _input.listen = false;
+                    return;
+                }
+            }
 
             if (_input.listen)
             {
@@ -718,6 +827,11 @@ namespace StarterAssets
                     // start listening
                     npc.StartListeningDialogue(transform);
                 }
+                else if (target is NPCNonPossessable npcNon)
+                {
+                    // start listening
+                    npcNon.StartListeningDialogue(transform);
+                }
 
                 _input.listen = false;
             }
@@ -728,7 +842,7 @@ namespace StarterAssets
             if (_input.hint)
             {
                 // if there is no dialogue active an there is no cinematic
-                if (!possesionManager.IsTalking && CinematicDialogue.CurrentNPC == null)
+                if (!possesionManager.IsTalking && (CinematicDialogue.CurrentNPC == null || CinematicDialogue.CurrentNPCNon == null))
                 {
                     // hints appear
                     hintManager.Possess(transform);
@@ -744,7 +858,36 @@ namespace StarterAssets
             if (CinematicDialogue.CurrentNPC != null)
             {
                 // if the history button is pressed, choices panel, auto-talking mode and skip-talking mode are not available
-                if (_input.history && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
+                if (_input.history && !choicePanel.IsShowing && (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking))
+                {
+                    // activates or desactivates the history
+                    showingHistory = !showingHistory;
+                    historyPanel.SetActive(showingHistory);
+                    // if history is active
+                    if (showingHistory)
+                    {
+                        // get the dialog history and display it
+                        List<string> lines = dialogueHistory.GetHistory();
+                        historyText.text = string.Join("\n", lines);
+                        // cursor visible
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.None;
+                    }
+                    else
+                    {
+                        // hide the cursor
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+
+                    _input.history = false;
+                }
+                return;
+            }
+            else if (CinematicDialogue.CurrentNPCNon != null)
+            {
+                // if the history button is pressed, choices panel, auto-talking mode and skip-talking mode are not available
+                if (_input.history && !choicePanel.IsShowing && (!CinematicDialogue.CurrentNPCNon.AutoTalking && !CinematicDialogue.CurrentNPCNon.SkipTalking))
                 {
                     // activates or desactivates the history
                     showingHistory = !showingHistory;
@@ -813,6 +956,11 @@ namespace StarterAssets
                     auto = npcP.AutoTalking;
                     skip = npcP.SkipTalking;
                 }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    auto = npcNP.AutoTalking;
+                    skip = npcNP.SkipTalking;
+                }
             }
             // if auto-talking, skip-talking or choice panel is active the history will not be displayed
             if (!_input.history || !possesionManager.IsTalking || auto || skip || choicePanel.IsShowing)
@@ -846,7 +994,7 @@ namespace StarterAssets
         private void UI_Move()
         {
             // Cinematic Mode || Hint Mode
-            if (CinematicDialogue.CurrentNPC != null || HintManager.CurrentHint != null)
+            if ((CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null) || HintManager.CurrentHint != null)
             {
                 // if choices are being displayed
                 if (choicePanel.IsShowing)
@@ -935,6 +1083,18 @@ namespace StarterAssets
                 _input.auto = false;
                 return;
             }
+            else if (CinematicDialogue.CurrentNPCNon != null)
+            {
+                // if the auto button is pressed, history, choices panel and skip-talking mode are not available
+                if (_input.auto && !showingHistory && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPCNon.SkipTalking)
+                {
+                    // start auto-talking
+                    CinematicDialogue.CurrentNPCNon.AutoTalk();
+                }
+
+                _input.auto = false;
+                return;
+            }
             // Hint Mode
             else if (HintManager.CurrentHint != null)
             {
@@ -959,6 +1119,10 @@ namespace StarterAssets
                 {
                     skip = npcP.SkipTalking;
                 }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    skip = npcNP.SkipTalking;
+                }
             }
             // if history, skip-talking or choice panel is active auto-talking will not activate
             if (showingHistory || skip || choicePanel.IsShowing)
@@ -979,6 +1143,11 @@ namespace StarterAssets
                         // start auto-talking
                         npcPossessable.AutoTalk();
                     }
+                    else if (possessable is NPCNonPossessable npcNonPossessable)
+                    {
+                        // start auto-talking
+                        npcNonPossessable.AutoTalk();
+                    }
                 }
 
                 _input.auto = false;
@@ -995,6 +1164,18 @@ namespace StarterAssets
                 {
                     // start skip-talking
                     CinematicDialogue.CurrentNPC.SkipTalk();
+                }
+
+                _input.skip = false;
+                return;
+            }
+            else if (CinematicDialogue.CurrentNPCNon != null)
+            {
+                // if the skip button is pressed, history, choices panel and auto-talking mode are not available
+                if (_input.skip && !showingHistory && !choicePanel.IsShowing && !CinematicDialogue.CurrentNPCNon.AutoTalking)
+                {
+                    // start skip-talking
+                    CinematicDialogue.CurrentNPCNon.SkipTalk();
                 }
 
                 _input.skip = false;
@@ -1024,6 +1205,10 @@ namespace StarterAssets
                 {
                     auto = npcP.AutoTalking;
                 }
+                else if (p is NPCNonPossessable npcNP)
+                {
+                    auto = npcNP.AutoTalking;
+                }
             }
             // if history, auto-talking or choice panel is active skip-talking will not activate
             if (showingHistory || auto || choicePanel.IsShowing)
@@ -1043,6 +1228,11 @@ namespace StarterAssets
                     {
                         // start skip-talking
                         npcPossessable.SkipTalk();
+                    }
+                    else if (possessable is NPCNonPossessable npcNonPossessable)
+                    {
+                        // start skip-talking
+                        npcNonPossessable.SkipTalk();
                     }
                 }
 
@@ -1099,10 +1289,34 @@ namespace StarterAssets
             }
         }
 
+        private void LookingObject()
+        {
+            // reset animations
+            possesionManager.CurrentController.DeactivateControl();
+            Vector2 lookInput = _input.look;
+            // minimum threshold
+            float threshold = 0.1f;
+            if (lookInput.sqrMagnitude < threshold * threshold)
+                return;
+            // rotate object
+            objectManager.LookingObject.Rotate(Vector3.up, lookInput.x * rotationSpeed, Space.World);
+            objectManager.LookingObject.Rotate(Vector3.left, lookInput.y * rotationSpeed, Space.World);
+        }
+
         private void Cancel()
         {
             if (_input.cancel)
             {
+                // if the player is looking a object
+                if (objectManager != null && objectManager.Looking)
+                {
+                    objectManager.Looking = false;
+
+                    _input.cancel = false;
+
+                    return;
+                }
+
                 // if the player is possessing something, cancel the possession
                 if (possesionManager.IsPossessing)
                 {

@@ -1,27 +1,46 @@
 using Cinemachine;
-using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
+using System.Collections;
+using StarterAssets;
 
-public class HintManager : MonoBehaviour, IPossessable
+public class NPCNonPossessable : MonoBehaviour, IPossessable
 {
-    [Header("Hints Settings")]
+    [SerializeField] private string interactText;
     [SerializeField] private PossessionManager possessionManager;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private GameObject player;
+
+    [Header("Dialogue System")]
     [SerializeField] private DialogueData dialogueData;
     [SerializeField] private float timeBtwLetters;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI speakerText;
     [SerializeField] private ChoicesUI choicePanel;
+
+    [Header("Dialogue History")]
     [SerializeField] private DialogueHistory dialogueHistory;
-    [SerializeField] private string nameHints = "Enmsis";
+    [SerializeField] private string npcName = "NPC";
+
+    [Header("Dialogue Auto")]
     [SerializeField] private float autoTalkDelay;
+
+    [Header("Dialogue Skip")]
     [SerializeField] private float skipTalkDelay;
+
+    [Header("Listening Dialogue")]
+    [SerializeField] private DialogueData listeningDialogueData;
+
+    [Header("Dialogue Image")]
     [SerializeField] private Image otherImage;
+
+    [Header("Camera Effects")]
     [SerializeField] private Volume volume;
 
     private bool talking = false;
@@ -29,23 +48,31 @@ public class HintManager : MonoBehaviour, IPossessable
     private DialogueQuestion currentQuestion;
     private Coroutine writePhraseCoroutine;
 
+    private Transform interactor;
+
     private bool autoTalking = false;
     private Coroutine autoTalkCoroutine;
 
     private bool skipTalking = false;
     private Coroutine skipTalkCoroutine;
 
-    private static HintManager hintManager;
+    private bool cinematicFlag = false;
+    public System.Action OnDialogueEnded;
 
+    private DialogueData originalDialogueData;
+    private bool listening = false;
+
+    // camera effects
     private DepthOfField blur;
 
-    public static HintManager CurrentHint { get => hintManager; set => hintManager = value; }
-
-    public bool IsTalking { get => talking; set => talking = value; }
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
+    public string NpcName { get => npcName; set => npcName = value; }
+    public bool Talking { get => talking; set => talking = value; }
+    public GameObject Player { get => player; set => player = value; }
+    public bool Listening { get => listening; set => listening = value; }
 
-    public string GetPossessText() => "Enmsis";
+    public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;
 
     private void Awake()
@@ -56,10 +83,11 @@ public class HintManager : MonoBehaviour, IPossessable
 
     public void Possess(Transform interactorTransform)
     {
-        hintManager = this;
+        interactor = interactorTransform;
+
         if (!talking && !choicePanel.IsShowing && currentQuestion == null)
         {
-            speakerText.text = nameHints;
+            speakerText.text = npcName;
             dialogueBox.SetActive(true);
             NextPhrase();
         }
@@ -112,6 +140,7 @@ public class HintManager : MonoBehaviour, IPossessable
         dialogueText.text = "";
         currentIndex = 0;
         dialogueBox.SetActive(false);
+        interactor = null;
         dialogueHistory.AddSeparator();
 
         if (blur != null)
@@ -125,7 +154,17 @@ public class HintManager : MonoBehaviour, IPossessable
         autoTalking = false;
         skipTalking = false;
 
-        hintManager = null;
+        cinematicFlag = false;
+        OnDialogueEnded?.Invoke();
+        OnDialogueEnded = null;
+        CinematicDialogue.CurrentNPCNon = null;
+
+        if (originalDialogueData != null)
+        {
+            dialogueData = originalDialogueData;
+            originalDialogueData = null;
+        }
+        listening = false;
 
         otherImage.gameObject.SetActive(false);
     }
@@ -149,7 +188,7 @@ public class HintManager : MonoBehaviour, IPossessable
         }
 
         talking = false;
-        dialogueHistory.AddLine(nameHints, phrase);
+        dialogueHistory.AddLine(npcName, phrase);
         // current node of the dialogue
         DialogueNode node = dialogueData.nodes[currentIndex];
         // update the index to advance the dialogue
@@ -174,7 +213,7 @@ public class HintManager : MonoBehaviour, IPossessable
             }
 
             dialogueText.text = phrase.npcText;
-            dialogueHistory.AddLine(nameHints, phrase.npcText);
+            dialogueHistory.AddLine(npcName, phrase.npcText);
             talking = false;
             writePhraseCoroutine = null;
         }
@@ -185,7 +224,7 @@ public class HintManager : MonoBehaviour, IPossessable
         talking = false;
         currentQuestion = question;
         dialogueText.text = question.npcText;
-        dialogueHistory.AddLine(nameHints, question.npcText);
+        dialogueHistory.AddLine(npcName, question.npcText);
         choicePanel.Show(question.responses);
     }
 
@@ -201,8 +240,30 @@ public class HintManager : MonoBehaviour, IPossessable
             EndDialogue();
             return;
         }
-
-        dialogueHistory.AddLine(nameHints, currentQuestion.responses[index].playerText);
+        // determine who is talking
+        string speaker;
+        // Cinematic Mode
+        if (cinematicFlag)
+        {
+            // if there is a possessed NPC
+            if (possessionManager.CurrentNPC != null)
+            {
+                // the player talk as the speaker
+                speaker = possessionManager.CurrentNPC.NpcName + " (Player)";
+            }
+            // if there is not a possessed NPC
+            else
+            {
+                // the player is talking
+                speaker = "Player";
+            }
+        }
+        else
+        {
+            // the player talk as the speaker
+            speaker = possessionManager.CurrentNPC.NpcName + " (Player)";
+        }
+        dialogueHistory.AddLine(speaker, currentQuestion.responses[index].playerText);
 
         currentIndex = currentQuestion.responses[index].nextIndex;
         choicePanel.Hide();
@@ -280,6 +341,124 @@ public class HintManager : MonoBehaviour, IPossessable
             }
 
             yield return new WaitForSeconds(skipTalkDelay);
+        }
+    }
+
+    private void Update()
+    {
+        // if player is talking and not in a cinematic
+        if (talking && interactor != null && !cinematicFlag)
+        {
+            // NPC look interactor
+            Vector3 transformLookPos = new Vector3(interactor.position.x, transform.position.y, interactor.position.z);
+            Quaternion transformRotation = Quaternion.LookRotation(transformLookPos - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, transformRotation, Time.deltaTime * 5f);
+
+            // interactor look NPC
+            Vector3 interactorLookPos = new Vector3(transform.position.x, interactor.position.y, transform.position.z);
+            Quaternion interactorRotation = Quaternion.LookRotation(interactorLookPos - interactor.position);
+            interactor.rotation = Quaternion.Slerp(interactor.rotation, interactorRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    public void SetDialogueIndex(int index)
+    {
+        // assigns the provided index to the current index of the dialog
+        currentIndex = index;
+    }
+    public void StartCinematicDialogue(Transform cinematicInteractor)
+    {
+        // if there is already a possessed NPC
+        if (possessionManager.CurrentController != null)
+        {
+            // deactivate possessed NPC
+            possessionManager.CurrentController.DeactivateControl();
+        }
+        else
+        {
+            // deactivate player
+            player.GetComponent<ThirdPersonController>().DeactivateControl();
+        }
+
+        interactor = cinematicInteractor;
+        cinematicFlag = true;
+        speakerText.text = npcName;
+        dialogueBox.SetActive(true);
+        talking = false;
+        currentQuestion = null;
+
+        if (!choicePanel.IsShowing)
+        {
+            // advance to the next node in the dialog
+            NextPhrase();
+        }
+    }
+
+    public void SetLookTarget(Transform lookTarget)
+    {
+        // if the target is the itself, doesn't do nothing
+        if (lookTarget == transform) return;
+        // if the NPC is not talking
+        if (!Talking)
+        {
+            // start looking toward the target
+            StartCoroutine(LookAtTarget(lookTarget));
+        }
+    }
+
+    private IEnumerator LookAtTarget(Transform lookTarget)
+    {
+        float rotationSpeed = 2f;
+        // loop that runs as long as the NPC has a target to look at
+        while (true)
+        {
+            if (lookTarget == null) yield break;
+
+            Vector3 lookPos = new Vector3(lookTarget.position.x, transform.position.y, lookTarget.position.z);
+            Quaternion targetRot = Quaternion.LookRotation(lookPos - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+
+            //if (Quaternion.Angle(transform.rotation, targetRot) < 1f)
+            //break;
+
+            yield return null;
+        }
+    }
+
+    public void StartListeningDialogue(Transform listener)
+    {
+        // if there is already a possessed NPC
+        if (possessionManager.CurrentController != null)
+        {
+            // deactivate possessed NPC
+            possessionManager.CurrentController.DeactivateControl();
+        }
+        else
+        {
+            // deactivate player
+            player.GetComponent<ThirdPersonController>().DeactivateControl();
+        }
+
+        interactor = listener;
+        cinematicFlag = true;
+        speakerText.text = npcName;
+        dialogueBox.SetActive(true);
+        talking = false;
+        currentQuestion = null;
+        listening = true;
+
+        // original dialoqueData
+        if (originalDialogueData == null)
+        {
+            originalDialogueData = dialogueData;
+        }
+        // change dialogueData
+        dialogueData = listeningDialogueData;
+
+        if (!choicePanel.IsShowing)
+        {
+            // advance to the next node in the dialog
+            NextPhrase();
         }
     }
 
