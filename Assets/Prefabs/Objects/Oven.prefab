@@ -42,7 +42,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7379745378744799162}
   - component: {fileID: 4867350702774116412}
-  - component: {fileID: 3620752686098424128}
   - component: {fileID: 5418086014032243036}
   - component: {fileID: 5578485276977369089}
   - component: {fileID: 7693037122278723853}
@@ -80,26 +79,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e89e921bb473d7479bf6af77b6221da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Interact Oven
+  interactText: Use Oven
   objectManager: {fileID: 0}
-  nextScene: SampleScene
+  nextScene: InicioMenu
   fadeOut: {fileID: 0}
   possessionManager: {fileID: 0}
   restrictedNPCs:
-  - 
---- !u!114 &3620752686098424128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4458245273989046151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89708d945a29a4649a209b4f479f119f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Interact Oven
+  - "Ni\xF1o Bromista"
+  - "Ni\xF1a T\xEDmida"
+  - Mejor Amiga de Helen
 --- !u!33 &5418086014032243036
 MeshFilter:
   m_ObjectHideFlags: 0

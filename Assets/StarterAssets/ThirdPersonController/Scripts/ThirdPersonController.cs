@@ -273,65 +273,64 @@ namespace StarterAssets
                     UI_Interact();
                 }
             }
-            else{
-            PlayerFollowCamera.SetActive(true);
-
-            if (codeUI != null && codeUI.Active)
+            else
             {
-                // reset animations
-                possesionManager.CurrentController.DeactivateControl();
-                // detect inputs available
-                codeUI.Inputs(_input.ui_move, _input.interact, _input.cancel);
+                PlayerFollowCamera.SetActive(true);
 
-                // reset buttons that had the same input
-                ResetInputs();
-
-                return;
-            } 
-            if (possesionManager.IsTalking || (CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null) || HintManager.CurrentHint != null)
+                if (codeUI != null && codeUI.Active)
                 {
-                    Interact();
-                    History();
-                    UI_Move();
-                    Auto();
-                    Skip();
+                    // reset animations
+                    possesionManager.CurrentController.DeactivateControl();
+                    // detect inputs available
+                    codeUI.Inputs(_input.ui_move, _input.interact, _input.cancel);
 
-                // reset buttons that had the same input
-                ResetInputs();
+                    // reset buttons that had the same input
+                    ResetInputs();
 
-                return;
-            }
-            // if the player is looking a object
-            else if (objectManager.Looking)
-            {
-                LookingObject();
+                    return;
+                } 
+                if (possesionManager.IsTalking || (CinematicDialogue.CurrentNPC != null || CinematicDialogue.CurrentNPCNon != null) || HintManager.CurrentHint != null)
+                    {
+                        Interact();
+                        History();
+                        UI_Move();
+                        Auto();
+                        Skip();
+
+                    // reset buttons that had the same input
+                    ResetInputs();
+
+                    return;
+                }
+                // if the player is looking a object
+                else if (objectManager.Looking)
+                {
+                    LookingObject();
+                    Cancel();
+
+                    // reset buttons that had the same input
+                    ResetInputs();
+
+                    return;
+                }
+
+                _hasAnimator = TryGetComponent(out _animator);
+
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+                Interact();
+                Listen();
+                Hint();
+                SpectralVision();
                 Cancel();
+                Pause();
 
                 // reset buttons that had the same input
                 ResetInputs();
-
-                return;
             }
-
-            _hasAnimator = TryGetComponent(out _animator);
-
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
-            Interact();
-            Listen();
-            Hint();
-            SpectralVision();
-            Cancel();
-            Pause();
-
-            // reset buttons that had the same input
-            ResetInputs();
-        }
         }
         
-        
-
         private void ResetInputs()
         {
             _input.jump = false;
@@ -342,9 +341,7 @@ namespace StarterAssets
             _input.hint = false;
             _input.cancel = false;
         }
-    
-
-
+   
         private void UI_Interact()
         {
             if (_input.interact)

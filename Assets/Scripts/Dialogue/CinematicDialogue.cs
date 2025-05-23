@@ -32,7 +32,7 @@ public class CinematicDialogue : MonoBehaviour
         foreach (var entry in dialogueSequence)
         {
             bool dialogueFinished = false;
-            
+
             // identify NPC's type
             NPCPossessable possessable = entry.speaker as NPCPossessable;
             NPCNonPossessable nonPossessable = entry.speaker as NPCNonPossessable;
@@ -57,7 +57,7 @@ public class CinematicDialogue : MonoBehaviour
 
             // sets the current NPC for this dialogue
             if (possessable != null)
-            {
+            { 
                 CurrentNPC = possessable;
                 possessable.SetDialogueIndex(entry.startIndex);
                 // sets a callback function that will be executed when the dialog ends
