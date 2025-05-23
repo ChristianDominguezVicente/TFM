@@ -237,11 +237,11 @@ GameObject:
   - component: {fileID: 2184369042252624746}
   - component: {fileID: 8993496831174408496}
   - component: {fileID: 8902865612587381154}
+  - component: {fileID: 3112246935550067659}
   - component: {fileID: 8613984027607038701}
   - component: {fileID: 239614636559514455}
   - component: {fileID: 2350663284539137441}
   - component: {fileID: 1479897121961865426}
-  - component: {fileID: 3112246935550067659}
   - component: {fileID: 2873140895167112586}
   m_Layer: 6
   m_Name: NPC
@@ -315,6 +315,51 @@ CharacterController:
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
+--- !u!114 &3112246935550067659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143005224991244860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa335c0c78006234daff54f2d5d59660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Possess NPC
+  possessionManager: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  player: {fileID: 0}
+  maxPossessTime: 30
+  npcInput: {fileID: 1479897121961865426}
+  npcTPC: {fileID: 8613984027607038701}
+  npcBRBP: {fileID: 239614636559514455}
+  npcSAI: {fileID: 2350663284539137441}
+  npcTarget: {fileID: 8557150139527922558}
+  playerInput: {fileID: 0}
+  playerTPC: {fileID: 0}
+  playerBRBP: {fileID: 0}
+  playerSAI: {fileID: 0}
+  playerTarget: {fileID: 0}
+  dialogueData: {fileID: 11400000, guid: 8d58a14f3a3e5d34a8a49a5eff808a01, type: 2}
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerText: {fileID: 0}
+  choicePanel: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  npcName: NPC 0
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 11400000, guid: 60f2a164bcce30e4dbf75f5986edede8, type: 2}
+  otherImage: {fileID: 0}
+  volume: {fileID: 0}
+  teleportPoint: {fileID: 0}
+  ui: {fileID: 0}
+  possessBar: {fileID: 0}
+  hud: {fileID: 0}
+  cinematicDialoguePlayer: {fileID: 0}
 --- !u!114 &8613984027607038701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +400,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   CinemachineCameraTarget: {fileID: 8045160230880638428}
+  PlayerFollowCamera: {fileID: 0}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
@@ -365,6 +411,7 @@ MonoBehaviour:
   transitionSpeed: 2
   possesionManager: {fileID: 0}
   hintManager: {fileID: 0}
+  pauseManager: {fileID: 0}
   objectManager: {fileID: 0}
   dialogueHistory: {fileID: 0}
   historyPanel: {fileID: 0}
@@ -415,6 +462,7 @@ MonoBehaviour:
   skip: 0
   spectralVision: 0
   cancel: 0
+  pause: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -516,47 +564,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3112246935550067659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143005224991244860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa335c0c78006234daff54f2d5d59660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Possess NPC
-  possessionManager: {fileID: 0}
-  virtualCamera: {fileID: 0}
-  player: {fileID: 0}
-  maxPossessTime: 30
-  npcInput: {fileID: 1479897121961865426}
-  npcTPC: {fileID: 8613984027607038701}
-  npcBRBP: {fileID: 239614636559514455}
-  npcSAI: {fileID: 2350663284539137441}
-  npcTarget: {fileID: 8557150139527922558}
-  playerInput: {fileID: 0}
-  playerTPC: {fileID: 0}
-  playerBRBP: {fileID: 0}
-  playerSAI: {fileID: 0}
-  playerTarget: {fileID: 0}
-  dialogueData: {fileID: 11400000, guid: 8d58a14f3a3e5d34a8a49a5eff808a01, type: 2}
-  timeBtwLetters: 0.03
-  dialogueBox: {fileID: 0}
-  dialogueText: {fileID: 0}
-  speakerText: {fileID: 0}
-  choicePanel: {fileID: 0}
-  dialogueHistory: {fileID: 0}
-  npcName: NPC 0
-  autoTalkDelay: 2.5
-  skipTalkDelay: 0.1
-  listeningDialogueData: {fileID: 11400000, guid: 60f2a164bcce30e4dbf75f5986edede8, type: 2}
-  otherImage: {fileID: 0}
-  volume: {fileID: 0}
-  teleportPoint: {fileID: 0}
 --- !u!195 &2873140895167112586
 NavMeshAgent:
   m_ObjectHideFlags: 0

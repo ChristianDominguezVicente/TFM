@@ -43,6 +43,14 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     [Header("Camera Effects")]
     [SerializeField] private Volume volume;
 
+    [Header("HUD")]
+    [SerializeField] private GameObject ui;
+    [SerializeField] private GameObject possessBar;
+    [SerializeField] private GameObject hud;
+
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialoguePlayer;
+
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -84,17 +92,26 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         interactor = interactorTransform;
-
-        if (!talking && !choicePanel.IsShowing && currentQuestion == null)
+        if (cinematicDialoguePlayer != null && !cinematicFlag)
         {
-            speakerText.text = npcName;
-            dialogueBox.SetActive(true);
-            NextPhrase();
+            cinematicDialoguePlayer.PlayDialogue();
         }
         else
         {
-            CompletedPhrase();
-        }
+            if (!talking && !choicePanel.IsShowing && currentQuestion == null)
+            {
+                speakerText.text = npcName;
+                dialogueBox.SetActive(true);
+                ui.SetActive(false);
+                possessBar.SetActive(false);
+                hud.SetActive(false);
+                NextPhrase();
+            }
+            else
+            {
+                CompletedPhrase();
+            }
+        }   
     }
 
     private void NextPhrase()
@@ -140,6 +157,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         dialogueText.text = "";
         currentIndex = 0;
         dialogueBox.SetActive(false);
+        ui.SetActive(true);
+        possessBar.SetActive(true);
+        hud.SetActive(true);
         interactor = null;
         dialogueHistory.AddSeparator();
 
@@ -384,6 +404,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         cinematicFlag = true;
         speakerText.text = npcName;
         dialogueBox.SetActive(true);
+        ui.SetActive(false);
+        possessBar.SetActive(false);
+        hud.SetActive(false);
         talking = false;
         currentQuestion = null;
 
@@ -443,6 +466,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         cinematicFlag = true;
         speakerText.text = npcName;
         dialogueBox.SetActive(true);
+        ui.SetActive(false);
+        possessBar.SetActive(false);
+        hud.SetActive(false);
         talking = false;
         currentQuestion = null;
         listening = true;

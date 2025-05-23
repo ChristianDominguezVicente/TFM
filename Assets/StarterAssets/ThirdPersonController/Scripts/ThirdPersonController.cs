@@ -825,7 +825,7 @@ namespace StarterAssets
                 if (target is NPCPossessable npc)
                 {
                     // start listening
-                    npc.StartListeningDialogue(transform);
+                    npc.StartListeningDialogue(transform);    
                 }
                 else if (target is NPCNonPossessable npcNon)
                 {

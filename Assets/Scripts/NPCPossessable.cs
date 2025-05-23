@@ -64,7 +64,15 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     [Header("Return NPC")]
     [SerializeField] private Transform teleportPoint;
-   
+
+    [Header("HUD")]
+    [SerializeField] private GameObject ui;
+    [SerializeField] private GameObject possessBar;
+    [SerializeField] private GameObject hud;
+
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialoguePlayer;
+
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -121,38 +129,48 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         interactor = interactorTransform;
-        // Cinematic Mode
-        if (cinematicFlag)
+        if (cinematicDialoguePlayer != null && !cinematicFlag)
         {
-            if (!talking && !choicePanel.IsShowing && currentQuestion == null)
-            {
-                NextPhrase();
-            }
-            else
-            {
-                CompletedPhrase();
-            }
+            cinematicDialoguePlayer.PlayDialogue();
         }
-        // if you are already possessing, we interpret this call as an attempt to speak
-        else if (possessionManager.IsPossessing)
+        else
         {
-            possessionManager.CurrentController.DeactivateControl();
-            speakerText.text = npcName;
-            dialogueBox.SetActive(true);
-            cinematicFlag = false;
+            // Cinematic Mode
+            if (cinematicFlag)
+            {
+                if (!talking && !choicePanel.IsShowing && currentQuestion == null)
+                {
+                    NextPhrase();
+                }
+                else
+                {
+                    CompletedPhrase();
+                }
+            }
+            // if you are already possessing, we interpret this call as an attempt to speak
+            else if (possessionManager.IsPossessing)
+            {
+                possessionManager.CurrentController.DeactivateControl();
+                speakerText.text = npcName;
+                dialogueBox.SetActive(true);
+                ui.SetActive(false);
+                possessBar.SetActive(false);
+                hud.SetActive(false);
+                cinematicFlag = false;
 
-            if (!talking && !choicePanel.IsShowing && currentQuestion == null)
-            {
-                NextPhrase();
+                if (!talking && !choicePanel.IsShowing && currentQuestion == null)
+                {
+                    NextPhrase();
+                }
+                else
+                {
+                    CompletedPhrase();
+                }
             }
-            else
+            else if (possessionManager.CanPossess)
             {
-                CompletedPhrase();
+                possessionManager.StartPossession(this, maxPossessTime);
             }
-        }
-        else if (possessionManager.CanPossess)
-        {
-            possessionManager.StartPossession(this, maxPossessTime);
         }
     }
 
@@ -296,6 +314,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         dialogueText.text = "";
         currentIndex = 0;
         dialogueBox.SetActive(false);
+        ui.SetActive(true);
+        possessBar.SetActive(true);
+        hud.SetActive(true);
         interactor = null;
         dialogueHistory.AddSeparator();
 
@@ -554,6 +575,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         cinematicFlag = true;
         speakerText.text = npcName;
         dialogueBox.SetActive(true);
+        ui.SetActive(false);
+        possessBar.SetActive(false);
+        hud.SetActive(false);
         talking = false;
         currentQuestion = null;
 
@@ -613,6 +637,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         cinematicFlag = true;
         speakerText.text = npcName;
         dialogueBox.SetActive(true);
+        ui.SetActive(false);
+        possessBar.SetActive(false);
+        hud.SetActive(false);
         talking = false;
         currentQuestion = null;
         listening = true;
