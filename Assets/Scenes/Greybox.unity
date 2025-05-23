@@ -3189,6 +3189,18 @@ PrefabInstance:
       propertyPath: possessionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[0]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[1]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[2]'
+      value: Lia
+      objectReference: {fileID: 0}
     - target: {fileID: 7693037122278723853, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
       propertyPath: m_Convex
       value: 1
