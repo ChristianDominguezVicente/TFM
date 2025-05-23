@@ -755,7 +755,8 @@ namespace StarterAssets
                     if (collider.TryGetComponent(out IInteractuable interactuable))
                     {
                         // calculate the distance to the interactuable object
-                        float distance = Vector3.Distance(transform.position, interactuable.GetTransform().position);
+                        Vector3 point = collider.ClosestPoint(transform.position);
+                        float distance = Vector3.Distance(transform.position, point);
                         if (distance < closestDistance)
                         {
                             closest = interactuable;
@@ -765,7 +766,8 @@ namespace StarterAssets
                     else if (collider.TryGetComponent(out IPossessable possessable))
                     {
                         // calculate the distance to the possessable object
-                        float distance = Vector3.Distance(transform.position, possessable.GetTransform().position);
+                        Vector3 point = collider.ClosestPoint(transform.position);
+                        float distance = Vector3.Distance(transform.position, point);
                         if (distance < closestDistance)
                         {
                             closest = possessable;
@@ -779,7 +781,8 @@ namespace StarterAssets
                     if (collider.TryGetComponent(out IPossessable possessable))
                     {
                         // calculate the distance to the possessable object
-                        float distance = Vector3.Distance(transform.position, possessable.GetTransform().position);
+                        Vector3 point = collider.ClosestPoint(transform.position);
+                        float distance = Vector3.Distance(transform.position, point);
                         if (distance < closestDistance)
                         {
                             closest = possessable;
