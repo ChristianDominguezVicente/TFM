@@ -51,6 +51,12 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue cinematicDialoguePlayer;
 
+    [Header("Texts")]
+    [SerializeField] private TextMeshProUGUI autoFontText;
+    [SerializeField] private TextMeshProUGUI autoActionText;
+    [SerializeField] private TextMeshProUGUI skipFontText;
+    [SerializeField] private TextMeshProUGUI skipActionText;
+
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -172,7 +178,12 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         if (autoTalkCoroutine != null)
             StopCoroutine(autoTalkCoroutine);
         autoTalking = false;
+        autoFontText.color = Color.white;
+        autoActionText.color = Color.white;
+
         skipTalking = false;
+        skipFontText.color = Color.white;
+        skipActionText.color = Color.white;
 
         cinematicFlag = false;
         OnDialogueEnded?.Invoke();
@@ -299,6 +310,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         // change the state of the automatic conversation
         autoTalking = !autoTalking;
 
+        autoFontText.color = autoTalking ? Color.yellow : Color.white;
+        autoActionText.color = autoTalking ? Color.yellow : Color.white;
+
         if (autoTalking)
         {
             if (autoTalkCoroutine != null)
@@ -334,6 +348,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
             return;
         // change the state of the skip conversation
         skipTalking = !skipTalking;
+
+        skipFontText.color = skipTalking ? Color.yellow : Color.white;
+        skipActionText.color = skipTalking ? Color.yellow : Color.white;
 
         if (skipTalking)
         {

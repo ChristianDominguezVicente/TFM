@@ -130,6 +130,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &32517775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 405261093181861338, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+  m_PrefabInstance: {fileID: 1924997532602528760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &32756364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4470890804636060763, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
@@ -308,6 +319,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
@@ -323,6 +338,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1471759917}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: autoTalkDelay
       value: 2.5
@@ -340,9 +359,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1375180797}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: timeBtwLetters
       value: 0.03
@@ -351,6 +378,14 @@ PrefabInstance:
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possessionManager
       value: 
@@ -612,9 +647,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -1160,6 +1203,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
@@ -1175,6 +1222,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1471759917}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: autoTalkDelay
       value: 2.5
@@ -1192,9 +1243,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1375180797}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: timeBtwLetters
       value: 0.03
@@ -1203,6 +1262,14 @@ PrefabInstance:
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possessionManager
       value: 
@@ -1256,9 +1323,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -1390,6 +1465,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &436604759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7957577166554737091, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+  m_PrefabInstance: {fileID: 1924997532602528760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &445943551
@@ -2572,6 +2658,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
@@ -2587,6 +2677,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1471759917}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: autoTalkDelay
       value: 2.5
@@ -2604,9 +2698,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1375180797}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: timeBtwLetters
       value: 0.03
@@ -2615,6 +2717,14 @@ PrefabInstance:
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possessionManager
       value: 
@@ -2668,9 +2778,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -3267,6 +3385,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: dbb1c491067a092489e33fb1a4fd42a7, type: 2}
@@ -3279,9 +3401,21 @@ PrefabInstance:
       value: Talk Rachel
       objectReference: {fileID: 0}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1375180797}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -4109,9 +4243,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -4765,6 +4907,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 2ba2e938f02d62f4a9a84ae7eaffff05, type: 2}
@@ -4777,9 +4923,21 @@ PrefabInstance:
       value: Talk Helen
       objectReference: {fileID: 0}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: virtualCamera
       value: 
       objectReference: {fileID: 1375180797}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -4950,6 +5108,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5135207375642350035, guid: eb62ed97c5167c2438a0701de30440db, type: 3}
   m_PrefabInstance: {fileID: 1670290079}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1694377423 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2526651208030129006, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+  m_PrefabInstance: {fileID: 1924997532602528760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1700203472 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 776862008642074130, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
@@ -5623,6 +5792,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
@@ -5638,6 +5811,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1471759917}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: autoTalkDelay
       value: 2.5
@@ -5655,9 +5832,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1375180797}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: timeBtwLetters
       value: 0.03
@@ -5666,6 +5851,14 @@ PrefabInstance:
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possessionManager
       value: 
@@ -5719,9 +5912,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -5856,6 +6057,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
@@ -5871,6 +6076,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1471759917}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: autoTalkDelay
       value: 2.5
@@ -5888,9 +6097,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1375180797}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: timeBtwLetters
       value: 0.03
@@ -5899,6 +6116,14 @@ PrefabInstance:
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possessionManager
       value: 
@@ -5960,9 +6185,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -6363,6 +6596,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueData
       value: 
       objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
@@ -6378,6 +6615,10 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 1471759917}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: autoTalkDelay
       value: 2.5
@@ -6395,9 +6636,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1375180797}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: timeBtwLetters
       value: 0.03
@@ -6406,6 +6655,14 @@ PrefabInstance:
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possessionManager
       value: 
@@ -6459,9 +6716,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508493}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: possesionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: PlayerFollowCamera
       value: 
@@ -6889,6 +7154,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 1003063568}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: hud
+      value: 
+      objectReference: {fileID: 539949344}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: volume
       value: 
       objectReference: {fileID: 590703032}
@@ -6896,6 +7169,10 @@ PrefabInstance:
       propertyPath: otherImage
       value: 
       objectReference: {fileID: 798508481}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: possessBar
+      value: 
+      objectReference: {fileID: 32756364}
     - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: choicePanel
       value: 
@@ -6909,13 +7186,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508495}
     - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: autoFontText
+      value: 
+      objectReference: {fileID: 798508491}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: dialogueText
       value: 
       objectReference: {fileID: 798508496}
     - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: skipFontText
+      value: 
+      objectReference: {fileID: 798508489}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: autoActionText
+      value: 
+      objectReference: {fileID: 436604759}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: skipActionText
+      value: 
+      objectReference: {fileID: 1694377423}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: historyFontText
+      value: 
+      objectReference: {fileID: 798508490}
+    - target: {fileID: 820842915883611427, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: historyActionText
+      value: 
+      objectReference: {fileID: 32517775}
     - target: {fileID: 4965463671522244991, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.088344365
@@ -7004,6 +7305,10 @@ PrefabInstance:
       propertyPath: interactText
       value: 
       objectReference: {fileID: 1101757425}
+    - target: {fileID: 8295683412922223368, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: gamepadHistory
+      value: l
+      objectReference: {fileID: 0}
     - target: {fileID: 8615435743980592730, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: codeUI
       value: 

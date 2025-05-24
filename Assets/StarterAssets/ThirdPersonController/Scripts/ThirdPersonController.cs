@@ -116,6 +116,10 @@ namespace StarterAssets
         [Header("CodeUI")]
         [SerializeField] private CodeUI codeUI;
 
+        [Header("Texts")]
+        [SerializeField] private TextMeshProUGUI historyFontText;
+        [SerializeField] private TextMeshProUGUI historyActionText;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -877,6 +881,8 @@ namespace StarterAssets
                 {
                     // activates or desactivates the history
                     showingHistory = !showingHistory;
+                    historyFontText.color = showingHistory ? Color.yellow : Color.white;
+                    historyActionText.color = showingHistory ? Color.yellow : Color.white;
                     historyPanel.SetActive(showingHistory);
                     // if history is active
                     if (showingHistory)
@@ -906,6 +912,8 @@ namespace StarterAssets
                 {
                     // activates or desactivates the history
                     showingHistory = !showingHistory;
+                    historyFontText.color = showingHistory ? Color.yellow : Color.white;
+                    historyActionText.color = showingHistory ? Color.yellow : Color.white;
                     historyPanel.SetActive(showingHistory);
                     // if history is active
                     if (showingHistory)
@@ -936,6 +944,8 @@ namespace StarterAssets
                 {
                     // activates or desactivates the history
                     showingHistory = !showingHistory;
+                    historyFontText.color = showingHistory ? Color.yellow : Color.white;
+                    historyActionText.color = showingHistory ? Color.yellow : Color.white;
                     historyPanel.SetActive(showingHistory);
                     // if history is active
                     if (showingHistory)
@@ -985,6 +995,8 @@ namespace StarterAssets
             }
             // activates or desactivates the history
             showingHistory = !showingHistory;
+            historyFontText.color = showingHistory ? Color.yellow : Color.white;
+            historyActionText.color = showingHistory ? Color.yellow : Color.white;
             historyPanel.SetActive(showingHistory);
             // if history is active
             if (showingHistory)
