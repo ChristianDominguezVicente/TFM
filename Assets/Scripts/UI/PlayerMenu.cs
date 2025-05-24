@@ -35,6 +35,19 @@ public class PlayerMenu : MonoBehaviour
         {
             UI_Move();
             UI_Interact();
+            UI_CancelPauseMenu();
+        }
+    }
+
+    private void UI_CancelPauseMenu()
+    {
+        if (_input.cancel)
+        {
+            UnityEngine.Debug.Log("echa pa tras");
+            MenuInicial.menuActivo.VolverAMenuAnterior();
+
+            _input.cancel = false;
+            return;
 
         }
     }
@@ -101,4 +114,9 @@ public class PlayerMenu : MonoBehaviour
             _input.interact = false;
         }
     }
+
+
+
+
+
 }

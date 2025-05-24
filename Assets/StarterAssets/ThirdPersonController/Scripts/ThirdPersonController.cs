@@ -271,6 +271,7 @@ namespace StarterAssets
                     PlayerFollowCamera.SetActive(false);
                     UI_Move_Paused();
                     UI_Interact();
+                    UI_CancelPauseMenu();
                 }
             }
             else
@@ -330,9 +331,23 @@ namespace StarterAssets
                 ResetInputs();
             }
         }
-        
+
+        private void UI_CancelPauseMenu()
+        {
+            if (_input.cancel)
+            {
+                UnityEngine.Debug.Log("echa pa tras");
+                MenuInicial.menuActivo.VolverAMenuAnterior();
+
+                _input.cancel = false;
+                return;
+
+            }
+        }
+
         private void ResetInputs()
         {
+            _input.pause = false;
             _input.jump = false;
             _input.interact = false;
             _input.auto = false;

@@ -20,7 +20,7 @@ public class SaveSystemMult : MonoBehaviour
 
     // config 
     public static int CurrentSlot { get; set; } = -1;
-    private const string SceneName = "Greybox"; 
+    private const string SceneName = "Greybox"; //level one
 
     // save pos player, scene and play time 
     private static string GetPositionXKey(int slot) => $"Slot{slot}_PosX";

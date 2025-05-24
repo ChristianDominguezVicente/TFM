@@ -19,6 +19,8 @@ public class PantallaConfig : MonoBehaviour
     [SerializeField] private Button btnResolucion;
     [SerializeField] private TextMeshProUGUI textoResolucion;
     [SerializeField] private bool esMenuInicio;
+
+    private const string HA_SIDO_INICIALIZADO_KEY = "HaSidoInicializado"; // def 0
     private Resolucion[] resoluciones = new Resolucion[]
     {
         new Resolucion { ancho = 1920, alto = 1080, nombre = "1920x1080" }, // Índice 0
@@ -43,18 +45,21 @@ public class PantallaConfig : MonoBehaviour
 
     private void Awake()
     {
-        if (esMenuInicio)
+        bool haSidoInicializadoAnteriormente = PlayerPrefs.GetInt(HA_SIDO_INICIALIZADO_KEY, 0) == 1;
+        if (esMenuInicio && !haSidoInicializadoAnteriormente)
         {
+            Debug.Log("es la primera vez???");
             // Establecer 1920x1080 como valor por defecto (índice 0)
             indiceResolucion = 0;
             PlayerPrefs.SetInt("ResolucionIndex", 0); // 1920x1080
             PlayerPrefs.SetInt("ModoPantallaIndex", 0); // FullScreenWindow
-                                                        //    Debug.Log($"PlayerPrefs Resolución: {PlayerPrefs.GetInt("ResolucionIndex", -1)}");
+            PlayerPrefs.SetInt(HA_SIDO_INICIALIZADO_KEY, 1); // 1 = true; 0 = false;
+            //    Debug.Log($"PlayerPrefs Resolución: {PlayerPrefs.GetInt("ResolucionIndex", -1)}");
             AplicarConfiguracionInmediata(true);
         }
         else
         {
-            //niveles normales aplicar config
+            //other levels
             PlayerPrefs.GetInt("ResolucionIndex", 0); 
             PlayerPrefs.GetInt("ModoPantallaIndex", 0); 
         }
@@ -64,8 +69,6 @@ public class PantallaConfig : MonoBehaviour
     {
         CargarConfiguracion();
         ConfigurarBotones();
-
-        // Actualizar UI para reflejar la configuración actual
         ActualizarUI();
     }
 
@@ -82,7 +85,7 @@ public class PantallaConfig : MonoBehaviour
         {
 
             textoResolucion.text = resoluciones[indiceResolucion].nombre;
-         //   Debug.Log("pantalla config: "+textoResolucion.text);
+            Debug.Log("pantalla config: "+textoResolucion.text);
         }
     }
 

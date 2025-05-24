@@ -21,6 +21,7 @@ public class MenuInicial : MonoBehaviour
         public bool esSalir = false;
         public bool esVolver = false;
         public bool esNuevaPartida = false;
+        public bool esVolverMenuInicial = false;
 
         [Header("Botones de Slot de Guardado")]
         public bool esSlotCargandoPartida = false; // cargado partida
@@ -114,12 +115,15 @@ public class MenuInicial : MonoBehaviour
                 if (config.esNuevaPartida)
                 {
                     config.boton.onClick.AddListener(EntrarJuego);
-                }else if (config.esSlotCargandoPartida) // cargar partida
+                }else if (config.esSlotCargandoPartida) // load game
                 {
                     ConfigureForLoadData(config);
-                } else if (config.esGuardarPartida) // guardar partida
+                } else if (config.esGuardarPartida) // save game
                 {
                     ConfigureSaveButton(config);
+                }else if (config.esVolverMenuInicial) // back to menu initial
+                {
+                    config.boton.onClick.AddListener(VolverMenuInicio);
                 }
                 else if (config.esSalir)
                 {
@@ -171,6 +175,7 @@ public class MenuInicial : MonoBehaviour
             SaveSystemMult saveSystem = FindFirstObjectByType<SaveSystemMult>();
             saveSystem.SaveGame(config.indiceSlotGuardado);
             UpdateSingleSaveSlotUI(config.indiceSlotGuardado);
+            VolverAMenuAnterior();
         });
     }
 
@@ -206,13 +211,18 @@ public class MenuInicial : MonoBehaviour
         SceneManager.LoadScene("Greybox");
     }
 
+    private void VolverMenuInicio()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     private void SalirDelJuego()
     {
         Application.Quit();
 
     }
 
-    private void VolverAMenuAnterior()
+    internal void VolverAMenuAnterior()
     {
         if (menuAnterior != null)
         {
