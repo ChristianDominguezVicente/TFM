@@ -48,7 +48,6 @@ public class PantallaConfig : MonoBehaviour
         bool haSidoInicializadoAnteriormente = PlayerPrefs.GetInt(HA_SIDO_INICIALIZADO_KEY, 0) == 1;
         if (esMenuInicio && !haSidoInicializadoAnteriormente)
         {
-            Debug.Log("es la primera vez???");
             // Establecer 1920x1080 como valor por defecto (índice 0)
             indiceResolucion = 0;
             PlayerPrefs.SetInt("ResolucionIndex", 0); // 1920x1080
@@ -85,7 +84,7 @@ public class PantallaConfig : MonoBehaviour
         {
 
             textoResolucion.text = resoluciones[indiceResolucion].nombre;
-            Debug.Log("pantalla config: "+textoResolucion.text);
+         //   Debug.Log("pantalla config: "+textoResolucion.text);
         }
     }
 

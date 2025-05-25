@@ -43,7 +43,7 @@ public class PlayerMenu : MonoBehaviour
     {
         if (_input.cancel)
         {
-            UnityEngine.Debug.Log("echa pa tras");
+            
             MenuInicial.menuActivo.VolverAMenuAnterior();
 
             _input.cancel = false;

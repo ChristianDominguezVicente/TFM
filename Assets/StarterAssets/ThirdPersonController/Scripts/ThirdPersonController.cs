@@ -340,7 +340,7 @@ namespace StarterAssets
         {
             if (_input.cancel)
             {
-                UnityEngine.Debug.Log("echa pa tras");
+             //   UnityEngine.Debug.Log("echa pa tras");
                 MenuInicial.menuActivo.VolverAMenuAnterior();
 
                 _input.cancel = false;
@@ -1360,6 +1360,7 @@ namespace StarterAssets
             {
              //   UnityEngine.Debug.Log(_input.pause);
                 pauseManager.IsPaused = true;
+                Cursor.visible = true;
                 _input.pause = false;
             }
         }
