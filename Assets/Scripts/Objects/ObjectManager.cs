@@ -15,6 +15,9 @@ public class ObjectManager : MonoBehaviour
     private bool recipe1 = false;
     private bool recipe2 = false;
 
+    //puzle 2
+    private bool teddy = false;
+
     // puzle 4
     private bool correct = false;
     private bool incorrect = false;
@@ -33,4 +36,5 @@ public class ObjectManager : MonoBehaviour
     public bool Correct { get => correct; set => correct = value; }
     public bool Incorrect { get => incorrect; set => incorrect = value; }
     public GameObject CurrentObject { get => currentObject; set => currentObject = value; }
+    public bool Teddy { get => teddy; set => teddy = value; }
 }

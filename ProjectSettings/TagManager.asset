@@ -8,6 +8,7 @@ TagManager:
   - Object
   - Desk
   - Diary
+  - Box
   layers:
   - Default
   - TransparentFX

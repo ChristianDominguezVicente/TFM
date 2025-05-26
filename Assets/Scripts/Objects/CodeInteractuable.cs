@@ -22,11 +22,25 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform.parent;
+    
+    [Header("BoxLvl2")]
+    [SerializeField] private PossessionManager possessionManager;
 
     public void Interact(Transform interactorTransform)
     {
+        
+        //If in the puzzle 2 Lia interact with the box that contains the key master, it unlock automatically
+        if(CompareTag("Box") && possessionManager.CurrentNPC.NpcName=="Lia")
+        {
+            UnlockBox();
+            masterKey.SetActive(true);
+        }
         // show UI
-        codeUI.Show(this);
+        else
+        {
+            codeUI.Show(this);
+        }
+        
     }
 
     // when the correct code is entered
@@ -83,5 +97,10 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
         // load next level
         SceneManager.LoadScene(nextScene);
+    }
+
+    private void UnlockBox()
+    {
+        Destroy(this);
     }
 }
