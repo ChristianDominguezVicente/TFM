@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CodeInteractuable : MonoBehaviour, IInteractuable
 {
@@ -8,10 +9,15 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private CodeUI codeUI;
     [SerializeField] private int[] code = new int[4];
 
+    [Header("Desk")]
     [SerializeField] private Transform drawerObject;
     [SerializeField] private float openDistance;
     [SerializeField] private float openDuration;
     [SerializeField] private GameObject masterKey;
+
+    [Header("Diary")]
+    [SerializeField] private string nextScene;
+    [SerializeField] private CanvasGroup fadeOut;
     public int[] Code { get => code; set => code = value; }
 
     public string GetInteractText() => interactText;
@@ -24,10 +30,19 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     }
 
     // when the correct code is entered
-    public void OpenDrawer()
+    public void OnCorrectCode()
     {
         codeUI.Hide();
-        StartCoroutine(MoveDrawer());
+
+        if (CompareTag("Desk"))
+        {
+            StartCoroutine(MoveDrawer());
+        }
+        else if (CompareTag("Diary"))
+        {
+            StartCoroutine(FadeOut());
+        }
+            
     }
 
     // drawer opening animation
@@ -50,5 +65,23 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         masterKey.SetActive(true);
         // destroy script
         Destroy(this);
+    }
+
+    private IEnumerator FadeOut()
+    {
+        fadeOut.gameObject.SetActive(true);
+
+        float duration = 2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+
+        // load next level
+        SceneManager.LoadScene(nextScene);
     }
 }

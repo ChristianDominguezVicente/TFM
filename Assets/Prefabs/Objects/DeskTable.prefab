@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365036526339167765}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 6370559328246428206}
   m_Layer: 3
   m_Name: Mesh42
-  m_TagString: Untagged
+  m_TagString: Desk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6da8d681ca5ab45b3ad91c0a14dc94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactText: Interact with Drawer
+  interactText: Open Drawer
   codeUI: {fileID: 0}
   code: 01000000020000000300000004000000
   drawerObject: {fileID: 4574828090940368042}
@@ -301,7 +301,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9109119644105664020, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
 --- !u!1001 &5640047482410173681
@@ -314,7 +314,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 426708290677586739, guid: 6512ca2e1d45fe94890b9a41270ae903, type: 3}
       propertyPath: m_Name
-      value: OBJETO_Llave_Maestra1
+      value: MasterKey
       objectReference: {fileID: 0}
     - target: {fileID: 755157351646856344, guid: 6512ca2e1d45fe94890b9a41270ae903, type: 3}
       propertyPath: m_LocalPosition.x
@@ -355,6 +355,14 @@ PrefabInstance:
     - target: {fileID: 755157351646856344, guid: 6512ca2e1d45fe94890b9a41270ae903, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034934718728413717, guid: 6512ca2e1d45fe94890b9a41270ae903, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107750402486183574, guid: 6512ca2e1d45fe94890b9a41270ae903, type: 3}
+      propertyPath: interactText
+      value: Take Master Key
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

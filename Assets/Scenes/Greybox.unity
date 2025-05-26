@@ -6405,6 +6405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Calendar
       objectReference: {fileID: 0}
+    - target: {fileID: 4918771673585254228, guid: e76aa24d36a852e4fbd67ece82b6a925, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6762,10 +6766,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2030925696}
     m_Modifications:
     - target: {fileID: 623509543206855271, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
-      propertyPath: interactText
-      value: Take Master Key
-      objectReference: {fileID: 0}
-    - target: {fileID: 623509543206855271, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
@@ -6813,30 +6813,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeskTable
       objectReference: {fileID: 0}
-    - target: {fileID: 4365036526339167765, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5453438724763828162, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
-      propertyPath: m_Name
-      value: MasterKey
-      objectReference: {fileID: 0}
-    - target: {fileID: 6370559328246428206, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: codeUI
       value: 
       objectReference: {fileID: 1645544579}
-    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
-      propertyPath: interactText
-      value: Open Drawer
-      objectReference: {fileID: 0}
-    - target: {fileID: 8771761870221059812, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

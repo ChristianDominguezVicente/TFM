@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - Object
+  - Desk
+  - Diary
   layers:
   - Default
   - TransparentFX
