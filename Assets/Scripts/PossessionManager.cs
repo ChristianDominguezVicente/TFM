@@ -1,5 +1,6 @@
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class PossessionManager : MonoBehaviour
@@ -19,6 +20,9 @@ public class PossessionManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private CodeUI codeUI;
+
+    [Header("Audio System")]
+    [SerializeField] private AudioMixer audioMixer;
 
     private float currentTime;
     private float maxTime;
@@ -58,6 +62,7 @@ public class PossessionManager : MonoBehaviour
             {
                 StopPossession();
             }
+            audioMixer.SetFloat("LowPass", 1000);
         }
         else if (!isPossessing && currentTime < maxTime)
         {
@@ -65,6 +70,7 @@ public class PossessionManager : MonoBehaviour
             currentTime += Time.deltaTime * rechargeSpeed;
             currentTime = Mathf.Min(currentTime, maxTime);
             UpdateBar();
+            audioMixer.SetFloat("LowPass", 5000);
         }
     }
 
