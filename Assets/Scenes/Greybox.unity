@@ -2728,7 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 436604759}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: maxPossessTime
-      value: 100000000
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: skipActionText
