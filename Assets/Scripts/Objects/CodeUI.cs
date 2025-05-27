@@ -87,7 +87,7 @@ public class CodeUI : MonoBehaviour
                 }
             }
             // if the code is correct
-            currentInteractuable.OpenDrawer();
+            currentInteractuable.OnCorrectCode();
         }
 
         // if the player press cancel

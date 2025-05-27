@@ -42,6 +42,10 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
     {
         looking = true;
 
+        originalPosition = transform.parent.position;
+        originalRotation = transform.parent.rotation;
+        hasOriginalTransform = true;
+
         if (objectManager != null)
         {
             objectManager.Looking = true;
@@ -67,7 +71,7 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
     private void Update()
     {
         // if player is looking
-        if (looking && objectManager.Looking)
+        if (objectManager.LookingObject == transform.parent && looking && objectManager.Looking)
         {
             // rotate the object
             if (offset != null)
@@ -76,7 +80,7 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
             }
         }
         // if player is not looking
-        else if (objectManager.LookingObject != null && !objectManager.Looking)
+        else if (looking && !objectManager.Looking)
         {
             StopLooking();
         }
