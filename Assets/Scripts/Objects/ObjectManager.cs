@@ -17,6 +17,8 @@ public class ObjectManager : MonoBehaviour
 
     //puzle 2
     private bool teddy = false;
+    private bool toolBox = false;
+    private bool giftPaper = false;
 
     // puzle 4
     private bool correct = false;
@@ -37,4 +39,7 @@ public class ObjectManager : MonoBehaviour
     public bool Incorrect { get => incorrect; set => incorrect = value; }
     public GameObject CurrentObject { get => currentObject; set => currentObject = value; }
     public bool Teddy { get => teddy; set => teddy = value; }
+    public bool ToolBox { get => toolBox; set => toolBox = value; }
+    public bool GiftPaper { get => giftPaper; set => giftPaper = value; }
+
 }

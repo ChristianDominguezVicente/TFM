@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,7 +35,6 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         if(CompareTag("Box") && possessionManager.CurrentNPC.NpcName=="Lia")
         {
             UnlockBox();
-            masterKey.SetActive(true);
         }
         // show UI
         else
@@ -56,8 +57,13 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         {
             StartCoroutine(FadeOut());
         }
+        else if(CompareTag("Box"))
+        {
+            UnlockBox();
+        }
             
     }
+
 
     // drawer opening animation
     private IEnumerator MoveDrawer()
@@ -102,5 +108,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     private void UnlockBox()
     {
         Destroy(this);
+        masterKey.SetActive(true);
     }
+
 }
