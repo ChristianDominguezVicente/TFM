@@ -525,4 +525,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
             yield return null;
         }
     }
+    public void SetTimeBtLetters(float delay)
+    {
+        timeBtwLetters = delay;
+    }
+
 }

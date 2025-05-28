@@ -4,11 +4,11 @@ using UnityEngine.UI;
 public class BrilloConfig : MonoBehaviour
 {
     [Header("Referencias")]
-    [SerializeField] private Image brightnessOverlay; // El Image negro que creaste
-    [SerializeField] private Slider brightnessSlider; // Tu Slider de UI
+    [SerializeField] private Image brightnessOverlay; // El Image negro UI
+    [SerializeField] private Slider brightnessSlider; //Slider de UI
 
-    [Header("Configuración")]
-    [Range(0, 1)][SerializeField] private float defaultBrightness = 0.5f;
+
+    [Range(0, 1)] private float defaultBrightness = 0.5f;
     private void Start()
     {
         // Carga el valor guardado o usa el valor por defecto
