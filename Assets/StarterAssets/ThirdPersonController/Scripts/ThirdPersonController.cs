@@ -276,6 +276,7 @@ namespace StarterAssets
                     UI_Move_Paused();
                     UI_Interact();
                     UI_CancelPauseMenu();
+                    ResetInputs();
                 }
             }
             else

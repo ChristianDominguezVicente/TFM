@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4609713520370123363}
+  - component: {fileID: 2471711932007325677}
   - component: {fileID: 4262906793370954805}
   - component: {fileID: 8145177543489721994}
   - component: {fileID: 6664307561684039637}
-  - component: {fileID: 2471711932007325677}
   m_Layer: 3
   m_Name: GiftPaper
   m_TagString: Untagged
@@ -35,6 +35,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2471711932007325677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2802225716970476511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc8b132ed3a5c243a138caf608591db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Interact Gift Paper
+  objectManager: {fileID: 0}
 --- !u!33 &4262906793370954805
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -110,17 +124,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9120697207952656972, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
---- !u!114 &2471711932007325677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2802225716970476511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc8b132ed3a5c243a138caf608591db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Interact Gift Paper
-  objectManager: {fileID: 0}

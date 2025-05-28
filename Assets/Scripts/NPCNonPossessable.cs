@@ -79,6 +79,8 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     // camera effects
     private DepthOfField blur;
 
+    private Coroutine lookCoroutine;
+
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
     public string NpcName { get => npcName; set => npcName = value; }
@@ -98,7 +100,7 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         interactor = interactorTransform;
-        if (cinematicDialoguePlayer != null && !cinematicFlag)
+        if (cinematicDialoguePlayer != null && !cinematicFlag && possessionManager.IsPossessing)
         {
             cinematicDialoguePlayer.PlayDialogue();
         }
@@ -441,8 +443,20 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         // if the NPC is not talking
         if (!Talking)
         {
+            if (lookCoroutine != null)
+                StopCoroutine(lookCoroutine);
+
             // start looking toward the target
-            StartCoroutine(LookAtTarget(lookTarget));
+            lookCoroutine = StartCoroutine(LookAtTarget(lookTarget));
+        }
+    }
+
+    public void ClearLookTarget()
+    {
+        if (lookCoroutine != null)
+        {
+            StopCoroutine(lookCoroutine);
+            lookCoroutine = null;
         }
     }
 

@@ -83,6 +83,20 @@ public class CinematicDialogue : MonoBehaviour
             {
                 yield return null;
             }
+
+            foreach (var otherEntry in dialogueSequence)
+            {
+                if (otherEntry.speaker != entry.speaker)
+                {
+                    NPCPossessable otherPossessable = otherEntry.speaker as NPCPossessable;
+                    NPCNonPossessable otherNonPossessable = otherEntry.speaker as NPCNonPossessable;
+
+                    if (otherPossessable != null)
+                        otherPossessable.ClearLookTarget();
+                    else if (otherNonPossessable != null)
+                        otherNonPossessable.ClearLookTarget();
+                }
+            }
         }
     }
 }
