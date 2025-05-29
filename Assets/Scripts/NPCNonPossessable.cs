@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Collections;
 using StarterAssets;
+using System.Collections.Generic;
 
 public class NPCNonPossessable : MonoBehaviour, IPossessable
 {
@@ -17,7 +18,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     [SerializeField] private GameObject player;
 
     [Header("Dialogue System")]
-    [SerializeField] private DialogueData dialogueData;
+    [SerializeField] private DialogueData[] dialogueDataArray;
+    [SerializeField] private string[] speakerNames;
+
     [SerializeField] private float timeBtwLetters;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -49,6 +52,7 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     [SerializeField] private GameObject hud;
 
     [Header("Cinematic")]
+    [SerializeField] private DialogueData cinematicDialogueData;
     [SerializeField] private CinematicDialogue cinematicDialoguePlayer;
 
     [Header("Texts")]
@@ -74,12 +78,15 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     public System.Action OnDialogueEnded;
 
     private DialogueData originalDialogueData;
-    private bool listening = false;
+    private bool listening = false;  
 
     // camera effects
     private DepthOfField blur;
 
     private Coroutine lookCoroutine;
+
+    private Dictionary<string, DialogueData> dialogueMap;
+    private DialogueData dialogueData;
 
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
@@ -95,6 +102,20 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     {
         // save the blur
         volume.profile.TryGet<DepthOfField>(out blur);
+
+        dialogueMap = new Dictionary<string, DialogueData>();
+        for (int i = 0; i < Mathf.Min(speakerNames.Length, dialogueDataArray.Length); i++)
+        {
+            dialogueMap[speakerNames[i]] = dialogueDataArray[i];
+        }
+    }
+
+    private void SetDialogue()
+    {
+        if (interactor != null && dialogueMap.TryGetValue(interactor.name, out DialogueData data))
+        {
+            dialogueData = data;
+        }
     }
 
     public void Possess(Transform interactorTransform)
@@ -106,6 +127,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         }
         else
         {
+            if(!cinematicFlag && !listening)
+                SetDialogue();
+
             if (!talking && !choicePanel.IsShowing && currentQuestion == null)
             {
                 speakerText.text = npcName;
@@ -428,6 +452,14 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         hud.SetActive(false);
         talking = false;
         currentQuestion = null;
+
+        // original dialoqueData
+        if (originalDialogueData == null)
+        {
+            originalDialogueData = dialogueData;
+        }
+        // change dialogueData
+        dialogueData = cinematicDialogueData;
 
         if (!choicePanel.IsShowing)
         {

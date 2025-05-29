@@ -472,6 +472,54 @@ PrefabInstance:
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 8d51f7b5033013c43b53f7a4de8faa4b, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 3151741551105938210, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1517,6 +1565,54 @@ PrefabInstance:
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 2b633f014a645154ba15e4a936176ed6, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -3000,6 +3096,54 @@ PrefabInstance:
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 2f8c7ba0778518c42b835177e85cff9c, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -3857,6 +4001,62 @@ PrefabInstance:
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 187d5042e1dbec842a44d4633e119324, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[5]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
     - target: {fileID: 8488699903735483439, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.929924
@@ -5556,6 +5756,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2108761787}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: cinematicDialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2ba2e938f02d62f4a9a84ae7eaffff05, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 823ae87f089810446b8113cdb9cfce03, type: 2}
@@ -5564,9 +5768,65 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 917323879}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: cinematicListeningPlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'speakerNames.Array.data[5]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+    - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
     - target: {fileID: 8488699903735483439, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5200005
@@ -6481,6 +6741,54 @@ PrefabInstance:
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: 1a0ccb0cf1a64b543a396359d474509c, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -6743,6 +7051,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2108761787}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: cinematicDialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: a5116003ce1844341a9354876689aba4, type: 2}
@@ -6751,9 +7063,57 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 917323879}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: cinematicListeningPlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -7308,6 +7668,54 @@ PrefabInstance:
       propertyPath: listeningDialogueData
       value: 
       objectReference: {fileID: 11400000, guid: fde82fc0fbcf3f54d8bbabd7e828b0a3, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: speakerNames.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[0]'
+      value: Erick
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[1]'
+      value: Henry
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[2]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[3]'
+      value: Jane
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'speakerNames.Array.data[4]'
+      value: Mary
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: dialogueDataArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+    - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'dialogueDataArray.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
