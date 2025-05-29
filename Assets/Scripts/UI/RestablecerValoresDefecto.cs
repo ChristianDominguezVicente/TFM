@@ -35,6 +35,7 @@ public class RestablecerValoresDefecto : MonoBehaviour
     [SerializeField] private PantallaConfig pantallaConfig;
     [SerializeField] private MenuInicial menuInicial;
     [SerializeField] private BrilloConfig brilloConfig;
+    [SerializeField] private TextoConfig textoConfig;
 
     private bool primeraActivacion = true;
 
@@ -62,6 +63,10 @@ public class RestablecerValoresDefecto : MonoBehaviour
 
         if (brilloConfig == null)
             brilloConfig = FindFirstObjectByType<BrilloConfig>(FindObjectsInactive.Include);
+        if ((textoConfig == null))
+        {
+            textoConfig = FindFirstObjectByType<TextoConfig>(FindObjectsInactive.Include);
+        }
 
         if (pantallaConfig == null)
             pantallaConfig = FindFirstObjectByType<PantallaConfig>(FindObjectsInactive.Include);
@@ -81,22 +86,25 @@ public class RestablecerValoresDefecto : MonoBehaviour
 
         Debug.Log("Iniciando reset completo...");
 
-        // 1. Resetear menús
+        // Resetear menús
         if (MenuInicial.menuActivo != null)
             MenuInicial.menuActivo.ResetearTodo();
 
-        // 2. Resetear brillo
+        // Resetear brillo
         if (brilloConfig != null)
             brilloConfig.ResetBrillo();
 
-        // 3. Resetear audio
+        if(textoConfig != null)
+            textoConfig.ResetConfiguracion();
+
+        // Resetear audio
         ResetearAudio();
 
-        // 4. Resetear gráficos
+        // Resetear gráficos
         if (pantallaConfig != null)
             pantallaConfig.AplicarPorDefectoTodo();
 
-        // 5. Guardar cambios
+        // Guardar cambios
         GuardarConfiguracion();
 
         Debug.Log("Reset completado correctamente");

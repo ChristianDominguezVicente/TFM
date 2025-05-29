@@ -20,6 +20,10 @@ public class InputDetector : MonoBehaviour
     [SerializeField] private TextMeshProUGUI vision; // computer mouse
 
 
+
+
+
+    [Header("PC Inputs")]
     [SerializeField] private string pcInteract;
     [SerializeField] private string pcListen;
     [SerializeField] private string pcNext;
@@ -31,7 +35,7 @@ public class InputDetector : MonoBehaviour
     [SerializeField] private string pcPause;
     [SerializeField] private string pcVision;
 
-
+    [Header("PS Inputs")]
     [SerializeField] private string gamepadInteract;
     [SerializeField] private string gamepadListen;
     [SerializeField] private string gamepadNext;
@@ -43,7 +47,21 @@ public class InputDetector : MonoBehaviour
     [SerializeField] private string gamepadPause;
     [SerializeField] private string gamepadVision;
 
+    [Header("XBOX Inputs")]
+    [SerializeField] private string gamepadXBOXInteract;
+    [SerializeField] private string gamepadXBOXListen;
+    [SerializeField] private string gamepadXBOXNext;
+    [SerializeField] private string gamepadXBOXAuto;
+    [SerializeField] private string gamepadXBOXHistory;
+    [SerializeField] private string gamepadXBOXSkip;
+    [SerializeField] private string gamepadXBOXClue;
+    [SerializeField] private string gamepadXBOXMission;
+    [SerializeField] private string gamepadXBOXPause;
+    [SerializeField] private string gamepadXBOXVision;
 
+
+
+    [Header("Fonts")]
     [SerializeField] private TMP_FontAsset pcFont;
     [SerializeField] private TMP_FontAsset gamepadFont;
     [SerializeField] private TMP_FontAsset pcMouseFont;
@@ -71,7 +89,16 @@ public class InputDetector : MonoBehaviour
         if (device is Gamepad && controlUsed != "Gamepad")
         {
             controlUsed = "Gamepad";
-            UpdateUIForGamepad();
+            //xbox
+            if (device.name.Contains("xbox") || device.name.Contains("xinput") || UnityEngine.InputSystem.Gamepad.current is UnityEngine.InputSystem.XInput.XInputController)
+            {
+                UpdateUIForGamepadXBOX();
+            }
+            else
+            {
+
+                UpdateUIForGamepadPS();
+            }
         }
         // if a Keyboard or Mouse is detected and it was not the previous controller, update to Keyboard
         else if ((device is Keyboard || device is Mouse) && controlUsed != "Keyboard")
@@ -81,7 +108,7 @@ public class InputDetector : MonoBehaviour
         }
     }
 
-    private void UpdateUIForGamepad()
+    private void UpdateUIForGamepadPS()
     {
         interactText.text = gamepadInteract;
         listenText.text = gamepadListen;
@@ -91,7 +118,7 @@ public class InputDetector : MonoBehaviour
         skipText.text = gamepadSkip;
         clue.text = gamepadClue;
         mission.text = gamepadMission;
-        pause.text = gamepadPause;
+        pause.text = $"<size=130>{gamepadPause}</size>";// config font size;
         vision.text = gamepadVision;
 
         interactText.font = gamepadFont;
@@ -106,6 +133,34 @@ public class InputDetector : MonoBehaviour
         vision.font = gamepadFont;
     }
 
+    private void UpdateUIForGamepadXBOX()
+    {
+        interactText.text = gamepadXBOXInteract;
+        listenText.text = gamepadXBOXListen;
+        nextText.text = gamepadXBOXNext;
+        autoText.text = gamepadXBOXAuto;
+        historyText.text = gamepadXBOXHistory;
+        skipText.text = gamepadXBOXSkip;
+        clue.text = gamepadXBOXClue;
+        mission.text = gamepadXBOXMission;
+        pause.text = $"<size=130>{gamepadXBOXPause}</size>"; // config font size;
+        vision.text = gamepadXBOXVision;
+
+        interactText.font = pcFont;
+        listenText.font = pcFont;
+        nextText.font = pcFont;
+        autoText.font = pcFont;
+        historyText.font = pcFont;
+        skipText.font = pcFont;
+        clue.font = pcFont;
+        mission.font = pcFont;
+        pause.font = gamepadFont;
+        vision.font = pcFont;
+    }
+
+
+
+
     private void UpdateUIForKeyboard()
     {
         interactText.text = pcInteract;
@@ -117,7 +172,10 @@ public class InputDetector : MonoBehaviour
         clue.text = pcClue;
         mission.text = pcMission;
         pause.text = pcPause;
-        vision.text = pcVision;
+        vision.text = $"<size=130>{pcVision}</size>"; // config font size
+
+
+
 
 
 
