@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/InicioMenu.unity
     guid: f40bd91ae431f3b499354c73763d24ab
   - enabled: 1
-    path: Assets/Scenes/Puzzle 1.unity
+    path: Assets/Scenes/Greybox.unity
     guid: 58498fc99b2e8544097e626f5ada7e50
   - enabled: 1
     path: Assets/Scenes/Puzzle 2.unity
