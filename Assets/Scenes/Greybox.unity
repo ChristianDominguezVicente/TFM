@@ -20920,6 +20920,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1471759916}
     - target: {fileID: 8615435743980592730, guid: 83b3407234652774085e7ea3e6007726, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 9049ebf97f3055f499d0c23e204460bb, type: 2}
+    - target: {fileID: 8615435743980592730, guid: 83b3407234652774085e7ea3e6007726, type: 3}
       propertyPath: possessBarFill
       value: 
       objectReference: {fileID: 798508482}
