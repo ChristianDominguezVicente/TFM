@@ -25,6 +25,7 @@ MonoBehaviour:
         npcText: "\xBFY te puedes creer que va y se lleva la otra mitad de la receta?"
         image: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
         nextIndex: 1
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
     - rid: 8849634281751576591
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -32,6 +33,7 @@ MonoBehaviour:
           dice m\xE1ma va y se lleva la receta!"
         image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
     - rid: 8849634281751576593
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -39,3 +41,4 @@ MonoBehaviour:
           no se acuerde..."
         image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
         nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}

@@ -61,6 +61,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     [Header("Dialogue Image")]
     [SerializeField] private Image otherImage;
+    [SerializeField] private Image nonSpeakerImage;
 
     [Header("Camera Effects")]
     [SerializeField] private Volume volume;
@@ -329,6 +330,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             // show the expression image
             otherImage.sprite = phrase.image;
             otherImage.gameObject.SetActive(phrase.image != null);
+            nonSpeakerImage.sprite = phrase.nonSpeakerImage;
+            nonSpeakerImage.gameObject.SetActive(phrase.nonSpeakerImage != null);
+            Debug.Log(phrase.nonSpeakerImage != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)
@@ -353,7 +357,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         interactor = null;
         dialogueHistory.AddSeparator();
 
-        if (blur != null)
+        if (blur != null && (!cinematicFlag || listening))
         {
             // remove the blur
             StartCoroutine(SetBlur(false));
@@ -382,6 +386,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         listening = false;
 
         otherImage.gameObject.SetActive(false);      
+        nonSpeakerImage.gameObject.SetActive(false);      
     }
 
     private IEnumerator WritePhrase(string phrase)
@@ -742,5 +747,10 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             blur.focusDistance.value = Mathf.Lerp(blur.focusDistance.value, focus, t);
             yield return null;
         }
+    }
+
+    public void RemoveBlur()
+    {
+        StartCoroutine(SetBlur(false));
     }
 }

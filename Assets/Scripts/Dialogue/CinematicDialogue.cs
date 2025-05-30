@@ -98,5 +98,17 @@ public class CinematicDialogue : MonoBehaviour
                 }
             }
         }
+
+        foreach (var entry in dialogueSequence)
+        {
+            if (entry.speaker is NPCNonPossessable nonPossessable)
+            {
+                nonPossessable.RemoveBlur();
+            }
+            else if (entry.speaker is NPCPossessable possessable)
+            {
+                possessable.RemoveBlur();
+            }
+        }
     }
 }

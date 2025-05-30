@@ -1,17 +1,20 @@
 using Cinemachine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HintManager : MonoBehaviour, IPossessable
 {
     [Header("Hints Settings")]
     [SerializeField] private PossessionManager possessionManager;
-    [SerializeField] private DialogueData dialogueData;
+    [SerializeField] private ObjectManager objectManager;
+    [SerializeField] private DialogueData[] dialogueDataArray;
     [SerializeField] private float timeBtwLetters;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -22,6 +25,7 @@ public class HintManager : MonoBehaviour, IPossessable
     [SerializeField] private float autoTalkDelay;
     [SerializeField] private float skipTalkDelay;
     [SerializeField] private Image otherImage;
+    [SerializeField] private Image nonSpeakerImage;
     [SerializeField] private Volume volume;
 
     [Header("HUD")]
@@ -50,6 +54,8 @@ public class HintManager : MonoBehaviour, IPossessable
 
     private DepthOfField blur;
 
+    private int currentDialogueIndex = -1;
+
     public static HintManager CurrentHint { get => hintManager; set => hintManager = value; }
 
     public bool IsTalking { get => talking; set => talking = value; }
@@ -68,8 +74,17 @@ public class HintManager : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         hintManager = this;
+
         if (!talking && !choicePanel.IsShowing && currentQuestion == null)
         {
+            UpdateDialogue();
+
+            if (currentDialogueIndex == -1)
+            {
+                EndDialogue();
+                return;
+            }
+
             speakerText.text = nameHints;
             dialogueBox.SetActive(true);
             ui.SetActive(false);
@@ -83,13 +98,109 @@ public class HintManager : MonoBehaviour, IPossessable
         }
     }
 
+    private bool IsDialogueActive(int index)
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        switch (sceneName)
+        {
+            case "Puzzle 1":
+                switch (index)
+                {
+                    case 0: return objectManager.MasterKeyTaken;
+                    case 1: return objectManager.ValveActive;
+                    case 2: return objectManager.Sugar;
+                    case 3: return objectManager.Flour;
+                    case 4: return objectManager.Eggs;
+                    case 5: return objectManager.Recipe1 && objectManager.Recipe2;
+                    default: return false;
+                }
+            case "Puzzle 2":
+                switch (index)
+                {
+                    case 0: return objectManager.Teddy;
+                    case 1: return objectManager.ToolBox;
+                    case 2: return objectManager.GiftPaper;
+                    case 3: return objectManager.Correct || objectManager.Incorrect;
+                    case 4: return objectManager.Incorrect;
+                    default: return false;
+                }
+            case "Puzzle 3":
+                switch (index)
+                {
+                    default: return false;
+                }
+            case "Puzzle 4":
+                switch (index)
+                {
+                    case 0: return objectManager.Correct || objectManager.Incorrect;
+                    default: return false;
+                }
+            default:
+                return false;
+        }
+    }
+
+    private int[] GetPendingDialogues()
+    {
+        List<int> pending = new List<int>();
+        for (int i = 0; i < dialogueDataArray.Length; i++)
+        {
+            if (!IsDialogueActive(i))
+                pending.Add(i);
+        }
+        return pending.ToArray();
+    }
+
+
+    private void UpdateDialogue()
+    {
+        int previousIndex = currentDialogueIndex;
+
+        var pendingDialogues = GetPendingDialogues();
+
+        if (pendingDialogues.Length == 0)
+        {
+            currentDialogueIndex = -1;
+            EndDialogue();
+            return;
+        }
+
+        currentDialogueIndex = pendingDialogues[0];
+
+        if (previousIndex != currentDialogueIndex)
+        {
+            currentIndex = 0;
+        }
+    }
+
     private void NextPhrase()
     {
         // if the current index is out of bounds end the dialog
-        if (currentIndex < 0 || currentIndex >= dialogueData.nodes.Length)
+        if (currentDialogueIndex == -1 || currentIndex < 0 || currentIndex >= dialogueDataArray[currentDialogueIndex].nodes.Length)
         {
-            EndDialogue();
-            return;
+            var pendingDialogues = GetPendingDialogues();
+
+            int nextDialogueIndex = -1;
+            foreach (int idx in pendingDialogues)
+            {
+                if (idx > currentDialogueIndex)
+                {
+                    nextDialogueIndex = idx;
+                    break;
+                }
+            }
+
+            if (nextDialogueIndex == -1)
+            {
+                EndDialogue();
+                return;
+            }
+            else
+            {
+                currentDialogueIndex = nextDialogueIndex;
+                currentIndex = 0;
+            }
         }
 
         possessionManager.IsTalking = true;
@@ -101,13 +212,15 @@ public class HintManager : MonoBehaviour, IPossessable
         }
 
         // current node of the dialogue
-        DialogueNode node = dialogueData.nodes[currentIndex];
+        DialogueNode node = dialogueDataArray[currentDialogueIndex].nodes[currentIndex];
 
         if (node is DialoguePhrase phrase)
         {
             // show the expression image
             otherImage.sprite = phrase.image;
             otherImage.gameObject.SetActive(phrase.image != null);
+            nonSpeakerImage.sprite = phrase.nonSpeakerImage;
+            nonSpeakerImage.gameObject.SetActive(phrase.nonSpeakerImage != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)
@@ -125,6 +238,7 @@ public class HintManager : MonoBehaviour, IPossessable
         talking = false;
         dialogueText.text = "";
         currentIndex = 0;
+        currentDialogueIndex = 0;
         dialogueBox.SetActive(false);
         ui.SetActive(true);
         possessBar.SetActive(true);
@@ -173,7 +287,7 @@ public class HintManager : MonoBehaviour, IPossessable
         talking = false;
         dialogueHistory.AddLine(nameHints, phrase);
         // current node of the dialogue
-        DialogueNode node = dialogueData.nodes[currentIndex];
+        DialogueNode node = dialogueDataArray[currentDialogueIndex].nodes[currentIndex];
         // update the index to advance the dialogue
         if (node is DialoguePhrase p)
         {
@@ -184,7 +298,7 @@ public class HintManager : MonoBehaviour, IPossessable
     private void CompletedPhrase()
     {
         // current node of the dialogue
-        DialogueNode node = dialogueData.nodes[currentIndex];
+        DialogueNode node = dialogueDataArray[currentDialogueIndex].nodes[currentIndex];
         // if the coroutine is running, it stops
         if (node is DialoguePhrase phrase)
         {

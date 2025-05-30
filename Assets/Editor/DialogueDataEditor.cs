@@ -42,6 +42,7 @@ public class DialogueDataEditor : Editor
                 phrase.npcText = EditorGUILayout.TextField("NPC Text", phrase.npcText);
                 phrase.nextIndex = EditorGUILayout.IntField("Next Index", phrase.nextIndex);
                 phrase.image = (Sprite)EditorGUILayout.ObjectField("Image", phrase.image, typeof(Sprite), false);
+                phrase.nonSpeakerImage = (Sprite)EditorGUILayout.ObjectField("NonSpeaker Image", phrase.nonSpeakerImage, typeof(Sprite), false);
             }
             // if the node is DialogueQuestion
             else if (node is DialogueQuestion question)

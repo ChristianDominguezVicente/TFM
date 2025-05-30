@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
-  m_Name: Hints
+  m_Name: Hints 5
   m_EditorClassIdentifier: 
   nodes:
   - rid: 8849633816159977543
@@ -21,14 +21,14 @@ MonoBehaviour:
     - rid: 8849633816159977543
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: HInt1 HInt1 HInt1 HInt1 HInt1 HInt1 HInt1 HInt1 HInt1
+        npcText: 'HInt5 HInt5 HInt5 HInt5 HInt5 HInt5 HInt5 '
         image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
     - rid: 8849633816159977544
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: HInt1 HInt1 HInt1 HInt1 HInt1 HInt1 HInt1 HInt1 HInt1
+        npcText: 'HInt5 HInt5 HInt5 HInt5 HInt5 HInt5 HInt5 '
         image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
