@@ -4,6 +4,10 @@ using UnityEngine.UI;
 public class TextoConfig : MonoBehaviour
 {
     [SerializeField] private Image dialogueBox; // Imagen del cuadro de diálogo
+    [SerializeField] private Image dialogueBoxName;
+    [SerializeField] private Image dialogueBoxButtons;
+
+
     [SerializeField] private Slider transparencySlider; // Slider para transparencia
     [SerializeField] private Slider speedSlider; // Slider para velocidad
 
@@ -46,7 +50,8 @@ public class TextoConfig : MonoBehaviour
             Color color = dialogueBox.color;
             color.a = transparencyValue;
             dialogueBox.color = color;
-
+            dialogueBoxName.color = color;
+            dialogueBoxButtons.color = color;
             PlayerPrefs.SetFloat(TransparencyKey, transparencyValue);
         }
     }

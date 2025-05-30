@@ -154,7 +154,7 @@ public class PantallaConfig : MonoBehaviour
                 indiceResolucion= i;
                 GuardarConfiguracion();
                // ActualizarUI();
-                Debug.Log($"Resolución cambiada por nombre: {indiceDadoRes} (Índice: {i})");
+              //  Debug.Log($"Resolución cambiada por nombre: {indiceDadoRes} (Índice: {i})");
                 return true;
             }
         }
