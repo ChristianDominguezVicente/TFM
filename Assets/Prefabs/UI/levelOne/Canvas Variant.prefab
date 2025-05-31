@@ -6983,7 +6983,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brightnessOverlay: {fileID: 7674238863164974702}
   brightnessSlider: {fileID: 6388926315806811983}
-  defaultBrightness: 0.5
 --- !u!1 &3159264019521387230
 GameObject:
   m_ObjectHideFlags: 0
@@ -8529,6 +8528,7 @@ MonoBehaviour:
   pantallaConfig: {fileID: 0}
   menuInicial: {fileID: 0}
   brilloConfig: {fileID: 23728228538215474}
+  textoConfig: {fileID: 0}
 --- !u!1 &3892619991917100234
 GameObject:
   m_ObjectHideFlags: 0
@@ -20965,6 +20965,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 8010128054547752829}
+    - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2036339770824020214}
     - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
@@ -21003,9 +21006,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6408986197685219892}
-    - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8010128054547752829}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
 --- !u!224 &987125610829456240 stripped
