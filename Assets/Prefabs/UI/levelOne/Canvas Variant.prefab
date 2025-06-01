@@ -639,6 +639,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -659,6 +660,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -3599,6 +3601,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -3617,6 +3620,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -3635,6 +3639,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -3653,6 +3658,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -3671,6 +3677,7 @@ MonoBehaviour:
     esSalir: 1
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -5837,6 +5844,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 1
     indiceSlot: 0
@@ -5855,6 +5863,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 1
     indiceSlot: 1
@@ -5873,6 +5882,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 1
     indiceSlot: 2
@@ -5891,6 +5901,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -6711,6 +6722,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -6732,6 +6744,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -6755,6 +6768,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -6773,6 +6787,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -8458,6 +8473,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -8476,6 +8492,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -9792,6 +9809,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -9812,6 +9830,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -9830,6 +9849,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -9848,6 +9868,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10320,6 +10341,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10338,6 +10360,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10356,6 +10379,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10374,6 +10398,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10392,6 +10417,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10410,6 +10436,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -10428,6 +10455,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -16373,6 +16401,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -16755,6 +16784,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -16773,6 +16803,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -16791,6 +16822,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -16809,6 +16841,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -16827,6 +16860,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -17073,6 +17107,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 1
     esGuardarPartida: 0
     indiceSlot: 0
@@ -17091,6 +17126,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 1
     esGuardarPartida: 0
     indiceSlot: 1
@@ -17109,6 +17145,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 1
     esGuardarPartida: 0
     indiceSlot: 2
@@ -17127,6 +17164,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 0
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 1
     esGuardarPartida: 0
     indiceSlot: 4
@@ -17145,6 +17183,7 @@ MonoBehaviour:
     esSalir: 0
     esVolver: 1
     esNuevaPartida: 0
+    esVolverMenuInicial: 0
     esSlotCargandoPartida: 0
     esGuardarPartida: 0
     indiceSlot: 0
@@ -20926,6 +20965,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 8010128054547752829}
+    - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2036339770824020214}
     - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
@@ -20964,9 +21006,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6408986197685219892}
-    - targetCorrespondingSourceObject: {fileID: 6669006332924904961, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8010128054547752829}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c969198ea22464fafa3099de22c48a, type: 3}
 --- !u!224 &987125610829456240 stripped

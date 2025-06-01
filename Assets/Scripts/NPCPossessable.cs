@@ -332,7 +332,6 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             otherImage.gameObject.SetActive(phrase.image != null);
             nonSpeakerImage.sprite = phrase.nonSpeakerImage;
             nonSpeakerImage.gameObject.SetActive(phrase.nonSpeakerImage != null);
-            Debug.Log(phrase.nonSpeakerImage != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3008102572253891214}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.31, y: 1.0027, z: -21.143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7500577494568212686}
   m_Layer: 3
   m_Name: Mesh122
-  m_TagString: Untagged
+  m_TagString: Icons
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 8767653556498212469}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.000000014901159, z: -0, w: 1}
-  m_LocalPosition: {x: 29.869999, y: -1.0027, z: 11.192999}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82,6 +82,7 @@ MonoBehaviour:
   interactText: Interact Paper
   offset: {fileID: 0}
   objectManager: {fileID: 0}
+  ui: {fileID: 0}
 --- !u!33 &8428270233907209469
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CinematicDialogue : MonoBehaviour
 {
@@ -17,8 +18,11 @@ public class CinematicDialogue : MonoBehaviour
     private static NPCPossessable currentNPC;
     private static NPCNonPossessable currentNPCNon;
 
+    private bool end = false;
+
     public static NPCPossessable CurrentNPC { get => currentNPC; set => currentNPC = value; }
     public static NPCNonPossessable CurrentNPCNon { get => currentNPCNon; set => currentNPCNon = value; }
+    public bool End { get => end; set => end = value; }
 
     public void PlayDialogue()
     {
@@ -110,5 +114,7 @@ public class CinematicDialogue : MonoBehaviour
                 possessable.RemoveBlur();
             }
         }
+
+        end = true;
     }
 }

@@ -107,12 +107,14 @@ public class HintManager : MonoBehaviour, IPossessable
             case "Puzzle 1":
                 switch (index)
                 {
-                    case 0: return objectManager.MasterKeyTaken;
-                    case 1: return objectManager.ValveActive;
-                    case 2: return objectManager.Sugar;
-                    case 3: return objectManager.Flour;
-                    case 4: return objectManager.Eggs;
-                    case 5: return objectManager.Recipe1 && objectManager.Recipe2;
+                    case 0: return objectManager.PrincipalDoor;
+                    case 1: return objectManager.Calendar;
+                    case 2: return objectManager.MasterKeyTaken;
+                    case 3: return objectManager.ValveActive;
+                    case 4: return objectManager.Sugar;
+                    case 5: return objectManager.Flour;
+                    case 6: return objectManager.Eggs;
+                    case 7: return objectManager.Recipe1 && objectManager.Recipe2;
                     default: return false;
                 }
             case "Puzzle 2":
@@ -122,12 +124,16 @@ public class HintManager : MonoBehaviour, IPossessable
                     case 1: return objectManager.ToolBox;
                     case 2: return objectManager.GiftPaper;
                     case 3: return objectManager.Correct || objectManager.Incorrect;
-                    case 4: return objectManager.Incorrect;
                     default: return false;
                 }
             case "Puzzle 3":
                 switch (index)
                 {
+                    case 0: return objectManager.Icons;
+                    case 1: return objectManager.Poster;
+                    case 2: return objectManager.Tablet;
+                    case 3: return objectManager.Photo;
+                    case 4: return objectManager.Note;
                     default: return false;
                 }
             case "Puzzle 4":

@@ -62,6 +62,9 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     [SerializeField] private TextMeshProUGUI skipFontText;
     [SerializeField] private TextMeshProUGUI skipActionText;
 
+    [Header("Cinematic Type")]
+    [SerializeField] private bool cinematicObject = false;
+
     private bool talking = false;
     private int currentIndex = 0;
     private DialogueQuestion currentQuestion;
@@ -158,7 +161,7 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
 
         possessionManager.IsTalking = true;
 
-        if (blur != null)
+        if (blur != null && !cinematicObject)
         {
             // set the blur
             StartCoroutine(SetBlur(true));
@@ -198,7 +201,7 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         interactor = null;
         dialogueHistory.AddSeparator();
 
-        if (blur != null && (!cinematicFlag || listening))
+        if (blur != null && (!cinematicFlag || listening) && !cinematicObject)
         {
             // remove the blur
             StartCoroutine(SetBlur(false));

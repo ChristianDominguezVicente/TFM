@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +19,10 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     [Header("Diary")]
     [SerializeField] private string nextScene;
     [SerializeField] private CanvasGroup fadeOut;
+
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
+
     public int[] Code { get => code; set => code = value; }
 
     public string GetInteractText() => interactText;
@@ -30,9 +33,25 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
-        
-        //If in the puzzle 2 Lia interact with the box that contains the key master, it unlock automatically
-        if(CompareTag("Box") && possessionManager.CurrentNPC.NpcName=="Lia")
+        StartCoroutine(InteractCoroutine());
+    }
+
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
+
+        // if in the puzzle 2 Lia interact with the box that contains the key master, it unlock automatically
+        if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia")
         {
             UnlockBox();
         }
@@ -41,7 +60,6 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         {
             codeUI.Show(this);
         }
-        
     }
 
     // when the correct code is entered
@@ -55,6 +73,21 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if (CompareTag("Diary"))
         {
+            /*
+            float karma = PlayerPrefs.GetFloat("Karma", 0);
+            if (karma == 0)
+            {
+                karma++;
+                PlayerPrefs.SetFloat("Karma", karma);
+                PlayerPrefs.Save();
+            }
+            else if (karma == -1)
+            {
+                karma--;
+                PlayerPrefs.SetFloat("Karma", karma);
+                PlayerPrefs.Save();
+            }
+            */
             StartCoroutine(FadeOut());
         }
         else if(CompareTag("Box"))

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3083138934929528663}
   m_Layer: 3
   m_Name: Mesh120
-  m_TagString: Untagged
+  m_TagString: Poster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4124811629139555981}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.000000014901159, z: -0, w: 1}
-  m_LocalPosition: {x: 32.626, y: -1.3566146, z: 11.18}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,6 +50,7 @@ MonoBehaviour:
   interactText: Interact Poster
   offset: {fileID: 0}
   objectManager: {fileID: 0}
+  ui: {fileID: 0}
 --- !u!33 &6793664761358156908
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6324544701987568411}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -15.336, y: 1.829, z: -30.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
