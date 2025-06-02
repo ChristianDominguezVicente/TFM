@@ -91,7 +91,8 @@ namespace StarterAssets
         public bool LockCameraPosition = false;
 
         [Header("Interact")]
-        [SerializeField] private float interactRange = 2f;
+        [SerializeField] private float capsuleRadius = 1f;
+        [SerializeField] private float capsuleHeight = 1f;
 
         [Header("Spectral Vsion")]
         [SerializeField] private UniversalRendererData rendererData;
@@ -762,8 +763,11 @@ namespace StarterAssets
             object closest = null;
             float closestDistance = float.MaxValue;
 
+            Vector3 point1 = transform.position + Vector3.up * capsuleHeight / 2f;
+            Vector3 point2 = transform.position + Vector3.down * capsuleHeight / 2f;
+
             // get all colliders within a defined radius around the player
-            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            Collider[] colliderArray = Physics.OverlapCapsule(point1, point2, capsuleRadius);
             foreach (Collider collider in colliderArray)
             {
                 // if the player is already possessing something, they can only interact or talk to other NPCs
@@ -1366,22 +1370,35 @@ namespace StarterAssets
             }
         }
 
-        private void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
-            Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
-            Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
-
-            if (Grounded) Gizmos.color = transparentGreen;
-            else Gizmos.color = transparentRed;
-
-            // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
+            Gizmos.color = Grounded ? new Color(0, 1, 0, 0.35f) : new Color(1, 0, 0, 0.35f);
             Gizmos.DrawSphere(
                 new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
                 GroundedRadius);
 
-            // interact sphere
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, interactRange);
+            Vector3 top = transform.position + Vector3.up * capsuleHeight / 2f;
+            Vector3 bottom = transform.position + Vector3.down * capsuleHeight / 2f;
+            DrawCapsuleGizmo(bottom, top, capsuleRadius);
+        }
+
+        private void DrawCapsuleGizmo(Vector3 start, Vector3 end, float radius)
+        {
+            Gizmos.DrawWireSphere(start, radius);
+            Gizmos.DrawWireSphere(end, radius);
+
+            Vector3 up = (end - start).normalized;
+            Vector3 right = Vector3.Cross(up, Vector3.forward).normalized * radius;
+            if (right == Vector3.zero)
+                right = Vector3.Cross(up, Vector3.right).normalized * radius;
+
+            Vector3 forward = Vector3.Cross(right, up).normalized * radius;
+
+            Gizmos.DrawLine(start + right, end + right);
+            Gizmos.DrawLine(start - right, end - right);
+            Gizmos.DrawLine(start + forward, end + forward);
+            Gizmos.DrawLine(start - forward, end - forward);
         }
 
         private void OnFootstep(AnimationEvent animationEvent)

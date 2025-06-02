@@ -14,6 +14,7 @@ public class PossessionManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private LayerMask layerCollision;
     [SerializeField] private float spawnOffset = 1.5f;
+    [SerializeField] private float spawnCheckRadius = 1f;
 
     [Header("Managers")]
     [SerializeField] private ObjectManager objectManager;
@@ -140,13 +141,12 @@ public class PossessionManager : MonoBehaviour
             Vector3.left,
             Vector3.right
         };
-        float checkRadius = 0.6f;
 
         // check each address looking for a free space
         foreach (var dir in directions)
         {
             Vector3 checkPos = center + dir.normalized * spawnOffset;
-            Collider[] overlaps = Physics.OverlapSphere(checkPos, checkRadius, layerCollision);
+            Collider[] overlaps = Physics.OverlapSphere(checkPos, spawnCheckRadius, layerCollision);
             if (overlaps.Length == 0)
             {
                 // if ther are no collisions, return that position
