@@ -21,6 +21,7 @@ public class MenuInicial : MonoBehaviour
         public bool esSalir = false;
         public bool esVolver = false;
         public bool esNuevaPartida = false;
+        public bool esMission = false;
         public bool esVolverMenuInicial = false;
 
         [Header("Botones de Slot de Guardado")]
@@ -142,7 +143,7 @@ public class MenuInicial : MonoBehaviour
                     // Inicializa el texto del botón
                     ActualizarTextoBotonToggle(config);
 
-                    // Configura el onClick para el botón principal
+                    
                     config.boton.onClick.AddListener(() =>
                     {
                         if (!ajustandoToggle) // Solo alterna si no está en modo ajuste
@@ -161,8 +162,20 @@ public class MenuInicial : MonoBehaviour
                 else if (config.menuDestino != null)
                 {
                     config.boton.onClick.AddListener(() => IrAMenu(config.menuDestino));
+                }else if (config.esMission)
+                {
+                    config.boton.onClick.AddListener(() => MostrarObjetivosSM(config));
                 }
             }
+        }
+    }
+
+    private void MostrarObjetivosSM(BotonConfig config)
+    {
+        SMSystem sMSystem = FindAnyObjectByType<SMSystem>();
+        if (sMSystem != null)
+        {
+            sMSystem.UpdateMissionMenuEnunciado(config.indiceSlot);
         }
     }
 
@@ -229,6 +242,11 @@ public class MenuInicial : MonoBehaviour
             if(menuPausa != null && menuPausa.IsPaused) //paused game
             {
                 menuPausa.ResumeGame();
+            }
+            SMSystem sMSystem = FindAnyObjectByType<SMSystem>();
+            if ((this.gameObject.name == "MenuSM1"|| this.gameObject.name == "MenuSM2" || this.gameObject.name == "MenuSM3" || this.gameObject.name == "MenuSM4") && sMSystem.IsPaused) //mission system
+            {
+                sMSystem.ResumeGame();
             }
             gameObject.SetActive(false);
             menuAnterior.SetActive(true);

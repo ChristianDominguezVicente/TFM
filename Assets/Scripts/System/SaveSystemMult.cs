@@ -12,7 +12,7 @@ public class SaveSystemMult : MonoBehaviour
 
     [Header("Auto Save config")]
     [SerializeField] private AutoSaveHUD autoSaveHUD;
-    private float autoSaveIntervalMinutes = 10f; // 10 MINUTES save
+    private float autoSaveIntervalMinutes = 3f; // 3 MINUTES save
     private const int AutoSaveSlotIndex = 4;
     private float autoSaveTimer;
     private bool isAutoSaveActive = false;

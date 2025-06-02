@@ -77,6 +77,10 @@ namespace StarterAssets
         {
             starterAssetsInputs.PauseInput(virtualPauseState);
         }
+        public void VirtualSMeInput(bool virtualSMState)
+        {
+            starterAssetsInputs.SMInput(virtualSMState);
+        }
     }
 
 }

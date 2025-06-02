@@ -102,7 +102,7 @@ namespace StarterAssets
         [SerializeField] private PossessionManager possesionManager;
         [SerializeField] private HintManager hintManager;
         [SerializeField] private MenuPause pauseManager;
-       
+        [SerializeField] private SMSystem smManager;
         [SerializeField] private ObjectManager objectManager;
 
         [Header("Dialogue History")]
@@ -269,7 +269,8 @@ namespace StarterAssets
 
         private void Update()
         {
-            if (pauseManager.IsPaused) {
+            if (pauseManager.IsPaused || smManager.IsPaused) {
+              //  UnityEngine.Debug.Log(pauseManager.IsPaused + " o sm está pausado: " + smManager.IsPaused);
                 if (MenuInicial.menuActivo != null)
                 {
                     PlayerFollowCamera.SetActive(false);
@@ -331,6 +332,7 @@ namespace StarterAssets
                 SpectralVision();
                 Cancel();
                 Pause();
+                SM();
 
                 // reset buttons that had the same input
                 ResetInputs();
@@ -1363,6 +1365,16 @@ namespace StarterAssets
                 pauseManager.IsPaused = true;
                 Cursor.visible = true;
                 _input.pause = false;
+            }
+        }
+        private void SM()
+        {
+            if (_input.sm)
+            {
+                //   UnityEngine.Debug.Log(_input.sm);
+                smManager.IsPaused = true;
+                Cursor.visible = true;
+                _input.sm = false;
             }
         }
 

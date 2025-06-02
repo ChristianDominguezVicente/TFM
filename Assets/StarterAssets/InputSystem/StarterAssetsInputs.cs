@@ -22,6 +22,7 @@ namespace StarterAssets
         public bool spectralVision;
 		public bool cancel;
 		public bool pause;
+        public bool sm;
 
         [Header("Movement Settings")]
 		public bool analogMovement;
@@ -103,6 +104,10 @@ namespace StarterAssets
         {
             PauseInput(value.isPressed);
         }
+        public void OnSM(InputValue value)
+        {
+            SMInput(value.isPressed);
+        }
 #endif
 
 
@@ -174,6 +179,10 @@ namespace StarterAssets
         public void PauseInput(bool pauseState)
         {
             pause = pauseState;
+        }
+        public void SMInput(bool smState)
+        {
+            sm = smState;
         }
 
         private void OnApplicationFocus(bool hasFocus)
