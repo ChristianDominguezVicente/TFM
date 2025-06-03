@@ -9,6 +9,14 @@ TagManager:
   - Desk
   - Diary
   - Box
+  - Principal
+  - Back
+  - Calendar
+  - Icons
+  - Photo
+  - Note
+  - Poster
+  - Tablet
   layers:
   - Default
   - TransparentFX

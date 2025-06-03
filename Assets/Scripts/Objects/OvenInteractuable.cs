@@ -14,6 +14,12 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
     [Header("Restricted NPCs")]
     [SerializeField] private string[] restrictedNPCs;
 
+    [Header("Acepted NPCs")]
+    [SerializeField] private string[] acceptedNPCs;
+
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
+
     private string originalText;
     private bool showingWarning = false;
 
@@ -31,33 +37,66 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
         // if there is a warning
         if (showingWarning) return;
 
+        StartCoroutine(InteractCoroutine());
+    }
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
+
         var currentNpc = possessionManager.CurrentNPC;
 
         // if player possess a restricted NPC
         if (currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
         {
-            StartCoroutine(ShowWarning($"<color=red>Children should not use it</color>"));
+            StartCoroutine(ShowWarning("<color=red>Children should not use it</color>"));
+            yield break;
         }
+
         // if valve is not activated
-        else if (!objectManager.ValveActive)
+        if (!objectManager.ValveActive)
         {
             StartCoroutine(ShowWarning("<color=red>You must turn the valve first</color>"));
+            yield break;
         }
-        // if player hasn't taken the recipes
-        else if (!(objectManager.Recipe1 && objectManager.Recipe2))
-        {
-            StartCoroutine(ShowWarning("<color=red>You need both recipes</color>"));
-        }
+
         // if player hasn't taken the ingredients
-        else if (!(objectManager.Flour && objectManager.Eggs && objectManager.Sugar))
+        if (!objectManager.Flour || !objectManager.Eggs || !objectManager.Sugar)
         {
             StartCoroutine(ShowWarning("<color=red>Missing ingredients</color>"));
+            yield break;
         }
-        // if everything is ok
-        else
+
+        if (currentNpc != null && acceptedNPCs.Contains(currentNpc.NpcName))
         {
             StartCoroutine(FadeOut());
+            yield break;
         }
+
+        // if player hasn't taken the recipes
+        if (!objectManager.Recipe1 || !objectManager.Recipe2)
+        {
+            /*
+            float karma = PlayerPrefs.GetFloat("Karma", 0);
+            karma--;
+            PlayerPrefs.SetFloat("Karma", karma);
+            PlayerPrefs.Save();
+            */
+            StartCoroutine(ShowWarning("<color=red>You need both recipes</color>"));
+            yield break;
+        }
+
+        // if everything is ok
+        StartCoroutine(FadeOut());
     }
 
     private IEnumerator ShowWarning(string warningText)

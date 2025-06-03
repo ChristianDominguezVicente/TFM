@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3007002171046000098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2665199413676753858}
+  - component: {fileID: 154976598889089702}
+  - component: {fileID: 319891851598888686}
+  m_Layer: 0
+  m_Name: DeskTable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2665199413676753858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007002171046000098}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7523009934749908071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154976598889089702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007002171046000098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  player: {fileID: 0}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerText: {fileID: 0}
+  choicePanel: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 0}
+  nonSpeakerImage: {fileID: 0}
+  volume: {fileID: 0}
+  ui: {fileID: 0}
+  possessBar: {fileID: 0}
+  hud: {fileID: 0}
+  cinematicDialogueData: {fileID: 11400000, guid: ce16b3b61f7067f468f540660b4b3e60, type: 2}
+  cinematicDialoguePlayer: {fileID: 319891851598888686}
+  autoFontText: {fileID: 0}
+  autoActionText: {fileID: 0}
+  skipFontText: {fileID: 0}
+  skipActionText: {fileID: 0}
+  cinematicObject: 1
+--- !u!114 &319891851598888686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007002171046000098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 154976598889089702}
+    startIndex: 0
+  choicePanel: {fileID: 0}
+--- !u!1 &5446552685388389595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7523009934749908071}
+  m_Layer: 0
+  m_Name: Objects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7523009934749908071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446552685388389595}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2665199413676753858}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

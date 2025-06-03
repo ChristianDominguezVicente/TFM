@@ -1,6 +1,7 @@
 using Cinemachine;
 using StarterAssets;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -36,7 +37,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [SerializeField] private Transform playerTarget;
 
     [Header("Dialogue System")]
-    [SerializeField] private DialogueData dialogueData;
+    [SerializeField] private DialogueData[] dialogueDataArray;
+    [SerializeField] private string[] speakerNames;
+
     [SerializeField] private float timeBtwLetters;
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -58,6 +61,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     [Header("Dialogue Image")]
     [SerializeField] private Image otherImage;
+    [SerializeField] private Image nonSpeakerImage;
 
     [Header("Camera Effects")]
     [SerializeField] private Volume volume;
@@ -71,6 +75,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     [SerializeField] private GameObject hud;
 
     [Header("Cinematic")]
+    [SerializeField] private DialogueData cinematicDialogueData;
     [SerializeField] private CinematicDialogue cinematicDialoguePlayer;
 
     [Header("Texts")]
@@ -110,6 +115,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
 
     private Coroutine lookCoroutine;
 
+    private Dictionary<string, DialogueData> dialogueMap;
+    private DialogueData dialogueData;
+
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
     public string NpcName { get => npcName; set => npcName = value; }
@@ -125,6 +133,13 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         // save the blur
         volume.profile.TryGet<DepthOfField>(out blur);
+
+        dialogueMap = new Dictionary<string, DialogueData>();
+        for (int i = 0; i < Mathf.Min(speakerNames.Length, dialogueDataArray.Length); i++)
+        {
+            dialogueMap[speakerNames[i]] = dialogueDataArray[i];
+        }
+
         // return NPC
         originalPosition = transform.position;
         originalRotation = transform.rotation;
@@ -132,6 +147,14 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         if (navAgent != null)
             navAgent.enabled = false;
         anim = GetComponent<Animator>();
+    }
+
+    private void SetDialogue()
+    {
+        if (interactor != null && dialogueMap.TryGetValue(interactor.name, out DialogueData data))
+        {
+            dialogueData = data;
+        }
     }
 
     public void Possess(Transform interactorTransform)
@@ -143,6 +166,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         }
         else
         {
+            if (!cinematicFlag && !listening)
+                SetDialogue();
+
             // Cinematic Mode
             if (cinematicFlag)
             {
@@ -304,6 +330,8 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             // show the expression image
             otherImage.sprite = phrase.image;
             otherImage.gameObject.SetActive(phrase.image != null);
+            nonSpeakerImage.sprite = phrase.nonSpeakerImage;
+            nonSpeakerImage.gameObject.SetActive(phrase.nonSpeakerImage != null);
             writePhraseCoroutine = StartCoroutine(WritePhrase(phrase.npcText));
         }
         else if (node is DialogueQuestion question)
@@ -328,7 +356,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         interactor = null;
         dialogueHistory.AddSeparator();
 
-        if (blur != null)
+        if (blur != null && (!cinematicFlag || listening))
         {
             // remove the blur
             StartCoroutine(SetBlur(false));
@@ -357,6 +385,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         listening = false;
 
         otherImage.gameObject.SetActive(false);      
+        nonSpeakerImage.gameObject.SetActive(false);      
     }
 
     private IEnumerator WritePhrase(string phrase)
@@ -600,6 +629,14 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         talking = false;
         currentQuestion = null;
 
+        // original dialoqueData
+        if (originalDialogueData == null)
+        {
+            originalDialogueData = dialogueData;
+        }
+        // change dialogueData
+        dialogueData = cinematicDialogueData;
+
         if (!choicePanel.IsShowing)
         {
             // advance to the next node in the dialog
@@ -713,5 +750,9 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     public void SetTimeBtLetters(float delay)
     {
         timeBtwLetters = delay;
+
+    public void RemoveBlur()
+    {
+        StartCoroutine(SetBlur(false));
     }
 }

@@ -26,21 +26,25 @@ MonoBehaviour:
         npcText: Helen y Lia ya no quieren jugar...
         image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         nextIndex: 1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
     - rid: 8849634281751576612
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No es verdad que soy una cr\xEDa por eso."
         image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         nextIndex: 2
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
     - rid: 8849634281751576613
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
         nextIndex: 3
+        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
     - rid: 8849634281751576614
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFVan a dejar de ser mis amigas?"
         image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
         nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}

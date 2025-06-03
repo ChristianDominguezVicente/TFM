@@ -6,4 +6,5 @@ using UnityEngine;
 public class DialoguePhrase : DialogueNode
 {
     public int nextIndex = -1;
+    public Sprite nonSpeakerImage;
 }

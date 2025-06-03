@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class IncorrectInteractuable : MonoBehaviour, IInteractuable
 {
     [SerializeField] private string interactText;
     [SerializeField] private ObjectManager objectManager;
+
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
 
     public string GetInteractText()
     {
@@ -25,6 +29,22 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        StartCoroutine(InteractCoroutine());
+    }
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
+
         if (objectManager.CurrentObject != null)
         {
             objectManager.CurrentObject.SetActive(true);

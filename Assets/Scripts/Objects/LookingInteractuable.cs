@@ -1,12 +1,17 @@
+using System.Collections;
 using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CalendarInteractuable : MonoBehaviour, IInteractuable
+public class LookingInteractuable : MonoBehaviour, IInteractuable
 {
     [SerializeField] private string interactText;
     [SerializeField] private Transform offset;
     [SerializeField] private ObjectManager objectManager;
+    [SerializeField] private GameObject ui;
+
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
 
     private bool looking = false;
     private bool hasOriginalTransform = false;
@@ -18,6 +23,23 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        StartCoroutine(InteractCoroutine());
+    }
+
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
+
         // save original position and rotation
         if (!hasOriginalTransform)
         {
@@ -51,7 +73,21 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
             objectManager.Looking = true;
             objectManager.LookingObject = transform.parent;
         }
-            
+
+        if (CompareTag("Calendar"))
+            objectManager.Calendar = true;
+        else if (CompareTag("Icons"))
+            objectManager.Icons = true;
+        else if (CompareTag("Poster"))
+            objectManager.Poster = true;
+        else if (CompareTag("Tablet"))
+            objectManager.Tablet = true;
+        else if (CompareTag("Photo"))
+            objectManager.Photo = true;
+        else if (CompareTag("Note"))
+            objectManager.Note = true;
+
+        ui.SetActive(false);
     }
 
     private void StopLooking()
@@ -66,6 +102,8 @@ public class CalendarInteractuable : MonoBehaviour, IInteractuable
             objectManager.Looking = false;
             objectManager.LookingObject = null;
         }
+
+        ui.SetActive(true);
     }
 
     private void Update()

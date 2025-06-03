@@ -8,12 +8,32 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private int numberOfTurns;
     [SerializeField] private float rotationSpeed;
 
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
-    
+
 
     public void Interact(Transform interactorTransform)
     {
+        StartCoroutine(InteractCoroutine());
+    }
+
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
+
         // mark it in the ObjectManager
         objectManager.ValveActive = true;
         SMSystem smsys = FindAnyObjectByType<SMSystem>();

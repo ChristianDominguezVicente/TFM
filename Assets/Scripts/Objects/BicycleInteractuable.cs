@@ -7,16 +7,19 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
 {
     [SerializeField] private string interactText;
     [SerializeField] private ObjectManager objectManager;
-    [SerializeField] private string nextScene;
     [SerializeField] private CanvasGroup fadeOut;
     [SerializeField] private PossessionManager possessionManager;
 
     [Header("Accepted NPC")]
     [SerializeField] private string acceptedNPC;
 
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
+
     private string originalText;
     private bool showingWarning = false;
     private bool fixedbycicle = false;
+    private string nextScene = "Puzzle 3";
 
     public string GetInteractText()
     {
@@ -38,6 +41,23 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
     {
         // if there is a warning
         if (showingWarning) return;
+
+        StartCoroutine(InteractCoroutine());
+    }
+
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
 
         var currentNpc = possessionManager.CurrentNPC;
 
@@ -62,17 +82,40 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             StartCoroutine(ShowWarning("<color=red>You need the chain to fix it</color>"));
         }
         // if everything is ok
-        else if(objectManager.CurrentObject != null && !fixedbycicle)
+        else if (objectManager.CurrentObject != null && !fixedbycicle)
         {
             StartCoroutine(ShowFixedBicycleMessage("<color=green>You did it! Now grab a gift paper to wrap</color>"));
-            
+
         }
-        else if(!objectManager.GiftPaper) 
+        else if (!objectManager.GiftPaper)
         {
             StartCoroutine(ShowWarning("<color=red>You need the gift paper to wrap it</color>"));
         }
         else
         {
+            /*
+            float karma = PlayerPrefs.GetFloat("Karma", 0);
+            if (karma < 0)
+            {
+                nextScene = "Puzzle 4";
+                if (objectManager.Incorrect)
+                {
+                    karma--;
+                    PlayerPrefs.SetFloat("Karma", karma);
+                    PlayerPrefs.Save();
+                }
+            }
+            else if (karma == 0)
+            {
+                nextScene = "Puzzle 3";
+                if (objectManager.Incorrect)
+                {
+                    karma--;
+                    PlayerPrefs.SetFloat("Karma", karma);
+                    PlayerPrefs.Save();
+                }
+            }
+            */
             StartCoroutine(FadeOut());
         }
     }

@@ -8,6 +8,9 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private float rotationSpeed;
     [SerializeField] private ObjectManager objectManager;
 
+    [Header("Cinematic")]
+    [SerializeField] private CinematicDialogue cinematicDialogue;
+
     private bool open = false;
     private Quaternion rotation;
     private string originalText;
@@ -23,6 +26,22 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        StartCoroutine(InteractCoroutine());
+    }
+    private IEnumerator InteractCoroutine()
+    {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            while (!cinematicDialogue.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue.End = false;
+        }
+
         // if the player have the master key
         if (!open && objectManager.MasterKeyTaken)
         {
