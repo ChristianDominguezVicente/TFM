@@ -46,8 +46,7 @@ public class SMSystem : MonoBehaviour
     private void Start()
     {
         //name level-puzle
-        Scene currentScene = SceneManager.GetActiveScene();
-        currentLevelName = currentScene.name;
+        currentLevelName = SceneManager.GetActiveScene().name;
         ActualizarHUD();
     }
 
@@ -108,108 +107,142 @@ public class SMSystem : MonoBehaviour
     {
         if (currentLevelName == "Greybox") // pz1 
         {
-            int indiceMs = 0;
-            if (missions[indiceMs].isCompleted) //pasar a la siguiente mision
-            {
-                indiceMs++;
-                //next mission
-
-                if (indiceMs == 1) //ms2
-                {
-                    if (objectManager.Flour)
-                    {
-                        ActualizarTexto(indiceMs, 0);
-                    }
-                    if (objectManager.Eggs)
-                    {
-                        ActualizarTexto(indiceMs, 1);
-                    }
-                    if (objectManager.Sugar)
-                    {
-                        ActualizarTexto(indiceMs, 2);
-                    }
-                    if (objectManager.Flour && objectManager.Eggs && objectManager.Sugar)
-                    {
-                        missions[indiceMs].isCompleted = true;
-                    }
-
-                }
-                else //ms3
-                {
-                    if (dad.GetComponent<ThirdPersonController>().enabled == true) // si es el padre
-                    {
-                        missions[indiceMs].missionInfoPanel.SetActive(false);
-                        missions[indiceMs].missionAltPanel.SetActive(true);
-                    }
-                    else
-                    {
-                        missions[indiceMs].missionInfoPanel.SetActive(true);
-                        // no hace falta comprobar si ha cogido las dos recetas pq hay una transicion acto seguido
-                    }
-                }
-
-            }
-            else //estoy en mision 1 del puzle 1
-            {
-                //encuentra la forma del garaje - llave maestra
-                if (objectManager.MasterKeyTaken)
-                {
-                    ActualizarTexto(indiceMs, 0);
-                }
-                if (objectManager.MasterKeyTaken && objectManager.ValveActive)
-                {
-                    {
-                        ActualizarTexto(indiceMs, 1);
-                        missions[indiceMs].isCompleted = true;
-                    }
-                }
-            }
+            SMPuzleOne();
         }
 
         else if (currentLevelName == "Puzzle 2")
         {
-            int indiceMs = 0;
-            if (missions[indiceMs].isCompleted) //pasar a la siguiente mision
-            {
-                indiceMs++;
-
-                if (indiceMs == 1) //ms2
-                {
-                    if (objectManager.MasterKeyTaken)
-                    {
-                        ActualizarTexto(indiceMs, 0);
-                    }
-                    if (objectManager.Incorrect || objectManager.Correct)
-                    {
-                        ActualizarTexto(indiceMs, 1);
-                    }
-                    if (objectManager.ToolBox)
-                    {
-                        ActualizarTexto(indiceMs, 2);
-                    }
-                    if (objectManager.MasterKeyTaken && (objectManager.Incorrect || objectManager.Correct) && objectManager.ToolBox)
-                    {
-                        missions[indiceMs].isCompleted = true;
-                    }
-
-                }
-                else //ms3
-                {
-                }
-
-            }
-            else
-            {//estoy en mision 1 del puzle 2
-
-                if (objectManager.Teddy)
-                {
-                    ActualizarTexto(indiceMs, 0);
-                }
-
-            }
+            SMPuzleTwo();
 
         }
         // puzle 3 y 4 no tienen nada de sm esencial 
+    }
+
+    private void SMPuzleTwo()
+    {
+        int indiceMs = 0;
+        if (missions[indiceMs].isCompleted) //pasar a la siguiente mision
+        {
+            indiceMs++;
+
+            if (indiceMs == 1) //ms2
+            {
+                MSTwoPuzleTwo(indiceMs);
+
+            }
+            else //ms3
+            {
+            }
+
+        }
+        else
+        {//estoy en mision 1 del puzle 2
+            MSOnePuzleTwo(indiceMs);
+
+        }
+    }
+
+    private void MSOnePuzleTwo(int indiceMs)
+    {
+        if (objectManager.Teddy)
+        {
+            ActualizarTexto(indiceMs, 0);
+        }
+    }
+
+    private void MSTwoPuzleTwo(int indiceMs)
+    {
+        if (objectManager.MasterKeyTaken)
+        {
+            ActualizarTexto(indiceMs, 0);
+        }
+        if (objectManager.Incorrect || objectManager.Correct)
+        {
+            ActualizarTexto(indiceMs, 1);
+        }
+        if (objectManager.ToolBox)
+        {
+            ActualizarTexto(indiceMs, 2);
+        }
+        if (objectManager.MasterKeyTaken && (objectManager.Incorrect || objectManager.Correct) && objectManager.ToolBox)
+        {
+            missions[indiceMs].isCompleted = true;
+        }
+    }
+
+    private void SMPuzleOne()
+    {
+        int indiceMs = 0;
+        if (missions[indiceMs].isCompleted) //pasar a la siguiente mision
+        {
+            indiceMs++;
+            //next mission
+
+            if (indiceMs == 1) //ms2
+            {
+                MSTwoPuzleOne(indiceMs);
+
+            }
+            else //ms3
+            {
+                MSThreePuzleOne(indiceMs);
+            }
+
+        }
+        else //estoy en mision 1 del puzle 1
+        {
+            MSOnePuzleOne(indiceMs);
+        }
+    }
+
+    private void MSThreePuzleOne(int indiceMs)
+    {
+        if (dad.GetComponent<ThirdPersonController>().enabled == true) // si es el padre
+        {
+            missions[indiceMs].missionInfoPanel.SetActive(false);
+            missions[indiceMs].missionAltPanel.SetActive(true);
+        }
+        else
+        {
+            missions[indiceMs].missionInfoPanel.SetActive(true);
+            // no hace falta comprobar si ha cogido las dos recetas pq hay una transicion acto seguido
+        }
+    }
+
+    private void MSTwoPuzleOne(int indiceMs)
+    {
+        if (objectManager.Flour)
+        {
+            ActualizarTexto(indiceMs, 0);
+        }
+        if (objectManager.Eggs)
+        {
+            ActualizarTexto(indiceMs, 1);
+        }
+        if (objectManager.Sugar)
+        {
+            ActualizarTexto(indiceMs, 2);
+        }
+        if (objectManager.Flour && objectManager.Eggs && objectManager.Sugar)
+        {
+            missions[indiceMs].isCompleted = true;
+        }
+    }
+
+    private void MSOnePuzleOne(int indiceMs)
+    {
+        //encuentra la forma del garaje - llave maestra
+        if (objectManager.MasterKeyTaken)
+        {
+            ActualizarTexto(indiceMs, 0);
+        }
+        if (objectManager.MasterKeyTaken && objectManager.ValveActive)
+        {
+            {
+                ActualizarTexto(indiceMs, 1);
+                missions[indiceMs].isCompleted = true;
+            }
+        }
     }
 
 
@@ -226,28 +259,39 @@ public class SMSystem : MonoBehaviour
     private void ActualizarHUD()
     {
         int indiceMs = 0;
-        SMObjetivos();
-        if (!missions[indiceMs].isCompleted)
+        if (!missions[indiceMs].isCompleted) //mision1
         {
+            //all 1 mission act
+            MSOnePuzleOne(indiceMs);
+            MSOnePuzleTwo(indiceMs);
             ActualizarTitulo(indiceMs);
             ActualizarTextoUI(indiceMs);
         }
         else
         {
             indiceMs++;
-            if (!missions[indiceMs].isCompleted)
+            if (!missions[indiceMs].isCompleted) //mision2
             {
+                MSTwoPuzleOne(indiceMs);
+                MSTwoPuzleTwo(indiceMs);
                 ActualizarTitulo(indiceMs);
                 ActualizarTextoUI(indiceMs);
             }
             else
             {
-                indiceMs++;
+                indiceMs++; //mision3
+
+
+
+                MSThreePuzleOne(indiceMs);
                 ActualizarTitulo(indiceMs);
                 ActualizarTextoUI(indiceMs);
             }
         }
     }
+
+
+
 
     private void ActualizarTextoUI(int indiceMs)
     {
@@ -278,6 +322,10 @@ public class SMSystem : MonoBehaviour
         TextMeshProUGUI missionTitleUI = missions[indiceMs].title.GetComponent<TextMeshProUGUI>();
         titleUI.text = missionTitleUI.text;
     }
+
+
+
+
 
 
 }
