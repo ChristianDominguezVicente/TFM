@@ -1385,11 +1385,27 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            var index = 0;
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 if (FootstepAudioClips.Length > 0)
                 {
-                    var index = Random.Range(0, FootstepAudioClips.Length);
+                    foreach (Collider collider in colliderArray)
+                    {
+                        if(collider.CompareTag("Jardin"))
+                        {
+                            index = Random.Range(0, 4);
+                            UnityEngine.Debug.Log("Pisas en Jardin");
+                        }
+                        else if(collider.CompareTag("Casa"))
+                        {
+                            index = Random.Range(5, FootstepAudioClips.Length);
+                            UnityEngine.Debug.Log("Pisas en Casa");
+
+                        }
+                    }
+                    UnityEngine.Debug.Log(index);
                     AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }

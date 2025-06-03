@@ -9,6 +9,8 @@ TagManager:
   - Desk
   - Diary
   - Box
+  - Jardin
+  - Casa
   layers:
   - Default
   - TransparentFX
