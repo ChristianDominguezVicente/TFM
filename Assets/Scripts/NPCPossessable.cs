@@ -750,7 +750,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     public void SetTimeBtLetters(float delay)
     {
         timeBtwLetters = delay;
-
+    }
     public void RemoveBlur()
     {
         StartCoroutine(SetBlur(false));

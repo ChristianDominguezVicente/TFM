@@ -56,6 +56,8 @@ public class HintManager : MonoBehaviour, IPossessable
 
     private int currentDialogueIndex = -1;
 
+    private bool flag = false;
+
     public static HintManager CurrentHint { get => hintManager; set => hintManager = value; }
 
     public bool IsTalking { get => talking; set => talking = value; }
@@ -77,7 +79,11 @@ public class HintManager : MonoBehaviour, IPossessable
 
         if (!talking && !choicePanel.IsShowing && currentQuestion == null)
         {
-            UpdateDialogue();
+            if (!flag)
+            {
+                UpdateDialogue();
+                flag = true;
+            }    
 
             if (currentDialogueIndex == -1)
             {
@@ -104,7 +110,7 @@ public class HintManager : MonoBehaviour, IPossessable
 
         switch (sceneName)
         {
-            case "Puzzle 1":
+            case "Greybox":
                 switch (index)
                 {
                     case 0: return objectManager.PrincipalDoor;
@@ -270,6 +276,7 @@ public class HintManager : MonoBehaviour, IPossessable
         hintManager = null;
 
         otherImage.gameObject.SetActive(false);
+        flag = false;
     }
 
     private IEnumerator WritePhrase(string phrase)
