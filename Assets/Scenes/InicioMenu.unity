@@ -9036,6 +9036,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328242732}
   m_CullTransparentMesh: 1
+--- !u!114 &1330215985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1931877666500404887, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+  m_PrefabInstance: {fileID: 6323444495101310818}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66fe0afa5047374f9a0af879fab7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342427399
 GameObject:
   m_ObjectHideFlags: 0
@@ -14291,6 +14302,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3362007206162093212, guid: a521ba1750424d642a639507fe7dfa92, type: 3}
+      propertyPath: startGame
+      value: 
+      objectReference: {fileID: 8300000, guid: 3fc71a1fc452fdf4da7ac2afca96bae8, type: 3}
+    - target: {fileID: 3362007206162093212, guid: a521ba1750424d642a639507fe7dfa92, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 1330215985}
+    - target: {fileID: 3362007206162093212, guid: a521ba1750424d642a639507fe7dfa92, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 3362007206162093212, guid: a521ba1750424d642a639507fe7dfa92, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     - target: {fileID: 8290521530413182258, guid: a521ba1750424d642a639507fe7dfa92, type: 3}
       propertyPath: m_LocalPosition.x
       value: 311.9009

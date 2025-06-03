@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using NUnit.Framework.Internal.Commands;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -121,6 +122,17 @@ namespace StarterAssets
         [SerializeField] private TextMeshProUGUI historyFontText;
         [SerializeField] private TextMeshProUGUI historyActionText;
 
+        [Header("Sound Control")]
+        [SerializeField] AudioSource audioSource;
+        [SerializeField] private float stepsRadius;
+        [SerializeField] private AudioClip showInteractionSound;
+        [SerializeField] private AudioClip interactSound;
+        [SerializeField] private AudioClip passNextDialogueSound;
+        [SerializeField] private float soundVolumeFX;
+        [SerializeField] private AudioClip selectOptionMenuSound;
+        [SerializeField] private AudioClip chosedOptionMenuSound;
+        [SerializeField] AudioConfig audioConfig;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -194,6 +206,7 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+    
         }
 
         private void OnEnable()
@@ -373,6 +386,7 @@ namespace StarterAssets
                 {
                     // Confirmar selección y salir del modo ajuste
                     MenuInicial.menuActivo.ToggleModoAjuste();
+                    audioConfig.SoundEffectSFX(chosedOptionMenuSound);
                 }
                 else if (MenuInicial.menuActivo.IsAdjustingSlider())
                 {
@@ -382,15 +396,18 @@ namespace StarterAssets
                 {
                     // Entrar en modo ajuste
                     MenuInicial.menuActivo.ToggleModoAjuste();
+                    audioConfig.SoundEffectSFX(chosedOptionMenuSound);
                 }
                 else if (MenuInicial.menuActivo.CurrentButtonHasAdjacentSlider())
                 {
                     MenuInicial.menuActivo.ToggleAjusteSlider();
+                    audioConfig.SoundEffectSFX(chosedOptionMenuSound);
                 }
                 else
                 {
                     // Acción normal del botón
                     MenuInicial.menuActivo.ActivateSelectedButton();
+                    audioConfig.SoundEffectSFX(chosedOptionMenuSound);
                 }
                 _input.interact = false;
             }
@@ -412,6 +429,8 @@ namespace StarterAssets
                 int direction = input.x > 0 ? 1 : -1;
                 MenuInicial.menuActivo.CambiarOpcionToggle(direction);
                 lastInputTime = Time.unscaledTime;
+                audioConfig.SoundEffectSFX(selectOptionMenuSound);
+
             }
             // Modo ajuste de slider (mantén tu código existente)
             else if (MenuInicial.menuActivo.IsAdjustingSlider() && Mathf.Abs(input.x) > deadzone)
@@ -419,6 +438,8 @@ namespace StarterAssets
                 int direction = input.x > 0 ? 1 : -1;
                 MenuInicial.menuActivo.MoveSelection(direction);
                 lastInputTime = Time.unscaledTime;
+                audioConfig.SoundEffectSFX(selectOptionMenuSound);
+
             }
             // Navegación normal (vertical)
             else if (Mathf.Abs(input.y) > deadzone)
@@ -426,6 +447,7 @@ namespace StarterAssets
                 int direction = input.y > 0 ? -1 : 1;
                 MenuInicial.menuActivo.MoveSelection(direction);
                 lastInputTime = Time.unscaledTime;
+                audioConfig.SoundEffectSFX(selectOptionMenuSound);
             }
         }
 
@@ -645,12 +667,14 @@ namespace StarterAssets
                         {
                             // selects the current choice
                             CinematicDialogue.CurrentNPC.SelectCurrentChoice();
+                            audioConfig.SoundEffectSFX(passNextDialogueSound);
                         }
                         // if no auto or skip
                         else if (!CinematicDialogue.CurrentNPC.AutoTalking && !CinematicDialogue.CurrentNPC.SkipTalking)
                         {
                             // next dialogue
                             CinematicDialogue.CurrentNPC.Possess(transform);
+                            audioConfig.SoundEffectSFX(passNextDialogueSound);
                         }
                     }
                     else if (CinematicDialogue.CurrentNPCNon != null)
@@ -660,12 +684,14 @@ namespace StarterAssets
                         {
                             // selects the current choice
                             CinematicDialogue.CurrentNPCNon.SelectCurrentChoice();
+                            audioConfig.SoundEffectSFX(passNextDialogueSound);
                         }
                         // if no auto or skip
                         else if (!CinematicDialogue.CurrentNPCNon.AutoTalking && !CinematicDialogue.CurrentNPCNon.SkipTalking)
                         {
                             // next dialogue
                             CinematicDialogue.CurrentNPCNon.Possess(transform);
+                            audioConfig.SoundEffectSFX(passNextDialogueSound);
                         }
                     }
                 }
@@ -741,6 +767,8 @@ namespace StarterAssets
                 if (target is IInteractuable interactuable)
                 {
                     interactuable.Interact(transform);
+                    audioConfig.SoundEffectSFX(interactSound);
+
                 }
                 // if the object implements the IPossessable interface
                 else if (target is IPossessable possessable)
@@ -748,11 +776,18 @@ namespace StarterAssets
                     if (possessable is NPCPossessable npcP)
                     {
                         possessable.Possess(transform);
+                        audioConfig.SoundEffectSFX(interactSound);
+
                     }
                     else if (possessable is NPCNonPossessable npcNP)
                     {
                         if (possesionManager.CurrentNPC != null || npcNP.Listening)
+                        {
                             possessable.Possess(transform);
+                            audioConfig.SoundEffectSFX(interactSound);
+
+                        }
+                        
                     }
                 }
 
@@ -1415,7 +1450,7 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
-            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, stepsRadius);
             var index = 0;
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
@@ -1425,12 +1460,12 @@ namespace StarterAssets
                     {
                         if(collider.CompareTag("Jardin"))
                         {
-                            index = Random.Range(0, 4);
+                            index = UnityEngine.Random.Range(0, 4);
                             UnityEngine.Debug.Log("Pisas en Jardin");
                         }
                         else if(collider.CompareTag("Casa"))
                         {
-                            index = Random.Range(5, FootstepAudioClips.Length);
+                            index = UnityEngine.Random.Range(5, FootstepAudioClips.Length);
                             UnityEngine.Debug.Log("Pisas en Casa");
 
                         }

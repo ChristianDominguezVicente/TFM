@@ -19,6 +19,8 @@ public class AudioConfig : MonoBehaviour
     private string parametroSFX = "VolumenSFX";
     private string parametroVoces = "VolumenVoces";
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         // Cargar valores guardados (si existen)
@@ -39,6 +41,7 @@ public class AudioConfig : MonoBehaviour
         sliderMusica.onValueChanged.AddListener(SetVolumenMusica);
         sliderSFX.onValueChanged.AddListener(SetVolumenSFX);
         sliderVoces.onValueChanged.AddListener(SetVolumenVoces);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Configs
@@ -78,5 +81,9 @@ public class AudioConfig : MonoBehaviour
         Debug.Log("Configuración de audio guardada");
     }
 
+    public void SoundEffectSFX(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 
 }

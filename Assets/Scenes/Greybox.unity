@@ -15645,6 +15645,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 2105976879}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -15656,6 +15664,10 @@ PrefabInstance:
       propertyPath: historyText
       value: 
       objectReference: {fileID: 798508486}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: stepsRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: historyPanel
       value: 
@@ -15673,9 +15685,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -15696,6 +15716,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22990,6 +23026,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 0}
@@ -23002,6 +23042,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+--- !u!82 &2105976879 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+  m_PrefabInstance: {fileID: 2105976878}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2105976880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1931877666500404887, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+  m_PrefabInstance: {fileID: 2105976878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66fe0afa5047374f9a0af879fab7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2108761786
 PrefabInstance:
   m_ObjectHideFlags: 0

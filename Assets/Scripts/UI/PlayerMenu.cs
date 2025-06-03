@@ -5,6 +5,8 @@ using TMPro;
 
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEditor.SearchService;
+using UnityEngine.SceneManagement;
 
 
 
@@ -20,7 +22,11 @@ public class PlayerMenu : MonoBehaviour
     private float lastInputTime = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-
+    [Header("Effects SFX")]
+    [SerializeField] private AudioClip startGame;
+    [SerializeField] private AudioClip selectOptionMenuSound;
+    [SerializeField] private AudioClip chosedOptionMenuSound;
+    [SerializeField] AudioConfig audioConfig; 
 
     void Start()
     {
@@ -45,7 +51,7 @@ public class PlayerMenu : MonoBehaviour
         {
             
             MenuInicial.menuActivo.VolverAMenuAnterior();
-
+            audioConfig.SoundEffectSFX(chosedOptionMenuSound);
             _input.cancel = false;
             return;
 
@@ -67,6 +73,7 @@ public class PlayerMenu : MonoBehaviour
             int direction = input.x > 0 ? 1 : -1;
             MenuInicial.menuActivo.CambiarOpcionToggle(direction);
             lastInputTime = Time.time;
+            audioConfig.SoundEffectSFX(selectOptionMenuSound);
         }
         // Modo ajuste de slider (mantén tu código existente)
         else if (MenuInicial.menuActivo.IsAdjustingSlider() && Mathf.Abs(input.x) > deadzone)
@@ -74,6 +81,7 @@ public class PlayerMenu : MonoBehaviour
             int direction = input.x > 0 ? 1 : -1;
             MenuInicial.menuActivo.MoveSelection(direction);
             lastInputTime = Time.time;
+            audioConfig.SoundEffectSFX(selectOptionMenuSound);
         }
         // Navegación normal (vertical)
         else if (Mathf.Abs(input.y) > deadzone)
@@ -81,6 +89,7 @@ public class PlayerMenu : MonoBehaviour
             int direction = input.y > 0 ? -1 : 1;
             MenuInicial.menuActivo.MoveSelection(direction);
             lastInputTime = Time.time;
+            audioConfig.SoundEffectSFX(selectOptionMenuSound);
         }
     }
 
@@ -92,24 +101,30 @@ public class PlayerMenu : MonoBehaviour
             {
                 // Confirmar selección y salir del modo ajuste
                 MenuInicial.menuActivo.ToggleModoAjuste();
+                audioConfig.SoundEffectSFX(chosedOptionMenuSound);
             }
             else if (MenuInicial.menuActivo.IsAdjustingSlider())
             {
                 MenuInicial.menuActivo.ToggleAjusteSlider();
+                audioConfig.SoundEffectSFX(chosedOptionMenuSound);
+
             }
             else if (MenuInicial.menuActivo.CurrentButtonIsToggle())
             {
                 // Entrar en modo ajuste
                 MenuInicial.menuActivo.ToggleModoAjuste();
+                audioConfig.SoundEffectSFX(chosedOptionMenuSound);
             }
             else if (MenuInicial.menuActivo.CurrentButtonHasAdjacentSlider())
             {
                 MenuInicial.menuActivo.ToggleAjusteSlider();
+                audioConfig.SoundEffectSFX(chosedOptionMenuSound);
             }
             else
             {
                 // Acción normal del botón
                 MenuInicial.menuActivo.ActivateSelectedButton();
+                audioConfig.SoundEffectSFX(chosedOptionMenuSound);
             }
             _input.interact = false;
         }
