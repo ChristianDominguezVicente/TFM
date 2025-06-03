@@ -38,10 +38,10 @@ public class SMSystem : MonoBehaviour
 
     private bool isPaused = false;
     private bool firstTimePaused = true;
+    private bool needsUIUpdate = false;
 
     public bool IsPaused { get => isPaused; set => isPaused = value; }
-
-
+    public bool NeedsUIUpdate { get => needsUIUpdate; set => needsUIUpdate = value; }
 
     private void Start()
     {
@@ -63,7 +63,11 @@ public class SMSystem : MonoBehaviour
             SMObjetivos();
 
         }
-        ActualizarHUD();
+        if (needsUIUpdate)
+        {
+            ActualizarHUD();
+            needsUIUpdate = false;
+        }
     }
 
 
@@ -89,6 +93,7 @@ public class SMSystem : MonoBehaviour
         // Debug.Log("indice es: " + indiceMision);
         LimpiezaEnunciado();
         missions[indiceMision].missionInfoPanel.SetActive(true);
+        needsUIUpdate = true;
 
     }
 

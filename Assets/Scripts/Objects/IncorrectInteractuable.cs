@@ -35,7 +35,8 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
         // mark it in the ObjectManager
         objectManager.Incorrect = true;
         objectManager.Correct = false;
-
+        SMSystem smsys = FindAnyObjectByType<SMSystem>();
+        smsys.NeedsUIUpdate = true;
         // deactivates the object in the scene when interacted with
         gameObject.SetActive(false);
     }
