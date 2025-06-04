@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1192423449169847308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2523156142367617024}
+  - component: {fileID: 6404877007239844768}
+  m_Layer: 0
+  m_Name: Emnesis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2523156142367617024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192423449169847308}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759273764852151970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6404877007239844768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192423449169847308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Emnesis
+  possessionManager: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  player: {fileID: 0}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerText: {fileID: 0}
+  choicePanel: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  npcName: Emnesis
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 0}
+  nonSpeakerImage: {fileID: 0}
+  volume: {fileID: 0}
+  ui: {fileID: 0}
+  possessBar: {fileID: 0}
+  hud: {fileID: 0}
+  cinematicDialogueData: {fileID: 11400000, guid: c83d8230097853848b950db66d3326a5, type: 2}
+  cinematicDialoguePlayer: {fileID: 5604865941005753930}
+  autoFontText: {fileID: 0}
+  autoActionText: {fileID: 0}
+  skipFontText: {fileID: 0}
+  skipActionText: {fileID: 0}
+  cinematicObject: 0
+--- !u!1 &2123254235899550052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3386895578264938950}
+  - component: {fileID: 6773926238460070235}
+  m_Layer: 0
+  m_Name: Helen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3386895578264938950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123254235899550052}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759273764852151970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6773926238460070235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123254235899550052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  player: {fileID: 0}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerText: {fileID: 0}
+  choicePanel: {fileID: 0}
+  dialogueHistory: {fileID: 0}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 0}
+  nonSpeakerImage: {fileID: 0}
+  volume: {fileID: 0}
+  ui: {fileID: 0}
+  possessBar: {fileID: 0}
+  hud: {fileID: 0}
+  cinematicDialogueData: {fileID: 11400000, guid: 6726544cb0ad64945bbb969233cbda1c, type: 2}
+  cinematicDialoguePlayer: {fileID: 5604865941005753930}
+  autoFontText: {fileID: 0}
+  autoActionText: {fileID: 0}
+  skipFontText: {fileID: 0}
+  skipActionText: {fileID: 0}
+  cinematicObject: 0
+--- !u!1 &2365387322445502312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759273764852151970}
+  m_Layer: 0
+  m_Name: Intro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759273764852151970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365387322445502312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 409.6927, y: 60.293636, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5088714195164884174}
+  - {fileID: 2523156142367617024}
+  - {fileID: 3386895578264938950}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6773374102654496732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5088714195164884174}
+  - component: {fileID: 5604865941005753930}
+  m_Layer: 0
+  m_Name: LevelBegin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5088714195164884174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773374102654496732}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759273764852151970}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5604865941005753930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773374102654496732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 0
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 0
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 1
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 1
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 2
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 3
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 4
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 7
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 7
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 8
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 9
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 9
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 10
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 11
+  - speaker: {fileID: 6404877007239844768}
+    startIndex: 13
+  - speaker: {fileID: 6773926238460070235}
+    startIndex: 12
+  choicePanel: {fileID: 0}

@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Helen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476085315305473
+  - rid: 3380476085315305475
+  - rid: 3380476085315305476
+  - rid: 3380476085315305479
+  - rid: 3380476085315305480
+  - rid: 3380476085315305481
+  - rid: 3380476085315305482
+  - rid: 3380476085315305486
+  - rid: 3380476085315305489
+  - rid: 3380476085315305491
+  - rid: 3380476085315305492
+  - rid: 3380476085315305496
+  - rid: 3380476085315305500
+  - rid: 3380476085315305501
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476085315305473
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+    - rid: 3380476085315305475
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "... \xBFC\xF3mo...? \xBFQui\xE9n...? "
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+    - rid: 3380476085315305476
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFEmnesis?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+    - rid: 3380476085315305479
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+    - rid: 3380476085315305480
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Rachel se hab\xEDa enfadado de repente. Era ella quien iba a hacer
+          la tarta de cumple, pero Mam\xE1 le hab\xEDa dicho algo y hab\xEDa subido
+          toda enfadada a su habitaci\xF3n."
+        image: {fileID: 0}
+        nextIndex: 5
+        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+    - rid: 3380476085315305481
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Recuerdo que hab\xEDa habido un problema gordo para hacer la tarta,
+          no recuerdo cu\xE1l.  "
+        image: {fileID: 0}
+        nextIndex: 6
+        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+    - rid: 3380476085315305482
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFVoy a revivir ese momento?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+    - rid: 3380476085315305486
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFComo si las estuviese... poseyendo, o algo as\xED?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+    - rid: 3380476085315305489
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Entonces deber\xEDa recrear las cosas como ocurrieron, \xBFverdad?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+    - rid: 3380476085315305491
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFPero y si no me acuerdo del todo bien?  "
+        image: {fileID: 0}
+        nextIndex: 10
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+    - rid: 3380476085315305492
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Por ejemplo... de cosas que yo no hice. Yo no s\xE9 qu\xE9 estaba
+          haciendo mi hermana, porque yo creo que no hab\xEDa subido... \xBFo s\xED?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+    - rid: 3380476085315305496
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Vale, creo que estoy preparada.
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+    - rid: 3380476085315305500
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Me lo imaginaba. No creo que se me ocurriera hacerlo.
+        image: {fileID: 0}
+        nextIndex: 13
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+    - rid: 3380476085315305501
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Voy a abrir los ojos.
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
