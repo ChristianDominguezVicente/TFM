@@ -63,6 +63,7 @@ public class HintManager : MonoBehaviour, IPossessable
     public bool IsTalking { get => talking; set => talking = value; }
     public bool AutoTalking { get => autoTalking; set => autoTalking = value; }
     public bool SkipTalking { get => skipTalking; set => skipTalking = value; }
+    public DialogueData[] DialogueDataArray { get => dialogueDataArray; set => dialogueDataArray = value; }
 
     public string GetPossessText() => "Enmsis";
     public Transform GetTransform() => transform;
@@ -79,7 +80,7 @@ public class HintManager : MonoBehaviour, IPossessable
 
         if (!talking && !choicePanel.IsShowing && currentQuestion == null)
         {
-            if (!flag)
+            if (!flag && (SceneManager.GetActiveScene().name != "Greybox" || objectManager.PrincipalDoor))
             {
                 UpdateDialogue();
                 flag = true;
@@ -113,14 +114,13 @@ public class HintManager : MonoBehaviour, IPossessable
             case "Greybox":
                 switch (index)
                 {
-                    case 0: return objectManager.PrincipalDoor;
-                    case 1: return objectManager.Calendar;
-                    case 2: return objectManager.MasterKeyTaken;
-                    case 3: return objectManager.ValveActive;
-                    case 4: return objectManager.Sugar;
-                    case 5: return objectManager.Flour;
-                    case 6: return objectManager.Eggs;
-                    case 7: return objectManager.Recipe1 && objectManager.Recipe2;
+                    case 0: return objectManager.Calendar;
+                    case 1: return objectManager.MasterKeyTaken;
+                    case 2: return objectManager.ValveActive;
+                    case 3: return objectManager.Sugar;
+                    case 4: return objectManager.Flour;
+                    case 5: return objectManager.Eggs;
+                    case 6: return objectManager.Recipe1 && objectManager.Recipe2;
                     default: return false;
                 }
             case "Puzzle 2":

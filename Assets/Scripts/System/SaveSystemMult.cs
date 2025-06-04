@@ -1,4 +1,5 @@
 using StarterAssets;
+using System.Collections;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,7 @@ public class SaveSystemMult : MonoBehaviour
     [Header("Configuración player y posesion")]
     [SerializeField] private GameObject player;
     [SerializeField] private PossessionManager possessionManager;
+    [SerializeField] private CanvasGroup fadeOut;
 
 
     [Header("Auto Save config")]
@@ -161,7 +163,25 @@ public class SaveSystemMult : MonoBehaviour
         if (!HasSave(slotIndex)) return;
 
         CurrentSlot = slotIndex;
-        SceneManager.LoadScene(SceneName);
+        StartCoroutine(FadeOut(SceneName));
+    }
+
+    private IEnumerator FadeOut(string sceneName)
+    {
+        fadeOut.gameObject.SetActive(true);
+
+        float duration = 2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+
+        // load next level
+        SceneManager.LoadScene(sceneName);
     }
 
     void LoadPlayerPosition()
