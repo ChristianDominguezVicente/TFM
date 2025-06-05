@@ -2,6 +2,7 @@ using System.Collections;
 using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LookingInteractuable : MonoBehaviour, IInteractuable
 {
@@ -28,18 +29,6 @@ public class LookingInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
-        {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
-            {
-                yield return null;
-            }
-
-            cinematicDialogue.End = false;
-        }
-
         // save original position and rotation
         if (!hasOriginalTransform)
         {
@@ -51,7 +40,24 @@ public class LookingInteractuable : MonoBehaviour, IInteractuable
         // activate looking
         if (!looking)
         {
-            StartLooking();
+            if ((CompareTag("Note") || CompareTag("Calendar")) && SceneManager.GetActiveScene().name != "Greybox")
+            {
+                if (cinematicDialogue != null)
+                {
+                    cinematicDialogue.PlayDialogue();
+
+                    while (!cinematicDialogue.End)
+                    {
+                        yield return null;
+                    }
+
+                    cinematicDialogue.End = false;
+                }
+            }
+            else
+            {
+                StartLooking();
+            }   
         }
         // deactivate looking
         else

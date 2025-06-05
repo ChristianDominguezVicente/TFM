@@ -10,35 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
-  m_Name: TalkHelen
+  m_Name: TalkHelenNinhos
   m_EditorClassIdentifier: 
   nodes:
   - rid: 8849634281751576590
   - rid: 8849634281751576591
-  - rid: 8849634281751576593
   references:
     version: 2
     RefIds:
     - rid: 8849634281751576590
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "\xBFY te puedes creer que va y se lleva la otra mitad de la receta?"
+        npcText: "\xBFTe puedes creer que Rachel haya roto la receta y se haya llevado
+          un trozo?"
         image: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
     - rid: 8849634281751576591
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "\xA1Dijo que iba a hacerme el pastel y por una tonter\xEDa que
-          dice m\xE1ma va y se lleva la receta!"
+        npcText: "\xA1Solo quiere fastidiarme el cumple! \xBFY ahora c\xF3mo hacemos
+          el pastel?"
         image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
-    - rid: 8849634281751576593
-      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
-      data:
-        npcText: "\xA1S\xED! Es que ahora, \xBFc\xF3mo hacemos el pastel? Como pap\xE1
-          no se acuerde..."
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
-        nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}

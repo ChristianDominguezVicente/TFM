@@ -168,6 +168,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &12622219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12622220}
+  - component: {fileID: 12622222}
+  - component: {fileID: 12622221}
+  m_Layer: 0
+  m_Name: Teddy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &12622220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12622219}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &12622221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12622219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 12622222}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &12622222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12622219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7444ac19cf0c7e24a8c6a69b2b647a6c, type: 2}
+  cinematicDialoguePlayer: {fileID: 12622221}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!114 &32517775 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 405261093181861338, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
@@ -184,6 +274,171 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4470890804636060763, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
   m_PrefabInstance: {fileID: 1924997532602528760}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &34057471
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 631251639}
+    m_Modifications:
+    - target: {fileID: 3861237490818712064, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_Name
+      value: RachelDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861237490818712064, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6171664997933297153, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: fadeOut
+      value: 
+      objectReference: {fileID: 1546701105}
+    - target: {fileID: 6171664997933297153, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: objectManager
+      value: 
+      objectReference: {fileID: 2108761795}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22519946
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720569610869847850, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4639848
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720569610869847850, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.54868954
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720569610869847850, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9799338
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6171664997933297153, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8513110500761572259, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 34057474}
+  m_SourcePrefab: {fileID: 100100000, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+--- !u!4 &34057472 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6681307391563287498, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+  m_PrefabInstance: {fileID: 34057471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &34057473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8513110500761572259, guid: 267b1436c369a3b4aa0392aa3f4855f7, type: 3}
+  m_PrefabInstance: {fileID: 34057471}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &34057474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34057473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6059cda7f75acd94baf5280ed0786819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Abrir Puerta de Rachel
+  objectManager: {fileID: 2108761795}
+  possessionManager: {fileID: 2108761787}
+  correctCinematicDialogue: {fileID: 361665092}
+  incorrectCinematicDialogue: {fileID: 35263856}
+  restrictedNPCs: []
+--- !u!1 &35263854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35263855}
+  - component: {fileID: 35263856}
+  m_Layer: 0
+  m_Name: TalkHelenEmnesis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &35263855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35263854}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 253913876}
+  - {fileID: 1136557345}
+  m_Father: {fileID: 1633081972}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &35263856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35263854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 253913875}
+    startIndex: 0
+  - speaker: {fileID: 1136557346}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
 --- !u!1 &36096131
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,19 +973,19 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+      objectReference: {fileID: 11400000, guid: c7524f9f4e18e174dae23b9825f033ec, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+      objectReference: {fileID: 11400000, guid: c7524f9f4e18e174dae23b9825f033ec, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
     - target: {fileID: 3151741551105938210, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1439,6 +1694,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &67131827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 67131828}
+  - component: {fileID: 67131830}
+  - component: {fileID: 67131829}
+  m_Layer: 0
+  m_Name: ToolBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &67131828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67131827}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67131829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67131827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 67131830}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &67131830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67131827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 2f1612e2914068e46a898267005fc16f, type: 2}
+  cinematicDialoguePlayer: {fileID: 67131829}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!114 &71910174 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8462609974507374402, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
@@ -2012,6 +2357,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111080987}
   m_CullTransparentMesh: 1
+--- !u!1 &119205428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119205429}
+  - component: {fileID: 119205431}
+  - component: {fileID: 119205430}
+  m_Layer: 0
+  m_Name: Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119205429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119205428}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &119205430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119205428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 119205431}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &119205431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119205428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialoguePlayer: {fileID: 119205430}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &154356137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,12 +2885,20 @@ PrefabInstance:
       objectReference: {fileID: 1761546044}
     - target: {fileID: 5848126470351527252, guid: 4d0fcb78c12618149b600762810a9dc1, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5848126470351527252, guid: 4d0fcb78c12618149b600762810a9dc1, type: 3}
+      propertyPath: interactText
+      value: Examinar Foto
       objectReference: {fileID: 0}
     - target: {fileID: 5848126470351527252, guid: 4d0fcb78c12618149b600762810a9dc1, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 5848126470351527252, guid: 4d0fcb78c12618149b600762810a9dc1, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 833386342}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2610,6 +3053,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 468047165}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 939890586}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425878596}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 473453337}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1409245256}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1421091204}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1407013771}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1210162800}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 694152640}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 873065706}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1637364797}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 833386341}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 67131828}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1667734510}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 119205429}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 12622220}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 971121430}
+    - targetCorrespondingSourceObject: {fileID: 7523009934749908071, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1633081972}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241cfc4842d504947a8552e125d7ea4f, type: 3}
 --- !u!4 &228550706 stripped
@@ -2800,6 +3294,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246651995}
   m_CullTransparentMesh: 1
+--- !u!1 &253913874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 253913876}
+  - component: {fileID: 253913875}
+  m_Layer: 0
+  m_Name: Helen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &253913875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253913874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 3f0ef4c3890aed34486a7abff9faf81b, type: 2}
+  cinematicDialoguePlayer: {fileID: 35263856}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!4 &253913876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253913874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 35263855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &259584085 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3355492264456250583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
@@ -3585,9 +4152,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2662059830431155300, guid: 9cd9e0df4336e564fb4b4dbabb8f0d6f, type: 3}
+      propertyPath: interactText
+      value: Examinar Tablet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662059830431155300, guid: 9cd9e0df4336e564fb4b4dbabb8f0d6f, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 2662059830431155300, guid: 9cd9e0df4336e564fb4b4dbabb8f0d6f, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4144953175362560187, guid: 9cd9e0df4336e564fb4b4dbabb8f0d6f, type: 3}
       propertyPath: m_Name
       value: Tablet
@@ -4005,6 +4580,72 @@ Transform:
   - {fileID: 1493014317}
   m_Father: {fileID: 353128144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &361665090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 361665091}
+  - component: {fileID: 361665092}
+  m_Layer: 0
+  m_Name: TalkRachelJane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &361665091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361665090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1289754125}
+  - {fileID: 876366682}
+  - {fileID: 392383172}
+  - {fileID: 755367258}
+  m_Father: {fileID: 1633081972}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &361665092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361665090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 392383171}
+    startIndex: 0
+  - speaker: {fileID: 755367259}
+    startIndex: 0
+  - speaker: {fileID: 392383171}
+    startIndex: 1
+  - speaker: {fileID: 755367259}
+    startIndex: 3
+  - speaker: {fileID: 392383171}
+    startIndex: 2
+  - speaker: {fileID: 1289754124}
+    startIndex: 0
+  - speaker: {fileID: 876366681}
+    startIndex: 0
+  - speaker: {fileID: 1289754124}
+    startIndex: 2
+  choicePanel: {fileID: 798508485}
 --- !u!1 &364435847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,23 +5039,23 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+      objectReference: {fileID: 11400000, guid: 5e795bfee0b06444ca31b387ad4851bf, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+      objectReference: {fileID: 11400000, guid: 5e795bfee0b06444ca31b387ad4851bf, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -4535,6 +5176,79 @@ RectTransform:
   m_AnchoredPosition: {x: 178, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &392383170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392383172}
+  - component: {fileID: 392383171}
+  m_Layer: 0
+  m_Name: Rachel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &392383171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392383170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Rachel
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialoguePlayer: {fileID: 361665092}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!4 &392383172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392383170}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 361665091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &397872303
 GameObject:
   m_ObjectHideFlags: 0
@@ -5240,9 +5954,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6284940412508105501, guid: 7cbae82ed39bca9459964b38ace6a347, type: 3}
+      propertyPath: interactText
+      value: Examinar Papel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284940412508105501, guid: 7cbae82ed39bca9459964b38ace6a347, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 6284940412508105501, guid: 7cbae82ed39bca9459964b38ace6a347, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7618527534931905527, guid: 7cbae82ed39bca9459964b38ace6a347, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.837997
@@ -5675,6 +6397,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469768385}
   m_CullTransparentMesh: 1
+--- !u!1 &473453336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473453337}
+  - component: {fileID: 473453339}
+  - component: {fileID: 473453338}
+  m_Layer: 0
+  m_Name: Sugar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473453337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473453336}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473453338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473453336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 473453339}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &473453339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473453336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: a9240857676ab394d95156e405348a9b, type: 2}
+  cinematicDialoguePlayer: {fileID: 473453338}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &476099522
 GameObject:
   m_ObjectHideFlags: 0
@@ -6888,6 +7700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 34057472}
   - {fileID: 1743435540}
   - {fileID: 1396816742}
   - {fileID: 1043174129}
@@ -7842,7 +8655,7 @@ PrefabInstance:
       objectReference: {fileID: 2108761788}
     - target: {fileID: 2706991261756930054, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
       propertyPath: interactText
-      value: Open Principal Door
+      value: Abrir Puerta Principal
       objectReference: {fileID: 0}
     - target: {fileID: 2706991261756930054, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
       propertyPath: objectManager
@@ -7949,6 +8762,96 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
+--- !u!1 &694152639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694152640}
+  - component: {fileID: 694152642}
+  - component: {fileID: 694152641}
+  m_Layer: 0
+  m_Name: Recipe1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694152640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694152639}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694152641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694152639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 694152642}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &694152642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694152639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: c7f43dc33d47d4e49a90c8589ef2fafb, type: 2}
+  cinematicDialoguePlayer: {fileID: 694152641}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!4 &695065902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3645661751255251922, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
@@ -8407,12 +9310,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9195528649239233891, guid: 02430951a7ae8ef428c5343980f3b603, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195528649239233891, guid: 02430951a7ae8ef428c5343980f3b603, type: 3}
+      propertyPath: interactText
+      value: Mirar Caja de Herramientas
       objectReference: {fileID: 0}
     - target: {fileID: 9195528649239233891, guid: 02430951a7ae8ef428c5343980f3b603, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 9195528649239233891, guid: 02430951a7ae8ef428c5343980f3b603, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 67131829}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8595,6 +9506,79 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744177488}
   m_CullTransparentMesh: 1
+--- !u!1 &755367257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 755367258}
+  - component: {fileID: 755367259}
+  m_Layer: 0
+  m_Name: Jane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &755367258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755367257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 361665091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755367259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755367257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Jane
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialoguePlayer: {fileID: 361665092}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &757457682
 GameObject:
   m_ObjectHideFlags: 0
@@ -9541,12 +10525,20 @@ PrefabInstance:
       objectReference: {fileID: 1645544579}
     - target: {fileID: 5958129612351547978, guid: b85219ece4117fa40adebbcc7b937a42, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5958129612351547978, guid: b85219ece4117fa40adebbcc7b937a42, type: 3}
       propertyPath: masterKey
       value: 
       objectReference: {fileID: 1043174128}
+    - target: {fileID: 5958129612351547978, guid: b85219ece4117fa40adebbcc7b937a42, type: 3}
+      propertyPath: interactText
+      value: Mirar Caja
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958129612351547978, guid: b85219ece4117fa40adebbcc7b937a42, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 119205430}
     - target: {fileID: 5958129612351547978, guid: b85219ece4117fa40adebbcc7b937a42, type: 3}
       propertyPath: possessionManager
       value: 
@@ -9636,6 +10628,96 @@ RectTransform:
   m_AnchoredPosition: {x: 312.67493, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &833386340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833386341}
+  - component: {fileID: 833386343}
+  - component: {fileID: 833386342}
+  m_Layer: 0
+  m_Name: Photo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &833386341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833386340}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833386342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833386340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 833386343}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &833386343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833386340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 0c9ada6f80942bf43ba10b16463d9eae, type: 2}
+  cinematicDialoguePlayer: {fileID: 833386342}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &834068855
 GameObject:
   m_ObjectHideFlags: 0
@@ -9991,23 +11073,23 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+      objectReference: {fileID: 11400000, guid: 531b102e7bb1b774b908321fab4b3865, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+      objectReference: {fileID: 11400000, guid: 531b102e7bb1b774b908321fab4b3865, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -10299,12 +11381,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
       propertyPath: interactText
-      value: Take Flour
+      value: Abrir Cajones
       objectReference: {fileID: 0}
     - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1407013772}
+    - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
+      propertyPath: possessionManager
+      value: 
+      objectReference: {fileID: 2108761787}
+    - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
+      propertyPath: restrictedNPCs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[0]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[1]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758173506570559470, guid: 4c3f03fddf633c44eae80a8f39a30b6d, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[2]'
+      value: Mary
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10538,6 +11644,169 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871051743}
   m_CullTransparentMesh: 1
+--- !u!1 &873065705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 873065706}
+  - component: {fileID: 873065708}
+  - component: {fileID: 873065707}
+  m_Layer: 0
+  m_Name: Valve
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &873065706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873065705}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &873065707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873065705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 873065708}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &873065708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873065705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: dc114364e03dd3d46b3d8c6ca4d599fd, type: 2}
+  cinematicDialoguePlayer: {fileID: 873065707}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!1 &876366680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876366682}
+  - component: {fileID: 876366681}
+  m_Layer: 0
+  m_Name: Emnesis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &876366681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876366680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Emnesis
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialoguePlayer: {fileID: 361665092}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!4 &876366682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876366680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 361665091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &883091182
 GameObject:
   m_ObjectHideFlags: 0
@@ -11024,6 +12293,96 @@ RectTransform:
   m_AnchoredPosition: {x: 204.02498, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &939890585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 939890586}
+  - component: {fileID: 939890588}
+  - component: {fileID: 939890587}
+  m_Layer: 0
+  m_Name: GarageDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &939890586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939890585}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939890587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939890585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 939890588}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &939890588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939890585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: a40b1c33b8537374daec7ce2417468e7, type: 2}
+  cinematicDialoguePlayer: {fileID: 939890587}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &962175595
 GameObject:
   m_ObjectHideFlags: 0
@@ -11165,6 +12524,10 @@ PrefabInstance:
     - target: {fileID: 3736646592946922637, guid: 19fcb7fbed6626b49aedbb06fa7418ba, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736646592946922637, guid: 19fcb7fbed6626b49aedbb06fa7418ba, type: 3}
+      propertyPath: interactText
+      value: Recoger Cadena de Rachel
       objectReference: {fileID: 0}
     - target: {fileID: 3736646592946922637, guid: 19fcb7fbed6626b49aedbb06fa7418ba, type: 3}
       propertyPath: objectManager
@@ -11399,6 +12762,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970344706}
   m_CullTransparentMesh: 1
+--- !u!1 &971121429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 971121430}
+  - component: {fileID: 971121432}
+  - component: {fileID: 971121431}
+  m_Layer: 0
+  m_Name: Draw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &971121430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971121429}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971121431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971121429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 971121432}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &971121432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971121429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7444ac19cf0c7e24a8c6a69b2b647a6c, type: 2}
+  cinematicDialoguePlayer: {fileID: 971121431}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &972950391
 GameObject:
   m_ObjectHideFlags: 0
@@ -11881,6 +13334,10 @@ PrefabInstance:
     - target: {fileID: 7209011217496427056, guid: d00f7c5badc30454087f5cbf56145d6c, type: 3}
       propertyPath: m_Name
       value: KeyMasterBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072506991517444786, guid: d00f7c5badc30454087f5cbf56145d6c, type: 3}
+      propertyPath: interactText
+      value: Recoger Llave Maestra
       objectReference: {fileID: 0}
     - target: {fileID: 8072506991517444786, guid: d00f7c5badc30454087f5cbf56145d6c, type: 3}
       propertyPath: objectManager
@@ -12784,6 +14241,79 @@ RectTransform:
   m_AnchoredPosition: {x: 421.3249, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1136557344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136557345}
+  - component: {fileID: 1136557346}
+  m_Layer: 0
+  m_Name: Emnesis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136557345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136557344}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 35263855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1136557346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136557344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Emnesis
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 403f0f1e803092742b0c30d1cf55ad22, type: 2}
+  cinematicDialoguePlayer: {fileID: 35263856}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &1146645495
 GameObject:
   m_ObjectHideFlags: 0
@@ -13537,6 +15067,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187325329}
   m_CullTransparentMesh: 1
+--- !u!1 &1210162799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1210162800}
+  - component: {fileID: 1210162802}
+  - component: {fileID: 1210162801}
+  m_Layer: 0
+  m_Name: Oven
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1210162800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210162799}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1210162801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210162799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1210162802}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1210162802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210162799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 53bf9162a8a16214ea567d16abeb69f0, type: 2}
+  cinematicDialoguePlayer: {fileID: 1210162801}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1001 &1217813236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14106,12 +15726,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 598728231265503085, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 598728231265503085, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
+      propertyPath: interactText
+      value: Mirar Cadena Original de Helen
       objectReference: {fileID: 0}
     - target: {fileID: 598728231265503085, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 598728231265503085, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1425878597}
     - target: {fileID: 6893416872891085000, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.700001
@@ -14160,6 +15788,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7125567520934132014, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
+      propertyPath: m_TagString
+      value: OriginalChain
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14170,6 +15802,79 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6893416872891085000, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
   m_PrefabInstance: {fileID: 1281219349}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1289754123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289754125}
+  - component: {fileID: 1289754124}
+  m_Layer: 0
+  m_Name: Helen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1289754124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289754123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialoguePlayer: {fileID: 361665092}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!4 &1289754125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289754123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 361665091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1294431527 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
@@ -15064,7 +16769,6 @@ Transform:
   - {fileID: 3945714743466273713}
   - {fileID: 4564259322040329696}
   - {fileID: 5032296243140434234}
-  - {fileID: 2826285394064976364}
   - {fileID: 1524186287204606192}
   - {fileID: 5736656599306943539}
   - {fileID: 522270779942581473}
@@ -15126,12 +16830,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4104533908997150276, guid: 02ff95e10392c1f4fad6912b62b25d12, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104533908997150276, guid: 02ff95e10392c1f4fad6912b62b25d12, type: 3}
+      propertyPath: interactText
+      value: Mirar Peluche Favorito
       objectReference: {fileID: 0}
     - target: {fileID: 4104533908997150276, guid: 02ff95e10392c1f4fad6912b62b25d12, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 4104533908997150276, guid: 02ff95e10392c1f4fad6912b62b25d12, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 12622221}
     - target: {fileID: 7655252373178750272, guid: 02ff95e10392c1f4fad6912b62b25d12, type: 3}
       propertyPath: m_Name
       value: Teddy
@@ -15186,6 +16898,186 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9044467693460620426, guid: 02ff95e10392c1f4fad6912b62b25d12, type: 3}
   m_PrefabInstance: {fileID: 1396816741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1407013770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407013771}
+  - component: {fileID: 1407013773}
+  - component: {fileID: 1407013772}
+  m_Layer: 0
+  m_Name: Flour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1407013771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407013770}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1407013772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407013770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1407013773}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1407013773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407013770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 3d33d4129a64abd42b2d4c4e827c1c7e, type: 2}
+  cinematicDialoguePlayer: {fileID: 1407013772}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!1 &1409245255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1409245256}
+  - component: {fileID: 1409245258}
+  - component: {fileID: 1409245257}
+  m_Layer: 0
+  m_Name: GiftPaper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1409245256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409245255}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1409245257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409245255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1409245258}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1409245258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409245255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: a041f43305830eb44966386cf902fb89, type: 2}
+  cinematicDialoguePlayer: {fileID: 1409245257}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1001 &1411161779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15243,9 +17135,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1546701105}
     - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
+      propertyPath: interactText
+      value: Usar el Horno
+      objectReference: {fileID: 0}
+    - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1210162801}
     - target: {fileID: 4867350702774116412, guid: 5e8b486955bf6b742a31f308f4011e62, type: 3}
       propertyPath: possessionManager
       value: 
@@ -15299,6 +17199,10 @@ PrefabInstance:
     - target: {fileID: 1102515273232246159, guid: 299fbb71807628444a59b04bcb5e16ba, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102515273232246159, guid: 299fbb71807628444a59b04bcb5e16ba, type: 3}
+      propertyPath: interactText
+      value: Abrir Diario de Rachel
       objectReference: {fileID: 0}
     - target: {fileID: 1996145791937336406, guid: 299fbb71807628444a59b04bcb5e16ba, type: 3}
       propertyPath: m_Name
@@ -15498,6 +17402,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419777601}
   m_CullTransparentMesh: 1
+--- !u!1 &1421091203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1421091204}
+  - component: {fileID: 1421091206}
+  - component: {fileID: 1421091205}
+  m_Layer: 0
+  m_Name: Eggs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1421091204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421091203}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1421091205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421091203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1421091206}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1421091206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421091203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 3ad50ec185dcb6746b4632dc22eb200d, type: 2}
+  cinematicDialoguePlayer: {fileID: 1421091205}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1 &1424626875
 GameObject:
   m_ObjectHideFlags: 0
@@ -15634,6 +17628,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424626875}
   m_CullTransparentMesh: 1
+--- !u!1 &1425878595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425878596}
+  - component: {fileID: 1425878598}
+  - component: {fileID: 1425878597}
+  m_Layer: 0
+  m_Name: OriginalChain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425878596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425878595}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425878597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425878595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1425878598}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1425878598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425878595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: c527d72cf08d98743a20f815b992c3c6, type: 2}
+  cinematicDialoguePlayer: {fileID: 1425878597}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1001 &1427977589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15692,12 +17776,20 @@ PrefabInstance:
       objectReference: {fileID: 1761546044}
     - target: {fileID: 8182135841495281732, guid: 18fe9e485ed786d4c907e2144ddc031f, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8182135841495281732, guid: 18fe9e485ed786d4c907e2144ddc031f, type: 3}
+      propertyPath: interactText
+      value: Examinar Nota
       objectReference: {fileID: 0}
     - target: {fileID: 8182135841495281732, guid: 18fe9e485ed786d4c907e2144ddc031f, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8182135841495281732, guid: 18fe9e485ed786d4c907e2144ddc031f, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1637364795}
     - target: {fileID: 8860992877503128810, guid: 18fe9e485ed786d4c907e2144ddc031f, type: 3}
       propertyPath: m_Name
       value: Note
@@ -15742,7 +17834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7159059471280277459, guid: 1812bdd2bfb947644b16992149c2eafb, type: 3}
       propertyPath: interactText
-      value: Fix bicycle
+      value: Arreglar Bicicleta
       objectReference: {fileID: 0}
     - target: {fileID: 7159059471280277459, guid: 1812bdd2bfb947644b16992149c2eafb, type: 3}
       propertyPath: objectManager
@@ -16224,12 +18316,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 917340034393838830, guid: 5490593eb90fae1439e1af980fc963d5, type: 3}
       propertyPath: interactText
-      value: Take Cake Recipe
+      value: Recoger Receta del Pastel
       objectReference: {fileID: 0}
     - target: {fileID: 917340034393838830, guid: 5490593eb90fae1439e1af980fc963d5, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 917340034393838830, guid: 5490593eb90fae1439e1af980fc963d5, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 694152641}
     - target: {fileID: 3743981165305164670, guid: 5490593eb90fae1439e1af980fc963d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.700001
@@ -16679,12 +18775,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2471711932007325677, guid: 145dec89515e3f44e9a655e1c6226b30, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2471711932007325677, guid: 145dec89515e3f44e9a655e1c6226b30, type: 3}
+      propertyPath: interactText
+      value: Mirar Papel de Regalo
       objectReference: {fileID: 0}
     - target: {fileID: 2471711932007325677, guid: 145dec89515e3f44e9a655e1c6226b30, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 2471711932007325677, guid: 145dec89515e3f44e9a655e1c6226b30, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1409245257}
     - target: {fileID: 2802225716970476511, guid: 145dec89515e3f44e9a655e1c6226b30, type: 3}
       propertyPath: m_Name
       value: GiftPaper
@@ -17291,12 +19395,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
       propertyPath: interactText
-      value: Take Eggs
+      value: Abrir Nevera
       objectReference: {fileID: 0}
     - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1421091205}
+    - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
+      propertyPath: possessionManager
+      value: 
+      objectReference: {fileID: 2108761787}
+    - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
+      propertyPath: restrictedNPCs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[0]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[1]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319786181793968038, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[2]'
+      value: Mary
+      objectReference: {fileID: 0}
     - target: {fileID: 8824698089039166118, guid: 7899ae2edb67fe64e89b0b05a4faa1a3, type: 3}
       propertyPath: m_Name
       value: Eggs
@@ -17421,9 +19549,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8380936529118488132, guid: ce9dff0f38a04464d956b9b414071edb, type: 3}
+      propertyPath: interactText
+      value: Examinar Poster
+      objectReference: {fileID: 0}
+    - target: {fileID: 8380936529118488132, guid: ce9dff0f38a04464d956b9b414071edb, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8380936529118488132, guid: ce9dff0f38a04464d956b9b414071edb, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18610,6 +20746,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1633081971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1633081972}
+  m_Layer: 0
+  m_Name: RachelDoor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1633081972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633081971}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 35263855}
+  - {fileID: 361665091}
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1637094448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18709,7 +20878,7 @@ PrefabInstance:
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: cinematicDialogueData
       value: 
-      objectReference: {fileID: 11400000, guid: 2ba2e938f02d62f4a9a84ae7eaffff05, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: listeningDialogueData
       value: 
@@ -18717,7 +20886,7 @@ PrefabInstance:
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: cinematicDialoguePlayer
       value: 
-      objectReference: {fileID: 917323879}
+      objectReference: {fileID: 0}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: speakerNames.Array.size
       value: 6
@@ -18757,27 +20926,27 @@ PrefabInstance:
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+      objectReference: {fileID: 11400000, guid: 2ba2e938f02d62f4a9a84ae7eaffff05, type: 2}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 11400000, guid: 2ba2e938f02d62f4a9a84ae7eaffff05, type: 2}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+      objectReference: {fileID: 11400000, guid: bda212a214d3dca4c88dbe7ecaa79362, type: 2}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+      objectReference: {fileID: 11400000, guid: bda212a214d3dca4c88dbe7ecaa79362, type: 2}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+      objectReference: {fileID: 11400000, guid: bda212a214d3dca4c88dbe7ecaa79362, type: 2}
     - target: {fileID: 2606712572468141297, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[5]'
       value: 
-      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+      objectReference: {fileID: 11400000, guid: 2ba2e938f02d62f4a9a84ae7eaffff05, type: 2}
     - target: {fileID: 8488699903735483439, guid: d12bad32e4a742a47b8c5d70ee5c1516, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5200005
@@ -18839,6 +21008,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1637364794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637364797}
+  - component: {fileID: 1637364796}
+  - component: {fileID: 1637364795}
+  m_Layer: 0
+  m_Name: Note
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1637364795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637364794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1637364796}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1637364796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637364794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 46e3b10645897a44384855efd2e00319, type: 2}
+  cinematicDialoguePlayer: {fileID: 1637364795}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
+--- !u!4 &1637364797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637364794}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1638311803
 GameObject:
   m_ObjectHideFlags: 0
@@ -19175,6 +21434,96 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1667734509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667734510}
+  - component: {fileID: 1667734512}
+  - component: {fileID: 1667734511}
+  m_Layer: 0
+  m_Name: Letter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667734510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667734509}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 228550706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667734511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667734509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueSequence:
+  - speaker: {fileID: 1667734512}
+    startIndex: 0
+  choicePanel: {fileID: 798508485}
+--- !u!114 &1667734512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667734509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8434a58f64319448aace17149de863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Talk Helen
+  possessionManager: {fileID: 2108761787}
+  virtualCamera: {fileID: 1375180797}
+  player: {fileID: 1471759916}
+  dialogueDataArray: []
+  speakerNames: []
+  timeBtwLetters: 0.03
+  dialogueBox: {fileID: 798508497}
+  dialogueText: {fileID: 798508496}
+  speakerText: {fileID: 798508495}
+  choicePanel: {fileID: 798508494}
+  dialogueHistory: {fileID: 798508493}
+  npcName: Helen
+  autoTalkDelay: 2.5
+  skipTalkDelay: 0.1
+  listeningDialogueData: {fileID: 0}
+  otherImage: {fileID: 798508481}
+  nonSpeakerImage: {fileID: 1924997532602528761}
+  volume: {fileID: 590703032}
+  ui: {fileID: 1003063568}
+  possessBar: {fileID: 1003063568}
+  hud: {fileID: 539949344}
+  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialoguePlayer: {fileID: 1667734511}
+  autoFontText: {fileID: 798508491}
+  autoActionText: {fileID: 436604759}
+  skipFontText: {fileID: 798508489}
+  skipActionText: {fileID: 1694377423}
+  cinematicObject: 1
 --- !u!1001 &1670290079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19237,12 +21586,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6266651752789949747, guid: eb62ed97c5167c2438a0701de30440db, type: 3}
       propertyPath: interactText
-      value: Take Sugar
+      value: "Recoger Az\xFAcar"
       objectReference: {fileID: 0}
     - target: {fileID: 6266651752789949747, guid: eb62ed97c5167c2438a0701de30440db, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 6266651752789949747, guid: eb62ed97c5167c2438a0701de30440db, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 473453338}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19866,12 +22219,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000285534680161504, guid: b5fe64ddba8ad714aba508eba111dd6c, type: 3}
       propertyPath: interactText
-      value: Use Valve
+      value: "Girar V\xE1lvula"
       objectReference: {fileID: 0}
     - target: {fileID: 6000285534680161504, guid: b5fe64ddba8ad714aba508eba111dd6c, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 6000285534680161504, guid: b5fe64ddba8ad714aba508eba111dd6c, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 873065707}
+    - target: {fileID: 6000285534680161504, guid: b5fe64ddba8ad714aba508eba111dd6c, type: 3}
+      propertyPath: possessionManager
+      value: 
+      objectReference: {fileID: 2108761787}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19892,7 +22253,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3178362264417102814, guid: a97dbff09decdb347ba47f61e8585fd2, type: 3}
       propertyPath: interactText
-      value: Take Cake Recipe
+      value: Recoger Receta del Pastel
       objectReference: {fileID: 0}
     - target: {fileID: 3178362264417102814, guid: a97dbff09decdb347ba47f61e8585fd2, type: 3}
       propertyPath: objectManager
@@ -19908,7 +22269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5289284811849948816, guid: a97dbff09decdb347ba47f61e8585fd2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5444883898380671571, guid: a97dbff09decdb347ba47f61e8585fd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20092,12 +22453,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7825879503934609201, guid: 7d4fd1db9b541db4c845fe45b75125c3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825879503934609201, guid: 7d4fd1db9b541db4c845fe45b75125c3, type: 3}
+      propertyPath: interactText
+      value: Mirar Carta
       objectReference: {fileID: 0}
     - target: {fileID: 7825879503934609201, guid: 7d4fd1db9b541db4c845fe45b75125c3, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 7825879503934609201, guid: 7d4fd1db9b541db4c845fe45b75125c3, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 1667734511}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20570,7 +22939,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2146708681548090243, guid: 59fa83c64ebc18b4fb30f672fb81efd4, type: 3}
       propertyPath: interactText
-      value: Open Garage Door
+      value: Abrir Puerta del Garaje
       objectReference: {fileID: 0}
     - target: {fileID: 2146708681548090243, guid: 59fa83c64ebc18b4fb30f672fb81efd4, type: 3}
       propertyPath: objectManager
@@ -20580,6 +22949,10 @@ PrefabInstance:
       propertyPath: rotationAngle
       value: -120
       objectReference: {fileID: 0}
+    - target: {fileID: 2146708681548090243, guid: 59fa83c64ebc18b4fb30f672fb81efd4, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 939890587}
     - target: {fileID: 2391174815940719868, guid: 59fa83c64ebc18b4fb30f672fb81efd4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -20974,23 +23347,23 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+      objectReference: {fileID: 11400000, guid: c31b30b3d4ab739499ec2661b93005ef, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+      objectReference: {fileID: 11400000, guid: c31b30b3d4ab739499ec2661b93005ef, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+      objectReference: {fileID: 11400000, guid: c31b30b3d4ab739499ec2661b93005ef, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -21309,7 +23682,7 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: cinematicDialogueData
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: listeningDialogueData
       value: 
@@ -21317,7 +23690,7 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: cinematicDialoguePlayer
       value: 
-      objectReference: {fileID: 917323879}
+      objectReference: {fileID: 0}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: speakerNames.Array.size
       value: 5
@@ -21353,23 +23726,23 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+      objectReference: {fileID: 11400000, guid: 4388ac3d90b21cd4e8c58d2cb71e3dbd, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+      objectReference: {fileID: 11400000, guid: 4388ac3d90b21cd4e8c58d2cb71e3dbd, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+      objectReference: {fileID: 11400000, guid: 4388ac3d90b21cd4e8c58d2cb71e3dbd, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -21775,14 +24148,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4066187886560910498, guid: 669e40ef1e38dd148951f36526be4dca, type: 3}
+      propertyPath: m_TagString
+      value: Draw
+      objectReference: {fileID: 0}
     - target: {fileID: 8005243873225627438, guid: 669e40ef1e38dd148951f36526be4dca, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005243873225627438, guid: 669e40ef1e38dd148951f36526be4dca, type: 3}
+      propertyPath: interactText
+      value: Mirar Dibujo de Helen
       objectReference: {fileID: 0}
     - target: {fileID: 8005243873225627438, guid: 669e40ef1e38dd148951f36526be4dca, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8005243873225627438, guid: 669e40ef1e38dd148951f36526be4dca, type: 3}
+      propertyPath: cinematicDialogue
+      value: 
+      objectReference: {fileID: 971121431}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21917,6 +24302,10 @@ PrefabInstance:
       propertyPath: offset
       value: 
       objectReference: {fileID: 1761546044}
+    - target: {fileID: 1005918021431713713, guid: e76aa24d36a852e4fbd67ece82b6a925, type: 3}
+      propertyPath: interactText
+      value: Examinar Calendario
+      objectReference: {fileID: 0}
     - target: {fileID: 1005918021431713713, guid: e76aa24d36a852e4fbd67ece82b6a925, type: 3}
       propertyPath: objectManager
       value: 
@@ -23078,23 +25467,23 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 92b0cdd8f93ee1549a0dd9594833d631, type: 2}
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 6e302bde99152334c8d9d7f8c499f98e, type: 2}
+      objectReference: {fileID: 11400000, guid: a29d27b2fdb7b7d4397394bcebb88c76, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 1453900aa02e0b748a2df897c2a4d18e, type: 2}
+      objectReference: {fileID: 11400000, guid: bb1723590a2258f4d965653d9e176878, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 07e176d6c8e17754496f428e017d4b27, type: 2}
+      objectReference: {fileID: 11400000, guid: bb1723590a2258f4d965653d9e176878, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: 'dialogueDataArray.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 3c72407bb061a7e448c1d6f9ea40af64, type: 2}
+      objectReference: {fileID: 11400000, guid: bb1723590a2258f4d965653d9e176878, type: 2}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: codeUI
       value: 
@@ -23234,7 +25623,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 623509543206855271, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: interactText
-      value: Take Master Key
+      value: Recoger Llave Maestra
       objectReference: {fileID: 0}
     - target: {fileID: 623509543206855271, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: objectManager
@@ -23302,12 +25691,48 @@ PrefabInstance:
       objectReference: {fileID: 1645544579}
     - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: interactText
-      value: Open Drawer
+      value: "Abrir Caj\xF3n"
       objectReference: {fileID: 0}
     - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: cinematicDialogue
       value: 
       objectReference: {fileID: 228550707}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: possessionManager
+      value: 
+      objectReference: {fileID: 2108761787}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'code.Array.data[0]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'code.Array.data[1]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'code.Array.data[2]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'code.Array.data[3]'
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: restrictedNPCs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[0]'
+      value: Paul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[1]'
+      value: Lia
+      objectReference: {fileID: 0}
+    - target: {fileID: 6581553975185297189, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
+      propertyPath: 'restrictedNPCs.Array.data[2]'
+      value: Mary
+      objectReference: {fileID: 0}
     - target: {fileID: 8771761870221059812, guid: 9adae731a66c1b140b05e9ffd22b1b78, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -26193,14 +28618,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!33 &1012446969188675984
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5029208357845584496}
-  m_Mesh: {fileID: -4025868624956966401, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
 --- !u!33 &1014946871385876364
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30263,22 +32680,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2268870949323616614}
   m_Mesh: {fileID: -6180531785700319569, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
---- !u!4 &2826285394064976364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735584073688562468}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.837997, y: 0, z: 15.073658}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3271475817906988767}
-  m_Father: {fileID: 1387099163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2830190660205864552
 GameObject:
   m_ObjectHideFlags: 0
@@ -31216,21 +33617,6 @@ Transform:
   m_Children:
   - {fileID: 2311444681663502231}
   m_Father: {fileID: 1387099163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &3271475817906988767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5029208357845584496}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.000000014901159, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2826285394064976364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &3273399105284446456
 Transform:
@@ -33701,6 +36087,10 @@ PrefabInstance:
       value: RachelBicycle
       objectReference: {fileID: 0}
     - target: {fileID: 7814642011054246386, guid: 2e1838664154fea449e1893f8a8cf67c, type: 3}
+      propertyPath: interactText
+      value: Observar Bicicleta de Rachel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814642011054246386, guid: 2e1838664154fea449e1893f8a8cf67c, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
@@ -34971,25 +37361,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6064024950971379968}
   m_Mesh: {fileID: -4484623922536443460, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
---- !u!1 &5029208357845584496
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3271475817906988767}
-  - component: {fileID: 1012446969188675984}
-  - component: {fileID: 8565934193094344542}
-  - component: {fileID: 8565934193094344543}
-  m_Layer: 0
-  m_Name: Mesh104
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!23 &5030075963194575039
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41098,22 +43469,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!1 &7735584073688562468
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2826285394064976364}
-  m_Layer: 0
-  m_Name: armario_hab_helen1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!23 &7738189542426290475
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -42983,73 +45338,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5085153403314244196, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
---- !u!23 &8565934193094344542
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5029208357845584496}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: -640421345888577198, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8565934193094344543
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5029208357845584496}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4025868624956966401, guid: a2db41b5eb9b6da48bb6e386c7e4ccc4, type: 3}
 --- !u!4 &8571672453853259066
 Transform:
   m_ObjectHideFlags: 0

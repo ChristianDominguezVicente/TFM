@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
-  m_Name: TalkLia
+  m_Name: GiftPaper
   m_EditorClassIdentifier: 
   nodes:
-  - rid: 8849634281751576592
+  - rid: 3380476107995480148
   references:
     version: 2
     RefIds:
-    - rid: 8849634281751576592
+    - rid: 3380476107995480148
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "Solo quiere llamar la atenci\xF3n. No le hagas caso"
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        npcText: Prueba
+        image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
