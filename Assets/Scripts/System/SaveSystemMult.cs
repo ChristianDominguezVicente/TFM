@@ -10,7 +10,7 @@ public class SaveSystemMult : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PossessionManager possessionManager;
     [SerializeField] private CanvasGroup fadeOut;
-
+    [SerializeField] private ObjectManager objectManager;
 
     [Header("Auto Save config")]
     [SerializeField] private AutoSaveHUD autoSaveHUD;
@@ -29,7 +29,30 @@ public class SaveSystemMult : MonoBehaviour
     private static string GetPositionYKey(int slot) => $"Slot{slot}_PosY";
     private static string GetPositionZKey(int slot) => $"Slot{slot}_PosZ";
     private static string GetSceneKey(int slot) => $"Slot{slot}_Scene";
+    private static string GetKarmaKey(int slot) => $"Slot{slot}_Karma";
     private static string GetPlayTimeKey(int slot) => $"Slot{slot}_PlayTime";
+
+    // save objectManager
+    private static string GetPrincipalDoorKey(int slot) => $"Slot{slot}_PrincipalDoor";
+    private static string GetCalendarKey(int slot) => $"Slot{slot}_Calendar";
+    private static string GetMasterKeyKey(int slot) => $"Slot{slot}_MasterKey";
+    private static string GetValveKey(int slot) => $"Slot{slot}_Valve";
+    private static string GetSugarKey(int slot) => $"Slot{slot}_Sugar";
+    private static string GetFlourKey(int slot) => $"Slot{slot}_Flour";
+    private static string GetEggsKey(int slot) => $"Slot{slot}_Eggs";
+    private static string GetRecipe1Key(int slot) => $"Slot{slot}_Recipe1";
+    private static string GetRecipe2Key(int slot) => $"Slot{slot}_Recipe2";
+    private static string GetTeddyKey(int slot) => $"Slot{slot}_Teddy";
+    private static string GetToolBoxKey(int slot) => $"Slot{slot}_ToolBox";
+    private static string GetGiftPaperKey(int slot) => $"Slot{slot}_GiftPaper";
+    private static string GetIconsKey(int slot) => $"Slot{slot}_Icons";
+    private static string GetPosterKey(int slot) => $"Slot{slot}_Poster";
+    private static string GetTabletKey(int slot) => $"Slot{slot}_Tablet";
+    private static string GetPhotoKey(int slot) => $"Slot{slot}_Photo";
+    private static string GetNoteKey(int slot) => $"Slot{slot}_Note";
+    private static string GetCorrectKey(int slot) => $"Slot{slot}_Correct";
+    private static string GetIncorrectKey(int slot) => $"Slot{slot}_Incorrect";
+    private static string GetCurrentObjectKey(int slot) => $"Slot{slot}_CurrentObject";
 
     // save possesion bar
     private static string GetPossessionCurrentTimeKey(int slot) => $"Slot{slot}_PossessionCurrentTime";
@@ -38,6 +61,7 @@ public class SaveSystemMult : MonoBehaviour
 
     private float sessionStartTime;
     private float currentPlayTime;
+    private float karma;
 
     void Awake()
     {
@@ -64,6 +88,8 @@ public class SaveSystemMult : MonoBehaviour
             LoadPlayerPosition();
             LoadPlayTime(); // load time after load game
             LoadPossessionBar();
+            LoadKarma();
+            LoadObjects();
         }
         else if (scene.name == SceneName)
         {
@@ -138,7 +164,10 @@ public class SaveSystemMult : MonoBehaviour
             PlayerPrefs.SetFloat(GetPositionYKey(slotIndex), player.transform.position.y);
             PlayerPrefs.SetFloat(GetPositionZKey(slotIndex), player.transform.position.z);
             PlayerPrefs.SetString(GetSceneKey(slotIndex), SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetFloat(GetKarmaKey(slotIndex), karma);
             PlayerPrefs.SetFloat(GetPlayTimeKey(slotIndex), currentPlayTime); // Save current game time
+            if (objectManager != null)
+                ObjectSave(slotIndex);
 
             if (possessionManager != null) // bar posses
             {
@@ -156,6 +185,30 @@ public class SaveSystemMult : MonoBehaviour
             PlayerPrefs.Save();
          //   Debug.Log($"Partida guardada en Slot {slotIndex} en la escena {SceneManager.GetActiveScene().name} con tiempo de juego: {FormatPlayTime(currentPlayTime)}");
         }
+    }
+
+    private void ObjectSave(int slotIndex)
+    {
+        PlayerPrefs.SetInt(GetPrincipalDoorKey(slotIndex), objectManager.PrincipalDoor ? 0 : 1);
+        PlayerPrefs.SetInt(GetCalendarKey(slotIndex), objectManager.Calendar ? 0 : 1);
+        PlayerPrefs.SetInt(GetMasterKeyKey(slotIndex), objectManager.MasterKeyTaken ? 0 : 1);
+        PlayerPrefs.SetInt(GetValveKey(slotIndex), objectManager.ValveActive ? 0 : 1);
+        PlayerPrefs.SetInt(GetSugarKey(slotIndex), objectManager.Sugar ? 0 : 1);
+        PlayerPrefs.SetInt(GetFlourKey(slotIndex), objectManager.Flour ? 0 : 1);
+        PlayerPrefs.SetInt(GetEggsKey(slotIndex), objectManager.Eggs ? 0 : 1);
+        PlayerPrefs.SetInt(GetRecipe1Key(slotIndex), objectManager.Recipe1 ? 0 : 1);
+        PlayerPrefs.SetInt(GetRecipe2Key(slotIndex), objectManager.Recipe2 ? 0 : 1);
+        PlayerPrefs.SetInt(GetTeddyKey(slotIndex), objectManager.Teddy ? 0 : 1);
+        PlayerPrefs.SetInt(GetToolBoxKey(slotIndex), objectManager.ToolBox ? 0 : 1);
+        PlayerPrefs.SetInt(GetGiftPaperKey(slotIndex), objectManager.GiftPaper ? 0 : 1);
+        PlayerPrefs.SetInt(GetIconsKey(slotIndex), objectManager.Icons ? 0 : 1);
+        PlayerPrefs.SetInt(GetPosterKey(slotIndex), objectManager.Poster ? 0 : 1);
+        PlayerPrefs.SetInt(GetTabletKey(slotIndex), objectManager.Tablet ? 0 : 1);
+        PlayerPrefs.SetInt(GetPhotoKey(slotIndex), objectManager.Photo ? 0 : 1);
+        PlayerPrefs.SetInt(GetNoteKey(slotIndex), objectManager.Note ? 0 : 1);
+        PlayerPrefs.SetInt(GetCorrectKey(slotIndex), objectManager.Correct ? 0 : 1);
+        PlayerPrefs.SetInt(GetIncorrectKey(slotIndex), objectManager.Incorrect ? 0 : 1);
+        PlayerPrefs.SetString(GetCurrentObjectKey(slotIndex), objectManager.CurrentObject == null ? "" : objectManager.CurrentObject.name);
     }
 
     public void LoadGame(int slotIndex)
@@ -209,6 +262,33 @@ public class SaveSystemMult : MonoBehaviour
         currentPlayTime = PlayerPrefs.GetFloat(GetPlayTimeKey(CurrentSlot), 0f);
         sessionStartTime = Time.time - currentPlayTime; // Ajusta el inicio de la sesión para continuar contando
        // Debug.Log($"Tiempo de juego cargado para Slot {CurrentSlot}: {FormatPlayTime(currentPlayTime)}");
+    }
+    void LoadKarma()
+    {
+        karma = PlayerPrefs.GetFloat(GetKarmaKey(CurrentSlot), 0f);
+    }
+    void LoadObjects()
+    {
+        objectManager.PrincipalDoor = PlayerPrefs.GetInt(GetPrincipalDoorKey(CurrentSlot), 0) == 0;
+        objectManager.Calendar = PlayerPrefs.GetInt(GetCalendarKey(CurrentSlot), 0) == 0;
+        objectManager.MasterKeyTaken = PlayerPrefs.GetInt(GetMasterKeyKey(CurrentSlot), 0) == 0;
+        objectManager.ValveActive = PlayerPrefs.GetInt(GetValveKey(CurrentSlot), 0) == 0;
+        objectManager.Sugar = PlayerPrefs.GetInt(GetSugarKey(CurrentSlot), 0) == 0;
+        objectManager.Flour = PlayerPrefs.GetInt(GetFlourKey(CurrentSlot), 0) == 0;
+        objectManager.Eggs = PlayerPrefs.GetInt(GetEggsKey(CurrentSlot), 0) == 0;
+        objectManager.Recipe1 = PlayerPrefs.GetInt(GetRecipe1Key(CurrentSlot), 0) == 0;
+        objectManager.Recipe2 = PlayerPrefs.GetInt(GetRecipe2Key(CurrentSlot), 0) == 0;
+        objectManager.Teddy = PlayerPrefs.GetInt(GetTeddyKey(CurrentSlot), 0) == 0;
+        objectManager.ToolBox = PlayerPrefs.GetInt(GetToolBoxKey(CurrentSlot), 0) == 0;
+        objectManager.GiftPaper = PlayerPrefs.GetInt(GetGiftPaperKey(CurrentSlot), 0) == 0;
+        objectManager.Icons =   PlayerPrefs.GetInt(GetIconsKey(CurrentSlot), 0) == 0;
+        objectManager.Poster = PlayerPrefs.GetInt(GetPosterKey(CurrentSlot), 0) == 0;
+        objectManager.Tablet = PlayerPrefs.GetInt(GetTabletKey(CurrentSlot), 0) == 0;
+        objectManager.Photo = PlayerPrefs.GetInt(GetPhotoKey(CurrentSlot), 0) == 0;
+        objectManager.Note = PlayerPrefs.GetInt(GetNoteKey(CurrentSlot), 0) == 0;
+        objectManager.Correct = PlayerPrefs.GetInt(GetCorrectKey(CurrentSlot), 0) == 0  ;
+        objectManager.Incorrect = PlayerPrefs.GetInt(GetIncorrectKey(CurrentSlot), 0) == 0;
+        objectManager.CurrentObject = GameObject.Find(PlayerPrefs.GetString(GetCurrentObjectKey(CurrentSlot), ""));
     }
 
     public bool HasSave(int slotIndex)
@@ -285,4 +365,8 @@ public class SaveSystemMult : MonoBehaviour
         slotUpdateLoad.UpdateText(AutoSaveSlotIndex, this.GetSaveInfo(AutoSaveSlotIndex));
     }
 
+    public void SetKarma(float value)
+    {
+        karma = value;
+    }
 }

@@ -87,13 +87,11 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
             yield break;
         }
 
-        /*
+        SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
         float karma = PlayerPrefs.GetFloat("Karma", 0);
         karma--;
-        PlayerPrefs.SetFloat("Karma", karma);
-        PlayerPrefs.Save();
-        */
-
+        ssm.SetKarma(karma);
+        
         // if everything is ok
         StartCoroutine(FadeOut());
     }

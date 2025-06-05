@@ -114,13 +114,9 @@ public class HintManager : MonoBehaviour, IPossessable
             case "Greybox":
                 switch (index)
                 {
-                    case 0: return objectManager.Calendar;
-                    case 1: return objectManager.MasterKeyTaken;
-                    case 2: return objectManager.ValveActive;
-                    case 3: return objectManager.Sugar;
-                    case 4: return objectManager.Flour;
-                    case 5: return objectManager.Eggs;
-                    case 6: return objectManager.Recipe1 && objectManager.Recipe2;
+                    case 0: return objectManager.Calendar && objectManager.MasterKeyTaken;
+                    case 1: return objectManager.ValveActive;
+                    case 2: return objectManager.Recipe1 && objectManager.Recipe2;
                     default: return false;
                 }
             case "Puzzle 2":

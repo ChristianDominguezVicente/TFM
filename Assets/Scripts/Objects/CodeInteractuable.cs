@@ -99,21 +99,19 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if (CompareTag("Diary"))
         {
-            /*
+            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             if (karma == 0)
             {
                 karma++;
-                PlayerPrefs.SetFloat("Karma", karma);
-                PlayerPrefs.Save();
+                ssm.SetKarma(karma);
             }
             else if (karma == -1)
             {
                 karma--;
-                PlayerPrefs.SetFloat("Karma", karma);
-                PlayerPrefs.Save();
+                ssm.SetKarma(karma);
             }
-            */
+            
             StartCoroutine(FadeOut());
         }
         else if(CompareTag("Box"))
