@@ -36,9 +36,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
         }
         else if (!open && gameObject.CompareTag("Back") && objectManager.PrincipalDoor)
         {
-            // final rotation
-            rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
-            open = true;
+            Action();
         }
         else
         {
@@ -119,10 +117,15 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
             yield return null;
         }
 
+        Action();
+
+        StartCoroutine(FadeInCoroutine());
+    }
+
+    public void Action()
+    {
         // final rotation
         rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
         open = true;
-
-        StartCoroutine(FadeInCoroutine());
     }
 }

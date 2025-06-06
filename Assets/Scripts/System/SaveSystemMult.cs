@@ -289,6 +289,8 @@ public class SaveSystemMult : MonoBehaviour
         objectManager.Correct = PlayerPrefs.GetInt(GetCorrectKey(CurrentSlot), 0) == 0  ;
         objectManager.Incorrect = PlayerPrefs.GetInt(GetIncorrectKey(CurrentSlot), 0) == 0;
         objectManager.CurrentObject = GameObject.Find(PlayerPrefs.GetString(GetCurrentObjectKey(CurrentSlot), ""));
+
+        objectManager.OnLoad();
     }
 
     public bool HasSave(int slotIndex)

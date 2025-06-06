@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -89,11 +90,15 @@ public class CorrectInteractuable : MonoBehaviour, IInteractuable
             // mark it in the ObjectManager
             objectManager.Correct = true;
             objectManager.Incorrect = false;
-            SMSystem smsys = FindAnyObjectByType<SMSystem>();
-            smsys.NeedsUIUpdate = true;
-
-            // deactivates the object in the scene when interacted with
-            gameObject.SetActive(false);
+            Action();
         } 
+    }
+    public void Action()
+    {
+        SMSystem smsys = FindAnyObjectByType<SMSystem>();
+        smsys.NeedsUIUpdate = true;
+
+        // deactivates the object in the scene when interacted with
+        gameObject.SetActive(false);
     }
 }

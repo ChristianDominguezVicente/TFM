@@ -67,10 +67,7 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
 
             // mark it in the ObjectManager
             objectManager.ValveActive = true;
-            SMSystem smsys = FindAnyObjectByType<SMSystem>();
-            smsys.NeedsUIUpdate = true;
-            // valve rotation
-            StartCoroutine(Rotate());
+            Action();
         } 
     }
 
@@ -98,5 +95,13 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
         yield return new WaitForSeconds(2f);
         interactText = originalText;
         showingWarning = false;
+    }
+
+    public void Action()
+    {
+        SMSystem smsys = FindAnyObjectByType<SMSystem>();
+        smsys.NeedsUIUpdate = true;
+        // valve rotation
+        StartCoroutine(Rotate());
     }
 }

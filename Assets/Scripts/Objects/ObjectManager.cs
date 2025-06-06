@@ -1,7 +1,21 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectManager : MonoBehaviour
 {
+    [SerializeField] private DoorInteractuable principalDoorGO;
+    [SerializeField] private MasterKeyInteractuable masterKeyGO;
+    [SerializeField] private ValveInteractuable valveGO;
+    [SerializeField] private SugarInteractuable sugarGO;
+    [SerializeField] private FlourInteractuable flourGO;
+    [SerializeField] private EggsInteractuable eggsGO;
+    [SerializeField] private Recipe1Interactuable recipe1GO;
+    [SerializeField] private Recipe2Interactuable recipe2GO;
+    [SerializeField] private CodeInteractuable codeGO;
+    [SerializeField] private TeddyInteractuable teddyGO;
+    [SerializeField] private ToolBoxInteractuable toolBoxGO;
+    [SerializeField] private GiftPaperInteractuable giftPaperGO;
+
     // looking object
     private bool looking = false;
     private Transform lookingObject;
@@ -56,5 +70,50 @@ public class ObjectManager : MonoBehaviour
     public GameObject CurrentObject { get => currentObject; set => currentObject = value; }
     public bool Teddy { get => teddy; set => teddy = value; }
     public bool ToolBox { get => toolBox; set => toolBox = value; }
-    public bool GiftPaper { get => giftPaper; set => giftPaper = value; } 
+    public bool GiftPaper { get => giftPaper; set => giftPaper = value; }
+
+    public void OnLoad()
+    {
+        if (principalDoorGO != null && principalDoor)
+            principalDoorGO.Action();
+        if (masterKeyGO != null && masterKeyTaken)
+        {
+            masterKeyGO.Action();
+            if (SceneManager.GetActiveScene().name == "Greybox" || SceneManager.GetActiveScene().name == "Puzzle 2")
+                Destroy(codeGO);
+        }
+        if (valveGO != null && valveActive)
+            valveGO.Action();
+        if (sugarGO != null && sugar)
+            sugarGO.gameObject.SetActive(false);   
+        if (flourGO != null && flour)
+            flourGO.gameObject.SetActive(false);   
+        if (eggsGO != null && eggs)
+            eggsGO.gameObject.SetActive(false);     
+        if (recipe1GO != null && flour)
+            recipe1GO.gameObject.SetActive(false);
+        if (recipe2GO != null && eggs)
+            Destroy(recipe2GO);
+        if (teddyGO != null && sugar)
+            teddyGO.Action();
+        if (toolBoxGO != null && flour)
+            toolBoxGO.Action();
+        if (giftPaperGO != null && eggs)
+            giftPaperGO.gameObject.SetActive(false);
+        if (currentObject != null)
+        {
+            if (correct)
+            {
+                CorrectInteractuable correctObject = currentObject.GetComponent<CorrectInteractuable>();
+                if (correctObject != null)
+                    correctObject.Action();
+            }  
+            else if (incorrect)
+            {
+                IncorrectInteractuable incorrectObject = currentObject.GetComponent<IncorrectInteractuable>();
+                if (incorrectObject != null)
+                    incorrectObject.Action();
+            }
+        }    
+    }
 }

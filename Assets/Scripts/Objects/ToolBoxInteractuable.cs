@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,10 +38,15 @@ public class ToolBoxInteractuable : MonoBehaviour, IInteractuable
         {
             // mark it in the ObjectManager
             objectManager.ToolBox = true;
-            SMSystem smsys = FindAnyObjectByType<SMSystem>();
-            smsys.NeedsUIUpdate = true;
-            // deactivates the object in the scene when interacted with
-            gameObject.SetActive(false);
+            Action();
         } 
+    }
+
+    public void Action()
+    {
+        SMSystem smsys = FindAnyObjectByType<SMSystem>();
+        smsys.NeedsUIUpdate = true;
+        // deactivates the object in the scene when interacted with
+        gameObject.SetActive(false);
     }
 }
