@@ -41,10 +41,10 @@ public class Recipe2Interactuable : MonoBehaviour, IInteractuable
 
         if (restrictedNPCs.Contains(currentNpc.NpcName))
         {
-            StartCoroutine(ShowWarning("<color=red>No debería abrir la nevera</color>"));
+            StartCoroutine(ShowWarning("<color=red>Los niños no se atreven a hablar con Rachel</color>"));
             yield break;
         }
-        else if ((currentNpc.NpcName == "Henry" || currentNpc.NpcName == "Erick") && objectManager.Recipe1 && objectManager.Recipe2)
+        else if ((currentNpc.NpcName == "Henry" || currentNpc.NpcName == "Erick"))
         {
             if (incorrectCinematicDialogue != null)
             {
@@ -74,8 +74,7 @@ public class Recipe2Interactuable : MonoBehaviour, IInteractuable
 
             // mark it in the ObjectManager
             objectManager.Recipe2 = true;
-            // deactivates the object in the scene when interacted with
-            gameObject.SetActive(false);
+            Destroy(this);
         }  
     }
 

@@ -20,7 +20,7 @@ MonoBehaviour:
     - rid: 3380476107995480175
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "\xBFPor qu\xE9 no pasa a la habitaci\xF3n de Rachel?"
+        npcText: "Seguramente no se atreva. Ya sabes c\xF3mo era tu hermana."
         image: {fileID: 0}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

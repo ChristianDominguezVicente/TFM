@@ -22,6 +22,11 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
+    private void Start()
+    {
+        // save original text
+        originalText = interactText;
+    }
 
     public void Interact(Transform interactorTransform)
     {

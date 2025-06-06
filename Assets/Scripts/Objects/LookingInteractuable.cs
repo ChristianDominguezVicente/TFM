@@ -40,7 +40,7 @@ public class LookingInteractuable : MonoBehaviour, IInteractuable
         // activate looking
         if (!looking)
         {
-            if ((CompareTag("Note") || CompareTag("Calendar")) && SceneManager.GetActiveScene().name != "Greybox")
+            if ((CompareTag("Note") || CompareTag("Photo")) && SceneManager.GetActiveScene().name != "Puzzle 3")
             {
                 if (cinematicDialogue != null)
                 {

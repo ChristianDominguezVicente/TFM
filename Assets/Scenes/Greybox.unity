@@ -386,7 +386,10 @@ MonoBehaviour:
   possessionManager: {fileID: 2108761787}
   correctCinematicDialogue: {fileID: 361665092}
   incorrectCinematicDialogue: {fileID: 35263856}
-  restrictedNPCs: []
+  restrictedNPCs:
+  - Paul
+  - Lia
+  - Mary
 --- !u!1 &35263854
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,7 +2443,7 @@ MonoBehaviour:
   ui: {fileID: 1003063568}
   possessBar: {fileID: 1003063568}
   hud: {fileID: 539949344}
-  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialogueData: {fileID: 11400000, guid: 861be3c2812a4ed459cdfef1d2d5bb25, type: 2}
   cinematicDialoguePlayer: {fileID: 119205430}
   autoFontText: {fileID: 798508491}
   autoActionText: {fileID: 436604759}
@@ -5227,7 +5230,7 @@ MonoBehaviour:
   ui: {fileID: 1003063568}
   possessBar: {fileID: 1003063568}
   hud: {fileID: 539949344}
-  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialogueData: {fileID: 11400000, guid: ecb01a8c943bf834097f65e9c5caf6da, type: 2}
   cinematicDialoguePlayer: {fileID: 361665092}
   autoFontText: {fileID: 798508491}
   autoActionText: {fileID: 436604759}
@@ -9572,7 +9575,7 @@ MonoBehaviour:
   ui: {fileID: 1003063568}
   possessBar: {fileID: 1003063568}
   hud: {fileID: 539949344}
-  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialogueData: {fileID: 11400000, guid: 584a3d9cfff11fb49b5731ed56b7cb2d, type: 2}
   cinematicDialoguePlayer: {fileID: 361665092}
   autoFontText: {fileID: 798508491}
   autoActionText: {fileID: 436604759}
@@ -11785,7 +11788,7 @@ MonoBehaviour:
   ui: {fileID: 1003063568}
   possessBar: {fileID: 1003063568}
   hud: {fileID: 539949344}
-  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialogueData: {fileID: 11400000, guid: f3d9880af4cea294fbd84844d2e54bf8, type: 2}
   cinematicDialoguePlayer: {fileID: 361665092}
   autoFontText: {fileID: 798508491}
   autoActionText: {fileID: 436604759}
@@ -12845,7 +12848,7 @@ MonoBehaviour:
   ui: {fileID: 1003063568}
   possessBar: {fileID: 1003063568}
   hud: {fileID: 539949344}
-  cinematicDialogueData: {fileID: 11400000, guid: 7444ac19cf0c7e24a8c6a69b2b647a6c, type: 2}
+  cinematicDialogueData: {fileID: 11400000, guid: 94e7baff778dc374c9392d8f4bb91684, type: 2}
   cinematicDialoguePlayer: {fileID: 971121431}
   autoFontText: {fileID: 798508491}
   autoActionText: {fileID: 436604759}
@@ -15742,7 +15745,7 @@ PrefabInstance:
       objectReference: {fileID: 1425878597}
     - target: {fileID: 6893416872891085000, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.700001
+      value: 10.88
       objectReference: {fileID: 0}
     - target: {fileID: 6893416872891085000, guid: 5d57b40ae8658ce449fa5b104612612f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15853,7 +15856,7 @@ MonoBehaviour:
   ui: {fileID: 1003063568}
   possessBar: {fileID: 1003063568}
   hud: {fileID: 539949344}
-  cinematicDialogueData: {fileID: 11400000, guid: 7ec654f7ff2f3c24087f139a58fd88c1, type: 2}
+  cinematicDialogueData: {fileID: 11400000, guid: f4a49476a83e64a419a41b84fe4ee13c, type: 2}
   cinematicDialoguePlayer: {fileID: 361665092}
   autoFontText: {fileID: 798508491}
   autoActionText: {fileID: 436604759}
