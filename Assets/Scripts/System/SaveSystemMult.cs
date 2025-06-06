@@ -11,6 +11,7 @@ public class SaveSystemMult : MonoBehaviour
     [SerializeField] private PossessionManager possessionManager;
     [SerializeField] private CanvasGroup fadeOut;
     [SerializeField] private ObjectManager objectManager;
+    [SerializeField] private SceneBeginning sceneBeginning;
 
     [Header("Auto Save config")]
     [SerializeField] private AutoSaveHUD autoSaveHUD;
@@ -83,6 +84,9 @@ public class SaveSystemMult : MonoBehaviour
         Time.timeScale = 1.0f; // menu pause was active
         if (CurrentSlot >= 0 && scene.name == SceneName)
         {
+            if(sceneBeginning != null)
+                sceneBeginning.gameObject.SetActive(false);
+
             StartAutoSaveTimer();
             FindPlayer();
             LoadPlayerPosition();
