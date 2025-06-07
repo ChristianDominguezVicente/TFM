@@ -8686,6 +8686,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 214645580}
     - target: {fileID: 2706991261756930054, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
+      propertyPath: paul
+      value: 
+      objectReference: {fileID: 2052463703}
+    - target: {fileID: 2706991261756930054, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
       propertyPath: hintManager
       value: 
       objectReference: {fileID: 2108761788}
@@ -8701,6 +8705,10 @@ PrefabInstance:
       propertyPath: rotationAngle
       value: 95
       objectReference: {fileID: 0}
+    - target: {fileID: 2706991261756930054, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
+      propertyPath: dialogueDataListen
+      value: 
+      objectReference: {fileID: 11400000, guid: fde82fc0fbcf3f54d8bbabd7e828b0a3, type: 2}
     - target: {fileID: 2706991261756930054, guid: 11a928e7bfa099e48b7aca92f30a8cae, type: 3}
       propertyPath: backCinematicDialogue
       value: 
@@ -25570,7 +25578,7 @@ PrefabInstance:
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: listeningDialogueData
       value: 
-      objectReference: {fileID: 11400000, guid: fde82fc0fbcf3f54d8bbabd7e828b0a3, type: 2}
+      objectReference: {fileID: 11400000, guid: d38e505ccda500c4e8d5a09b059e93b9, type: 2}
     - target: {fileID: 3112246935550067659, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: speakerNames.Array.size
       value: 5

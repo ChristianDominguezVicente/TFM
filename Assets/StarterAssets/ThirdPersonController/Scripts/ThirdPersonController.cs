@@ -328,12 +328,13 @@ namespace StarterAssets
                 GroundedCheck();
                 Move();
                 Interact();
-                Listen();
                 Hint();
                 SpectralVision();
                 Cancel();
                 Pause();
                 SM();
+                if (possesionManager.CurrentNPC == null)
+                    Listen();
 
                 // reset buttons that had the same input
                 ResetInputs();

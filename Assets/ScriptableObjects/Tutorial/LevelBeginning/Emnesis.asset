@@ -37,7 +37,7 @@ MonoBehaviour:
     - rid: 3380476085315305587
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "Correcto. Deber\xEDa haber alguien por ah\xED a quien puedas influencia
+        npcText: "Correcto. Deber\xEDa haber alguien por ah\xED a quien puedas influenciar
           para abrir la puerta.  "
         image: {fileID: 0}
         nextIndex: -1

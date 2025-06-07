@@ -11,11 +11,13 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private ObjectManager objectManager;
     [SerializeField] private HintManager hintManager;
     [SerializeField] private CanvasGroup fade;
+    [SerializeField] private NPCPossessable paul;
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue backCinematicDialogue;
     [SerializeField] private CinematicDialogue principalCinematicDialogue;
     [SerializeField] private DialogueData[] dialogueDataArray;
+    [SerializeField] private DialogueData dialogueDataListen;
 
     private bool open = false;
     private Quaternion rotation;
@@ -70,6 +72,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
                 {
                     objectManager.PrincipalDoor = true;
                     hintManager.DialogueDataArray = dialogueDataArray;
+                    paul.ListeningDialogueData = dialogueDataListen;
                 }
                     
                 // destroy script
