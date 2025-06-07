@@ -12,6 +12,7 @@ public class SaveSystemMult : MonoBehaviour
     [SerializeField] private CanvasGroup fadeOut;
     [SerializeField] private ObjectManager objectManager;
     [SerializeField] private SceneBeginning sceneBeginning;
+    [SerializeField] private DialogueHistory dialogueHistory;
 
     [Header("Auto Save config")]
     [SerializeField] private AutoSaveHUD autoSaveHUD;
@@ -32,6 +33,7 @@ public class SaveSystemMult : MonoBehaviour
     private static string GetSceneKey(int slot) => $"Slot{slot}_Scene";
     private static string GetKarmaKey(int slot) => $"Slot{slot}_Karma";
     private static string GetPlayTimeKey(int slot) => $"Slot{slot}_PlayTime";
+    private static string GetHistoryKey(int slot) => $"Slot{slot}_History";
 
     // save objectManager
     private static string GetPrincipalDoorKey(int slot) => $"Slot{slot}_PrincipalDoor";
@@ -63,6 +65,7 @@ public class SaveSystemMult : MonoBehaviour
     private float sessionStartTime;
     private float currentPlayTime;
     private float karma;
+    private string history;
 
     void Awake()
     {
@@ -94,6 +97,7 @@ public class SaveSystemMult : MonoBehaviour
             LoadPossessionBar();
             LoadKarma();
             LoadObjects();
+            LoadHistory();
         }
         else if (scene.name == SceneName)
         {
@@ -170,6 +174,7 @@ public class SaveSystemMult : MonoBehaviour
             PlayerPrefs.SetString(GetSceneKey(slotIndex), SceneManager.GetActiveScene().name);
             PlayerPrefs.SetFloat(GetKarmaKey(slotIndex), karma);
             PlayerPrefs.SetFloat(GetPlayTimeKey(slotIndex), currentPlayTime); // Save current game time
+            PlayerPrefs.SetString(GetHistoryKey(slotIndex), history);
             if (objectManager != null)
                 ObjectSave(slotIndex);
 
@@ -297,6 +302,11 @@ public class SaveSystemMult : MonoBehaviour
         objectManager.OnLoad();
     }
 
+    void LoadHistory()
+    {
+        dialogueHistory.OnLoad(PlayerPrefs.GetString(GetHistoryKey(CurrentSlot), ""));
+    }
+
     public bool HasSave(int slotIndex)
     {
         return PlayerPrefs.HasKey(GetPositionXKey(slotIndex));
@@ -374,5 +384,17 @@ public class SaveSystemMult : MonoBehaviour
     public void SetKarma(float value)
     {
         karma = value;
+    }
+
+    public void SetHistory(string value)
+    {
+        if (string.IsNullOrEmpty(history))
+        {
+            history = value;
+        }
+        else
+        {
+            history += "\n" + value;
+        }
     }
 }

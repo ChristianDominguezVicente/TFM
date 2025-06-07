@@ -27298,6 +27298,10 @@ PrefabInstance:
       propertyPath: possessionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 404903104808228779, guid: 7d83f3c9afa600a478cbc251db4a6108, type: 3}
+      propertyPath: cinematicDialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: b7cc415385611e14ebbb60425840c22e, type: 2}
     - target: {fileID: 2622136837379161513, guid: 7d83f3c9afa600a478cbc251db4a6108, type: 3}
       propertyPath: m_LocalPosition.x
       value: 409.6927
@@ -27426,6 +27430,10 @@ PrefabInstance:
       propertyPath: possessionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 8353243974910075065, guid: 7d83f3c9afa600a478cbc251db4a6108, type: 3}
+      propertyPath: cinematicDialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: e0b8db96d3efbc941b27df0c57466f38, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -44784,6 +44792,10 @@ PrefabInstance:
       propertyPath: sceneBeginning
       value: 
       objectReference: {fileID: 1494006129}
+    - target: {fileID: 4242227366494596674, guid: 37bbc497db193714d9215160c6d89ba6, type: 3}
+      propertyPath: dialogueHistory
+      value: 
+      objectReference: {fileID: 798508493}
     - target: {fileID: 4242227366494596674, guid: 37bbc497db193714d9215160c6d89ba6, type: 3}
       propertyPath: possessionManager
       value: 

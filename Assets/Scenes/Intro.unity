@@ -18835,6 +18835,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1546701105}
     - target: {fileID: 4242227366494596674, guid: 37bbc497db193714d9215160c6d89ba6, type: 3}
+      propertyPath: dialogueHistory
+      value: 
+      objectReference: {fileID: 798508493}
+    - target: {fileID: 4242227366494596674, guid: 37bbc497db193714d9215160c6d89ba6, type: 3}
       propertyPath: possessionManager
       value: 
       objectReference: {fileID: 2108761787}

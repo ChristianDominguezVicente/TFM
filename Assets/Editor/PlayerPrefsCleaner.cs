@@ -28,6 +28,7 @@ public class PlayerPrefsCleaner : EditorWindow
             Debug.Log($"Slot{i}_Scene: {PlayerPrefs.GetString($"Slot{i}_Scene", "N/A")}");
             Debug.Log($"Slot{i}_Karma: {PlayerPrefs.GetFloat($"Slot{i}_Karma", -999f)}");
             Debug.Log($"Slot{i}_PlayTime: {PlayerPrefs.GetFloat($"Slot{i}_PlayTime", -1f)}");
+            Debug.Log($"Slot{i}_History: {PlayerPrefs.GetString($"Slot{i}_History", "N/A")}");
             Debug.Log($"Slot{i}_PrincipalDoor: {PlayerPrefs.GetInt($"Slot{i}_PrincipalDoor", -999)}");
             Debug.Log($"Slot{i}_Calendar: {PlayerPrefs.GetInt($"Slot{i}_Calendar", -999)}");
             Debug.Log($"Slot{i}_MasterKey: {PlayerPrefs.GetInt($"Slot{i}_MasterKey", -999)}");
