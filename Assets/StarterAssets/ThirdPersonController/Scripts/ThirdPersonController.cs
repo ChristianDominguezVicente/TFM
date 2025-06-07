@@ -123,7 +123,6 @@ namespace StarterAssets
         [SerializeField] private TextMeshProUGUI historyActionText;
 
         [Header("Sound Control")]
-        [SerializeField] AudioSource audioSource;
         [SerializeField] private float stepsRadius;
         [SerializeField] private AudioClip showInteractionSound;
         [SerializeField] private AudioClip interactSound;

@@ -956,6 +956,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -970,6 +974,10 @@ PrefabInstance:
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: stepsRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyPanel
@@ -988,9 +996,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -1011,6 +1027,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     - target: {fileID: 8700351573182397255, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -4041,6 +4073,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -4055,6 +4091,10 @@ PrefabInstance:
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: stepsRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyPanel
@@ -4073,9 +4113,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -4096,6 +4144,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9414,6 +9478,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -9428,6 +9496,10 @@ PrefabInstance:
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: stepsRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyPanel
@@ -9446,9 +9518,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -9469,6 +9549,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20320,6 +20416,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -20334,6 +20434,10 @@ PrefabInstance:
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: stepsRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyPanel
@@ -20352,9 +20456,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -20375,6 +20487,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20699,6 +20827,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -20713,6 +20845,10 @@ PrefabInstance:
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: stepsRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyPanel
@@ -20731,9 +20867,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -20754,6 +20898,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22423,6 +22583,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798508488}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: choicePanel
       value: 
       objectReference: {fileID: 798508494}
@@ -22437,6 +22601,10 @@ PrefabInstance:
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: scrollSpeed
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: stepsRadius
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: historyPanel
@@ -22455,9 +22623,17 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: interactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: da7fac3982c790040a8f0f72c0d083b4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 2108761795}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: soundVolumeFX
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: dialogueHistory
       value: 
@@ -22478,6 +22654,22 @@ PrefabInstance:
       propertyPath: PlayerFollowCamera
       value: 
       objectReference: {fileID: 812519868}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: chosedOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: passNextDialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 69981683e72538a46afa7007df675964, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: selectOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27327,9 +27519,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1798542326459721553, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 1798542326459721553, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: possessionManager
       value: 
       objectReference: {fileID: 2108761787}
+    - target: {fileID: 1798542326459721553, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: showInteractionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
     - target: {fileID: 1813188039959543400, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_PreserveAspect
       value: 0

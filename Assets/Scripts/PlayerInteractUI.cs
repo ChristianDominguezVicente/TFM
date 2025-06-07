@@ -7,6 +7,12 @@ public class PlayerInteractUI : MonoBehaviour
     [SerializeField] private GameObject containerGameObject;
     [SerializeField] private PossessionManager possessionManager;
     [SerializeField] private TextMeshProUGUI interactText;
+
+    [Header("Sound Control")]
+    [SerializeField] private AudioClip showInteractionSound;
+    [SerializeField] AudioConfig audioConfig;
+
+    private bool isSounding = false;
     private void Update()
     {
         // get the current controller (can be the player or a possessed NPC)
@@ -19,11 +25,22 @@ public class PlayerInteractUI : MonoBehaviour
         if (target != null)
         {
             Show(target);
+            if(!isSounding)
+            {
+                audioConfig.SoundEffectSFX(showInteractionSound);
+                isSounding = true;
+            }
+            
         }
         // if there is nothing interactuable nearby, the text is hidden
         else
         {
             Hide();
+            if(isSounding)
+            {
+                isSounding = false;
+
+            }
         }
     }
     private void Show(object interactable)
@@ -37,6 +54,7 @@ public class PlayerInteractUI : MonoBehaviour
         // if it is a IPossessable object, its possess text is displayed
         else if (interactable is IPossessable possessable)
         {
+            
             if (possessable is NPCPossessable npcP)
             {
                 containerGameObject.SetActive(true);

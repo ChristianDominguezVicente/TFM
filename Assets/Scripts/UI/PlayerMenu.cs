@@ -26,6 +26,7 @@ public class PlayerMenu : MonoBehaviour
     [SerializeField] private AudioClip startGame;
     [SerializeField] private AudioClip selectOptionMenuSound;
     [SerializeField] private AudioClip chosedOptionMenuSound;
+    [SerializeField] private AudioClip beginPlaySound;
     [SerializeField] AudioConfig audioConfig; 
 
     void Start()
@@ -124,7 +125,14 @@ public class PlayerMenu : MonoBehaviour
             {
                 // Acción normal del botón
                 MenuInicial.menuActivo.ActivateSelectedButton();
-                audioConfig.SoundEffectSFX(chosedOptionMenuSound);
+                if(MenuInicial.menuActivo.GetCurrentButtonConfig().esNuevaPartida || MenuInicial.menuActivo.GetCurrentButtonConfig().esSlotCargandoPartida)
+                {
+                    audioConfig.SoundEffectSFX(beginPlaySound);
+                }
+                else
+                {
+                    audioConfig.SoundEffectSFX(chosedOptionMenuSound);
+                }
             }
             _input.interact = false;
         }
