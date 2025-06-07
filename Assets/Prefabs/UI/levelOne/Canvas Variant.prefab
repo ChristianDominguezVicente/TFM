@@ -678,6 +678,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 4472152060310139192}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &226898397859239548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,6 +2047,7 @@ GameObject:
   - component: {fileID: 5465545890391379089}
   - component: {fileID: 5767377734323413716}
   - component: {fileID: 1490247368434450773}
+  - component: {fileID: 7134383935546196339}
   m_Layer: 5
   m_Name: Guardar
   m_TagString: Untagged
@@ -2125,6 +2127,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7134383935546196339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795416943832616278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &867418221313372823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,6 +3716,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 6782241989598109081}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &1293169106860365292
 GameObject:
   m_ObjectHideFlags: 0
@@ -5928,6 +5945,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 1270840021522676351}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &2509214911772820538
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,6 +6836,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 4472152060310139192}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &3049454455129981793
 GameObject:
   m_ObjectHideFlags: 0
@@ -8524,6 +8543,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 4472152060310139192}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!114 &8555222985079316068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8557,6 +8577,7 @@ GameObject:
   - component: {fileID: 6178934678808039627}
   - component: {fileID: 4630185654225385148}
   - component: {fileID: 3909621786437336583}
+  - component: {fileID: 1856440800726001645}
   m_Layer: 5
   m_Name: Salir
   m_TagString: Untagged
@@ -8636,6 +8657,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1856440800726001645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892619991917100234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &3893761390239059862
 GameObject:
   m_ObjectHideFlags: 0
@@ -9905,6 +9940,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 4472152060310139192}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &4304751062198242790
 GameObject:
   m_ObjectHideFlags: 0
@@ -10499,6 +10535,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 1270840021522676351}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &4498123180691292767
 GameObject:
   m_ObjectHideFlags: 0
@@ -12860,6 +12897,7 @@ GameObject:
   - component: {fileID: 2551946141336415779}
   - component: {fileID: 5495823478368636989}
   - component: {fileID: 1250427209110480085}
+  - component: {fileID: 2458264724358522903}
   m_Layer: 5
   m_Name: Opciones
   m_TagString: Untagged
@@ -12939,6 +12977,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2458264724358522903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495822811767303276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &5513004558874686770
 GameObject:
   m_ObjectHideFlags: 0
@@ -13360,6 +13412,7 @@ GameObject:
   - component: {fileID: 5393782159442578203}
   - component: {fileID: 8109324695405819273}
   - component: {fileID: 8336700248424056586}
+  - component: {fileID: 7048174310678402878}
   m_Layer: 5
   m_Name: Volver
   m_TagString: Untagged
@@ -13439,6 +13492,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7048174310678402878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5825727289977344208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &5969637878930554063
 GameObject:
   m_ObjectHideFlags: 0
@@ -16446,6 +16513,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 4472152060310139192}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &7652732701207856018
 GameObject:
   m_ObjectHideFlags: 0
@@ -16910,6 +16978,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 4472152060310139192}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &7766099950482047487
 GameObject:
   m_ObjectHideFlags: 0
@@ -17238,6 +17307,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 1270840021522676351}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &7953023964953575240
 GameObject:
   m_ObjectHideFlags: 0
@@ -17722,6 +17792,7 @@ GameObject:
   - component: {fileID: 8862474362504046970}
   - component: {fileID: 6221736464019181673}
   - component: {fileID: 1997085750905601117}
+  - component: {fileID: 6455468042062962152}
   m_Layer: 5
   m_Name: Cargar
   m_TagString: Untagged
@@ -17801,6 +17872,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6455468042062962152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116280860411620057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &8128081180326385573
 GameObject:
   m_ObjectHideFlags: 0

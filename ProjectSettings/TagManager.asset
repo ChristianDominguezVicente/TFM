@@ -17,10 +17,12 @@ TagManager:
   - Note
   - Poster
   - Tablet
-  - Jardin
-  - Casa
   - OriginalChain
   - Draw
+  - Concrete
+  - Wood
+  - Grass
+  - Stone
   layers:
   - Default
   - TransparentFX

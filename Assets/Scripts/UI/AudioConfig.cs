@@ -21,6 +21,8 @@ public class AudioConfig : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public AudioSource AudioSource { get => audioSource; set => audioSource = value; }
+
     private void Start()
     {
         // Cargar valores guardados (si existen)

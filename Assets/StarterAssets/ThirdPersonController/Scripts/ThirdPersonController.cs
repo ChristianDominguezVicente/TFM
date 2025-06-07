@@ -10,7 +10,9 @@ using UnityEditor;
 
 //using Unity.Android.Gradle.Manifest;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM 
+using UnityEngine.Audio;
+
+#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.Rendering;
@@ -44,8 +46,7 @@ namespace StarterAssets
         public float SpeedChangeRate = 10.0f;
 
         public AudioClip LandingAudioClip;
-        public AudioClip[] FootstepAudioClips;
-        [UnityEngine.Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+        [UnityEngine.Range(0, 1)] public float FootstepAudioVolume = 0.8f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -128,9 +129,24 @@ namespace StarterAssets
         [SerializeField] private AudioClip interactSound;
         [SerializeField] private AudioClip passNextDialogueSound;
         [SerializeField] private float soundVolumeFX;
-        [SerializeField] private AudioClip selectOptionMenuSound;
+        [SerializeField] private AudioClip moveOptionMenuSound;
         [SerializeField] private AudioClip chosedOptionMenuSound;
         [SerializeField] AudioConfig audioConfig;
+
+        [Header("Concrete FootSteps")]
+        [SerializeField] private AudioClip[] ConcreteFootStepsSound;
+
+        [Header("Grass FootSteps")]
+        [SerializeField] private AudioClip[] GrassFootStepsSound;
+
+        [Header("Stone FootSteps")]
+        [SerializeField] private AudioClip[] StoneFootStepsSound;
+
+        [Header("Wood FootSteps")]
+        [SerializeField] private AudioClip[] WoodFootStepsSound;
+
+        [Header("Levitating sound")]
+        [SerializeField] private AudioClip LevitatingSound;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -429,7 +445,7 @@ namespace StarterAssets
                 int direction = input.x > 0 ? 1 : -1;
                 MenuInicial.menuActivo.CambiarOpcionToggle(direction);
                 lastInputTime = Time.unscaledTime;
-                audioConfig.SoundEffectSFX(selectOptionMenuSound);
+                audioConfig.SoundEffectSFX(moveOptionMenuSound);
 
             }
             // Modo ajuste de slider (mantén tu código existente)
@@ -438,7 +454,7 @@ namespace StarterAssets
                 int direction = input.x > 0 ? 1 : -1;
                 MenuInicial.menuActivo.MoveSelection(direction);
                 lastInputTime = Time.unscaledTime;
-                audioConfig.SoundEffectSFX(selectOptionMenuSound);
+                audioConfig.SoundEffectSFX(moveOptionMenuSound);
 
             }
             // Navegación normal (vertical)
@@ -447,7 +463,7 @@ namespace StarterAssets
                 int direction = input.y > 0 ? -1 : 1;
                 MenuInicial.menuActivo.MoveSelection(direction);
                 lastInputTime = Time.unscaledTime;
-                audioConfig.SoundEffectSFX(selectOptionMenuSound);
+                audioConfig.SoundEffectSFX(moveOptionMenuSound);
             }
         }
 
@@ -1454,24 +1470,43 @@ namespace StarterAssets
             var index = 0;
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-                if (FootstepAudioClips.Length > 0)
+
+                //If the player is not in possesion mode
+
+                if(!possesionManager.IsPossessing)
+                {
+
+                }
+                else
                 {
                     foreach (Collider collider in colliderArray)
                     {
-                        if(collider.CompareTag("Jardin"))
+                        index = UnityEngine.Random.Range(0, 6);
+
+                        if (collider.CompareTag("Concrete"))
                         {
-                            index = UnityEngine.Random.Range(0, 4);
-                            UnityEngine.Debug.Log("Pisas en Jardin");
+                            AudioSource.PlayClipAtPoint(ConcreteFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                         }
-                        else if(collider.CompareTag("Casa"))
+                        else if (collider.CompareTag("Stone"))
                         {
-                            index = UnityEngine.Random.Range(5, FootstepAudioClips.Length);
-                            UnityEngine.Debug.Log("Pisas en Casa");
+                            AudioSource.PlayClipAtPoint(StoneFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
 
                         }
+
+                        else if (collider.CompareTag("Grass"))
+                        {
+                            index = UnityEngine.Random.Range(0, 4);
+                            AudioSource.PlayClipAtPoint(GrassFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+
+                        }
+
+                        else if (collider.CompareTag("Wood"))
+                        {
+                            AudioSource.PlayClipAtPoint(WoodFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+
+                        }
+
                     }
-                    UnityEngine.Debug.Log(index);
-                    AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
                 }
             }
         }

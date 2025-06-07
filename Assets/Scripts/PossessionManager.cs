@@ -63,6 +63,7 @@ public class PossessionManager : MonoBehaviour
             {
                 StopPossession();
             }
+            UnityEngine.Debug.Log("Se tendria que aplicar el efecto de sonido");
             audioMixer.SetFloat("LowPass", 1000);
         }
         else if (!isPossessing && currentTime < maxTime)

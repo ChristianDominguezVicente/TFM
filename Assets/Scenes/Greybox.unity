@@ -1286,6 +1286,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -1301,6 +1305,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     - target: {fileID: 8700351573182397255, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -5191,6 +5299,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -5206,6 +5318,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11298,6 +11514,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -11313,6 +11533,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18712,6 +19036,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: LevitatingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: dialogueHistory
       value: 
       objectReference: {fileID: 798508493}
@@ -18732,6 +19060,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -18747,6 +19079,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23717,6 +24153,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -23732,6 +24172,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24128,6 +24672,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -24143,6 +24691,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25912,6 +26564,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 812519868}
     - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: moveOptionMenuSound
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
       propertyPath: showInteractionSound
       value: 
       objectReference: {fileID: 8300000, guid: d15bdcdc00a1eba479a9cbc4474c8b2f, type: 3}
@@ -25927,6 +26583,110 @@ PrefabInstance:
       propertyPath: selectOptionMenuSound
       value: 
       objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: WoodFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: GrassFootStepsSound.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: StoneFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 954d5e6461abdc440ac928c320948786, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 34204253762d9494e936e09ff13a96cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ad64696d4d63bc345a518f6ea6d9e9fe, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 22ca31c1730ac164392a2c9aa6e52939, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7a25c923a522c174788d09038e088a7c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'WoodFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb4382313134a5c4895a6590300bc5ba, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: ConcreteFootStepsSound.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 26c93875d7a5afc4b932edf708395d95, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e5c5928edb51214498148b1e3eeeee9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 751f6b4a3eb780d409ff8d38f3eddbb2, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'GrassFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2436d761daf4cab43a66667b2dad1569, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a72cd743510f844fb81f8324a3c4666, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3660c7c518638aa4393f9c52f15267fd, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e108e437f8a9514fbe1f2898a8cfed4, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1665726e3cee084448cb3f8acdae1a71, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e24bf83f797f21d4c975b6aa6737358c, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'StoneFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4994afb57829270428efce6fe7893208, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a42b314e68043034699e1f2aeb9a7799, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d1f50a25f73e6a41870a2bb35dd0dc6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e3a5a0e89cb9741acd410f1e5392cf, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ec1ef4b0c6c9f7f4f851f7f2a1d39dc9, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d9517ff49712fb4cb6103d7d9e347f6, type: 3}
+    - target: {fileID: 8613984027607038701, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
+      propertyPath: 'ConcreteFootStepsSound.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: bf00d37d93d7cb74a967bcb309dd852a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26450,6 +27210,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1045907312172540635, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: beginPlay
+      value: 
+      objectReference: {fileID: 8300000, guid: 3fc71a1fc452fdf4da7ac2afca96bae8, type: 3}
+    - target: {fileID: 1045907312172540635, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: moveOption
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
+    - target: {fileID: 1045907312172540635, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 1045907312172540635, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: choseOption
+      value: 
+      objectReference: {fileID: 8300000, guid: f3f2d1a81eb944243b03a0677b1f3243, type: 3}
+    - target: {fileID: 1045907312172540635, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: selectOption
+      value: 
+      objectReference: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
     - target: {fileID: 1931877666500404887, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
       propertyPath: sliderSFX
       value: 
@@ -26515,6 +27295,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: m_Volume
+      value: 0.545
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
       propertyPath: m_Resource
       value: 
       objectReference: {fileID: 0}
@@ -26522,6 +27306,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1476792399759878412, guid: 9049ebf97f3055f499d0c23e204460bb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26541,6 +27329,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b66fe0afa5047374f9a0af879fab7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105976882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1045907312172540635, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
+  m_PrefabInstance: {fileID: 2105976878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5973c1f5c68a94896a92c69eea380f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2108761786
@@ -27161,7 +27960,7 @@ GameObject:
   - component: {fileID: 2135237177}
   m_Layer: 0
   m_Name: GroundPlantaBaja
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30524,6 +31323,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2105976882}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundChoseOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMenuMouse, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250427209110480085, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1270840021522676351, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -30532,6 +31359,34 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: de516f5a47db1d044ae5b418478ac628, type: 3}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2105976882}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundChoseOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMenuMouse, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490247368434450773, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1541181692101261347, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: fadeOut
       value: 
@@ -30587,6 +31442,38 @@ PrefabInstance:
     - target: {fileID: 1813188039959543400, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_PreserveAspect
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1856440800726001645, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2105976882}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundChoseOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMenuMouse, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997085750905601117, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2013626411990820656, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_fontSize
@@ -30644,6 +31531,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -288.4088
       objectReference: {fileID: 0}
+    - target: {fileID: 2458264724358522903, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
     - target: {fileID: 2477871008911269173, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_fontSize
       value: 40
@@ -30839,6 +31730,34 @@ PrefabInstance:
     - target: {fileID: 3903624320182608129, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_fontSizeBase
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2105976882}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundChoseOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMenuMouse, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909621786437336583, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3942871237065913367, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_fontSize
@@ -31200,6 +32119,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6455468042062962152, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
     - target: {fileID: 6537480521991395374, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: fadeOut
       value: 
@@ -31248,6 +32171,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 7048174310678402878, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
+    - target: {fileID: 7134383935546196339, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: audioConfig
+      value: 
+      objectReference: {fileID: 2105976880}
     - target: {fileID: 7289718225321148422, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -31463,6 +32394,34 @@ PrefabInstance:
     - target: {fileID: 8318437012504658190, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -76.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2105976882}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SoundChoseOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundMenuMouse, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336700248424056586, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8555222985079316068, guid: a7f2fde4d51e21f4c8f7e39ca2e17aa7, type: 3}
       propertyPath: textoConfig
