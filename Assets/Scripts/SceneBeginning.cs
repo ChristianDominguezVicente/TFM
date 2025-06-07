@@ -6,6 +6,7 @@ public class SceneBeginning : MonoBehaviour
 {
     [SerializeField] private CinematicDialogue cinematicDialogue;
     [SerializeField] private string scene;
+    [SerializeField] private bool nextScene = false;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class SceneBeginning : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene(scene);
+        if(nextScene)
+            SceneManager.LoadScene(scene);
     }
 }

@@ -16,7 +16,7 @@ public class PlayerListenUI : MonoBehaviour
         // get the closest interactuable object
         var target = player.GetInteractuables();
         // if there is an interactuable object, the UI is displayed with the corresponding text
-        if (target != null)
+        if (target != null && possessionManager.CurrentNPC == null)
         {
             Show(target);
         }

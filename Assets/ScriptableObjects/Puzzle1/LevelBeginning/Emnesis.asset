@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Emnesis
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476089508823165
+  - rid: 3380476089508823166
+  - rid: 3380476089508823167
+  - rid: 3380476089508823168
+  - rid: 3380476089508823169
+  - rid: 3380476089508823170
+  - rid: 3380476089508823173
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476089508823165
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Has conseguido entrar en la casa. No es tan dif\xEDcil influenciar
+          personas, \xBFverdad?"
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476089508823166
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Menos todav\xEDa si est\xE1n en tus recuerdos."
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476089508823167
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFQu\xE9 tal la experiencia?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476089508823168
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Rachel hab\xEDa prometido hacer tu tarta de cumplea\xF1os, pero
+          en el \xFAltimo momento se hab\xEDa enfadado."
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476089508823169
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Hab\xEDa roto la receta y se hab\xEDa ido enfadada a su habitaci\xF3n."
+        image: {fileID: 0}
+        nextIndex: 5
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476089508823170
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Pero alguien ten\xEDa que hacer el pastel, \xBFverdad?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476089508823173
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Vamos a tratar de recordarlo con claridad.
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

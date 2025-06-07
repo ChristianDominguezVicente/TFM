@@ -7,14 +7,25 @@ public class DialogueHistory : MonoBehaviour
 
     public void AddLine(string speaker, string text)
     {
-        // add to the history: "Name: Text"
-        history.Add($"{speaker}: {text}");
+        string line = $"{speaker}: {text}";
+        if (!history.Contains(line))
+        {
+            // add to the history: "Name: Text"
+            history.Add($"{speaker}: {text}");
+            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
+            ssm.SetHistory(line);
+        }
     }
 
     public void AddSeparator()
     {
-        // add a empty line
-        history.Add("");
+        if (history[history.Count - 1] != "")
+        {
+            // add a empty line
+            history.Add("");
+            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
+            ssm.SetHistory("");
+        }
     }
 
     public List<string> GetHistory()
@@ -27,5 +38,11 @@ public class DialogueHistory : MonoBehaviour
     {
         // clears the dialogs history
         history.Clear();
+    }
+
+    public void OnLoad(string value)
+    {
+        history = new List<string>(value.Split("\n"));
+        AddSeparator();
     }
 }

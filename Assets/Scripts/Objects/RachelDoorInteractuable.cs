@@ -53,25 +53,23 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
         }
         else if (objectManager.Incorrect)
         {
-            /*
+            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             nextScene = "Final Bueno";
             karma++;
-            PlayerPrefs.SetFloat("Karma", karma);
-            PlayerPrefs.Save();
+            ssm.SetKarma(karma);
             StartCoroutine(FadeOut());
-            */
+            
         }
         else if (objectManager.Correct)
         {
-            /*
+            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             nextScene = "Final Malo";
             karma--;
-            PlayerPrefs.SetFloat("Karma", karma);
-            PlayerPrefs.Save();
+            ssm.SetKarma(karma);
             StartCoroutine(FadeOut());
-            */
+            
         }
     }
 

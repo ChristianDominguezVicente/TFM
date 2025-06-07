@@ -125,6 +125,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     public GameObject Player { get => player; set => player = value; }
     public bool Listening { get => listening; set => listening = value; }
     public bool FlagTP { get => flagTP; set => flagTP = value; }
+    public DialogueData ListeningDialogueData { get => listeningDialogueData; set => listeningDialogueData = value; }
 
     public string GetPossessText() => interactText;
     public Transform GetTransform() => transform;

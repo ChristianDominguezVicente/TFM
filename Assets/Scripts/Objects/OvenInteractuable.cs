@@ -41,38 +41,35 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
     }
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
-        {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
-            {
-                yield return null;
-            }
-
-            cinematicDialogue.End = false;
-        }
-
         var currentNpc = possessionManager.CurrentNPC;
 
         // if player possess a restricted NPC
         if (currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
         {
-            StartCoroutine(ShowWarning("<color=red>Children should not use it</color>"));
+            StartCoroutine(ShowWarning("<color=red>Los niños no pueden usar el horno</color>"));
             yield break;
         }
 
         // if valve is not activated
         if (!objectManager.ValveActive)
         {
-            StartCoroutine(ShowWarning("<color=red>You must turn the valve first</color>"));
-            yield break;
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
         }
 
         // if player hasn't taken the ingredients
         if (!objectManager.Flour || !objectManager.Eggs || !objectManager.Sugar)
         {
-            StartCoroutine(ShowWarning("<color=red>Missing ingredients</color>"));
+            StartCoroutine(ShowWarning("<color=red>Faltan los ingredientes</color>"));
             yield break;
         }
 
@@ -85,16 +82,16 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
         // if player hasn't taken the recipes
         if (!objectManager.Recipe1 || !objectManager.Recipe2)
         {
-            /*
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
-            karma--;
-            PlayerPrefs.SetFloat("Karma", karma);
-            PlayerPrefs.Save();
-            */
-            StartCoroutine(ShowWarning("<color=red>You need both recipes</color>"));
+            
+            StartCoroutine(ShowWarning("<color=red>Necesitas las dos partes de la receta</color>"));
             yield break;
         }
 
+        SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
+        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        karma--;
+        ssm.SetKarma(karma);
+        
         // if everything is ok
         StartCoroutine(FadeOut());
     }

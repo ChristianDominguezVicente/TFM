@@ -13,16 +13,9 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
 
     private bool open = false;
     private Quaternion rotation;
-    private string originalText;
-    private bool showingKeyWarning = false;
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
-
-    private void Start()
-    {
-        originalText = interactText;
-    }
 
     public void Interact(Transform interactorTransform)
     {
@@ -30,18 +23,6 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
     }
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
-        {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
-            {
-                yield return null;
-            }
-
-            cinematicDialogue.End = false;
-        }
-
         // if the player have the master key
         if (!open && objectManager.MasterKeyTaken)
         {
@@ -50,9 +31,19 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
             open = true;
         }
         // if the player don't have the master key
-        else if (!open && !showingKeyWarning)
+        else if (!open)
         {
-            StartCoroutine(ShowWarning());
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
         }
     }
 
@@ -72,14 +63,5 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
                 Destroy(this);
             }
         }
-    }
-
-    private IEnumerator ShowWarning()
-    {
-        showingKeyWarning = true;
-        interactText = "<color=red>You need the Master Key</color>";
-        yield return new WaitForSeconds(2f);
-        interactText = originalText;
-        showingKeyWarning = false;
     }
 }

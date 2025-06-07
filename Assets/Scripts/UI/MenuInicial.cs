@@ -58,6 +58,7 @@ public class MenuInicial : MonoBehaviour
     [SerializeField] private List<BotonConfig> botones;
     [SerializeField] private GameObject menuAnterior; // Solo necesario para esVolver
     [SerializeField] private MenuPause menuPausa;
+    [SerializeField] private CanvasGroup fadeOut;
     private List<Button> currentButtons = new List<Button>();
     public static MenuInicial menuActivo { get; private set; }
 
@@ -206,10 +207,28 @@ public class MenuInicial : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Greybox"); // Nueva partida
+                StartCoroutine(FadeOut("Intro")); // Nueva partida
             }
         });
     }
+
+    private IEnumerator FadeOut(string sceneName)
+    {
+        fadeOut.gameObject.SetActive(true);
+
+        float duration = 2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+
+        SceneManager.LoadScene(sceneName);
+    }
+
     private void UpdateSingleSaveSlotUI(int slotIndex)
     {
         SaveSystemMult saveSystem = FindFirstObjectByType<SaveSystemMult>();
@@ -221,11 +240,13 @@ public class MenuInicial : MonoBehaviour
 
     private void EntrarJuego()
     {
-        SceneManager.LoadScene("Greybox");
+        StartCoroutine(FadeOut("Intro"));
+        // Estaba Greybox anteriormente
     }
 
     private void VolverMenuInicio()
     {
+        //StartCoroutine(FadeOut("InicioMenu"));
         SceneManager.LoadScene(0);
     }
 

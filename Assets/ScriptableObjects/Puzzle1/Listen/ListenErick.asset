@@ -13,47 +13,32 @@ MonoBehaviour:
   m_Name: ListenErick
   m_EditorClassIdentifier: 
   nodes:
-  - rid: 8849634281751576630
-  - rid: 8849634281751576631
-  - rid: 8849634281751576632
-  - rid: 8849634281751576633
-  - rid: 8849634281751576634
+  - rid: 3380476107995480215
+  - rid: 3380476107995480216
+  - rid: 3380476107995480217
   references:
     version: 2
     RefIds:
-    - rid: 8849634281751576630
+    - rid: 3380476107995480215
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "Pedazo choza por haber estudiado cuatro o cinco a\xF1itos m\xE1s."
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        npcText: "Menudo caser\xEDo tienen por estar el uno trabajando cuatro horitas
+          por la noche y la otra sentada de ma\xF1anas."
+        image: {fileID: 0}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
-    - rid: 8849634281751576631
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480216
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: La gente ya no tiene aprecio por el trabajo de verdad.
-        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        npcText: "Si a\xFAn por encima tienen mejores herramientas que las que me
+          dan en el curro."
+        image: {fileID: 0}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
-    - rid: 8849634281751576632
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480217
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "Anda que no cobra m\xE1s por estar ah\xED sentada con el ordenador."
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
-        nextIndex: 3
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
-    - rid: 8849634281751576633
-      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
-      data:
-        npcText: Pfft. Tener hermanas para que ni te ayuden un poco a llegar a fin
-          de mes.
-        image: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
-        nextIndex: 4
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
-    - rid: 8849634281751576634
-      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
-      data:
-        npcText: "A ver si por venir al cumplea\xF1os de la cr\xEDa me cae algo."
-        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        npcText: Hay que joderse...
+        image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}

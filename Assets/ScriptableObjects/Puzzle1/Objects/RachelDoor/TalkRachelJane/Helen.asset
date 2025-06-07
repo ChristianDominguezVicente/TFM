@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Helen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476107995480187
+  - rid: 3380476107995480188
+  - rid: 3380476107995480190
+  - rid: 3380476107995480191
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476107995480187
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480188
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Qu\xE9 inc\xF3moda ha sido esta situaci\xF3n..."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480190
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Vamos a ver...
+        image: {fileID: 0}
+        nextIndex: 3
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480191
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Aqu\xED pone huevo y az\xFAcar."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

@@ -19,6 +19,8 @@ TagManager:
   - Tablet
   - Jardin
   - Casa
+  - OriginalChain
+  - Draw
   layers:
   - Default
   - TransparentFX

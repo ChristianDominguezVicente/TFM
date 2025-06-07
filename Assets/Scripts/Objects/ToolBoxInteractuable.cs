@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ToolBoxInteractuable : MonoBehaviour, IInteractuable
 {
@@ -18,20 +20,30 @@ public class ToolBoxInteractuable : MonoBehaviour, IInteractuable
     }
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
+        if (SceneManager.GetActiveScene().name != "Puzzle 2")
         {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
+            if (cinematicDialogue != null)
             {
-                yield return null;
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
             }
-
-            cinematicDialogue.End = false;
         }
+        else
+        {
+            // mark it in the ObjectManager
+            objectManager.ToolBox = true;
+            Action();
+        } 
+    }
 
-        // mark it in the ObjectManager
-        objectManager.ToolBox = true;
+    public void Action()
+    {
         SMSystem smsys = FindAnyObjectByType<SMSystem>();
         smsys.NeedsUIUpdate = true;
         // deactivates the object in the scene when interacted with

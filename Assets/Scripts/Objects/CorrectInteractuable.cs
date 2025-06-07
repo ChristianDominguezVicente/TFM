@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CorrectInteractuable : MonoBehaviour, IInteractuable
 {
@@ -17,10 +19,10 @@ public class CorrectInteractuable : MonoBehaviour, IInteractuable
             if (firstSpaceIndex != -1 && firstSpaceIndex < interactText.Length - 1)
             {
                 string objectName = interactText.Substring(firstSpaceIndex + 1);
-                return "Change with " + objectName;
+                return "Cambiar por " + objectName;
             }
 
-            return "Change Object";
+            return "Cambiar Objeto";
         }
 
         return interactText;
@@ -34,28 +36,65 @@ public class CorrectInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
+        if(CompareTag("OriginalChain") && SceneManager.GetActiveScene().name != "Puzzle 2")
         {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
+            if (cinematicDialogue != null)
             {
-                yield return null;
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+        }
+        else if (CompareTag("Letter") && SceneManager.GetActiveScene().name != "Puzzle 4")
+        {
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+        }
+        else if (CompareTag("Draw") && SceneManager.GetActiveScene().name != "Puzzle 4")
+        {
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+        }
+        else
+        {
+            if (objectManager.CurrentObject != null)
+            {
+                objectManager.CurrentObject.SetActive(true);
             }
 
-            cinematicDialogue.End = false;
-        }
+            objectManager.CurrentObject = gameObject;
 
-        if (objectManager.CurrentObject != null)
-        {
-            objectManager.CurrentObject.SetActive(true);
-        }
-
-        objectManager.CurrentObject = gameObject;
-
-        // mark it in the ObjectManager
-        objectManager.Correct = true;
-        objectManager.Incorrect = false;
+            // mark it in the ObjectManager
+            objectManager.Correct = true;
+            objectManager.Incorrect = false;
+            Action();
+        } 
+    }
+    public void Action()
+    {
         SMSystem smsys = FindAnyObjectByType<SMSystem>();
         smsys.NeedsUIUpdate = true;
 

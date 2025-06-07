@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorInteractuable : MonoBehaviour, IInteractuable
 {
@@ -8,24 +9,21 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private float rotationAngle;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private ObjectManager objectManager;
+    [SerializeField] private HintManager hintManager;
+    [SerializeField] private CanvasGroup fade;
+    [SerializeField] private NPCPossessable paul;
 
     [Header("Cinematic")]
-    [SerializeField] private CinematicDialogue cinematicDialogue;
+    [SerializeField] private CinematicDialogue backCinematicDialogue;
+    [SerializeField] private CinematicDialogue principalCinematicDialogue;
+    [SerializeField] private DialogueData[] dialogueDataArray;
+    [SerializeField] private DialogueData dialogueDataListen;
 
     private bool open = false;
     private Quaternion rotation;
 
-    private bool showingWarning = false;
-    private string originalText;
-
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
-
-    private void Start()
-    {
-        // save original text
-        originalText = interactText;
-    }
 
     public void Interact(Transform interactorTransform)
     {
@@ -34,35 +32,33 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
+        if (!open && gameObject.CompareTag("Principal"))
         {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
-            {
-                yield return null;
-            }
-
-            cinematicDialogue.End = false;
+            StartCoroutine(FadeOut());
         }
-
-        if ((!open && gameObject.CompareTag("Principal")) || (!open && gameObject.CompareTag("Back") && objectManager.PrincipalDoor))
+        else if (!open && gameObject.CompareTag("Back") && objectManager.PrincipalDoor)
         {
-            // final rotation
-            rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
-            open = true;
+            Action();
         }
         else
         {
-            StartCoroutine(ShowWarning($"<color=red>Open Principal Door first</color>"));
+            if (backCinematicDialogue != null)
+            {
+                backCinematicDialogue.PlayDialogue();
+
+                while (!backCinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                backCinematicDialogue.End = false;
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (showingWarning) return;
-
         if (open)
         {
             // if current rotation has not reach final rotation
@@ -73,20 +69,66 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
             else
             {
                 if (gameObject.CompareTag("Principal"))
+                {
                     objectManager.PrincipalDoor = true;
-
+                    hintManager.DialogueDataArray = dialogueDataArray;
+                    paul.ListeningDialogueData = dialogueDataListen;
+                }
+                    
                 // destroy script
                 Destroy(this);
             }
         }
     }
 
-    private IEnumerator ShowWarning(string warningText)
+    private IEnumerator FadeOut()
     {
-        showingWarning = true;
-        interactText = warningText;
-        yield return new WaitForSeconds(2f);
-        interactText = originalText;
-        showingWarning = false;
+        fade.gameObject.SetActive(true);
+
+        float duration = 2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fade.alpha = Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+
+        StartCoroutine(PlayStart());
+    }
+
+    private IEnumerator FadeInCoroutine()
+    {
+        float duration = 2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            fade.alpha = Mathf.Clamp01(1f - (elapsed / duration));
+            yield return null;
+        }
+    }
+
+    private IEnumerator PlayStart()
+    {
+        principalCinematicDialogue.PlayDialogue();
+
+        while (!principalCinematicDialogue.End)
+        {
+            yield return null;
+        }
+
+        Action();
+
+        StartCoroutine(FadeInCoroutine());
+    }
+
+    public void Action()
+    {
+        // final rotation
+        rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
+        open = true;
     }
 }

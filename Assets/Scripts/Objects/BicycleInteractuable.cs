@@ -93,7 +93,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         }
         else
         {
-            /*
+            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             if (karma < 0)
             {
@@ -101,8 +101,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 if (objectManager.Incorrect)
                 {
                     karma--;
-                    PlayerPrefs.SetFloat("Karma", karma);
-                    PlayerPrefs.Save();
+                    ssm.SetKarma(karma);
                 }
             }
             else if (karma == 0)
@@ -111,11 +110,10 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 if (objectManager.Incorrect)
                 {
                     karma--;
-                    PlayerPrefs.SetFloat("Karma", karma);
-                    PlayerPrefs.Save();
+                    ssm.SetKarma(karma);
                 }
             }
-            */
+            
             StartCoroutine(FadeOut());
         }
     }

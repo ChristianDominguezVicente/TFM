@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Jane
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476107995480178
+  - rid: 3380476107995480179
+  - rid: 3380476107995480180
+  - rid: 3380476107995480182
+  - rid: 3380476107995480183
+  - rid: 3380476107995480184
+  - rid: 3380476107995480185
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476107995480178
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Te recuerdo que soy tu madre, Rachel.
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480179
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: No puedes dirigirme la palabra de esa manera.
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480180
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Ni puedes quitarnos la receta del pastel de tu hermana.
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480182
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xA1Ojo con esa boca!"
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480183
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xA1Es el cumplea\xF1os de tu hermana, por supuesto que nos importa
+          el pastel!"
+        image: {fileID: 0}
+        nextIndex: 5
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480184
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xA1Y por muy celosa que seas, no le vas a quitar este d\xEDa a
+          tu hermana!"
+        image: {fileID: 0}
+        nextIndex: 6
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480185
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Me vas a dar ahora mismo esa receta.
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
