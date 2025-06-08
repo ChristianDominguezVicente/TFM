@@ -725,6 +725,7 @@ MonoBehaviour:
     tipoConfigPantalla: 0
   menuAnterior: {fileID: 0}
   menuPausa: {fileID: 0}
+  fadeOut: {fileID: 0}
 --- !u!1 &1313156426776948680
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +913,7 @@ GameObject:
   - component: {fileID: 8867183309332114930}
   - component: {fileID: 8802146202074446517}
   - component: {fileID: 5490896776003788047}
+  - component: {fileID: 9157635903670410291}
   m_Layer: 5
   m_Name: Mision2
   m_TagString: Untagged
@@ -992,6 +994,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9157635903670410291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618037684480389501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &1763366326091267989
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1019,7 @@ GameObject:
   - component: {fileID: 7816369813059677811}
   - component: {fileID: 4703371729038558849}
   - component: {fileID: 2719481702333405505}
+  - component: {fileID: 3274131690832039477}
   m_Layer: 5
   m_Name: Volver
   m_TagString: Untagged
@@ -1082,6 +1099,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3274131690832039477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763366326091267989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &1825816038269365909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2161,7 @@ GameObject:
   - component: {fileID: 7789219344699664998}
   - component: {fileID: 1983285278224960770}
   - component: {fileID: 5333301775653866761}
+  - component: {fileID: 1237562620408772705}
   m_Layer: 5
   m_Name: Mision1
   m_TagString: Untagged
@@ -2210,6 +2242,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1237562620408772705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514976001270926565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &3542166198930037338
 GameObject:
   m_ObjectHideFlags: 0
@@ -4273,6 +4319,7 @@ GameObject:
   - component: {fileID: 1553219504702306273}
   - component: {fileID: 7673237241000033211}
   - component: {fileID: 6870005239039090537}
+  - component: {fileID: 4097801352124588244}
   m_Layer: 5
   m_Name: Mision3
   m_TagString: Untagged
@@ -4354,6 +4401,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4097801352124588244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626385222074122600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d93537dd5fb8642958789c081a3887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioConfig: {fileID: 0}
+  moveOption: {fileID: 8300000, guid: be9059992aba5f84a81bec6ab7781c6e, type: 3}
 --- !u!1 &5974512973107687756
 GameObject:
   m_ObjectHideFlags: 0

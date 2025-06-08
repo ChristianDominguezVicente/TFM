@@ -85,7 +85,7 @@ public class AudioConfig : MonoBehaviour
 
     public void SoundEffectSFX(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip,PlayerPrefs.GetFloat(parametroSFX));
     }
 
 }
