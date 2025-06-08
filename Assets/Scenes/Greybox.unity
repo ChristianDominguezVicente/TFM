@@ -27296,7 +27296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
       propertyPath: m_Volume
-      value: 0.397
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8910455854665823363, guid: fb008c36f90468e4391c8469ed3045c5, type: 3}
       propertyPath: m_Resource
@@ -27960,7 +27960,7 @@ GameObject:
   - component: {fileID: 2135237177}
   m_Layer: 0
   m_Name: GroundPlantaBaja
-  m_TagString: Stone
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

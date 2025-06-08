@@ -14,7 +14,7 @@ public class ControlHoverButton : MonoBehaviour, IPointerEnterHandler
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        audioSource = audioConfig.AudioSource;
+        audioSource = audioConfig.AudioSourceSFX;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

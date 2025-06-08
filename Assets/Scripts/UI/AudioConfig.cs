@@ -19,9 +19,14 @@ public class AudioConfig : MonoBehaviour
     private string parametroSFX = "VolumenSFX";
     private string parametroVoces = "VolumenVoces";
 
-    private AudioSource audioSource;
+    private AudioSource[] audioSources;
+    private AudioSource audioSourceSFX;
+    private AudioSource audioSourceVoices;
+    private AudioSource audioSourceMusic;
 
-    public AudioSource AudioSource { get => audioSource; set => audioSource = value; }
+    public AudioSource AudioSourceSFX { get => audioSourceSFX; set => audioSourceSFX = value; }
+    public AudioSource AudioSourceVoices { get => audioSourceVoices; set => audioSourceVoices = value; }
+    public AudioSource AudioSourceMusic { get => audioSourceMusic; set => audioSourceMusic = value; }
 
     private void Start()
     {
@@ -43,7 +48,22 @@ public class AudioConfig : MonoBehaviour
         sliderMusica.onValueChanged.AddListener(SetVolumenMusica);
         sliderSFX.onValueChanged.AddListener(SetVolumenSFX);
         sliderVoces.onValueChanged.AddListener(SetVolumenVoces);
-        audioSource = GetComponent<AudioSource>();
+        audioSources = GetComponents<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if(audioSource.outputAudioMixerGroup.name == "SFX")
+            {
+                audioSourceSFX = audioSource;
+            }
+            else if(audioSource.outputAudioMixerGroup.name == "Music")
+            {
+                audioSourceMusic = audioSource;
+            }
+            else
+            {
+                audioSourceVoices = audioSource;
+            }
+        }
     }
 
     // Configs
@@ -85,7 +105,7 @@ public class AudioConfig : MonoBehaviour
 
     public void SoundEffectSFX(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip,PlayerPrefs.GetFloat(parametroSFX));
+        audioSourceSFX.PlayOneShot(clip,PlayerPrefs.GetFloat(parametroSFX));
     }
 
 }

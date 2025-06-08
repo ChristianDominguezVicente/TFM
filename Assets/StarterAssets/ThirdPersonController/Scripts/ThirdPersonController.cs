@@ -132,6 +132,7 @@ namespace StarterAssets
         [SerializeField] private AudioClip moveOptionMenuSound;
         [SerializeField] private AudioClip chosedOptionMenuSound;
         [SerializeField] AudioConfig audioConfig;
+        private AudioSource audioSourceSFX;
 
         [Header("Concrete FootSteps")]
         [SerializeField] private AudioClip[] ConcreteFootStepsSound;
@@ -294,6 +295,9 @@ namespace StarterAssets
                 colorAdjustments = ca;
                 colorAdjustments.active = false;
             }
+
+            //We set the sfx for the FootSteps sounds
+
         }
 
         private void Update()
