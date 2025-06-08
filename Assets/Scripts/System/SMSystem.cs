@@ -196,7 +196,7 @@ public class SMSystem : MonoBehaviour
         }
         else //estoy en mision 1 del puzle 1
         {
-            MSOnePuzleOne(indiceMs);
+            MSOneePuzleOne(indiceMs);
         }
     }
 
@@ -214,27 +214,17 @@ public class SMSystem : MonoBehaviour
         }
     }
 
-    private void MSTwoPuzleOne(int indiceMs)
+    private void MSOneePuzleOne(int indiceMs)
     {
-        if (objectManager.Flour)
+        if (objectManager.PrincipalDoor)
         {
             ActualizarTexto(indiceMs, 0);
-        }
-        if (objectManager.Eggs)
-        {
-            ActualizarTexto(indiceMs, 1);
-        }
-        if (objectManager.Sugar)
-        {
-            ActualizarTexto(indiceMs, 2);
-        }
-        if (objectManager.Flour && objectManager.Eggs && objectManager.Sugar)
-        {
             missions[indiceMs].isCompleted = true;
+            Debug.Log("wenas");
         }
     }
 
-    private void MSOnePuzleOne(int indiceMs)
+    private void MSTwoPuzleOne(int indiceMs)
     {
         //encuentra la forma del garaje - llave maestra
         if (objectManager.MasterKeyTaken)
@@ -267,7 +257,7 @@ public class SMSystem : MonoBehaviour
         if (!missions[indiceMs].isCompleted) //mision1
         {
             //all 1 mission act
-            MSOnePuzleOne(indiceMs);
+            MSOneePuzleOne(indiceMs);
             MSOnePuzleTwo(indiceMs);
             ActualizarTitulo(indiceMs);
             ActualizarTextoUI(indiceMs);
