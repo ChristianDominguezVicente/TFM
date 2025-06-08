@@ -547,7 +547,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.06666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: eafca97fd4ce2e2499251dbbceb0d21b, type: 2}
   m_BuildHeightMesh: 0
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.1
+  m_VoxelSize: 0.06666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 38d0498667f73eb40be3ac2d84bd02b8, type: 2}
   m_BuildHeightMesh: 0
@@ -2323,17 +2323,6 @@ MonoBehaviour:
   pcImage: {fileID: 21300000, guid: 0b0b005511ff1924fb33c162b28bba9e, type: 3}
   xboxImage: {fileID: 21300000, guid: 1b40cd9753884ac40b4f75522a63098f, type: 3}
   imageGeneral: {fileID: 1769825147}
---- !u!114 &1012153275 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6726350205254521712, guid: 83b3407234652774085e7ea3e6007726, type: 3}
-  m_PrefabInstance: {fileID: 1012153268}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1012153271}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78250d3065a6334ca15f853d5471242, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1052207006 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1143005224991244860, guid: 7f50c679b321fb84fbae60ebc3c91a56, type: 3}
@@ -4720,7 +4709,7 @@ PrefabInstance:
     - target: {fileID: 7208917191895087417, guid: 7ea1ae1840f70a146b0dd4f9032bf75d, type: 3}
       propertyPath: cinematicDialoguePlayer
       value: 
-      objectReference: {fileID: 1012153275}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
