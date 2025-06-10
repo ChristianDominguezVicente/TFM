@@ -73,13 +73,13 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator Rotate()
     {
-        float totalRotation = 360f * numberOfTurns;
+        float totalRotation = 90f * numberOfTurns;
         float currentRotation = 0f;
 
         while (currentRotation < totalRotation)
         {
             float step = rotationSpeed * Time.deltaTime;
-            transform.parent.Rotate(Vector3.forward, step);
+            transform.parent.Rotate(Vector3.up, step);
             currentRotation += step;
             yield return null;
         }

@@ -1,10 +1,12 @@
 using System.Collections;
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorInteractuable : MonoBehaviour, IInteractuable
 {
+    [Header("Principal")]
     [SerializeField] private string interactText;
     [SerializeField] private float rotationAngle;
     [SerializeField] private float rotationSpeed;
@@ -12,6 +14,10 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private HintManager hintManager;
     [SerializeField] private CanvasGroup fade;
     [SerializeField] private NPCPossessable paul;
+
+    [Header("Back")]
+    [SerializeField] private Vector3 movement;
+    [SerializeField] private float moveSpeed;
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue backCinematicDialogue;
@@ -21,6 +27,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
 
     private bool open = false;
     private Quaternion rotation;
+    private Vector3 targetPosition; 
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
@@ -62,9 +69,13 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
         if (open)
         {
             // if current rotation has not reach final rotation
-            if (Quaternion.Angle(transform.parent.rotation, rotation) > 0.1f)
+            if (Quaternion.Angle(transform.parent.rotation, rotation) > 0.1f && CompareTag("Principal"))
             {
                 transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, rotation, Time.deltaTime * rotationSpeed);
+            }
+            else if (Vector3.Distance(transform.parent.position, targetPosition) > 0.01f && CompareTag("Back"))
+            {
+                transform.parent.position = Vector3.MoveTowards(transform.parent.position, targetPosition, Time.deltaTime * moveSpeed);
             }
             else
             {
@@ -74,7 +85,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
                     hintManager.DialogueDataArray = dialogueDataArray;
                     paul.ListeningDialogueData = dialogueDataListen;
                 }
-                    
+
                 // destroy script
                 Destroy(this);
             }
@@ -127,8 +138,16 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
 
     public void Action()
     {
-        // final rotation
-        rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
-        open = true;
+        if(CompareTag("Principal"))
+        {
+            // final rotation
+            rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
+            open = true;
+        }
+        else if (CompareTag("Back"))
+        {
+            targetPosition = transform.parent.position + movement;
+            open = true;
+        }
     }
 }

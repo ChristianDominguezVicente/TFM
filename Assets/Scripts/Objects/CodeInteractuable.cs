@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Runtime.Serialization;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +19,11 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private float openDuration;
     [SerializeField] private GameObject masterKey;
 
+    [Header("BoxLvl2")]
+    [SerializeField] private float rotationAngle;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private PossessionManager possessionManager;
+
     [Header("Diary")]
     [SerializeField] private string nextScene;
     [SerializeField] private CanvasGroup fadeOut;
@@ -29,14 +36,13 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     private string originalText;
     private bool showingWarning = false;
+    private bool open = false;
+    private Quaternion rotation;
 
     public int[] Code { get => code; set => code = value; }
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform.parent;
-    
-    [Header("BoxLvl2")]
-    [SerializeField] private PossessionManager possessionManager;
 
     private void Start()
     {
@@ -50,6 +56,23 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         if (showingWarning) return;
 
         StartCoroutine(InteractCoroutine());
+    }
+
+    private void Update()
+    {
+        if (open)
+        {
+            // if current rotation has not reach final rotation
+            if (Quaternion.Angle(transform.parent.rotation, rotation) > 0.1f)
+            {
+                transform.parent.rotation = Quaternion.Slerp(transform.parent.rotation, rotation, Time.deltaTime * rotationSpeed);
+            }
+            else
+            {
+                Destroy(this);
+                masterKey.SetActive(true);
+            }
+        }
     }
 
     private IEnumerator InteractCoroutine()
@@ -138,7 +161,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
 
         Vector3 startPos = drawerObject.localPosition;
-        Vector3 targetPos = startPos + (-drawerObject.right * openDistance);
+        Vector3 targetPos = startPos + (-drawerObject.up * openDistance);
         float elapsed = 0f;
 
         while (elapsed < openDuration)
@@ -176,8 +199,9 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     private void UnlockBox()
     {
-        Destroy(this);
-        masterKey.SetActive(true);
+        // final rotation
+        rotation = Quaternion.Euler(transform.parent.eulerAngles.x + rotationAngle, 0, 0);
+        open = true; 
     }
 
     private IEnumerator ShowWarning(string warningText)

@@ -820,8 +820,9 @@ namespace StarterAssets
             object closest = null;
             float closestDistance = float.MaxValue;
 
-            Vector3 point1 = transform.position + Vector3.up * capsuleHeight / 2f;
-            Vector3 point2 = transform.position + Vector3.down * capsuleHeight / 2f;
+            Vector3 center = transform.position + Vector3.up * capsuleHeight / 2f;
+            Vector3 point1 = center + Vector3.up * capsuleHeight / 2f;
+            Vector3 point2 = center + Vector3.down * capsuleHeight / 2f;
 
             // get all colliders within a defined radius around the player
             Collider[] colliderArray = Physics.OverlapCapsule(point1, point2, capsuleRadius);
@@ -1445,8 +1446,9 @@ namespace StarterAssets
                 GroundedRadius);
 
             Gizmos.color = Color.yellow;
-            Vector3 top = transform.position + Vector3.up * capsuleHeight / 2f;
-            Vector3 bottom = transform.position + Vector3.down * capsuleHeight / 2f;
+            Vector3 center = transform.position + Vector3.up * capsuleHeight / 2f;
+            Vector3 top = center + Vector3.up * capsuleHeight / 2f;
+            Vector3 bottom = center + Vector3.down * capsuleHeight / 2f;
             DrawCapsuleGizmo(bottom, top, capsuleRadius);
         }
 

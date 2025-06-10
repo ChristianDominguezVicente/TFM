@@ -23,6 +23,9 @@ TagManager:
   - Wood
   - Grass
   - Stone
+  - Drawer
+  - Refrigerator
+  - DrawerLetter
   layers:
   - Default
   - TransparentFX
