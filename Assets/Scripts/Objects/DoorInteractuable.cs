@@ -82,6 +82,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
                 if (gameObject.CompareTag("Principal"))
                 {
                     objectManager.PrincipalDoor = true;
+                    ActionSM();
                     hintManager.DialogueDataArray = dialogueDataArray;
                     paul.ListeningDialogueData = dialogueDataListen;
                 }
@@ -149,5 +150,12 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
             targetPosition = transform.parent.position + movement;
             open = true;
         }
+    }
+    public void ActionSM()
+    {
+        SMSystem smsys = FindAnyObjectByType<SMSystem>();
+        smsys.NeedsUIUpdate = true;
+        
+        
     }
 }

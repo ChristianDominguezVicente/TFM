@@ -65,6 +65,7 @@ public class SMSystem : MonoBehaviour
         }
         if (needsUIUpdate)
         {
+            SMObjetivos();
             ActualizarHUD();
             needsUIUpdate = false;
         }
@@ -90,10 +91,18 @@ public class SMSystem : MonoBehaviour
 
     public void UpdateMissionMenuEnunciado(int indiceMision)
     {
-        // Debug.Log("indice es: " + indiceMision);
         LimpiezaEnunciado();
-        missions[indiceMision].missionInfoPanel.SetActive(true);
-        needsUIUpdate = true;
+        if (dad.GetComponent<ThirdPersonController>().enabled == true && currentLevelName == "Greybox" && indiceMision == 2) // si es el padre y estamos en ms3 en puzle 1
+        {
+            missions[indiceMision].missionInfoPanel.SetActive(false);
+            missions[indiceMision].missionAltPanel.SetActive(true);
+        }
+        else
+        {
+            missions[indiceMision].missionInfoPanel.SetActive(true);
+        }
+
+        //  needsUIUpdate = true;
 
     }
 
@@ -104,6 +113,10 @@ public class SMSystem : MonoBehaviour
             if (missions[i] != null)
             {
                 missions[i].missionInfoPanel.SetActive(false);
+                if (missions[i].missionAltPanel != null)
+                {
+                    missions[i].missionAltPanel.SetActive(false);
+                }
             }
         }
     }
@@ -125,14 +138,14 @@ public class SMSystem : MonoBehaviour
 
     private void SMPuzleTwo()
     {
-        int indiceMs = 0;
-        if (missions[indiceMs].isCompleted) //pasar a la siguiente mision
+        int indiceMsPuzTwo = 0;
+        if (missions[indiceMsPuzTwo].isCompleted) //pasar a la siguiente mision
         {
-            indiceMs++;
+            indiceMsPuzTwo++;
 
-            if (indiceMs == 1) //ms2
+            if (!missions[indiceMsPuzTwo].isCompleted) //ms2
             {
-                MSTwoPuzleTwo(indiceMs);
+                MSTwoPuzleTwo(indiceMsPuzTwo);
 
             }
             else //ms3
@@ -142,7 +155,7 @@ public class SMSystem : MonoBehaviour
         }
         else
         {//estoy en mision 1 del puzle 2
-            MSOnePuzleTwo(indiceMs);
+            MSOnePuzleTwo(indiceMsPuzTwo);
 
         }
     }
@@ -152,6 +165,7 @@ public class SMSystem : MonoBehaviour
         if (objectManager.Teddy)
         {
             ActualizarTexto(indiceMs, 0);
+            missions[indiceMs].isCompleted = true;
         }
     }
 
@@ -177,26 +191,26 @@ public class SMSystem : MonoBehaviour
 
     private void SMPuzleOne()
     {
-        int indiceMs = 0;
-        if (missions[indiceMs].isCompleted) //pasar a la siguiente mision
+        int indiceMsPuzleOne = 0;
+        if (missions[indiceMsPuzleOne].isCompleted) //pasar a la siguiente mision
         {
-            indiceMs++;
+            indiceMsPuzleOne++;
             //next mission
-
-            if (indiceMs == 1) //ms2
+            if (!missions[indiceMsPuzleOne].isCompleted) //ms2
             {
-                MSTwoPuzleOne(indiceMs);
+                MSTwoPuzleOne(indiceMsPuzleOne);
 
             }
             else //ms3
             {
-                MSThreePuzleOne(indiceMs);
+                indiceMsPuzleOne++;
+                MSThreePuzleOne(indiceMsPuzleOne);
             }
 
         }
         else //estoy en mision 1 del puzle 1
         {
-            MSOneePuzleOne(indiceMs);
+            MSOneePuzleOne(indiceMsPuzleOne);
         }
     }
 
@@ -220,7 +234,7 @@ public class SMSystem : MonoBehaviour
         {
             ActualizarTexto(indiceMs, 0);
             missions[indiceMs].isCompleted = true;
-            Debug.Log("wenas");
+         
         }
     }
 
@@ -253,34 +267,31 @@ public class SMSystem : MonoBehaviour
 
     private void ActualizarHUD()
     {
-        int indiceMs = 0;
-        if (!missions[indiceMs].isCompleted) //mision1
+        int indiceMsHUD = 0;
+        if (!missions[indiceMsHUD].isCompleted) //mision1
         {
             //all 1 mission act
-            MSOneePuzleOne(indiceMs);
-            MSOnePuzleTwo(indiceMs);
-            ActualizarTitulo(indiceMs);
-            ActualizarTextoUI(indiceMs);
+            MSOneePuzleOne(indiceMsHUD);
+            MSOnePuzleTwo(indiceMsHUD);
+            ActualizarTitulo(indiceMsHUD);
+            ActualizarTextoUI(indiceMsHUD);
         }
         else
         {
-            indiceMs++;
-            if (!missions[indiceMs].isCompleted) //mision2
+            indiceMsHUD++;
+            if (!missions[indiceMsHUD].isCompleted) //mision2
             {
-                MSTwoPuzleOne(indiceMs);
-                MSTwoPuzleTwo(indiceMs);
-                ActualizarTitulo(indiceMs);
-                ActualizarTextoUI(indiceMs);
+                MSTwoPuzleOne(indiceMsHUD);
+                MSTwoPuzleTwo(indiceMsHUD);
+                ActualizarTitulo(indiceMsHUD);
+                ActualizarTextoUI(indiceMsHUD);
             }
             else
             {
-                indiceMs++; //mision3
-
-
-
-                MSThreePuzleOne(indiceMs);
-                ActualizarTitulo(indiceMs);
-                ActualizarTextoUI(indiceMs);
+                indiceMsHUD++; //mision3
+                MSThreePuzleOne(indiceMsHUD);
+                ActualizarTitulo(indiceMsHUD);
+                ActualizarTextoUI(indiceMsHUD);
             }
         }
     }
