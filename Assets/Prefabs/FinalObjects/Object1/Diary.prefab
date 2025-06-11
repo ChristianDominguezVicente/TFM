@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4720630127720881894}
   - component: {fileID: 7905893859673769653}
   - component: {fileID: 6374371585769475241}
-  - component: {fileID: 7081762501873840682}
+  - component: {fileID: 8754078770925927973}
   m_Layer: 3
   m_Name: Diary
   m_TagString: Diary
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5281783864989532544}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.3928585, y: -0.58793044, z: -0.58793044, w: 0.3928585}
+  m_LocalRotation: {x: -0.39285776, y: -0.587931, z: -0.587931, w: 0.39285776}
   m_LocalPosition: {x: 6.0567513, y: 4.060955, z: 4.435151}
   m_LocalScale: {x: 9, y: 11, z: 3}
   m_ConstrainProportionsScale: 0
@@ -116,8 +116,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7081762501873840682
-MeshCollider:
+--- !u!65 &8754078770925927973
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,7 +134,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -66333826979096818, guid: 19176c18ee749384ea7c84c488211537, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.021053376, y: 0.020894257, z: 0.012750801}
+  m_Center: {x: 0.0017596576, y: 0.00011985552, z: 0.03891232}

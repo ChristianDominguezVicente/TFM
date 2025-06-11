@@ -80,7 +80,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         var currentNpc = possessionManager.CurrentNPC;
 
         // if in the puzzle 2 Lia interact with the box that contains the key master, it unlock automatically
-        if (CompareTag("Box") && SceneManager.GetActiveScene().name != "Puzzle 2")
+        if (CompareTag("Box") && SceneManager.GetActiveScene().name != "Puzzle2")
         {
             if (cinematicDialogue != null)
             {
@@ -94,7 +94,12 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
                 cinematicDialogue.End = false;
             }
         }
-        else if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia" && SceneManager.GetActiveScene().name == "Puzzle 2")
+        else if (CompareTag("Box") && restrictedNPCs.Contains(currentNpc.NpcName) && SceneManager.GetActiveScene().name == "Puzzle2")
+        {
+            StartCoroutine(ShowWarning("<color=red>No hay nada de interés en la estantería</color>"));
+            yield break;
+        }
+        else if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia" && SceneManager.GetActiveScene().name == "Puzzle2")
         {
             UnlockBox();
         }
@@ -199,6 +204,13 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     private void UnlockBox()
     {
+        if (cinematicDialogue != null)
+        {
+            cinematicDialogue.PlayDialogue();
+
+            cinematicDialogue.End = false;
+        }
+
         // final rotation
         rotation = Quaternion.Euler(transform.parent.eulerAngles.x + rotationAngle, 0, 0);
         open = true; 

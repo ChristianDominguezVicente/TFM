@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8647788712880647389}
   - component: {fileID: 5222351335625994668}
   - component: {fileID: 4347635131850399885}
-  - component: {fileID: 1920935848255033681}
+  - component: {fileID: 1158434285327822145}
   m_Layer: 3
   m_Name: Mesh8
   m_TagString: Note
@@ -105,8 +105,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1920935848255033681
-MeshCollider:
+--- !u!65 &1158434285327822145
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,10 +123,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3279533534570359355, guid: a92a60223167f3f40b292f82b77bd1f4, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 2.0605197, y: 0, z: 2.0629995}
+  m_Center: {x: -1.0302598, y: 0.099999994, z: -1.941027}
 --- !u!1 &6259997836717035745
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +170,6 @@ GameObject:
   - component: {fileID: 4158499465742155717}
   - component: {fileID: 6416671343890064002}
   - component: {fileID: 789484582636441287}
-  - component: {fileID: 4234710239796373934}
   m_Layer: 3
   m_Name: Mesh9
   m_TagString: Untagged
@@ -247,25 +245,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4234710239796373934
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237413973770126946}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 5218926163441037908, guid: a92a60223167f3f40b292f82b77bd1f4, type: 3}

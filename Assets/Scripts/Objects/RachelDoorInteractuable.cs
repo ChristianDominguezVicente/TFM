@@ -12,6 +12,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue cinematicDialogue;
+    [SerializeField] private CinematicDialogue cinematicDialogue2;
 
     private string originalText;
     private bool showingWarning = false;
@@ -35,41 +36,69 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
+        SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
+        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        if (SceneManager.GetActiveScene().name == "Puzzle2" && karma < 0)
         {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
+            if (cinematicDialogue != null)
             {
-                yield return null;
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+        }
+        else if (SceneManager.GetActiveScene().name == "Puzzle2" && karma == 0)
+        {
+            if (cinematicDialogue2 != null)
+            {
+                cinematicDialogue2.PlayDialogue();
+
+                while (!cinematicDialogue2.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue2.End = false;
+            }
+        }
+        else
+        {
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
             }
 
-            cinematicDialogue.End = false;
-        }
+            if (!objectManager.Incorrect && !objectManager.Correct)
+            {
+                StartCoroutine(ShowWarning("<color=red>You need a object</color>"));
+            }
+            else if (objectManager.Incorrect)
+            {
+                nextScene = "Final Bueno";
+                karma++;
+                ssm.SetKarma(karma);
+                StartCoroutine(FadeOut());
 
-        if (!objectManager.Incorrect && !objectManager.Correct)
-        {
-            StartCoroutine(ShowWarning("<color=red>You need a object</color>"));
-        }
-        else if (objectManager.Incorrect)
-        {
-            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
-            nextScene = "Final Bueno";
-            karma++;
-            ssm.SetKarma(karma);
-            StartCoroutine(FadeOut());
-            
-        }
-        else if (objectManager.Correct)
-        {
-            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
-            nextScene = "Final Malo";
-            karma--;
-            ssm.SetKarma(karma);
-            StartCoroutine(FadeOut());
-            
+            }
+            else if (objectManager.Correct)
+            {
+                nextScene = "Final Malo";
+                karma--;
+                ssm.SetKarma(karma);
+                StartCoroutine(FadeOut());
+            }
         }
     }
 

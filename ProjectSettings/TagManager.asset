@@ -26,6 +26,8 @@ TagManager:
   - Drawer
   - Refrigerator
   - DrawerLetter
+  - RachelChain
+  - Letter
   layers:
   - Default
   - TransparentFX

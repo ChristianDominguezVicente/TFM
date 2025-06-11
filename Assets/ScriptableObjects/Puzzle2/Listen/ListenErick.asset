@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: ListenErick
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476107995480215
+  - rid: 3380476107995480216
+  - rid: 3380476107995480217
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476107995480215
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Y ahora van y me dicen que tengo que montar yo el regalo de la
+          ni\xF1a..."
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480216
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Yo que ven\xEDa aqu\xED por si ca\xEDa algo y al final me encasquetan
+          su trabajo."
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476107995480217
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "A ver. Necesito una caja de herramientas, la cadena... \xBFalgo
+          m\xE1s?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

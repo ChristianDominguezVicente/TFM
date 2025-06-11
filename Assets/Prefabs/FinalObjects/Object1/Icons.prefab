@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7459363581235652771}
-  - component: {fileID: 3515261130520545508}
   - component: {fileID: 7022174692289734224}
   - component: {fileID: 120987879881281644}
-  - component: {fileID: 957690165624670654}
+  - component: {fileID: 108372723960669101}
   m_Layer: 3
   m_Name: Mesh153
   m_TagString: Icons
@@ -35,23 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 305898526404924255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3515261130520545508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273695850367322728}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db1ee95f606d0e14c85226ff8e07d867, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: "Examinar \xEDconos"
-  offset: {fileID: 0}
-  objectManager: {fileID: 0}
-  ui: {fileID: 0}
-  cinematicDialogue: {fileID: 0}
 --- !u!33 &7022174692289734224
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &957690165624670654
-MeshCollider:
+--- !u!65 &108372723960669101
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,10 +106,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4167957740801323084, guid: a92a60223167f3f40b292f82b77bd1f4, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 3.1500027, y: 0.049999993, z: 2.1500003}
+  m_Center: {x: -34.09794, y: 0.124999985, z: -9.2583885}
 --- !u!1 &8050194356563105181
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050194356563105181}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.85936064, z: -0, w: 0.5113701}
+  m_LocalRotation: {x: 0, y: -0.8593618, z: 0, w: 0.51136816}
   m_LocalPosition: {x: 6.1132, y: 4.15477, z: 4.8606}
   m_LocalScale: {x: 0.052298255, y: 0.052298255, z: 0.052298255}
   m_ConstrainProportionsScale: 0

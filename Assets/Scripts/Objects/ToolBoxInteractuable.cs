@@ -20,7 +20,7 @@ public class ToolBoxInteractuable : MonoBehaviour, IInteractuable
     }
     private IEnumerator InteractCoroutine()
     {
-        if (SceneManager.GetActiveScene().name != "Puzzle 2")
+        if (SceneManager.GetActiveScene().name != "Puzzle2")
         {
             if (cinematicDialogue != null)
             {
@@ -36,6 +36,18 @@ public class ToolBoxInteractuable : MonoBehaviour, IInteractuable
         }
         else
         {
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+
             // mark it in the ObjectManager
             objectManager.ToolBox = true;
             Action();

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: ListenHelen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 8849634281751576616
+  - rid: 3380476107995480218
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476107995480218
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFO unos patines? \xBFUna bici? \xBFUn MP4 nuevo? Espero que
+          no sea ropa otra vez..."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 8849634281751576616
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFQu\xE9 me habr\xE1n comprado? \xBFSer\xE1 una consola? \xBFUna
+          tablet como la de Rachel?"
+        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}

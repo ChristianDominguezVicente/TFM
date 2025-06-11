@@ -119,16 +119,14 @@ public class HintManager : MonoBehaviour, IPossessable
                     case 2: return objectManager.Recipe1 && objectManager.Recipe2;
                     default: return false;
                 }
-            case "Puzzle 2":
+            case "Puzzle2":
                 switch (index)
                 {
-                    case 0: return objectManager.Teddy;
-                    case 1: return objectManager.ToolBox;
+                    case 1: return objectManager.ToolBox && (objectManager.Correct || objectManager.Incorrect);
                     case 2: return objectManager.GiftPaper;
-                    case 3: return objectManager.Correct || objectManager.Incorrect;
                     default: return false;
                 }
-            case "Puzzle 3":
+            case "Puzzle3":
                 switch (index)
                 {
                     case 0: return objectManager.Icons;
@@ -138,7 +136,7 @@ public class HintManager : MonoBehaviour, IPossessable
                     case 4: return objectManager.Note;
                     default: return false;
                 }
-            case "Puzzle 4":
+            case "Puzzle4":
                 switch (index)
                 {
                     case 0: return objectManager.Correct || objectManager.Incorrect;

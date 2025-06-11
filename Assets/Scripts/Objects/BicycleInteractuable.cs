@@ -15,20 +15,13 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue cinematicDialogue;
+    [SerializeField] private CinematicDialogue cinematicDialogue2;
 
     private string originalText;
     private bool showingWarning = false;
-    private bool fixedbycicle = false;
-    private string nextScene = "Puzzle 3";
+    private string nextScene = "Puzzle3";
 
-    public string GetInteractText()
-    {
-        if(fixedbycicle && !showingWarning)
-        {
-            interactText = "Wrap the bicycle";
-        }
-        return interactText;
-    } 
+    public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
     private void Start()
@@ -47,49 +40,27 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
-        {
-            cinematicDialogue.PlayDialogue();
-
-            while (!cinematicDialogue.End)
-            {
-                yield return null;
-            }
-
-            cinematicDialogue.End = false;
-        }
-
         var currentNpc = possessionManager.CurrentNPC;
 
         // if player possess a restricted NPC
         if (currentNpc != null && !acceptedNPC.Contains(currentNpc.NpcName))
         {
-            StartCoroutine(ShowWarning($"<color=red>I dont know how to fix it</color>"));
+            StartCoroutine(ShowWarning($"<color=red>Faltan piezas</color>"));
         }
         // if valve is not activated
-        else if (!objectManager.Teddy)
+        else if (!objectManager.Teddy || !objectManager.ToolBox || objectManager.CurrentObject == null || !objectManager.GiftPaper)
         {
-            StartCoroutine(ShowWarning("<color=red>You didnt grab the teddy</color>"));
-        }
-        // if player hasn't taken the recipes
-        else if (!objectManager.ToolBox)
-        {
-            StartCoroutine(ShowWarning("<color=red>You need the toolbox to fix it</color>"));
-        }
-        // if player hasn't taken the ingredients
-        else if (objectManager.CurrentObject == null)
-        {
-            StartCoroutine(ShowWarning("<color=red>You need the chain to fix it</color>"));
-        }
-        // if everything is ok
-        else if (objectManager.CurrentObject != null && !fixedbycicle)
-        {
-            StartCoroutine(ShowFixedBicycleMessage("<color=green>You did it! Now grab a gift paper to wrap</color>"));
+            if (cinematicDialogue2 != null)
+            {
+                cinematicDialogue2.PlayDialogue();
 
-        }
-        else if (!objectManager.GiftPaper)
-        {
-            StartCoroutine(ShowWarning("<color=red>You need the gift paper to wrap it</color>"));
+                while (!cinematicDialogue2.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue2.End = false;
+            }
         }
         else
         {
@@ -97,7 +68,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             if (karma < 0)
             {
-                nextScene = "Puzzle 4";
+                nextScene = "Puzzle4";
                 if (objectManager.Incorrect)
                 {
                     karma--;
@@ -106,14 +77,26 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             }
             else if (karma == 0)
             {
-                nextScene = "Puzzle 3";
+                nextScene = "Puzzle3";
                 if (objectManager.Incorrect)
                 {
                     karma--;
                     ssm.SetKarma(karma);
                 }
             }
-            
+
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+
             StartCoroutine(FadeOut());
         }
     }
@@ -143,15 +126,5 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
 
         // load next level
         SceneManager.LoadScene(nextScene);
-    }
-
-    private IEnumerator ShowFixedBicycleMessage(string warningText)
-    {
-        showingWarning = true;
-        interactText = warningText;
-        yield return new WaitForSeconds(2f);
-        interactText = originalText;
-        showingWarning = false;
-        fixedbycicle = true;
     }
 }

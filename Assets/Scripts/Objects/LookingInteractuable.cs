@@ -40,7 +40,7 @@ public class LookingInteractuable : MonoBehaviour, IInteractuable
         // activate looking
         if (!looking)
         {
-            if ((CompareTag("Note") || CompareTag("Photo")) && SceneManager.GetActiveScene().name != "Puzzle 3")
+            if ((CompareTag("Note") || CompareTag("Photo")) && SceneManager.GetActiveScene().name != "Puzzle3")
             {
                 if (cinematicDialogue != null)
                 {

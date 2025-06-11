@@ -1,13 +1,22 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IncorrectInteractuable : MonoBehaviour, IInteractuable
 {
     [SerializeField] private string interactText;
     [SerializeField] private ObjectManager objectManager;
+    [SerializeField] private PossessionManager possessionManager;
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue cinematicDialogue;
+
+    [Header("Restricted NPCs")]
+    [SerializeField] private string[] restrictedNPCs;
+
+    private string originalText;
+    private bool showingWarning = false;
 
     public string GetInteractText()
     {
@@ -17,45 +26,70 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
             if (firstSpaceIndex != -1 && firstSpaceIndex < interactText.Length - 1)
             {
                 string objectName = interactText.Substring(firstSpaceIndex + 1);
-                return "Change with " + objectName;
+                return "Cambiar por " + objectName;
             }
 
-            return "Change Object";
+            return "Cambiar Objeto";
         }
 
         return interactText;
     }
     public Transform GetTransform() => transform;
 
+    private void Start()
+    {
+        // save original text
+        originalText = interactText;
+    }
+
     public void Interact(Transform interactorTransform)
     {
+        // if there is a warning
+        if (showingWarning) return;
+
         StartCoroutine(InteractCoroutine());
     }
     private IEnumerator InteractCoroutine()
     {
-        if (cinematicDialogue != null)
-        {
-            cinematicDialogue.PlayDialogue();
+        var currentNpc = possessionManager.CurrentNPC;
 
-            while (!cinematicDialogue.End)
+        // if player possess a restricted NPC
+        if (restrictedNPCs.Contains(currentNpc.NpcName) && CompareTag("RachelChain"))
+        {
+            StartCoroutine(ShowWarning("<color=red>No debería tocar la bici de Rachel</color>"));
+            yield break;
+        }
+        else if ((currentNpc.NpcName == "Jane" || currentNpc.NpcName == "Henry") && CompareTag("RachelChain"))
+        {
+            StartCoroutine(ShowWarning("<color=red>No hay nada que hacer con esa bicicleta</color>"));
+            yield break;
+        }
+        else
+        {
+            if (cinematicDialogue != null)
             {
-                yield return null;
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
             }
 
-            cinematicDialogue.End = false;
+            if (objectManager.CurrentObject != null)
+            {
+                objectManager.CurrentObject.SetActive(true);
+            }
+
+            objectManager.CurrentObject = gameObject;
+
+            // mark it in the ObjectManager
+            objectManager.Incorrect = true;
+            objectManager.Correct = false;
+            Action();
         }
-
-        if (objectManager.CurrentObject != null)
-        {
-            objectManager.CurrentObject.SetActive(true);
-        }
-
-        objectManager.CurrentObject = gameObject;
-
-        // mark it in the ObjectManager
-        objectManager.Incorrect = true;
-        objectManager.Correct = false;
-        Action();
     }
 
     public void Action()
@@ -64,5 +98,14 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
         smsys.NeedsUIUpdate = true;
         // deactivates the object in the scene when interacted with
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator ShowWarning(string warningText)
+    {
+        showingWarning = true;
+        interactText = warningText;
+        yield return new WaitForSeconds(2f);
+        interactText = originalText;
+        showingWarning = false;
     }
 }

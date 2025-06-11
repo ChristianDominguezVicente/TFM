@@ -20,7 +20,8 @@ MonoBehaviour:
     - rid: 3380476107995480142
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: "Una foto de toda la familia. Rachel todav\xEDa no se hab\xEDa te\xF1ido."
+        npcText: Una foto de la boda de nuestros padres. Yo ya estaba a punto de
+          nacer.
         image: {fileID: 0}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

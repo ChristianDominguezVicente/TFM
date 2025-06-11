@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Helen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476243546472558
+  - rid: 3380476243546472559
+  - rid: 3380476243546472560
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476243546472558
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Ya tengo todo para poder montar y envolver la bici.
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476243546472559
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "S\xED. Ha sido curioso vivir estos sucesos desde otro punto de
+          vista."
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476243546472560
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Aquel d\xEDa hab\xEDa estado bastante entretenida con Lia y no
+          me llegu\xE9 a dar cuenta de mucho de lo que pudo haber ocurrido."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
