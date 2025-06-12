@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Helen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476271017328762
+  - rid: 3380476271017328766
+  - rid: 3380476271017328767
+  - rid: 3380476271017328768
+  - rid: 3380476271017328769
+  - rid: 3380476271017328771
+  - rid: 3380476271017328772
+  - rid: 3380476271017328773
+  - rid: 3380476271017328774
+  - rid: 3380476271017328775
+  - rid: 3380476271017328778
+  - rid: 3380476271017328779
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476271017328762
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "He conseguido abrirlo. Aunque me siento un poco mal ley\xE9ndolo."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328766
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328767
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Cierto.
+        image: {fileID: 0}
+        nextIndex: 3
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328768
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Voy a mirar la \xFAltima p\xE1gina. A ver si ha escrito algo del
+          d\xEDa de hoy."
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328769
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328771
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 6
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328772
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\"No soporto a esa puta cr\xEDa ego\xEDsta.\""
+        image: {fileID: 0}
+        nextIndex: 7
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328773
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\"Solo es capaz de pensar en s\xED misma mientras atrae la atenci\xF3n
+          de todo el mundo.\""
+        image: {fileID: 0}
+        nextIndex: 8
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328774
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\"Siempre la han querido m\xE1s a ella, lo sabe y se regodea. Me
+          da ganas de vomitar.\""
+        image: {fileID: 0}
+        nextIndex: 9
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328775
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328778
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 11
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328779
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Ser\xE1 mejor."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

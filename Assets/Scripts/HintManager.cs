@@ -130,10 +130,7 @@ public class HintManager : MonoBehaviour, IPossessable
                 switch (index)
                 {
                     case 0: return objectManager.Icons;
-                    case 1: return objectManager.Poster;
-                    case 2: return objectManager.Tablet;
-                    case 3: return objectManager.Photo;
-                    case 4: return objectManager.Note;
+                    case 1: return objectManager.Poster && objectManager.Tablet && objectManager.Photo && objectManager.Note;
                     default: return false;
                 }
             case "Puzzle4":

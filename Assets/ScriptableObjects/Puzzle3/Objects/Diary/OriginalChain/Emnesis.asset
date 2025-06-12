@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Emnesis
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476271017328745
+  - rid: 3380476271017328746
+  - rid: 3380476271017328747
+  - rid: 3380476271017328752
+  - rid: 3380476271017328758
+  - rid: 3380476271017328759
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476271017328745
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "No lo est\xE1s haciendo en la vida real, Helen."
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328746
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "T\xFA nunca llegaste a leer su diario. Y est\xE1s aqu\xED precisamente
+          por ello."
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328747
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Porque quieres saber qu\xE9 es lo que ocurri\xF3 y si pudiste haber
+          hecho algo por ella o no."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328752
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFQu\xE9 pone?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328758
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 5
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328759
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFVolvemos al recibidor?"
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

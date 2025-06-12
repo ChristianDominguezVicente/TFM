@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Helen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476271017328641
+  - rid: 3380476271017328642
+  - rid: 3380476271017328643
+  - rid: 3380476271017328644
+  - rid: 3380476271017328645
+  - rid: 3380476271017328647
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476271017328641
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328642
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Despu\xE9s de que el t\xEDo Erick llamase a mi padre diciendo que
+          estaba todo listo... recuerdo que hubo un momento de calma."
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328643
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Mam\xE1 tambi\xE9n hab\xEDa acabado de trabajar y se hab\xEDa metido
+          en el garaje."
+        image: {fileID: 0}
+        nextIndex: 3
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328644
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Pero recuerdo que hab\xEDa habido movimiento entre los ni\xF1os.
+          Incluso Mary se hab\xEDa llegado a levantar."
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328645
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "No recuerdo qu\xE9 hab\xEDa pasado en concreto, la verdad."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476271017328647
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Cierto. Quiero saber qu\xE9 ocurri\xF3 en aquel momento."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

@@ -19,7 +19,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
 
     private string originalText;
     private bool showingWarning = false;
-    private string nextScene = "Puzzle3";
+    private string nextScene = "Transicion23";
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
@@ -68,7 +68,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             if (karma < 0)
             {
-                nextScene = "Puzzle4";
+                nextScene = "Transicion24";
                 if (objectManager.Incorrect)
                 {
                     karma--;
@@ -77,7 +77,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             }
             else if (karma == 0)
             {
-                nextScene = "Puzzle3";
+                nextScene = "Transicion23";
                 if (objectManager.Incorrect)
                 {
                     karma--;

@@ -30,6 +30,9 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue cinematicDialogue;
+    [SerializeField] private CinematicDialogue cinematicDialogue2;
+    [SerializeField] private CinematicDialogue cinematicDialogue3;
+    [SerializeField] private CinematicDialogue cinematicDialogue4;
 
     [Header("Restricted NPCs")]
     [SerializeField] private string[] restrictedNPCs;
@@ -38,6 +41,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     private bool showingWarning = false;
     private bool open = false;
     private Quaternion rotation;
+    private bool first = false;
 
     public int[] Code { get => code; set => code = value; }
 
@@ -109,6 +113,23 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
             StartCoroutine(ShowWarning("<color=red>Jane no te permite tocar el cajón</color>"));
             yield break;
         }
+        else if (CompareTag("Diary") && !first)
+        {
+            if (cinematicDialogue != null)
+            {
+                cinematicDialogue.PlayDialogue();
+
+                while (!cinematicDialogue.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue.End = false;
+            }
+
+            first = true;
+            codeUI.Show(this);
+        }
         // show UI
         else
         {
@@ -127,28 +148,67 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if (CompareTag("Diary"))
         {
-            SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
-            if (karma == 0)
-            {
-                karma++;
-                ssm.SetKarma(karma);
-            }
-            else if (karma == -1)
-            {
-                karma--;
-                ssm.SetKarma(karma);
-            }
-            
-            StartCoroutine(FadeOut());
+            StartCoroutine(Diary());
         }
         else if(CompareTag("Box"))
         {
             UnlockBox();
-        }
-            
+        }  
     }
 
+    private IEnumerator Diary()
+    {
+        SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
+        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        if (karma == 0)
+        {
+            karma++;
+            ssm.SetKarma(karma);
+
+            if (cinematicDialogue2 != null)
+            {
+                cinematicDialogue2.PlayDialogue();
+
+                while (!cinematicDialogue2.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue2.End = false;
+            }
+        }
+        else if (karma == -1)
+        {
+            karma--;
+            ssm.SetKarma(karma);
+
+            if (cinematicDialogue3 != null)
+            {
+                cinematicDialogue3.PlayDialogue();
+
+                while (!cinematicDialogue3.End)
+                {
+                    yield return null;
+                }
+
+                cinematicDialogue3.End = false;
+            }
+        }
+
+        if (cinematicDialogue4 != null)
+        {
+            cinematicDialogue4.PlayDialogue();
+
+            while (!cinematicDialogue4.End)
+            {
+                yield return null;
+            }
+
+            cinematicDialogue4.End = false;
+        }
+
+        StartCoroutine(FadeOut());
+    }
 
     // drawer opening animation
     private IEnumerator MoveDrawer()
