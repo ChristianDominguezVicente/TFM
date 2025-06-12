@@ -79,7 +79,7 @@ public class ObjectManager : MonoBehaviour
         if (masterKeyGO != null && masterKeyTaken)
         {
             masterKeyGO.Action();
-            if (SceneManager.GetActiveScene().name == "Greybox" || SceneManager.GetActiveScene().name == "Puzzle 2")
+            if (SceneManager.GetActiveScene().name == "Greybox" || SceneManager.GetActiveScene().name == "Puzzle2")
                 Destroy(codeGO);
         }
         if (valveGO != null && valveActive)
@@ -90,15 +90,15 @@ public class ObjectManager : MonoBehaviour
             flourGO.gameObject.SetActive(false);   
         if (eggsGO != null && eggs)
             eggsGO.gameObject.SetActive(false);     
-        if (recipe1GO != null && flour)
+        if (recipe1GO != null && recipe1)
             recipe1GO.gameObject.SetActive(false);
-        if (recipe2GO != null && eggs)
+        if (recipe2GO != null && recipe2)
             Destroy(recipe2GO);
-        if (teddyGO != null && sugar)
+        if (teddyGO != null && teddy)
             teddyGO.Action();
-        if (toolBoxGO != null && flour)
+        if (toolBoxGO != null && toolBox)
             toolBoxGO.Action();
-        if (giftPaperGO != null && eggs)
+        if (giftPaperGO != null && giftPaper)
             giftPaperGO.gameObject.SetActive(false);
         if (currentObject != null)
         {

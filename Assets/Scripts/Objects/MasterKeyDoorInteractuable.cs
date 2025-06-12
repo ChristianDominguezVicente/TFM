@@ -19,6 +19,9 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // if there is a warning
+        if (open) return;
+
         StartCoroutine(InteractCoroutine());
     }
     private IEnumerator InteractCoroutine()

@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887625127633836677}
+  - component: {fileID: 3747841172249405901}
   - component: {fileID: 6201412498079251085}
   - component: {fileID: 8838952894557171313}
+  - component: {fileID: 1116912714568029261}
   m_Layer: 3
   m_Name: Sphere019
   m_TagString: Untagged
@@ -33,6 +35,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7682102378891327160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3747841172249405901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3451574621284027710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4408d573be134b44bbdeca891db0288d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactText: Recoger Huevos
+  objectManager: {fileID: 0}
+  cinematicDialogue: {fileID: 0}
 --- !u!33 &6201412498079251085
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -86,63 +103,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4611657802550737811
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7682102378891327160}
-  - component: {fileID: 4507437441754704729}
-  - component: {fileID: 4898318072901798244}
-  m_Layer: 0
-  m_Name: Eggs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7682102378891327160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611657802550737811}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.327, y: 1.0445297, z: 1.2745514}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1778166113132745200}
-  - {fileID: 887625127633836677}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4507437441754704729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611657802550737811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4408d573be134b44bbdeca891db0288d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactText: Recoger Huevos
-  objectManager: {fileID: 0}
-  cinematicDialogue: {fileID: 0}
---- !u!65 &4898318072901798244
+--- !u!65 &1116912714568029261
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4611657802550737811}
+  m_GameObject: {fileID: 3451574621284027710}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -155,8 +122,41 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15265751, y: 0.061387837, z: 0.124330044}
-  m_Center: {x: -0.00049591064, y: 0.028712422, z: 0.00061154366}
+  m_Size: {x: 0.28559375, y: 0.1854171, z: 0.07123864}
+  m_Center: {x: 0.11771589, y: -0.06719369, z: 0.010114621}
+--- !u!1 &4611657802550737811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7682102378891327160}
+  m_Layer: 3
+  m_Name: Eggs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7682102378891327160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4611657802550737811}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.327, y: 1.0445297, z: 1.2745514}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1778166113132745200}
+  - {fileID: 887625127633836677}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8069855664409989949
 GameObject:
   m_ObjectHideFlags: 0

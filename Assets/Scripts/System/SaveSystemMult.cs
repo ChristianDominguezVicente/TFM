@@ -241,7 +241,7 @@ public class SaveSystemMult : MonoBehaviour
 
         while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }

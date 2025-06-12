@@ -34,6 +34,9 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
 
     public void Interact(Transform interactorTransform)
     {
+        // if there is a warning
+        if (open) return;
+
         StartCoroutine(InteractCoroutine());
     }
 
@@ -95,6 +98,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator FadeOut()
     {
+        open = true;
         fade.gameObject.SetActive(true);
 
         float duration = 2f;

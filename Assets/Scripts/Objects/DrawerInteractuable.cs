@@ -38,7 +38,7 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
     public void Interact(Transform interactorTransform)
     {
         // if there is a warning
-        if (showingWarning) return;
+        if (showingWarning || open) return;
 
         StartCoroutine(InteractCoroutine());
     }
@@ -54,7 +54,6 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
             }
             else
             {
-                go.SetActive(true);
                 // destroy script
                 Destroy(this);
             }
@@ -89,6 +88,7 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
             // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;
+            go.SetActive(true);
         } 
     }
 
@@ -103,6 +103,9 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator MoveDrawer()
     {
+        // activate master key
+        go.SetActive(true);
+
         Vector3 startPos = drawerObject.localPosition;
         Vector3 targetPos = startPos + (drawerObject.forward * openDistance);
         float elapsed = 0f;
@@ -116,8 +119,6 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
 
         drawerObject.localPosition = targetPos;
 
-        // activate master key
-        go.SetActive(true);
         // destroy script
         Destroy(this);
     }
