@@ -128,7 +128,7 @@ public class SMSystem : MonoBehaviour
             SMPuzleOne();
         }
 
-        else if (currentLevelName == "Puzzle 2")
+        else if (currentLevelName == "Puzzle2")
         {
             SMPuzleTwo();
 
@@ -270,9 +270,14 @@ public class SMSystem : MonoBehaviour
         int indiceMsHUD = 0;
         if (!missions[indiceMsHUD].isCompleted) //mision1
         {
+            if (currentLevelName == "Greybox") // pz1 
+            {
+                MSOneePuzleOne(indiceMsHUD);
+            }else if( currentLevelName == "Puzzle2")
+            {
+                MSOnePuzleTwo(indiceMsHUD);
+            }
             //all 1 mission act
-            MSOneePuzleOne(indiceMsHUD);
-            MSOnePuzleTwo(indiceMsHUD);
             ActualizarTitulo(indiceMsHUD);
             ActualizarTextoUI(indiceMsHUD);
         }
@@ -281,15 +286,27 @@ public class SMSystem : MonoBehaviour
             indiceMsHUD++;
             if (!missions[indiceMsHUD].isCompleted) //mision2
             {
-                MSTwoPuzleOne(indiceMsHUD);
-                MSTwoPuzleTwo(indiceMsHUD);
+                if (currentLevelName == "Greybox") // pz1 
+                {
+                    MSTwoPuzleOne(indiceMsHUD);
+                }
+                else if (currentLevelName == "Puzzle2")
+                {
+                    MSTwoPuzleTwo(indiceMsHUD);
+                }
                 ActualizarTitulo(indiceMsHUD);
                 ActualizarTextoUI(indiceMsHUD);
             }
             else
             {
                 indiceMsHUD++; //mision3
-                MSThreePuzleOne(indiceMsHUD);
+                if (currentLevelName == "Greybox") // pz1 
+                {
+                    MSThreePuzleOne(indiceMsHUD);
+                }
+                else if (currentLevelName == "Puzzle2")
+                {
+                }
                 ActualizarTitulo(indiceMsHUD);
                 ActualizarTextoUI(indiceMsHUD);
             }

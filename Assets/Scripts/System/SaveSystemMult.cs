@@ -24,8 +24,8 @@ public class SaveSystemMult : MonoBehaviour
 
     // config 
     public static int CurrentSlot { get; set; } = -1;
-    private const string SceneName = "Greybox"; //level one
-
+    private const string InitialScenePuzzleOne = "Greybox"; //level one
+    private const string InitialMENU = "InicioMenu";
     // save pos player, scene and play time 
     private static string GetPositionXKey(int slot) => $"Slot{slot}_PosX";
     private static string GetPositionYKey(int slot) => $"Slot{slot}_PosY";
@@ -85,7 +85,7 @@ public class SaveSystemMult : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Time.timeScale = 1.0f; // menu pause was active
-        if (CurrentSlot >= 0 && scene.name == SceneName)
+        if (CurrentSlot >= 0)
         {
             if(sceneBeginning != null)
                 sceneBeginning.gameObject.SetActive(false);
@@ -99,7 +99,7 @@ public class SaveSystemMult : MonoBehaviour
             LoadObjects();
             LoadHistory();
         }
-        else if (scene.name == SceneName)
+        else if (scene.name == InitialScenePuzzleOne)
         {
             FindPlayer();
             StartNewPlayTime(); // init count new game
@@ -140,7 +140,7 @@ public class SaveSystemMult : MonoBehaviour
     void Update()
     {
         // Counting time only if we are in a game(game scene loaded)
-        if (SceneManager.GetActiveScene().name == SceneName)
+        if (SceneManager.GetActiveScene().name == InitialScenePuzzleOne)
         {
             currentPlayTime += Time.deltaTime;
 
@@ -198,26 +198,30 @@ public class SaveSystemMult : MonoBehaviour
 
     private void ObjectSave(int slotIndex)
     {
-        PlayerPrefs.SetInt(GetPrincipalDoorKey(slotIndex), objectManager.PrincipalDoor ? 0 : 1);
-        PlayerPrefs.SetInt(GetCalendarKey(slotIndex), objectManager.Calendar ? 0 : 1);
-        PlayerPrefs.SetInt(GetMasterKeyKey(slotIndex), objectManager.MasterKeyTaken ? 0 : 1);
-        PlayerPrefs.SetInt(GetValveKey(slotIndex), objectManager.ValveActive ? 0 : 1);
-        PlayerPrefs.SetInt(GetSugarKey(slotIndex), objectManager.Sugar ? 0 : 1);
-        PlayerPrefs.SetInt(GetFlourKey(slotIndex), objectManager.Flour ? 0 : 1);
-        PlayerPrefs.SetInt(GetEggsKey(slotIndex), objectManager.Eggs ? 0 : 1);
-        PlayerPrefs.SetInt(GetRecipe1Key(slotIndex), objectManager.Recipe1 ? 0 : 1);
-        PlayerPrefs.SetInt(GetRecipe2Key(slotIndex), objectManager.Recipe2 ? 0 : 1);
-        PlayerPrefs.SetInt(GetTeddyKey(slotIndex), objectManager.Teddy ? 0 : 1);
-        PlayerPrefs.SetInt(GetToolBoxKey(slotIndex), objectManager.ToolBox ? 0 : 1);
-        PlayerPrefs.SetInt(GetGiftPaperKey(slotIndex), objectManager.GiftPaper ? 0 : 1);
-        PlayerPrefs.SetInt(GetIconsKey(slotIndex), objectManager.Icons ? 0 : 1);
-        PlayerPrefs.SetInt(GetPosterKey(slotIndex), objectManager.Poster ? 0 : 1);
-        PlayerPrefs.SetInt(GetTabletKey(slotIndex), objectManager.Tablet ? 0 : 1);
-        PlayerPrefs.SetInt(GetPhotoKey(slotIndex), objectManager.Photo ? 0 : 1);
-        PlayerPrefs.SetInt(GetNoteKey(slotIndex), objectManager.Note ? 0 : 1);
-        PlayerPrefs.SetInt(GetCorrectKey(slotIndex), objectManager.Correct ? 0 : 1);
-        PlayerPrefs.SetInt(GetIncorrectKey(slotIndex), objectManager.Incorrect ? 0 : 1);
-        PlayerPrefs.SetString(GetCurrentObjectKey(slotIndex), objectManager.CurrentObject == null ? "" : objectManager.CurrentObject.name);
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name != InitialMENU)
+        {
+            PlayerPrefs.SetInt(GetPrincipalDoorKey(slotIndex), objectManager.PrincipalDoor ? 0 : 1);
+            PlayerPrefs.SetInt(GetCalendarKey(slotIndex), objectManager.Calendar ? 0 : 1);
+            PlayerPrefs.SetInt(GetMasterKeyKey(slotIndex), objectManager.MasterKeyTaken ? 0 : 1);
+            PlayerPrefs.SetInt(GetValveKey(slotIndex), objectManager.ValveActive ? 0 : 1);
+            PlayerPrefs.SetInt(GetSugarKey(slotIndex), objectManager.Sugar ? 0 : 1);
+            PlayerPrefs.SetInt(GetFlourKey(slotIndex), objectManager.Flour ? 0 : 1);
+            PlayerPrefs.SetInt(GetEggsKey(slotIndex), objectManager.Eggs ? 0 : 1);
+            PlayerPrefs.SetInt(GetRecipe1Key(slotIndex), objectManager.Recipe1 ? 0 : 1);
+            PlayerPrefs.SetInt(GetRecipe2Key(slotIndex), objectManager.Recipe2 ? 0 : 1);
+            PlayerPrefs.SetInt(GetTeddyKey(slotIndex), objectManager.Teddy ? 0 : 1);
+            PlayerPrefs.SetInt(GetToolBoxKey(slotIndex), objectManager.ToolBox ? 0 : 1);
+            PlayerPrefs.SetInt(GetGiftPaperKey(slotIndex), objectManager.GiftPaper ? 0 : 1);
+            PlayerPrefs.SetInt(GetIconsKey(slotIndex), objectManager.Icons ? 0 : 1);
+            PlayerPrefs.SetInt(GetPosterKey(slotIndex), objectManager.Poster ? 0 : 1);
+            PlayerPrefs.SetInt(GetTabletKey(slotIndex), objectManager.Tablet ? 0 : 1);
+            PlayerPrefs.SetInt(GetPhotoKey(slotIndex), objectManager.Photo ? 0 : 1);
+            PlayerPrefs.SetInt(GetNoteKey(slotIndex), objectManager.Note ? 0 : 1);
+            PlayerPrefs.SetInt(GetCorrectKey(slotIndex), objectManager.Correct ? 0 : 1);
+            PlayerPrefs.SetInt(GetIncorrectKey(slotIndex), objectManager.Incorrect ? 0 : 1);
+            PlayerPrefs.SetString(GetCurrentObjectKey(slotIndex), objectManager.CurrentObject == null ? "" : objectManager.CurrentObject.name);
+        }
     }
 
     public void LoadGame(int slotIndex)
@@ -225,7 +229,7 @@ public class SaveSystemMult : MonoBehaviour
         if (!HasSave(slotIndex)) return;
 
         CurrentSlot = slotIndex;
-        StartCoroutine(FadeOut(SceneName));
+        StartCoroutine(FadeOut(InitialScenePuzzleOne));
     }
 
     private IEnumerator FadeOut(string sceneName)
@@ -255,9 +259,12 @@ public class SaveSystemMult : MonoBehaviour
                 PlayerPrefs.GetFloat(GetPositionYKey(CurrentSlot)),
                 PlayerPrefs.GetFloat(GetPositionZKey(CurrentSlot))
             );
-            player.GetComponent<CharacterController>().enabled = false;
-            player.transform.position = position;
-            player.GetComponent<CharacterController>().enabled = true;
+            if (player.GetComponent<CharacterController>() != null)
+            {
+                player.GetComponent<CharacterController>().enabled = false;
+                player.transform.position = position;
+                player.GetComponent<CharacterController>().enabled = true;
+            }
        //     Debug.Log($"Jugador movido a: {position} desde Slot {CurrentSlot}");
         }
         else
@@ -278,33 +285,41 @@ public class SaveSystemMult : MonoBehaviour
     }
     void LoadObjects()
     {
-        objectManager.PrincipalDoor = PlayerPrefs.GetInt(GetPrincipalDoorKey(CurrentSlot), 0) == 0;
-        objectManager.Calendar = PlayerPrefs.GetInt(GetCalendarKey(CurrentSlot), 0) == 0;
-        objectManager.MasterKeyTaken = PlayerPrefs.GetInt(GetMasterKeyKey(CurrentSlot), 0) == 0;
-        objectManager.ValveActive = PlayerPrefs.GetInt(GetValveKey(CurrentSlot), 0) == 0;
-        objectManager.Sugar = PlayerPrefs.GetInt(GetSugarKey(CurrentSlot), 0) == 0;
-        objectManager.Flour = PlayerPrefs.GetInt(GetFlourKey(CurrentSlot), 0) == 0;
-        objectManager.Eggs = PlayerPrefs.GetInt(GetEggsKey(CurrentSlot), 0) == 0;
-        objectManager.Recipe1 = PlayerPrefs.GetInt(GetRecipe1Key(CurrentSlot), 0) == 0;
-        objectManager.Recipe2 = PlayerPrefs.GetInt(GetRecipe2Key(CurrentSlot), 0) == 0;
-        objectManager.Teddy = PlayerPrefs.GetInt(GetTeddyKey(CurrentSlot), 0) == 0;
-        objectManager.ToolBox = PlayerPrefs.GetInt(GetToolBoxKey(CurrentSlot), 0) == 0;
-        objectManager.GiftPaper = PlayerPrefs.GetInt(GetGiftPaperKey(CurrentSlot), 0) == 0;
-        objectManager.Icons =   PlayerPrefs.GetInt(GetIconsKey(CurrentSlot), 0) == 0;
-        objectManager.Poster = PlayerPrefs.GetInt(GetPosterKey(CurrentSlot), 0) == 0;
-        objectManager.Tablet = PlayerPrefs.GetInt(GetTabletKey(CurrentSlot), 0) == 0;
-        objectManager.Photo = PlayerPrefs.GetInt(GetPhotoKey(CurrentSlot), 0) == 0;
-        objectManager.Note = PlayerPrefs.GetInt(GetNoteKey(CurrentSlot), 0) == 0;
-        objectManager.Correct = PlayerPrefs.GetInt(GetCorrectKey(CurrentSlot), 0) == 0  ;
-        objectManager.Incorrect = PlayerPrefs.GetInt(GetIncorrectKey(CurrentSlot), 0) == 0;
-        objectManager.CurrentObject = GameObject.Find(PlayerPrefs.GetString(GetCurrentObjectKey(CurrentSlot), ""));
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name != InitialMENU)
+        {
+            objectManager.PrincipalDoor = PlayerPrefs.GetInt(GetPrincipalDoorKey(CurrentSlot), 0) == 0;
+            objectManager.Calendar = PlayerPrefs.GetInt(GetCalendarKey(CurrentSlot), 0) == 0;
+            objectManager.MasterKeyTaken = PlayerPrefs.GetInt(GetMasterKeyKey(CurrentSlot), 0) == 0;
+            objectManager.ValveActive = PlayerPrefs.GetInt(GetValveKey(CurrentSlot), 0) == 0;
+            objectManager.Sugar = PlayerPrefs.GetInt(GetSugarKey(CurrentSlot), 0) == 0;
+            objectManager.Flour = PlayerPrefs.GetInt(GetFlourKey(CurrentSlot), 0) == 0;
+            objectManager.Eggs = PlayerPrefs.GetInt(GetEggsKey(CurrentSlot), 0) == 0;
+            objectManager.Recipe1 = PlayerPrefs.GetInt(GetRecipe1Key(CurrentSlot), 0) == 0;
+            objectManager.Recipe2 = PlayerPrefs.GetInt(GetRecipe2Key(CurrentSlot), 0) == 0;
+            objectManager.Teddy = PlayerPrefs.GetInt(GetTeddyKey(CurrentSlot), 0) == 0;
+            objectManager.ToolBox = PlayerPrefs.GetInt(GetToolBoxKey(CurrentSlot), 0) == 0;
+            objectManager.GiftPaper = PlayerPrefs.GetInt(GetGiftPaperKey(CurrentSlot), 0) == 0;
+            objectManager.Icons = PlayerPrefs.GetInt(GetIconsKey(CurrentSlot), 0) == 0;
+            objectManager.Poster = PlayerPrefs.GetInt(GetPosterKey(CurrentSlot), 0) == 0;
+            objectManager.Tablet = PlayerPrefs.GetInt(GetTabletKey(CurrentSlot), 0) == 0;
+            objectManager.Photo = PlayerPrefs.GetInt(GetPhotoKey(CurrentSlot), 0) == 0;
+            objectManager.Note = PlayerPrefs.GetInt(GetNoteKey(CurrentSlot), 0) == 0;
+            objectManager.Correct = PlayerPrefs.GetInt(GetCorrectKey(CurrentSlot), 0) == 0;
+            objectManager.Incorrect = PlayerPrefs.GetInt(GetIncorrectKey(CurrentSlot), 0) == 0;
+            objectManager.CurrentObject = GameObject.Find(PlayerPrefs.GetString(GetCurrentObjectKey(CurrentSlot), ""));
 
-        objectManager.OnLoad();
+            objectManager.OnLoad();
+        }
     }
 
     void LoadHistory()
     {
-        dialogueHistory.OnLoad(PlayerPrefs.GetString(GetHistoryKey(CurrentSlot), ""));
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name != InitialMENU)
+        {
+            dialogueHistory.OnLoad(PlayerPrefs.GetString(GetHistoryKey(CurrentSlot), ""));
+        }
     }
 
     public bool HasSave(int slotIndex)
@@ -317,6 +332,7 @@ public class SaveSystemMult : MonoBehaviour
         if (HasSave(slotIndex))
         {
             string sceneName = PlayerPrefs.GetString(GetSceneKey(slotIndex));
+            string aux;
             float savedPlayTime = PlayerPrefs.GetFloat(GetPlayTimeKey(slotIndex), 0f);
             string formattedTime = FormatPlayTime(savedPlayTime);
             string slotLabel = $"Slot {slotIndex + 1}"; // Default label
@@ -325,9 +341,13 @@ public class SaveSystemMult : MonoBehaviour
             {
                 slotLabel = "Guardado Automático";
             }
-
+            aux = sceneName;
+            if(sceneName == "Greybox")
+            {
+                aux = "Puzzle1";
+            }
             return 
-                   $"Capítulo 1" +
+                   $"{aux}" +
                    $" - Tiempo Jugado: {formattedTime}";
         }
         if (slotIndex == AutoSaveSlotIndex) //autosave Show “Empty” for automatic slot if there is no saving
