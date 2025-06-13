@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: Helen
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 3380476288597229647
+  - rid: 3380476288597229648
+  - rid: 3380476288597229651
+  - rid: 3380476288597229652
+  - rid: 3380476288597229653
+  references:
+    version: 2
+    RefIds:
+    - rid: 3380476288597229647
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Al final me hab\xEDan convencido de que fuera a llevarle algo a
+          Rachel."
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476288597229648
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Tard\xE9 en ceder tanto como la propia Rachel en su momento en
+          aceptar lo que le daba. De hecho, tuve que met\xE9rselo debajo de la puerta."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476288597229651
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Hmm...
+        image: {fileID: 0}
+        nextIndex: 3
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476288597229652
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "No lo recuerdo bien. \xBFCreo que s\xED?"
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476288597229653
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "En todo caso, recuerdo que le ped\xED disculpas en cuanto ella
+          lo hizo. Nos abrazamos y me dijo que no volver\xEDa a enfadarse conmigo."
+        image: {fileID: 0}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 0}

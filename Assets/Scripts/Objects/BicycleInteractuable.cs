@@ -68,7 +68,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             if (karma < 0)
             {
-                nextScene = "Transicion24";
+                nextScene = "Transicion4";
                 if (objectManager.Incorrect)
                 {
                     karma--;

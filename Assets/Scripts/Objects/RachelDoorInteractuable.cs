@@ -9,6 +9,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
     [SerializeField] private float rotationSpeed;
     [SerializeField] private ObjectManager objectManager;
     [SerializeField] private CanvasGroup fadeOut;
+    [SerializeField] private string nextScene = "Final";
 
     [Header("Cinematic")]
     [SerializeField] private CinematicDialogue cinematicDialogue;
@@ -16,7 +17,6 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
 
     private string originalText;
     private bool showingWarning = false;
-    private string nextScene = "Final";
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
@@ -68,25 +68,24 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
         }
         else
         {
-            if (cinematicDialogue != null)
-            {
-                cinematicDialogue.PlayDialogue();
-
-                while (!cinematicDialogue.End)
-                {
-                    yield return null;
-                }
-
-                cinematicDialogue.End = false;
-            }
-
             if (!objectManager.Incorrect && !objectManager.Correct)
             {
-                StartCoroutine(ShowWarning("<color=red>You need a object</color>"));
+                StartCoroutine(ShowWarning("<color=red>Necesitas traer un objeto</color>"));
             }
             else if (objectManager.Incorrect)
             {
-                nextScene = "Final Bueno";
+                if (cinematicDialogue2 != null)
+                {
+                    cinematicDialogue2.PlayDialogue();
+
+                    while (!cinematicDialogue2.End)
+                    {
+                        yield return null;
+                    }
+
+                    cinematicDialogue2.End = false;
+                }
+
                 karma++;
                 ssm.SetKarma(karma);
                 StartCoroutine(FadeOut());
@@ -94,7 +93,18 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
             }
             else if (objectManager.Correct)
             {
-                nextScene = "Final Malo";
+                if (cinematicDialogue != null)
+                {
+                    cinematicDialogue.PlayDialogue();
+
+                    while (!cinematicDialogue.End)
+                    {
+                        yield return null;
+                    }
+
+                    cinematicDialogue.End = false;
+                }
+
                 karma--;
                 ssm.SetKarma(karma);
                 StartCoroutine(FadeOut());

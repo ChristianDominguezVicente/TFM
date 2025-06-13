@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ffd1a54b93f5394994906fbd2e6b098, type: 3}
+  m_Name: ListenMary
+  m_EditorClassIdentifier: 
+  nodes:
+  - rid: 8849634281751576611
+  - rid: 8849634281751576614
+  references:
+    version: 2
+    RefIds:
+    - rid: 8849634281751576611
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Rachel est\xE1 tan enfadada que todav\xEDa no ha bajado... Estoy
+          preocupada."
+        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+    - rid: 8849634281751576614
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Seguro que es porque siempre la est\xE1n ri\xF1endo. \xBFQuiz\xE1
+          si le damos algo para que sepa que la queremos como es...?"
+        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nextIndex: -1
+        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}

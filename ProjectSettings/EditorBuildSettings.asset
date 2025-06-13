@@ -23,6 +23,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle2.unity
     guid: 2033ec3f0e488b74ba9d753743df2b5c
+  - enabled: 1
+    path: Assets/Scenes/Transicion23.unity
+    guid: 47f152e1e18b0144c8166f2e5425089a
+  - enabled: 1
+    path: Assets/Scenes/Puzzle3.unity
+    guid: 278d87b54889b6c40b34022255fa6a50
+  - enabled: 1
+    path: Assets/Scenes/Transicion4.unity
+    guid: 90f3e91fd2a9a804ba4110e8094435f7
+  - enabled: 1
+    path: Assets/Scenes/Puzzle4.unity
+    guid: 1c4b3eaa249f3124c9e271a875f65d8a
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: ae76beb723acdf548977adfca5bd9cae
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
