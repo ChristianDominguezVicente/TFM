@@ -12524,7 +12524,7 @@ PrefabInstance:
     - target: {fileID: 6404877007239844768, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: cinematicDialogueData
       value: 
-      objectReference: {fileID: 11400000, guid: bd40591360d90e942a3da9d8ed02ec8b, type: 2}
+      objectReference: {fileID: 11400000, guid: cb8612553569ac74199935be35267667, type: 2}
     - target: {fileID: 6773926238460070235, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: ui
       value: 
@@ -16908,7 +16908,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06666667
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0

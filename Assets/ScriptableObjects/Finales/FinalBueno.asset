@@ -14,13 +14,158 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - rid: 3380476294716194901
+  - rid: 3380476315606712401
+  - rid: 3380476315606712402
+  - rid: 3380476315606712403
+  - rid: 3380476315606712404
+  - rid: 3380476315606712406
+  - rid: 3380476315606712407
+  - rid: 3380476315606712409
+  - rid: 3380476315606712410
+  - rid: 3380476315606712411
+  - rid: 3380476315606712412
+  - rid: 3380476315606712413
+  - rid: 3380476315606712414
+  - rid: 3380476315606712415
+  - rid: 3380476315606712416
+  - rid: 3380476315606712417
   references:
     version: 2
     RefIds:
     - rid: 3380476294716194901
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: Final Bueno
+        npcText: "Ahora te acuerdas mucho mejor de aquel d\xEDa."
+        image: {fileID: 0}
+        nextIndex: 1
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712401
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Una vez recordamos todo, lo mejor es reflexionar acerca de lo ocurrido.
+        image: {fileID: 0}
+        nextIndex: 2
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712402
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Despu\xE9s de todo, tienes que aceptarlo con el tiempo y yo estoy
+          aqu\xED para ayudarte a hacerlo."
+        image: {fileID: 0}
+        nextIndex: 3
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712403
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Voy a hacerte algunas preguntas. Piensa bien tu respuesta.
+        image: {fileID: 0}
+        nextIndex: 4
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712404
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Poco antes del inicio de este recuerdo, Rachel subi\xF3 a su habitaci\xF3n
+          enfadada."
+        image: {fileID: 0}
+        nextIndex: 5
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712406
+      type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFPor qu\xE9 crees que lo hizo?"
+        image: {fileID: 0}
+        responses:
+        - playerText: "Porque le molestaba que todos me estuvieran prestando atenci\xF3n."
+          nextIndex: 6
+          responseImage: {fileID: 0}
+        - playerText: "Porque no supo gestionar su frustraci\xF3n."
+          nextIndex: 6
+          responseImage: {fileID: 0}
+    - rid: 3380476315606712407
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "A pesar de que t\xFA quer\xEDas una bici y Rachel ya no usaba la
+          suya desde hac\xEDa a\xF1os, decidieron comprarte una nueva."
+        image: {fileID: 0}
+        nextIndex: 7
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712409
+      type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFPor qu\xE9 crees que lo hicieron?"
+        image: {fileID: 0}
+        responses:
+        - playerText: Porque Rachel no quiso que su bici pasase a ser de mi propiedad,.
+          nextIndex: 8
+          responseImage: {fileID: 0}
+        - playerText: "Porque nuestros padres ten\xEDan miedo de que me celase de
+            ella."
+          nextIndex: 8
+          responseImage: {fileID: 0}
+    - rid: 3380476315606712410
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Cuando le diste aquello para hacer las paces, Rachel tard\xF3 en
+          dejarte pasar a pesar de que empezaste con un \"Quiero hacer las paces
+          contigo, Rachel\"."
+        image: {fileID: 0}
+        nextIndex: 9
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712411
+      type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "\xBFPor qu\xE9 crees que fue?"
+        image: {fileID: 0}
+        responses:
+        - playerText: "Porque estaba convencida de que no iba con buena intenci\xF3n."
+          nextIndex: 10
+          responseImage: {fileID: 0}
+        - playerText: "Porque no cre\xEDa que me hab\xEDan manipulado mis padres."
+          nextIndex: 10
+          responseImage: {fileID: 0}
+    - rid: 3380476315606712412
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: ...
+        image: {fileID: 0}
+        nextIndex: 11
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712413
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Creo que t\xFA misma puedes haber sacado unas conclusiones interesantes
+          de este recuerdo."
+        image: {fileID: 0}
+        nextIndex: 12
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712414
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Revivir los recuerdos tal y como ocurrieron es una herramienta que
+          te va a ayudar a hacer las paces contigo misma.
+        image: {fileID: 0}
+        nextIndex: 13
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712415
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "Todav\xEDa tengo otros cuatro recuerdos guardados para ti."
+        image: {fileID: 0}
+        nextIndex: 14
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712416
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: Tengo pensado guiarte de nuevo por ellos para que consigas tu objetivo
+          de entender a Rachel.
+        image: {fileID: 0}
+        nextIndex: 15
+        nonSpeakerImage: {fileID: 0}
+    - rid: 3380476315606712417
+      type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
+      data:
+        npcText: "No me cabe duda de que recordar\xE1s las cosas como realmente son
+          y acabar\xE1s entrando en raz\xF3n, Helen."
         image: {fileID: 0}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
