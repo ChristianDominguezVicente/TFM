@@ -1,4 +1,5 @@
 using StarterAssets;
+using System;
 using System.Collections;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
@@ -67,6 +68,7 @@ public class SaveSystemMult : MonoBehaviour
     private float karma;
     private string history;
 
+
     void Awake()
     {
         FindPlayer();
@@ -87,20 +89,31 @@ public class SaveSystemMult : MonoBehaviour
         Time.timeScale = 1.0f; // menu pause was active
         if (CurrentSlot >= 0)
         {
-            if(sceneBeginning != null)
+         //   Debug.Log("PARTIDA CARGAAAAAAAAAAA");
+            if (sceneBeginning != null)
                 sceneBeginning.gameObject.SetActive(false);
 
-            StartAutoSaveTimer();
-            FindPlayer();
-            LoadPlayerPosition();
-            LoadPlayTime(); // load time after load game
-            LoadPossessionBar();
-            LoadKarma();
-            LoadObjects();
-            LoadHistory();
+            if (EnterNewScene()) //pasar a otro puzle pero sin guardar 
+            {
+
+               // Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
+            }
+            else
+            {
+             //   Debug.Log(" SE HA cargado nada de la partida pero se ha pasado");
+                StartAutoSaveTimer();
+                FindPlayer();
+                LoadPlayerPosition();
+                LoadPlayTime(); // load time after load game
+                LoadPossessionBar();
+                LoadKarma();
+                LoadObjects();
+                LoadHistory();
+            }
         }
         else if (scene.name == InitialScenePuzzleOne)
         {
+        //    Debug.Log("PARTIDA NUEVA");
             FindPlayer();
             StartNewPlayTime(); // init count new game
             StartAutoSaveTimer();
@@ -109,6 +122,28 @@ public class SaveSystemMult : MonoBehaviour
         {
             isAutoSaveActive = false;
         }
+    }
+
+    private bool EnterNewScene()
+    {
+        if (player != null)
+        {
+            Vector3 position = new Vector3(
+                PlayerPrefs.GetFloat(GetPositionXKey(CurrentSlot)),
+                PlayerPrefs.GetFloat(GetPositionYKey(CurrentSlot)),
+                PlayerPrefs.GetFloat(GetPositionZKey(CurrentSlot))
+            );
+           if( player.transform.position == position)
+            {
+                return true;
+            }
+            else {  return false; }
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     private void FindPlayer()
@@ -140,7 +175,7 @@ public class SaveSystemMult : MonoBehaviour
     void Update()
     {
         // Counting time only if we are in a game(game scene loaded)
-        if (SceneManager.GetActiveScene().name == InitialScenePuzzleOne)
+        if (SceneManager.GetActiveScene().name == InitialScenePuzzleOne || SceneManager.GetActiveScene().name == "Puzzle2" || SceneManager.GetActiveScene().name == "Puzzle3" || SceneManager.GetActiveScene().name == "Puzzle4")
         {
             currentPlayTime += Time.deltaTime;
 
@@ -201,6 +236,7 @@ public class SaveSystemMult : MonoBehaviour
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name != InitialMENU)
         {
+            // 0 = true; 1= false
             PlayerPrefs.SetInt(GetPrincipalDoorKey(slotIndex), objectManager.PrincipalDoor ? 0 : 1);
             PlayerPrefs.SetInt(GetCalendarKey(slotIndex), objectManager.Calendar ? 0 : 1);
             PlayerPrefs.SetInt(GetMasterKeyKey(slotIndex), objectManager.MasterKeyTaken ? 0 : 1);
@@ -229,10 +265,10 @@ public class SaveSystemMult : MonoBehaviour
         if (!HasSave(slotIndex)) return;
 
         CurrentSlot = slotIndex;
-        StartCoroutine(FadeOut(InitialScenePuzzleOne));
+        StartCoroutine(FadeOut());
     }
 
-    private IEnumerator FadeOut(string sceneName)
+    private IEnumerator FadeOut()
     {
         fadeOut.gameObject.SetActive(true);
 
@@ -247,7 +283,7 @@ public class SaveSystemMult : MonoBehaviour
         }
 
         // load next level
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
     }
 
     void LoadPlayerPosition()
@@ -285,9 +321,10 @@ public class SaveSystemMult : MonoBehaviour
     }
     void LoadObjects()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name != InitialMENU)
+        Scene scene = SceneManager.GetActiveScene(); 
+        if (scene.name != InitialMENU && scene.name != "Transicion12" && scene.name != "Transicion23" && scene.name != "Transicion4")
         {
+            // 0 = true; 1= false
             objectManager.PrincipalDoor = PlayerPrefs.GetInt(GetPrincipalDoorKey(CurrentSlot), 0) == 0;
             objectManager.Calendar = PlayerPrefs.GetInt(GetCalendarKey(CurrentSlot), 0) == 0;
             objectManager.MasterKeyTaken = PlayerPrefs.GetInt(GetMasterKeyKey(CurrentSlot), 0) == 0;
