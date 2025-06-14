@@ -20,7 +20,7 @@ MonoBehaviour:
     - rid: 3380476107995480148
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
-        npcText: Perfecto. Ha funcionado.
+        npcText: Parece papel de regalo.
         image: {fileID: 0}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
