@@ -51,8 +51,16 @@ public class GiftPaperInteractuable : MonoBehaviour, IInteractuable
 
             // mark it in the ObjectManager
             objectManager.GiftPaper = true;
+            Action();
             // deactivates the object in the scene when interacted with
             gameObject.SetActive(false);
         }
+    }
+    public void Action()
+    {
+        SMSystem smsys = FindAnyObjectByType<SMSystem>();
+        smsys.NeedsUIUpdate = true;
+        // deactivates the object in the scene when interacted with
+        gameObject.SetActive(false);
     }
 }

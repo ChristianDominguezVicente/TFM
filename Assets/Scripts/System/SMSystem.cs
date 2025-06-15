@@ -162,7 +162,7 @@ public class SMSystem : MonoBehaviour
 
     private void MSOnePuzleTwo(int indiceMs)
     {
-        if (objectManager.Teddy)
+        if (objectManager.ToolBox) // objectManager.Teddy
         {
             ActualizarTexto(indiceMs, 0);
             missions[indiceMs].isCompleted = true;
@@ -171,19 +171,19 @@ public class SMSystem : MonoBehaviour
 
     private void MSTwoPuzleTwo(int indiceMs)
     {
-        if (objectManager.MasterKeyTaken)
+        if (objectManager.Incorrect || objectManager.Correct)
         {
             ActualizarTexto(indiceMs, 0);
         }
-        if (objectManager.Incorrect || objectManager.Correct)
+        if (objectManager.Teddy)
         {
             ActualizarTexto(indiceMs, 1);
         }
-        if (objectManager.ToolBox)
+        if (objectManager.GiftPaper)
         {
             ActualizarTexto(indiceMs, 2);
         }
-        if (objectManager.MasterKeyTaken && (objectManager.Incorrect || objectManager.Correct) && objectManager.ToolBox)
+        if (objectManager.Teddy && (objectManager.Incorrect || objectManager.Correct) && objectManager.GiftPaper)
         {
             missions[indiceMs].isCompleted = true;
         }
