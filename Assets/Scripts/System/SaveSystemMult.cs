@@ -102,8 +102,6 @@ public class SaveSystemMult : MonoBehaviour
 
             if (EnterNewScene()) //pasar a otro puzle pero sin guardar 
             {
-                audioConfig.ApplyFadeIn();
-
                 // Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
             }
             else

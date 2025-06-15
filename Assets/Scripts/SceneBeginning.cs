@@ -21,6 +21,7 @@ public class SceneBeginning : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Final")
         {
+            audioConfig.MuteMusic();
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = PlayerPrefs.GetFloat("Karma", 0);
             if (karma >= 0)
