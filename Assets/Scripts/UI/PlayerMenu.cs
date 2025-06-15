@@ -5,7 +5,6 @@ using TMPro;
 
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 
 
