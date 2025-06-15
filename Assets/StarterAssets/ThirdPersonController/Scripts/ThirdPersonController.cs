@@ -132,7 +132,7 @@ namespace StarterAssets
         [SerializeField] private AudioClip chosedOptionMenuSound;
         [SerializeField] AudioConfig audioConfig;
         private AudioSource audioSourceSFX;
-        private float stepsRadius = 0.5f;
+        private float stepsRadius = 0.3f;
 
         [Header("Concrete FootSteps")]
         [SerializeField] private AudioClip[] ConcreteFootStepsSound;
