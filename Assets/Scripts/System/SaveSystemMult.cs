@@ -68,6 +68,13 @@ public class SaveSystemMult : MonoBehaviour
     private float karma;
     private string history;
 
+    private AudioConfig audioConfig;
+
+    public void Start()
+    {
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+    }
+
 
     void Awake()
     {
@@ -95,8 +102,9 @@ public class SaveSystemMult : MonoBehaviour
 
             if (EnterNewScene()) //pasar a otro puzle pero sin guardar 
             {
+                audioConfig.ApplyFadeIn();
 
-               // Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
+                // Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
             }
             else
             {
@@ -281,6 +289,9 @@ public class SaveSystemMult : MonoBehaviour
             fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
+
+        //FadeOut the music
+        audioConfig.ApplyFadeOut();
 
         // load next level
         SceneManager.LoadScene(PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));

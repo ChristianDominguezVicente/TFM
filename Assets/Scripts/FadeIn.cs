@@ -4,17 +4,23 @@ using UnityEngine;
 public class FadeIn : MonoBehaviour
 {
     [SerializeField] private CanvasGroup fadeIn;
+    private AudioConfig audioConfig;
 
     private void Start()
     {
         fadeIn.alpha = 1f;
         fadeIn.gameObject.SetActive(true);
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+        audioConfig.EnableMusic();
 
         StartCoroutine(FadeInCoroutine());
+        //FadeIn the music
+        audioConfig.ApplyFadeIn();
     }
 
     private IEnumerator FadeInCoroutine()
     {
+
         float duration = 2f;
         float elapsed = 0f;
 

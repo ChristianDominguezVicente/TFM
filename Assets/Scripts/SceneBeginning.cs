@@ -9,8 +9,11 @@ public class SceneBeginning : MonoBehaviour
     [SerializeField] private string scene;
     [SerializeField] private bool nextScene = false;
 
+    private AudioConfig audioConfig;
+
     private void Start()
     {
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
         StartCoroutine(PlaySceneStart());
     }
 
@@ -41,6 +44,7 @@ public class SceneBeginning : MonoBehaviour
         }
         else
         {
+            audioConfig.MuteMusic();
             cinematicDialogue.PlayDialogue();
 
             while (!cinematicDialogue.End)
@@ -50,6 +54,12 @@ public class SceneBeginning : MonoBehaviour
         }
 
         if (nextScene)
+        {
+            //FadeIn the music
             SceneManager.LoadScene(scene);
+            audioConfig.EnableMusic();
+            audioConfig.ApplyFadeIn();
+        }
+            
     }
 }

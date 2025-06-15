@@ -72,7 +72,9 @@ public class MenuInicial : MonoBehaviour
     private int sliderIndice = 0;
     private float incrementoSlider = 0.1f;
     private bool ajustandoSlider = false;
-
+    
+    //Control FadeIn FadeOut
+    private AudioConfig audioConfig;
 
 
     private Color normal = new Color(1f, 0.9529f, 0.6902f);// FFF3B0
@@ -81,7 +83,8 @@ public class MenuInicial : MonoBehaviour
     private void Start()
     {
         ConfigurarBotones();
-       
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+
     }
     private void OnEnable()
     {
@@ -225,6 +228,7 @@ public class MenuInicial : MonoBehaviour
             fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
+        audioConfig.ApplyFadeOut();
 
         SceneManager.LoadScene(sceneName);
     }
@@ -242,6 +246,8 @@ public class MenuInicial : MonoBehaviour
     {
         StartCoroutine(FadeOut("Intro"));
         // Estaba Greybox anteriormente
+
+        audioConfig.ApplyFadeOut();
     }
 
     private void VolverMenuInicio()

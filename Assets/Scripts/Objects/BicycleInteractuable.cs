@@ -20,6 +20,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
     private string originalText;
     private bool showingWarning = false;
     private string nextScene = "Transicion23";
+    private AudioConfig audioConfig;
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
@@ -28,6 +29,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
     {
         // save original text
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -123,6 +125,9 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
             fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
+
+        //FadeOut the music
+        audioConfig.ApplyFadeOut();
 
         // load next level
         SceneManager.LoadScene(nextScene);

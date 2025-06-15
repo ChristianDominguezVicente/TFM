@@ -124,7 +124,6 @@ namespace StarterAssets
         [SerializeField] private TextMeshProUGUI historyActionText;
 
         [Header("Sound Control")]
-        [SerializeField] private float stepsRadius;
         [SerializeField] private AudioClip showInteractionSound;
         [SerializeField] private AudioClip interactSound;
         [SerializeField] private AudioClip passNextDialogueSound;
@@ -133,6 +132,7 @@ namespace StarterAssets
         [SerializeField] private AudioClip chosedOptionMenuSound;
         [SerializeField] AudioConfig audioConfig;
         private AudioSource audioSourceSFX;
+        private float stepsRadius = 0.5f;
 
         [Header("Concrete FootSteps")]
         [SerializeField] private AudioClip[] ConcreteFootStepsSound;

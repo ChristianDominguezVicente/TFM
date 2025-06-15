@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ public class AudioConfig : MonoBehaviour
     private AudioSource audioSourceSFX;
     private AudioSource audioSourceVoices;
     private AudioSource audioSourceMusic;
+    private float volumeToFadeIn;
+    private float timeToFade = 4.0f;
 
     public AudioSource AudioSourceSFX { get => audioSourceSFX; set => audioSourceSFX = value; }
     public AudioSource AudioSourceVoices { get => audioSourceVoices; set => audioSourceVoices = value; }
@@ -64,6 +67,7 @@ public class AudioConfig : MonoBehaviour
                 audioSourceVoices = audioSource;
             }
         }
+        volumeToFadeIn = sliderMusica.value;
     }
 
     // Configs
@@ -78,6 +82,7 @@ public class AudioConfig : MonoBehaviour
     public void SetVolumenMusica(float valor) {
         mixer.SetFloat(parametroMusica, Mathf.Log10(valor) * 20); // Conversión a dB
         PlayerPrefs.SetFloat(parametroMusica, valor);
+        volumeToFadeIn = valor;
 
     }
 
@@ -91,12 +96,7 @@ public class AudioConfig : MonoBehaviour
         PlayerPrefs.SetFloat(parametroVoces, valor);
     }
 
-
-
-
     //Guardado
-
-
     public void GuardarConfiguracion()
     {
         PlayerPrefs.Save();
@@ -106,6 +106,73 @@ public class AudioConfig : MonoBehaviour
     public void SoundEffectSFX(AudioClip clip)
     {
         audioSourceSFX.PlayOneShot(clip,PlayerPrefs.GetFloat(parametroSFX));
+    }
+
+    public void MuteMusic()
+    {
+        audioSources = GetComponents<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if (audioSource.outputAudioMixerGroup.name == "Music")
+            {
+                audioSourceMusic = audioSource;
+            }
+            
+        }
+        audioSourceMusic.volume = 0f;
+    }
+    public void EnableMusic()
+    {
+        audioSources = GetComponents<AudioSource>();
+        foreach (AudioSource audioSource in audioSources)
+        {
+            if (audioSource.outputAudioMixerGroup.name == "Music")
+            {
+                audioSourceMusic = audioSource;
+            }
+        }
+        audioSourceMusic.volume = volumeToFadeIn;
+    }
+
+
+    public void ApplyFadeIn()
+    {
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        audioSourceMusic.volume = 0f;
+        float startVolume = 0f;
+        float timer = 0f;
+
+        while (timer <= timeToFade)
+        {
+            timer += Time.deltaTime;
+            audioSourceMusic.volume = Mathf.Lerp(startVolume,volumeToFadeIn,timer /  timeToFade);
+            yield return null;
+        }
+        audioSourceMusic.volume = volumeToFadeIn;
+
+    }
+
+    public void ApplyFadeOut()
+    {
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut()
+    {
+        float timer = 0f;
+
+        while (timer <= timeToFade)
+        {
+            timer += Time.deltaTime;
+            audioSourceMusic.volume = Mathf.Lerp(audioSourceMusic.volume, 0f, timer / timeToFade);
+            yield return null;
+        }
+        audioSourceMusic.volume = 0f;
+
     }
 
 }

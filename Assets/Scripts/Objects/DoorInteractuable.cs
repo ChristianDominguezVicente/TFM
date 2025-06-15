@@ -29,8 +29,15 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     private Quaternion rotation;
     private Vector3 targetPosition; 
 
+    private AudioConfig audioConfig;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
+
+    public void Start()
+    {
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+    }
 
     public void Interact(Transform interactorTransform)
     {
@@ -110,6 +117,8 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
             fade.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
+        //FadeOut the music
+        audioConfig.ApplyFadeOut();
 
         StartCoroutine(PlayStart());
     }
@@ -125,6 +134,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
             fade.alpha = Mathf.Clamp01(1f - (elapsed / duration));
             yield return null;
         }
+
     }
 
     private IEnumerator PlayStart()
@@ -139,6 +149,9 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
         Action();
 
         StartCoroutine(FadeInCoroutine());
+
+        //FadeIn the music
+        audioConfig.ApplyFadeIn();
     }
 
     public void Action()
