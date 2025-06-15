@@ -67,6 +67,7 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
 
                 cinematicDialogue.End = false;
             }
+            yield break;
         }
 
         // if player hasn't taken the ingredients
