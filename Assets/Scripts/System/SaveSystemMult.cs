@@ -322,7 +322,7 @@ public class SaveSystemMult : MonoBehaviour
     void LoadObjects()
     {
         Scene scene = SceneManager.GetActiveScene(); 
-        if (scene.name != InitialMENU && scene.name != "Transicion12" && scene.name != "Transicion23" && scene.name != "Transicion4")
+        if (scene.name != InitialMENU && scene.name != "Transicion12" && scene.name != "Transicion23" && scene.name != "Transicion4" && scene.name != "Final")
         {
             // 0 = true; 1= false
             objectManager.PrincipalDoor = PlayerPrefs.GetInt(GetPrincipalDoorKey(CurrentSlot), 0) == 0;
