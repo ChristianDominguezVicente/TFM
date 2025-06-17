@@ -16,8 +16,18 @@ public class CorrectInteractuable : MonoBehaviour, IInteractuable
     [Header("Restricted NPCs")]
     [SerializeField] private string[] restrictedNPCs;
 
+    [Header("InteractSounds")]
+    [SerializeField] private AudioClip npcNotAllowedSound;
+
+    private AudioConfig audioConfig;
+
     private string originalText;
     private bool showingWarning = false;
+
+    public void Start()
+    {
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+    }
 
     public string GetInteractText()
     {
@@ -93,6 +103,7 @@ public class CorrectInteractuable : MonoBehaviour, IInteractuable
         }
         else if(CompareTag("OriginalChain") && SceneManager.GetActiveScene().name == "Puzzle2" && restrictedNPCs.Contains(currentNpc.NpcName))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No hay nada que hacer con esa bicicleta</color>"));
             yield break;
         }

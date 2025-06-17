@@ -26,6 +26,15 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
     private bool open = false;
     private Quaternion rotation;
 
+    [Header("Refrigerator interact sound")]
+    [SerializeField] private AudioClip refrigeratorInteractSound;
+    [SerializeField] private AudioClip kitchenCabinetInteractSound;
+    [SerializeField] private AudioClip npcNotAllowedSound;
+    [SerializeField] private AudioClip bedroomDrawerSound;
+
+
+    private AudioConfig audioConfig;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
@@ -33,6 +42,7 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
     {
         // save original text
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -66,11 +76,13 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
 
         if (restrictedNPCs.Contains(currentNpc.NpcName) && CompareTag("Drawer"))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No debería abrir los cajones</color>"));
             yield break;
         }
         else if (restrictedNPCs.Contains(currentNpc.NpcName) && CompareTag("Refrigerator"))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No debería abrir la nevera</color>"));
             yield break;
         }
@@ -81,10 +93,19 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
         }
         else if (CompareTag("DrawerLetter"))
         {
+            audioConfig.SoundEffectSFX(bedroomDrawerSound);
             StartCoroutine(MoveDrawer());
         }
         else
         {
+            if(CompareTag("Refrigerator"))
+            {
+                audioConfig.SoundEffectSFX(refrigeratorInteractSound);
+            }
+            else if(CompareTag("Drawer"))
+            {
+                audioConfig.SoundEffectSFX(kitchenCabinetInteractSound);
+            }
             // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;

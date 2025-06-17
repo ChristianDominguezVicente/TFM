@@ -136,18 +136,23 @@ namespace StarterAssets
 
         [Header("Concrete FootSteps")]
         [SerializeField] private AudioClip[] ConcreteFootStepsSound;
+        private float concreteFootStepsVolume = 1f;
 
         [Header("Grass FootSteps")]
         [SerializeField] private AudioClip[] GrassFootStepsSound;
+        private float grassFootStepsVolume = 0.5f;
 
         [Header("Stone FootSteps")]
         [SerializeField] private AudioClip[] StoneFootStepsSound;
+        private float stoneFootStepsVolume = 0.8f;
 
         [Header("Wood FootSteps")]
         [SerializeField] private AudioClip[] WoodFootStepsSound;
+        private float woodFootStepsVolume = 0.8f;
 
         [Header("Levitating sound")]
         [SerializeField] private AudioClip LevitatingSound;
+        private float levitatingVolume = 0.6f;
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -1482,6 +1487,7 @@ namespace StarterAssets
                 if(!possesionManager.IsPossessing)
                 {
 
+                    AudioSource.PlayClipAtPoint(LevitatingSound, transform.TransformPoint(_controller.center), levitatingVolume);
                 }
                 else
                 {
@@ -1491,24 +1497,24 @@ namespace StarterAssets
 
                         if (collider.CompareTag("Concrete"))
                         {
-                            AudioSource.PlayClipAtPoint(ConcreteFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                            AudioSource.PlayClipAtPoint(ConcreteFootStepsSound[index], transform.TransformPoint(_controller.center), concreteFootStepsVolume);
                         }
                         else if (collider.CompareTag("Stone"))
                         {
-                            AudioSource.PlayClipAtPoint(StoneFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                            AudioSource.PlayClipAtPoint(StoneFootStepsSound[index], transform.TransformPoint(_controller.center), stoneFootStepsVolume);
 
                         }
 
                         else if (collider.CompareTag("Grass"))
                         {
                             index = UnityEngine.Random.Range(0, 4);
-                            AudioSource.PlayClipAtPoint(GrassFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                            AudioSource.PlayClipAtPoint(GrassFootStepsSound[index], transform.TransformPoint(_controller.center), grassFootStepsVolume);
 
                         }
 
                         else if (collider.CompareTag("Wood"))
                         {
-                            AudioSource.PlayClipAtPoint(WoodFootStepsSound[index], transform.TransformPoint(_controller.center), FootstepAudioVolume);
+                            AudioSource.PlayClipAtPoint(WoodFootStepsSound[index], transform.TransformPoint(_controller.center), woodFootStepsVolume);
 
                         }
 

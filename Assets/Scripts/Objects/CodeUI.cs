@@ -19,6 +19,17 @@ public class CodeUI : MonoBehaviour
     private bool showingError = false;
     public bool Active { get => active; set => active = value; }
 
+    [Header("Sound select digit")]
+    [SerializeField] private AudioClip changeDigitSound;
+    [SerializeField] private AudioClip unlockFailedMechanismSound;
+
+    private AudioConfig audioConfig;
+
+    public void Start()
+    {
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+    }
+
     // show and configure the Code Panel
     public void Show(CodeInteractuable interactuable)
     {
@@ -63,12 +74,14 @@ public class CodeUI : MonoBehaviour
         // up move
         if (ui_move.y > 0.5f)
         {
+            audioConfig.SoundEffectSFX(changeDigitSound);
             currentCode[currentIndex] = (currentCode[currentIndex] + 1) % 10;
             inputTime = Time.time;
         }
         // down move
         else if (ui_move.y < -0.5f)
         {
+            audioConfig.SoundEffectSFX(changeDigitSound);
             currentCode[currentIndex] = (currentCode[currentIndex] + 9) % 10;
             inputTime = Time.time;
         }
@@ -103,6 +116,9 @@ public class CodeUI : MonoBehaviour
     private IEnumerator IncorrectCode()
     {
         showingError = true;
+
+        audioConfig.SoundEffectSFX(unlockFailedMechanismSound);
+
         // change color
         for (int i = 0; i < digitTexts.Length; i++)
         {
