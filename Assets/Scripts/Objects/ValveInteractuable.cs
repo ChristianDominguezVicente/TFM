@@ -16,6 +16,11 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
     [Header("Restricted NPCs")]
     [SerializeField] private string[] restrictedNPCs;
 
+    [Header("Valve interact Sound")]
+    [SerializeField] private AudioClip valveInteractSound;
+
+    private AudioConfig audioConfig;
+
     private string originalText;
     private bool showingWarning = false;
 
@@ -26,6 +31,7 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
     {
         // save original text
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -101,6 +107,8 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
     {
         SMSystem smsys = FindAnyObjectByType<SMSystem>();
         smsys.NeedsUIUpdate = true;
+
+        audioConfig.SoundEffectSFX(valveInteractSound);
         // valve rotation
         StartCoroutine(Rotate());
     }

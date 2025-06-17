@@ -26,6 +26,12 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
     private bool open = false;
     private Quaternion rotation;
 
+    [Header("Refrigerator interact sound")]
+    [SerializeField] private AudioClip refrigeratorInteractSound;
+    [SerializeField] private AudioClip kitchenCabinetInteractSound;
+
+    private AudioConfig audioConfig;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
@@ -33,6 +39,7 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
     {
         // save original text
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -85,6 +92,14 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
         }
         else
         {
+            if(CompareTag("Refrigerator"))
+            {
+                audioConfig.SoundEffectSFX(refrigeratorInteractSound);
+            }
+            else if(CompareTag("Drawer"))
+            {
+                audioConfig.SoundEffectSFX(kitchenCabinetInteractSound);
+            }
             // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;

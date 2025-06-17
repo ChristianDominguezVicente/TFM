@@ -31,6 +31,10 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
 
     private AudioConfig audioConfig;
 
+    [Header("Interact Sound")]
+    [SerializeField] private AudioClip principalDoorInteractionSound;
+    [SerializeField] private AudioClip backDoorInteractionSound;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
@@ -158,12 +162,14 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     {
         if(CompareTag("Principal"))
         {
+            audioConfig.SoundEffectSFX(principalDoorInteractionSound);
             // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;
         }
         else if (CompareTag("Back"))
         {
+            audioConfig.SoundEffectSFX(backDoorInteractionSound);
             targetPosition = transform.parent.position + movement;
             open = true;
         }

@@ -14,8 +14,18 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
     private bool open = false;
     private Quaternion rotation;
 
+    [Header("Open the door sound")]
+    [SerializeField] private AudioClip openDoorSound;
+
+    private AudioConfig audioConfig;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
+
+    public void Start()
+    {
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
+    }
 
     public void Interact(Transform interactorTransform)
     {
@@ -29,6 +39,8 @@ public class MasterKeyDoorInteractuable : MonoBehaviour, IInteractuable
         // if the player have the master key
         if (!open && objectManager.MasterKeyTaken)
         {
+            audioConfig.SoundEffectSFX(openDoorSound);
+
             // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;

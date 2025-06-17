@@ -44,6 +44,11 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     private bool first = false;
     private AudioConfig audioConfig;
 
+    [Header("Interaction Sounds")]
+    [SerializeField] private AudioClip unlockMechanismSound;
+    [SerializeField] private AudioClip openDrawerSound;
+
+
     public int[] Code { get => code; set => code = value; }
 
     public string GetInteractText() => interactText;
@@ -143,6 +148,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     public void OnCorrectCode()
     {
         codeUI.Hide();
+        audioConfig.SoundEffectSFX(unlockMechanismSound);
 
         if (CompareTag("Desk"))
         {
