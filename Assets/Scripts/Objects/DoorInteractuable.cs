@@ -34,6 +34,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     [Header("Interact Sound")]
     [SerializeField] private AudioClip principalDoorInteractionSound;
     [SerializeField] private AudioClip backDoorInteractionSound;
+    [SerializeField] private AudioClip tutorialResolvedSound;
 
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
@@ -55,6 +56,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     {
         if (!open && gameObject.CompareTag("Principal"))
         {
+            audioConfig.SoundEffectSFX(tutorialResolvedSound);
             StartCoroutine(FadeOut());
         }
         else if (!open && gameObject.CompareTag("Back") && objectManager.PrincipalDoor)

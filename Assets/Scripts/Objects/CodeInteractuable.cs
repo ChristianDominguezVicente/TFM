@@ -47,6 +47,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     [Header("Interaction Sounds")]
     [SerializeField] private AudioClip unlockMechanismSound;
     [SerializeField] private AudioClip openDrawerSound;
+    [SerializeField] private AudioClip npcNotAllowedSound;
 
 
     public int[] Code { get => code; set => code = value; }
@@ -107,16 +108,19 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if (CompareTag("Box") && restrictedNPCs.Contains(currentNpc.NpcName) && SceneManager.GetActiveScene().name == "Puzzle2")
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No hay nada de interés en la estantería</color>"));
             yield break;
         }
         else if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia" && SceneManager.GetActiveScene().name == "Puzzle2")
         {
+            audioConfig.SoundEffectSFX(unlockMechanismSound);
             UnlockBox();
         }
         // if player possess a restricted NPC
         else if (CompareTag("Desk") && currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>Jane no te permite tocar el cajón</color>"));
             yield break;
         }
@@ -236,6 +240,8 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         Vector3 startPos = drawerObject.localPosition;
         Vector3 targetPos = startPos + (-drawerObject.up * openDistance);
         float elapsed = 0f;
+
+        audioConfig.SoundEffectSFX(openDrawerSound);
 
         while (elapsed < openDuration)
         {

@@ -29,6 +29,9 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
     [Header("Refrigerator interact sound")]
     [SerializeField] private AudioClip refrigeratorInteractSound;
     [SerializeField] private AudioClip kitchenCabinetInteractSound;
+    [SerializeField] private AudioClip npcNotAllowedSound;
+    [SerializeField] private AudioClip bedroomDrawerSound;
+
 
     private AudioConfig audioConfig;
 
@@ -73,11 +76,13 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
 
         if (restrictedNPCs.Contains(currentNpc.NpcName) && CompareTag("Drawer"))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No debería abrir los cajones</color>"));
             yield break;
         }
         else if (restrictedNPCs.Contains(currentNpc.NpcName) && CompareTag("Refrigerator"))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No debería abrir la nevera</color>"));
             yield break;
         }
@@ -88,6 +93,7 @@ public class DrawerInteractuable : MonoBehaviour, IInteractuable
         }
         else if (CompareTag("DrawerLetter"))
         {
+            audioConfig.SoundEffectSFX(bedroomDrawerSound);
             StartCoroutine(MoveDrawer());
         }
         else

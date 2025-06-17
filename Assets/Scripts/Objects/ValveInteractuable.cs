@@ -18,6 +18,7 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
 
     [Header("Valve interact Sound")]
     [SerializeField] private AudioClip valveInteractSound;
+    [SerializeField] private AudioClip npcNotAllowedSound;
 
     private AudioConfig audioConfig;
 
@@ -49,11 +50,13 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
         // if player possess a restricted NPC
         if (restrictedNPCs.Contains(currentNpc.NpcName))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>Los niños no saben encender la válvula</color>"));
             yield break;
         }
         else if (currentNpc.NpcName == "Jane" || currentNpc.NpcName == "Henry")
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>Este adulto no se atreve a abrir la válvula</color>"));
             yield break;
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,11 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
 
     [Header("Restricted NPCs")]
     [SerializeField] private string[] restrictedNPCs;
+
+    [Header("Interact Sounds")]
+    [SerializeField] private AudioClip npcNotAllowedSound;
+
+    private AudioConfig audioConfig;
 
     private string originalText;
     private bool showingWarning = false;
@@ -40,6 +46,7 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
     {
         // save original text
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -56,6 +63,7 @@ public class IncorrectInteractuable : MonoBehaviour, IInteractuable
         // if player possess a restricted NPC
         if (restrictedNPCs.Contains(currentNpc.NpcName) && CompareTag("RachelChain"))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No debería tocar la bici de Rachel</color>"));
             yield break;
         }

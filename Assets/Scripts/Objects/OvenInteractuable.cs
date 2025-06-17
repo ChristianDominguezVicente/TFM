@@ -26,6 +26,11 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
+    [Header("Level completed sound")]
+    [SerializeField] private AudioClip levelCompleteSound;
+    [SerializeField] private AudioClip npcNotAllowedSound;
+
+
     private AudioConfig audioConfig;
 
     private void Start()
@@ -49,6 +54,7 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
         // if player possess a restricted NPC
         if (currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
         {
+            audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>Los niños no pueden usar el horno</color>"));
             yield break;
         }
@@ -79,6 +85,7 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
 
         if (currentNpc != null && acceptedNPCs.Contains(currentNpc.NpcName))
         {
+            audioConfig.SoundEffectSFX(levelCompleteSound);
             StartCoroutine(FadeOut());
             yield break;
         }
