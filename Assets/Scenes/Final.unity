@@ -12473,7 +12473,7 @@ PrefabInstance:
       objectReference: {fileID: 798508485}
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.data[0].speaker
@@ -20560,7 +20560,7 @@ PrefabInstance:
       objectReference: {fileID: 798508485}
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.data[0].speaker
@@ -20569,7 +20569,7 @@ PrefabInstance:
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.data[1].speaker
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5044413044140080997}
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.data[2].speaker
       value: 
@@ -20582,6 +20582,10 @@ PrefabInstance:
       propertyPath: dialogueSequence.Array.data[4].speaker
       value: 
       objectReference: {fileID: 5044413044140080997}
+    - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
+      propertyPath: dialogueSequence.Array.data[1].startIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5604865941005753930, guid: 6e37ddfc3bff7c440b1a50fb3c2bb42c, type: 3}
       propertyPath: dialogueSequence.Array.data[2].startIndex
       value: 1
