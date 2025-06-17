@@ -206,6 +206,7 @@ public class MenuInicial : MonoBehaviour
             SaveSystemMult.CurrentSlot = config.indiceSlot;
             if (saveSystem.HasSave(config.indiceSlot))
             {
+                saveSystem.NeedLoadMenu = true;
                 saveSystem.LoadGame(config.indiceSlot); // cargo partida
             }
             else

@@ -25,6 +25,7 @@ public class SaveSystemMult : MonoBehaviour
 
     // config 
     public static int CurrentSlot { get; set; } = -1;
+
     private const string InitialScenePuzzleOne = "Greybox"; //level one
     private const string InitialMENU = "InicioMenu";
     // save pos player, scene and play time 
@@ -67,6 +68,9 @@ public class SaveSystemMult : MonoBehaviour
     private float currentPlayTime;
     private float karma;
     private string history;
+    [SerializeField] private bool needLoadMenu;
+    public bool NeedLoadMenu { get => needLoadMenu; set => needLoadMenu = value; }
+
 
     private AudioConfig audioConfig;
 
@@ -100,13 +104,14 @@ public class SaveSystemMult : MonoBehaviour
             if (sceneBeginning != null)
                 sceneBeginning.gameObject.SetActive(false);
 
-            if (EnterNewScene()) //pasar a otro puzle pero sin guardar 
+            if ( PlayerPrefs.GetString(GetSceneKey(CurrentSlot)) != scene.name) //pasar a otro puzle pero sin guardar 
             {
-                // Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
+                Debug.Log("la variable  esta a: " + PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
+                 Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
             }
             else
             {
-             //   Debug.Log(" SE HA cargado nada de la partida pero se ha pasado");
+                Debug.Log(" SE HA cargado nada de la partida pero se ha pasado");
                 StartAutoSaveTimer();
                 FindPlayer();
                 LoadPlayerPosition();
@@ -130,27 +135,6 @@ public class SaveSystemMult : MonoBehaviour
         }
     }
 
-    private bool EnterNewScene()
-    {
-        if (player != null)
-        {
-            Vector3 position = new Vector3(
-                PlayerPrefs.GetFloat(GetPositionXKey(CurrentSlot)),
-                PlayerPrefs.GetFloat(GetPositionYKey(CurrentSlot)),
-                PlayerPrefs.GetFloat(GetPositionZKey(CurrentSlot))
-            );
-           if( player.transform.position == position)
-            {
-                return true;
-            }
-            else {  return false; }
-        }
-        else
-        {
-            return false;
-        }
-
-    }
 
     private void FindPlayer()
     {
@@ -206,7 +190,6 @@ public class SaveSystemMult : MonoBehaviour
     public void SaveGame(int slotIndex)
     {
         CurrentSlot = slotIndex;
-
         if (player != null)
         {
             PlayerPrefs.SetFloat(GetPositionXKey(slotIndex), player.transform.position.x);
@@ -299,6 +282,7 @@ public class SaveSystemMult : MonoBehaviour
     {
         if (player != null)
         {
+            Debug.Log("SE EJUTA SIN QUE LO SEAP");
             Vector3 position = new Vector3(
                 PlayerPrefs.GetFloat(GetPositionXKey(CurrentSlot)),
                 PlayerPrefs.GetFloat(GetPositionYKey(CurrentSlot)),
