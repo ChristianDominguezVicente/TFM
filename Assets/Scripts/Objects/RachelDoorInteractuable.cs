@@ -21,9 +21,12 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
+    private AudioConfig audioConfig;
+
     private void Start()
     {
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -134,6 +137,9 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
             fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
+
+        //FadeOut the music
+        audioConfig.ApplyFadeOut();
 
         // load next level
         SceneManager.LoadScene(nextScene);

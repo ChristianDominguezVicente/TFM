@@ -42,6 +42,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     private bool open = false;
     private Quaternion rotation;
     private bool first = false;
+    private AudioConfig audioConfig;
 
     public int[] Code { get => code; set => code = value; }
 
@@ -52,6 +53,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     {
         // save original text
         originalText = interactText;
+        audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
     }
 
     public void Interact(Transform interactorTransform)
@@ -257,6 +259,9 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
             fadeOut.alpha = Mathf.Clamp01(elapsed / duration);
             yield return null;
         }
+
+        //FadeOut the music
+        audioConfig.ApplyFadeOut();
 
         // load next level
         SceneManager.LoadScene(nextScene);

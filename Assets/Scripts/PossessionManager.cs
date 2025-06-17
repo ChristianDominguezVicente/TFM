@@ -63,8 +63,6 @@ public class PossessionManager : MonoBehaviour
             {
                 StopPossession();
             }
-            UnityEngine.Debug.Log("Se tendria que aplicar el efecto de sonido");
-            audioMixer.SetFloat("LowPass", 3000);
         }
         else if (!isPossessing && currentTime < maxTime)
         {
@@ -72,7 +70,15 @@ public class PossessionManager : MonoBehaviour
             currentTime += Time.deltaTime * rechargeSpeed;
             currentTime = Mathf.Min(currentTime, maxTime);
             UpdateBar();
+        }
+
+        if(isPossessing)
+        {
             audioMixer.SetFloat("LowPass", 5000);
+        }
+        else
+        {
+            audioMixer.SetFloat("LowPass", 1300);
         }
     }
 
