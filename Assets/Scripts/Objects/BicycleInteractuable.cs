@@ -67,14 +67,13 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         else
         {
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
+            float karma = ssm.GetKarma();
             if (karma < 0)
             {
                 nextScene = "Transicion4";
                 if (objectManager.Incorrect)
                 {
-                    karma--;
-                    ssm.SetKarma(karma);
+                    ssm.SetKarma(-1);
                 }
             }
             else if (karma == 0)
@@ -82,10 +81,11 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 nextScene = "Transicion23";
                 if (objectManager.Incorrect)
                 {
-                    karma--;
-                    ssm.SetKarma(karma);
+                    ssm.SetKarma(-1);
                 }
             }
+
+            StartCoroutine(FadeOut());
 
             if (cinematicDialogue != null)
             {
@@ -99,7 +99,8 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 cinematicDialogue.End = false;
             }
 
-            StartCoroutine(FadeOut());
+            // load next level
+            SceneManager.LoadScene(nextScene);
         }
     }
 
@@ -127,9 +128,6 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         }
 
         //FadeOut the music
-        audioConfig.ApplyFadeOut();
-
-        // load next level
-        SceneManager.LoadScene(nextScene);
+        audioConfig.ApplyFadeOut(); 
     }
 }

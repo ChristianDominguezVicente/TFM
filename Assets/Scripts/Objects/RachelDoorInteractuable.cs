@@ -40,7 +40,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
     private IEnumerator InteractCoroutine()
     {
         SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        float karma = ssm.GetKarma();
         if (SceneManager.GetActiveScene().name == "Puzzle2" && karma < 0)
         {
             if (cinematicDialogue != null)
@@ -77,6 +77,8 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
             }
             else if (objectManager.Incorrect)
             {
+                StartCoroutine(FadeOut());
+
                 if (cinematicDialogue2 != null)
                 {
                     cinematicDialogue2.PlayDialogue();
@@ -89,13 +91,16 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
                     cinematicDialogue2.End = false;
                 }
 
-                karma++;
-                ssm.SetKarma(karma);
-                StartCoroutine(FadeOut());
+                ssm.SetKarma(-1); 
+
+                // load next level
+                SceneManager.LoadScene(nextScene);
 
             }
             else if (objectManager.Correct)
             {
+                StartCoroutine(FadeOut());
+
                 if (cinematicDialogue != null)
                 {
                     cinematicDialogue.PlayDialogue();
@@ -108,9 +113,10 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
                     cinematicDialogue.End = false;
                 }
 
-                karma--;
-                ssm.SetKarma(karma);
-                StartCoroutine(FadeOut());
+                ssm.SetKarma(1);
+
+                // load next level
+                SceneManager.LoadScene(nextScene);
             }
         }
     }
@@ -141,7 +147,6 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
         //FadeOut the music
         audioConfig.ApplyFadeOut();
 
-        // load next level
-        SceneManager.LoadScene(nextScene);
+        
     }
 }

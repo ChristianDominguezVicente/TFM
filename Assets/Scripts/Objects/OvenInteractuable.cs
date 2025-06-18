@@ -99,9 +99,9 @@ public class OvenInteractuable : MonoBehaviour, IInteractuable
         }
 
         SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-        float karma = PlayerPrefs.GetFloat("Karma", 0);
-        karma--;
-        ssm.SetKarma(karma);
+        //float karma = PlayerPrefs.GetFloat("Karma", 0);
+        //karma--;
+        ssm.SetKarma(-1);
         
         // if everything is ok
         StartCoroutine(FadeOut());

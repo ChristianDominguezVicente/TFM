@@ -44,5 +44,9 @@ public class DialogueHistory : MonoBehaviour
     {
         history = new List<string>(value.Split("\n"));
         AddSeparator();
+        foreach (string item in history)
+        {
+            Debug.Log(item);
+        }
     }
 }

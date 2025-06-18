@@ -82,7 +82,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
             else
             {
                 Destroy(this);
-                masterKey.SetActive(true);
+                //masterKey.SetActive(true);
             }
         }
     }
@@ -115,6 +115,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         else if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia" && SceneManager.GetActiveScene().name == "Puzzle2")
         {
             audioConfig.SoundEffectSFX(unlockMechanismSound);
+            masterKey.SetActive(true);
             UnlockBox();
         }
         // if player possess a restricted NPC
@@ -164,6 +165,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if(CompareTag("Box"))
         {
+            masterKey.SetActive(true);
             UnlockBox();
         }  
     }
@@ -171,11 +173,10 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     private IEnumerator Diary()
     {
         SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        float karma = ssm.GetKarma();
         if (karma == 0)
         {
-            karma++;
-            ssm.SetKarma(karma);
+            ssm.SetKarma(1);
 
             if (cinematicDialogue2 != null)
             {
@@ -191,8 +192,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if (karma == -1)
         {
-            karma--;
-            ssm.SetKarma(karma);
+            ssm.SetKarma(-1);
 
             if (cinematicDialogue3 != null)
             {
