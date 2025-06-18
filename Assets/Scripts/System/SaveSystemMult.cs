@@ -67,6 +67,7 @@ public class SaveSystemMult : MonoBehaviour
     private float sessionStartTime;
     private float currentPlayTime;
     private float karma;
+    private float karmaActual;
     private string history;
     [SerializeField] private bool needLoadMenu;
     public bool NeedLoadMenu { get => needLoadMenu; set => needLoadMenu = value; }
@@ -108,6 +109,8 @@ public class SaveSystemMult : MonoBehaviour
                 //Debug.Log("la variable  esta a: " + PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
                 Debug.Log(" no se ha cargado desde los botones");
                 LoadPlayTime();
+                LoadKarma();
+                LoadHistory();
             }
             else
             {
@@ -196,7 +199,7 @@ public class SaveSystemMult : MonoBehaviour
             PlayerPrefs.SetFloat(GetPositionYKey(slotIndex), player.transform.position.y);
             PlayerPrefs.SetFloat(GetPositionZKey(slotIndex), player.transform.position.z);
             PlayerPrefs.SetString(GetSceneKey(slotIndex), SceneManager.GetActiveScene().name);
-            PlayerPrefs.SetFloat(GetKarmaKey(slotIndex), karma);
+            PlayerPrefs.SetFloat(GetKarmaKey(slotIndex), karmaActual);
             PlayerPrefs.SetFloat(GetPlayTimeKey(slotIndex), currentPlayTime); // Save current game time
             PlayerPrefs.SetString(GetHistoryKey(slotIndex), history);
             if (objectManager != null)
@@ -309,7 +312,8 @@ public class SaveSystemMult : MonoBehaviour
     }
     void LoadKarma()
     {
-        karma = PlayerPrefs.GetFloat(GetKarmaKey(CurrentSlot));
+        karmaActual = PlayerPrefs.GetFloat(GetKarmaKey(CurrentSlot));
+        karma += karmaActual;
     }
     void LoadObjects()
     {
@@ -345,9 +349,9 @@ public class SaveSystemMult : MonoBehaviour
     void LoadHistory()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name != InitialMENU)
+        if (scene.name != InitialMENU && scene.name != "Transicion12" && scene.name != "Transicion23" && scene.name != "Transicion4" && scene.name != "Final")
         {
-            dialogueHistory.OnLoad(PlayerPrefs.GetString(GetHistoryKey(CurrentSlot), ""));
+            dialogueHistory.OnLoad(PlayerPrefs.GetString(GetHistoryKey(CurrentSlot)));
         }
     }
 
@@ -435,8 +439,13 @@ public class SaveSystemMult : MonoBehaviour
     {
         // lisa: si no funciona llama al setFlotar y el playerpref.save despues de setear la variable
         // Cuidado con el slot indice|currentslot que es el indice donde vas a guardar eso (en el slot 0,1 o 2 que hay para guardar/cargar)
-        karma = value;
+        karmaActual += value;
+        PlayerPrefs.SetFloat(GetKarmaKey(CurrentSlot), karmaActual);
+    }
 
+    public float GetKarma()
+    {
+        return PlayerPrefs.GetFloat(GetKarmaKey(CurrentSlot));
     }
 
     public void SetHistory(string value)
@@ -444,11 +453,22 @@ public class SaveSystemMult : MonoBehaviour
         // lisa: el mismo comentario que el karma
         if (string.IsNullOrEmpty(history))
         {
-            history = value;
+            history += value;
         }
         else
         {
             history += "\n" + value;
         }
+        Debug.Log($"SET - Tiempo de History Slot {CurrentSlot}: {history}");
+
+        if (CurrentSlot < 0)
+        {
+            PlayerPrefs.SetString(GetHistoryKey(0), PlayerPrefs.GetString(GetHistoryKey(0)) + history);
+        }
+        else if (CurrentSlot >= 0)
+        {
+            PlayerPrefs.SetString(GetHistoryKey(CurrentSlot), PlayerPrefs.GetString(GetHistoryKey(CurrentSlot)) + history);
+        }
+
     }
 }

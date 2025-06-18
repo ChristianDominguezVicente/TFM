@@ -23,7 +23,7 @@ public class SceneBeginning : MonoBehaviour
         {
             audioConfig.MuteMusic();
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
+            float karma = ssm.GetKarma();
             if (karma >= 0)
             {
                 cinematicDialogue.PlayDialogue();

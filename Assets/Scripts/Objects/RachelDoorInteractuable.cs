@@ -40,7 +40,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
     private IEnumerator InteractCoroutine()
     {
         SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        float karma = ssm.GetKarma();
         if (SceneManager.GetActiveScene().name == "Puzzle2" && karma < 0)
         {
             if (cinematicDialogue != null)
@@ -91,8 +91,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
                     cinematicDialogue2.End = false;
                 }
 
-                karma++;
-                ssm.SetKarma(karma); 
+                ssm.SetKarma(-1); 
 
                 // load next level
                 SceneManager.LoadScene(nextScene);
@@ -114,8 +113,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
                     cinematicDialogue.End = false;
                 }
 
-                karma--;
-                ssm.SetKarma(karma);
+                ssm.SetKarma(1);
 
                 // load next level
                 SceneManager.LoadScene(nextScene);

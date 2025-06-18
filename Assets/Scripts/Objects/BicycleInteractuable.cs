@@ -67,14 +67,13 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         else
         {
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-            float karma = PlayerPrefs.GetFloat("Karma", 0);
+            float karma = ssm.GetKarma();
             if (karma < 0)
             {
                 nextScene = "Transicion4";
                 if (objectManager.Incorrect)
                 {
-                    karma--;
-                    ssm.SetKarma(karma);
+                    ssm.SetKarma(-1);
                 }
             }
             else if (karma == 0)
@@ -82,8 +81,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 nextScene = "Transicion23";
                 if (objectManager.Incorrect)
                 {
-                    karma--;
-                    ssm.SetKarma(karma);
+                    ssm.SetKarma(-1);
                 }
             }
 

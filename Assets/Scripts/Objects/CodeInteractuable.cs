@@ -173,11 +173,10 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     private IEnumerator Diary()
     {
         SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
-        float karma = PlayerPrefs.GetFloat("Karma", 0);
+        float karma = ssm.GetKarma();
         if (karma == 0)
         {
-            karma++;
-            ssm.SetKarma(karma);
+            ssm.SetKarma(1);
 
             if (cinematicDialogue2 != null)
             {
@@ -193,8 +192,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if (karma == -1)
         {
-            karma--;
-            ssm.SetKarma(karma);
+            ssm.SetKarma(-1);
 
             if (cinematicDialogue3 != null)
             {
