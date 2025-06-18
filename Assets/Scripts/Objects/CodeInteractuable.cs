@@ -82,7 +82,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
             else
             {
                 Destroy(this);
-                masterKey.SetActive(true);
+                //masterKey.SetActive(true);
             }
         }
     }
@@ -115,6 +115,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         else if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia" && SceneManager.GetActiveScene().name == "Puzzle2")
         {
             audioConfig.SoundEffectSFX(unlockMechanismSound);
+            masterKey.SetActive(true);
             UnlockBox();
         }
         // if player possess a restricted NPC
@@ -164,6 +165,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
         }
         else if(CompareTag("Box"))
         {
+            masterKey.SetActive(true);
             UnlockBox();
         }  
     }

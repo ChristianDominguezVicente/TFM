@@ -87,6 +87,8 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 }
             }
 
+            StartCoroutine(FadeOut());
+
             if (cinematicDialogue != null)
             {
                 cinematicDialogue.PlayDialogue();
@@ -99,7 +101,8 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                 cinematicDialogue.End = false;
             }
 
-            StartCoroutine(FadeOut());
+            // load next level
+            SceneManager.LoadScene(nextScene);
         }
     }
 
@@ -127,9 +130,6 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         }
 
         //FadeOut the music
-        audioConfig.ApplyFadeOut();
-
-        // load next level
-        SceneManager.LoadScene(nextScene);
+        audioConfig.ApplyFadeOut(); 
     }
 }

@@ -77,6 +77,8 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
             }
             else if (objectManager.Incorrect)
             {
+                StartCoroutine(FadeOut());
+
                 if (cinematicDialogue2 != null)
                 {
                     cinematicDialogue2.PlayDialogue();
@@ -90,12 +92,16 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
                 }
 
                 karma++;
-                ssm.SetKarma(karma);
-                StartCoroutine(FadeOut());
+                ssm.SetKarma(karma); 
+
+                // load next level
+                SceneManager.LoadScene(nextScene);
 
             }
             else if (objectManager.Correct)
             {
+                StartCoroutine(FadeOut());
+
                 if (cinematicDialogue != null)
                 {
                     cinematicDialogue.PlayDialogue();
@@ -110,7 +116,9 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
 
                 karma--;
                 ssm.SetKarma(karma);
-                StartCoroutine(FadeOut());
+
+                // load next level
+                SceneManager.LoadScene(nextScene);
             }
         }
     }
@@ -141,7 +149,6 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
         //FadeOut the music
         audioConfig.ApplyFadeOut();
 
-        // load next level
-        SceneManager.LoadScene(nextScene);
+        
     }
 }
