@@ -61,6 +61,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
         }
         else if (!open && gameObject.CompareTag("Back") && objectManager.PrincipalDoor)
         {
+            audioConfig.SoundEffectSFX(backDoorInteractionSound);
             Action();
         }
         else
@@ -151,7 +152,7 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
         {
             yield return null;
         }
-
+        audioConfig.SoundEffectSFX(principalDoorInteractionSound);
         Action();
 
         StartCoroutine(FadeInCoroutine());
@@ -164,14 +165,14 @@ public class DoorInteractuable : MonoBehaviour, IInteractuable
     {
         if(CompareTag("Principal"))
         {
-            audioConfig.SoundEffectSFX(principalDoorInteractionSound);
+            
             // final rotation
             rotation = Quaternion.Euler(0, transform.parent.eulerAngles.y + rotationAngle, 0);
             open = true;
         }
         else if (CompareTag("Back"))
         {
-            audioConfig.SoundEffectSFX(backDoorInteractionSound);
+            
             targetPosition = transform.parent.position + movement;
             open = true;
         }
