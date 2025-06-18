@@ -22,6 +22,9 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
     private string nextScene = "Transicion23";
     private AudioConfig audioConfig;
 
+    [Header("Sound Bicycle repaired")]
+    [SerializeField] private AudioClip bicycleRepairedSound;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
@@ -84,6 +87,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
                     ssm.SetKarma(-1);
                 }
             }
+            audioConfig.SoundEffectSFX(bicycleRepairedSound);
 
             StartCoroutine(FadeOut());
 
