@@ -64,7 +64,7 @@ public class PlayerInteractUI : MonoBehaviour
                     int firstSpaceIndex = text.IndexOf(' ');
                     if (firstSpaceIndex != -1)
                     {
-                        text = "Talk" + text.Substring(firstSpaceIndex);
+                        text = "Hablar" + text.Substring(firstSpaceIndex);
                     }
                 }
                 interactText.text = text;
@@ -80,7 +80,7 @@ public class PlayerInteractUI : MonoBehaviour
                         int firstSpaceIndex = text.IndexOf(' ');
                         if (firstSpaceIndex != -1)
                         {
-                            text = "Talk" + text.Substring(firstSpaceIndex);
+                            text = "Hablar" + text.Substring(firstSpaceIndex);
                         }
                     }
                     interactText.text = text;

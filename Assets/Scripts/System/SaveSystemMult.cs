@@ -98,20 +98,20 @@ public class SaveSystemMult : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Time.timeScale = 1.0f; // menu pause was active
-        if (CurrentSlot >= 0)
+        if (CurrentSlot >= 0 && scene.name != InitialMENU)
         {
-         //   Debug.Log("PARTIDA CARGAAAAAAAAAAA");
             if (sceneBeginning != null)
                 sceneBeginning.gameObject.SetActive(false);
 
-            if ( PlayerPrefs.GetString(GetSceneKey(CurrentSlot)) != scene.name) //pasar a otro puzle pero sin guardar 
+            if (PlayerPrefs.GetString(GetSceneKey(CurrentSlot)) != scene.name) //pasar a otro puzle pero sin guardar 
             {
-                Debug.Log("la variable  esta a: " + PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
-                 Debug.Log(" no se ha cargado nada de la partida pero se ha pasado");
+                //Debug.Log("la variable  esta a: " + PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
+                Debug.Log(" no se ha cargado desde los botones");
+                LoadPlayTime();
             }
             else
             {
-                Debug.Log(" SE HA cargado nada de la partida pero se ha pasado");
+               Debug.Log(" SE HA cargado con botones");
                 StartAutoSaveTimer();
                 FindPlayer();
                 LoadPlayerPosition();
@@ -216,7 +216,7 @@ public class SaveSystemMult : MonoBehaviour
 
 
             PlayerPrefs.Save();
-         //   Debug.Log($"Partida guardada en Slot {slotIndex} en la escena {SceneManager.GetActiveScene().name} con tiempo de juego: {FormatPlayTime(currentPlayTime)}");
+           // Debug.Log($"Partida guardada en Slot {slotIndex} en la escena {SceneManager.GetActiveScene().name} con tiempo de juego: {FormatPlayTime(currentPlayTime)}");
         }
     }
 
@@ -263,7 +263,7 @@ public class SaveSystemMult : MonoBehaviour
 
         float duration = 2f;
         float elapsed = 0f;
-
+        Debug.Log("estoy cargando el fade");
         while (elapsed < duration)
         {
             elapsed += Time.unscaledDeltaTime;
@@ -273,8 +273,8 @@ public class SaveSystemMult : MonoBehaviour
 
         //FadeOut the music
         audioConfig.ApplyFadeOut();
-
         // load next level
+       // Debug.Log(PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
         SceneManager.LoadScene(PlayerPrefs.GetString(GetSceneKey(CurrentSlot)));
     }
 
@@ -282,7 +282,6 @@ public class SaveSystemMult : MonoBehaviour
     {
         if (player != null)
         {
-            Debug.Log("SE EJUTA SIN QUE LO SEAP");
             Vector3 position = new Vector3(
                 PlayerPrefs.GetFloat(GetPositionXKey(CurrentSlot)),
                 PlayerPrefs.GetFloat(GetPositionYKey(CurrentSlot)),
@@ -304,13 +303,13 @@ public class SaveSystemMult : MonoBehaviour
 
     void LoadPlayTime()
     {
-        currentPlayTime = PlayerPrefs.GetFloat(GetPlayTimeKey(CurrentSlot), 0f);
+        currentPlayTime = PlayerPrefs.GetFloat(GetPlayTimeKey(CurrentSlot));
         sessionStartTime = Time.time - currentPlayTime; // Ajusta el inicio de la sesión para continuar contando
-       // Debug.Log($"Tiempo de juego cargado para Slot {CurrentSlot}: {FormatPlayTime(currentPlayTime)}");
+     //   Debug.Log($"Tiempo de juego cargado para Slot {CurrentSlot}: {FormatPlayTime(currentPlayTime)}");
     }
     void LoadKarma()
     {
-        karma = PlayerPrefs.GetFloat(GetKarmaKey(CurrentSlot), 0f);
+        karma = PlayerPrefs.GetFloat(GetKarmaKey(CurrentSlot));
     }
     void LoadObjects()
     {
@@ -403,7 +402,8 @@ public class SaveSystemMult : MonoBehaviour
             float savedMaxTime = PlayerPrefs.GetFloat(GetPossessionMaxTimeKey(CurrentSlot), possessionManager.GetDefaultMaxPossessionTime());
 
             possessionManager.SetPossessionTimes(savedCurrentTime, savedMaxTime);
-    //        Debug.Log($"Barra de posesión cargada: CurrentTime={savedCurrentTime}, MaxTime={savedMaxTime} para Slot {CurrentSlot}");
+            PlayerPrefs.Save();
+            //        Debug.Log($"Barra de posesión cargada: CurrentTime={savedCurrentTime}, MaxTime={savedMaxTime} para Slot {CurrentSlot}");
         }
         else
         {
@@ -433,11 +433,15 @@ public class SaveSystemMult : MonoBehaviour
 
     public void SetKarma(float value)
     {
+        // lisa: si no funciona llama al setFlotar y el playerpref.save despues de setear la variable
+        // Cuidado con el slot indice|currentslot que es el indice donde vas a guardar eso (en el slot 0,1 o 2 que hay para guardar/cargar)
         karma = value;
+
     }
 
     public void SetHistory(string value)
     {
+        // lisa: el mismo comentario que el karma
         if (string.IsNullOrEmpty(history))
         {
             history = value;

@@ -76,6 +76,7 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
 
             // mark it in the ObjectManager
             objectManager.ValveActive = true;
+            audioConfig.SoundEffectSFX(valveInteractSound);
             Action();
         } 
     }
@@ -111,7 +112,6 @@ public class ValveInteractuable : MonoBehaviour, IInteractuable
         SMSystem smsys = FindAnyObjectByType<SMSystem>();
         smsys.NeedsUIUpdate = true;
 
-        audioConfig.SoundEffectSFX(valveInteractSound);
         // valve rotation
         StartCoroutine(Rotate());
     }

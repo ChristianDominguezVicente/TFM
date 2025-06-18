@@ -35,7 +35,7 @@ public class PlayerListenUI : MonoBehaviour
             int firstSpaceIndex = text.IndexOf(' ');
             if (firstSpaceIndex != -1)
             {
-                text = "Listen" + text.Substring(firstSpaceIndex);
+                text = "Escuchar" + text.Substring(firstSpaceIndex);
             }
             listenText.text = text;
         }

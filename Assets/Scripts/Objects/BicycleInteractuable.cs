@@ -47,7 +47,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         // if player possess a restricted NPC
         if (currentNpc != null && !acceptedNPC.Contains(currentNpc.NpcName))
         {
-            StartCoroutine(ShowWarning($"<color=red>Faltan piezas</color>"));
+            StartCoroutine(ShowWarning($"<color=red>Esta persona no se atreve a arreglar la bicicleta</color>"));
         }
         // if valve is not activated
         else if (!objectManager.Teddy || !objectManager.ToolBox || objectManager.CurrentObject == null || !objectManager.GiftPaper)
