@@ -18,6 +18,9 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
     private string originalText;
     private bool showingWarning = false;
 
+    [Header("Level complete sound")]
+    [SerializeField] private AudioClip levelCompletedSound;
+
     public string GetInteractText() => interactText;
     public Transform GetTransform() => transform;
 
@@ -77,6 +80,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
             }
             else if (objectManager.Incorrect)
             {
+                audioConfig.SoundEffectSFX(levelCompletedSound);
                 StartCoroutine(FadeOut());
 
                 if (cinematicDialogue2 != null)
@@ -99,6 +103,7 @@ public class RachelDoorInteractuable : MonoBehaviour, IInteractuable
             }
             else if (objectManager.Correct)
             {
+                audioConfig.SoundEffectSFX(levelCompletedSound);
                 StartCoroutine(FadeOut());
 
                 if (cinematicDialogue != null)
