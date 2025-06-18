@@ -469,19 +469,19 @@ public class NPCPossessable : MonoBehaviour, IPossessable
             if (possessionManager.CurrentNPC != null)
             {
                 // the player talk as the speaker
-                speaker = possessionManager.CurrentNPC.npcName + " (Player)";
+                speaker = possessionManager.CurrentNPC.npcName + " (Helen)";
             }
             // if there is not a possessed NPC
             else
             {
                 // the player is talking
-                speaker = "Player";
+                speaker = "Helen";
             }
         }
         else
         {
             // the player talk as the speaker
-            speaker = possessionManager.CurrentNPC.npcName + " (Player)";
+            speaker = possessionManager.CurrentNPC.npcName + " (Helen)";
         }
         dialogueHistory.AddLine(speaker, currentQuestion.responses[index].playerText);
 

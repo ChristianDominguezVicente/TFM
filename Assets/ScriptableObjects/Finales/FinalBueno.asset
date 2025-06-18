@@ -95,7 +95,7 @@ MonoBehaviour:
         npcText: "\xBFPor qu\xE9 crees que lo hicieron?"
         image: {fileID: 0}
         responses:
-        - playerText: Porque Rachel no quiso que su bici pasase a ser de mi propiedad,.
+        - playerText: Porque Rachel no quiso que su bici pasase a ser de mi propiedad.
           nextIndex: 8
           responseImage: {fileID: 0}
         - playerText: "Porque nuestros padres ten\xEDan miedo de que me celase de

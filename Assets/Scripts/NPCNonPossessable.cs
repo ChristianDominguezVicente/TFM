@@ -140,7 +140,8 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
                 dialogueBox.SetActive(true);
                 ui.SetActive(false);
                 possessBar.SetActive(false);
-                hud.SetActive(false);
+                if (hud != null)
+                    hud.SetActive(false);
                 NextPhrase();
             }
             else
@@ -197,7 +198,8 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         dialogueBox.SetActive(false);
         ui.SetActive(true);
         possessBar.SetActive(true);
-        hud.SetActive(true);
+        if (hud != null) 
+            hud.SetActive(true);
         interactor = null;
         dialogueHistory.AddSeparator();
 
@@ -313,19 +315,19 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
             if (possessionManager.CurrentNPC != null)
             {
                 // the player talk as the speaker
-                speaker = possessionManager.CurrentNPC.NpcName + " (Player)";
+                speaker = possessionManager.CurrentNPC.NpcName + " (Helen)";
             }
             // if there is not a possessed NPC
             else
             {
                 // the player is talking
-                speaker = "Player";
+                speaker = "Helen";
             }
         }
         else
         {
             // the player talk as the speaker
-            speaker = possessionManager.CurrentNPC.NpcName + " (Player)";
+            speaker = possessionManager.CurrentNPC.NpcName + " (Helen)";
         }
         dialogueHistory.AddLine(speaker, currentQuestion.responses[index].playerText);
 
@@ -456,7 +458,8 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         dialogueBox.SetActive(true);
         ui.SetActive(false);
         possessBar.SetActive(false);
-        hud.SetActive(false);
+        if (hud != null)
+            hud.SetActive(false);
         talking = false;
         currentQuestion = null;
 
@@ -538,7 +541,8 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
         dialogueBox.SetActive(true);
         ui.SetActive(false);
         possessBar.SetActive(false);
-        hud.SetActive(false);
+        if (hud != null)
+            hud.SetActive(false);
         talking = false;
         currentQuestion = null;
         listening = true;

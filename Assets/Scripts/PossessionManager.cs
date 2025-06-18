@@ -74,7 +74,7 @@ public class PossessionManager : MonoBehaviour
 
         if(isPossessing)
         {
-            audioMixer.SetFloat("LowPass", 5000);
+            audioMixer.SetFloat("LowPass", 3000);
         }
         else
         {
