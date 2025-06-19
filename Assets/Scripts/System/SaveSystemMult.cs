@@ -459,7 +459,6 @@ public class SaveSystemMult : MonoBehaviour
         {
             history += "\n" + value;
         }
-        Debug.Log($"SET - Tiempo de History Slot {CurrentSlot}: {history}");
 
         if (CurrentSlot < 0)
         {

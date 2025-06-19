@@ -393,6 +393,7 @@ namespace StarterAssets
 
         private void ResetInputs()
         {
+            _input.history = false;
             _input.pause = false;
             _input.jump = false;
             _input.interact = false;
@@ -401,6 +402,7 @@ namespace StarterAssets
             _input.listen = false;
             _input.hint = false;
             _input.cancel = false;
+            _input.sm = false;
         }
    
         private void UI_Interact()
