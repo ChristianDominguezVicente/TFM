@@ -23,6 +23,9 @@ public class MenuInicial : MonoBehaviour
         public bool esNuevaPartida = false;
         public bool esMission = false;
         public bool esVolverMenuInicial = false;
+        public bool esFinal1 = false;
+        public bool esFinal2 = false;
+        public bool esCreditos = false;
 
         [Header("Botones de Slot de Guardado")]
         public bool esSlotCargandoPartida = false; // cargado partida
@@ -126,7 +129,18 @@ public class MenuInicial : MonoBehaviour
                 } else if (config.esGuardarPartida) // save game
                 {
                     ConfigureSaveButton(config);
-                }else if (config.esVolverMenuInicial) // back to menu initial
+                }else if (config.esFinal1)
+                {
+                    config.boton.onClick.AddListener(IrFinalUno);
+                }
+                else if (config.esFinal2)
+                {
+                    config.boton.onClick.AddListener(IrFinalDos);
+                }else if (config.esCreditos)
+                {
+                    config.boton.onClick.AddListener(IrCreditos);
+                }
+                else if (config.esVolverMenuInicial) // back to menu initial
                 {
                     config.boton.onClick.AddListener(VolverMenuInicio);
                 }
@@ -172,6 +186,21 @@ public class MenuInicial : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void IrCreditos()
+    {
+        SceneManager.LoadScene("Creditos");
+    }
+
+    private void IrFinalDos()
+    {
+        SceneManager.LoadScene("Final2");
+    }
+
+    private void IrFinalUno()
+    {
+        SceneManager.LoadScene("Final1");
     }
 
     private void MostrarObjetivosSM(BotonConfig config)
