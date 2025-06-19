@@ -36,97 +36,97 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Helen.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: d7c062cc2431c564997d0cdbb2674301, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305474
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Helen. Ya est\xE1s en el recuerdo."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: d7c062cc2431c564997d0cdbb2674301, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305477
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Correcto. Cuando abras los ojos dejar\xE1s de verme, as\xED que
           espera un momento."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 3
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305478
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Te he trasladado al recuerdo de tu noveno cumplea\xF1os. \xBFTe
           acuerdas de qu\xE9 hab\xEDa pasado con tu hermana? "
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305483
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "S\xED. Vas a revivirlo en la piel de todos."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 5
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305484
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Vas a recordar qu\xE9 hizo todo el mundo. "
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 6
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305485
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Esto es un recuerdo. Puedes influenciar a otras personas para que
           hagan lo que t\xFA quieras que hagan."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305487
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Correcto, Helen. Es algo similar. Tienes que recordar que todo
           eso est\xE1 ocurriendo en tu recuerdo del cumplea\xF1os."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 8
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305488
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: No estamos volviendo al pasado ni nada por el estilo.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305490
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Por supuesto.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305493
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No te preocupes por eso. Vengo del mundo espectral, \xBFrecuerdas? "
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 11
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305494
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "He concentrado tu recuerdo con el de todos los que estaban aqu\xED.
           No va a haber discordancias."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 12
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305495
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Y yo estoy aqu\xED para ayudarte, por supuesto. Puedes hablar conmigo
           en cualquier momento."
-        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305497
@@ -134,21 +134,21 @@ MonoBehaviour:
       data:
         npcText: Muy bien. Solo tengo que decirte que no puedes hacer algo que no
           eres capaz de imaginarte.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 24b6d1ac39246d545b73695c5250f125, type: 3}
         nextIndex: 14
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305498
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Cosas que no eres capaz de hacer en la vida real, como flotar o
           atravesar paredes.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 24b6d1ac39246d545b73695c5250f125, type: 3}
         nextIndex: 15
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 3380476085315305499
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: No lo intentes, por favor.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 24b6d1ac39246d545b73695c5250f125, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}
