@@ -18576,6 +18576,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6232618435565596941, guid: 2625124fc350ab14680195d0035a8ab8, type: 3}
+      propertyPath: fadeOut
+      value: 
+      objectReference: {fileID: 820631143}
+    - target: {fileID: 6232618435565596941, guid: 2625124fc350ab14680195d0035a8ab8, type: 3}
       propertyPath: audioConfig
       value: 
       objectReference: {fileID: 1330215985}

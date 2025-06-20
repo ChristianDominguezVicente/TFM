@@ -190,17 +190,17 @@ public class MenuInicial : MonoBehaviour
 
     private void IrCreditos()
     {
-        SceneManager.LoadScene("Creditos");
+        StartCoroutine(FadeOut("Creditos"));
     }
 
     private void IrFinalDos()
     {
-        SceneManager.LoadScene("Final2");
+        StartCoroutine(FadeOut("Final2"));
     }
 
     private void IrFinalUno()
     {
-        SceneManager.LoadScene("Final1");
+        StartCoroutine(FadeOut("Final1"));
     }
 
     private void MostrarObjetivosSM(BotonConfig config)
