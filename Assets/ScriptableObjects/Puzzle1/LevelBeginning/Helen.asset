@@ -23,21 +23,21 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Ha sido sencillo. Pero no recuerdo qu\xE9 pasaba ahora."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: eeb88ae08834c3d4c8274c6f26366041, type: 3}
     - rid: 3380476089508823171
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Cierto. Pap\xE1 estaba dando vueltas de un lado a otro en la cocina,
           tratando de arreglar el problema."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: f4fbebfb21472b64fac9a71ed84845ab, type: 3}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476089508823172
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Estaba hablando de algo de que el horno no funcionaba... creo.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: f4fbebfb21472b64fac9a71ed84845ab, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}

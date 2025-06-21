@@ -26,36 +26,36 @@ MonoBehaviour:
       data:
         npcText: "Al final me hab\xEDan convencido de que fuera a llevarle algo a
           Rachel."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}
     - rid: 3380476288597229648
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Tard\xE9 en ceder tanto como la propia Rachel en su momento en
           aceptar lo que le daba. De hecho, tuve que met\xE9rselo debajo de la puerta."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}
     - rid: 3380476288597229651
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Hmm...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 3
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
     - rid: 3380476288597229652
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No lo recuerdo bien. \xBFCreo que s\xED?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 4
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476288597229653
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "En todo caso, recuerdo que le ped\xED disculpas en cuanto ella
           lo hizo. Nos abrazamos y me dijo que no volver\xEDa a enfadarse conmigo."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}

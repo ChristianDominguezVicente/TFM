@@ -25,20 +25,20 @@ MonoBehaviour:
         npcText: Ya tengo todo para poder montar y envolver la bici.
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: ea4a7f8173c7dd148a927e507800cf24, type: 3}
     - rid: 3380476243546472559
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "S\xED. Ha sido curioso vivir estos sucesos desde otro punto de
           vista."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}
     - rid: 3380476243546472560
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Aquel d\xEDa hab\xEDa estado bastante entretenida con Lia y no
           me llegu\xE9 a dar cuenta de mucho de lo que pudo haber ocurrido."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}

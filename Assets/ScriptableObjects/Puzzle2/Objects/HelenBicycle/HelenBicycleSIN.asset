@@ -24,4 +24,4 @@ MonoBehaviour:
           montarla. Luego tendr\xEDa que envolverla."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 67d40d36820399f4390a23bcdea07955, type: 3}

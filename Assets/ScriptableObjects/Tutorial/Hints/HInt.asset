@@ -25,11 +25,11 @@ MonoBehaviour:
           dentro del recuerdo."
         image: {fileID: 0}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}
     - rid: 3380476085315305593
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Hab\xEDa un ni\xF1o jugando fuera, junto al trastero, \xBFrecuerdas? "
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}

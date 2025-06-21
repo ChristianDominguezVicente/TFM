@@ -28,7 +28,7 @@ MonoBehaviour:
         npcText: "No lo est\xE1s haciendo en la vida real, Helen."
         image: {fileID: 0}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}
     - rid: 3380476271017328764
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -36,7 +36,7 @@ MonoBehaviour:
           por ello."
         image: {fileID: 0}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}
     - rid: 3380476271017328765
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -44,25 +44,25 @@ MonoBehaviour:
           hecho algo por ella o no."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}
     - rid: 3380476271017328770
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFQu\xE9 pone?"
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}
     - rid: 3380476271017328776
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 0}
         nextIndex: 5
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 993c14cb8ae15094696afeb26a7f2eb9, type: 3}
     - rid: 3380476271017328777
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFVolvemos al recibidor?"
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 87278b9da5526be4cbacb9682b459fb8, type: 3}

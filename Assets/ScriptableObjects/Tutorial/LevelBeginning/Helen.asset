@@ -26,14 +26,14 @@ MonoBehaviour:
         npcText: ...
         image: {fileID: 0}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: e2fc8c49fde1e2643a18aba6cfede90a, type: 3}
     - rid: 3380476085315305582
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Qu\xE9 recuerdos..."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}
     - rid: 3380476085315305585
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -41,11 +41,11 @@ MonoBehaviour:
           para que Rachel acabase... as\xED."
         image: {fileID: 0}
         nextIndex: 3
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: 350cc9dcdb51fa8448f1795910b4d437, type: 3}
     - rid: 3380476085315305586
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Primero tengo que entrar en la casa.
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: 350cc9dcdb51fa8448f1795910b4d437, type: 3}

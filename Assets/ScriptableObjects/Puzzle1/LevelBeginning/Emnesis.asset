@@ -28,21 +28,21 @@ MonoBehaviour:
       data:
         npcText: "Has conseguido entrar en la casa. No es tan dif\xEDcil influenciar
           personas, \xBFverdad?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476089508823166
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Menos todav\xEDa si est\xE1n en tus recuerdos."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476089508823167
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFQu\xE9 tal la experiencia?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476089508823168
@@ -50,27 +50,27 @@ MonoBehaviour:
       data:
         npcText: "Rachel hab\xEDa prometido hacer tu tarta de cumplea\xF1os, pero
           en el \xFAltimo momento se hab\xEDa enfadado."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 4
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476089508823169
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Hab\xEDa roto la receta y se hab\xEDa ido enfadada a su habitaci\xF3n."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 5
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476089508823170
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Pero alguien ten\xEDa que hacer el pastel, \xBFverdad?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 24b6d1ac39246d545b73695c5250f125, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476089508823173
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Vamos a tratar de recordarlo con claridad.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

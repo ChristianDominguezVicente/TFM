@@ -23,4 +23,4 @@ MonoBehaviour:
         npcText: "La puerta trasera de casa est\xE1 cerrada desde dentro."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 0c769c7feabd1c94093fb40985041d5e, type: 3}

@@ -34,21 +34,21 @@ MonoBehaviour:
         npcText: "He conseguido abrirlo. Aunque me siento un poco mal ley\xE9ndolo."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: ea4a7f8173c7dd148a927e507800cf24, type: 3}
     - rid: 3380476271017328748
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 0}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: e2fc8c49fde1e2643a18aba6cfede90a, type: 3}
     - rid: 3380476271017328749
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Cierto.
         image: {fileID: 0}
         nextIndex: 3
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}
     - rid: 3380476271017328750
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -56,28 +56,28 @@ MonoBehaviour:
           d\xEDa de hoy."
         image: {fileID: 0}
         nextIndex: 4
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}
     - rid: 3380476271017328751
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: e2fc8c49fde1e2643a18aba6cfede90a, type: 3}
     - rid: 3380476271017328753
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 0}
         nextIndex: 6
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: e2fc8c49fde1e2643a18aba6cfede90a, type: 3}
     - rid: 3380476271017328754
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\"Mi familia me odia, as\xED que tampoco puedo contar con ellos.\""
         image: {fileID: 0}
         nextIndex: 7
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}
     - rid: 3380476271017328755
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -85,32 +85,32 @@ MonoBehaviour:
           que lo hago por llamar la atenci\xF3n.\""
         image: {fileID: 0}
         nextIndex: 8
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}
     - rid: 3380476271017328756
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: '"Tengo que ser fuerte y aguantar lo que venga, porque estoy sola."'
         image: {fileID: 0}
         nextIndex: 9
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}
     - rid: 3380476271017328757
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: e2fc8c49fde1e2643a18aba6cfede90a, type: 3}
     - rid: 3380476271017328760
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
         image: {fileID: 0}
         nextIndex: 11
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: e2fc8c49fde1e2643a18aba6cfede90a, type: 3}
     - rid: 3380476271017328761
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Ser\xE1 mejor."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 792b8a87da2605d45a7885cc5a1a1493, type: 3}

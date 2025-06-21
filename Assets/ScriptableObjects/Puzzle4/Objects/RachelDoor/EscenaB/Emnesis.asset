@@ -22,7 +22,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No fue culpa tuya. Realmente t\xFA no hiciste nada malo."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476288597229650
@@ -30,6 +30,6 @@ MonoBehaviour:
       data:
         npcText: "Hiciste lo que te dijeron, lo intentaste y ella no pens\xF3 ni
           en el primer momento en ti, en c\xF3mo pudiste haberte sentido."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

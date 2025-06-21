@@ -24,7 +24,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFY despu\xE9s? \xBFQu\xE9 ocurri\xF3?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476271017328782
@@ -32,20 +32,20 @@ MonoBehaviour:
       data:
         npcText: "Llevas suspirando un buen rato. Recuerda que esto sucedi\xF3 hace
           mucho. Y que nadie es perfecto, por supuesto."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 24b6d1ac39246d545b73695c5250f125, type: 3}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
     - rid: 3380476271017328783
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: No puedes saber de antemano algo que no se te dice.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 24b6d1ac39246d545b73695c5250f125, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
     - rid: 3380476271017328786
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Correcto.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

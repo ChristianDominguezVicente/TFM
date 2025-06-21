@@ -32,88 +32,88 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Lo cierto es que no... Por lo menos no con este detalle.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}
     - rid: 3380476243546472532
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Despu\xE9s de esto hab\xEDamos puesto a preparar el pastel."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}
     - rid: 3380476243546472533
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Estuvo en el horno mucho tiempo y ol\xEDa por toda la casa a bizcocho."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}
     - rid: 3380476243546472535
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 4
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
     - rid: 3380476243546472536
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Recuerdo que los adultos estaban cuchicheando entre ellos.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 5
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476243546472537
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "El t\xEDo Erick, en concreto, se hab\xEDa estado moviendo por todas
           partes, corriendo de un lado a otro."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 6
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476243546472538
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Estoy segura de que hab\xEDa sido por mis regalos. Y ahora, sabiendo
           que me regalaron aquella bici..."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 7
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476243546472539
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Mucho m\xE1s tarde me dijeron que hab\xEDan tenido que ponerle
           incluso la cadena el propio d\xEDa de mi cumplea\xF1os."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 8
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476243546472540
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Oh...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 9
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: dd60ce30b18b5284284168e5b4d79783, type: 3}
     - rid: 3380476243546472541
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Ahora recuerdo que cuando vi la llave maestra sobre la encimera
           de la cocina me la llev\xE9 y la escond\xED en una cajita."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 10
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: eeb88ae08834c3d4c8274c6f26366041, type: 3}
     - rid: 3380476243546472542
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Lo hab\xEDa hecho de broma, pero luego me sent\xED mal, porque
           me enter\xE9 de que la hab\xEDan estado buscando."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 11
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: eeb88ae08834c3d4c8274c6f26366041, type: 3}
     - rid: 3380476243546472543
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Al final la hab\xEDa encontrado uno de los ni\xF1os, \xBFverdad?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}

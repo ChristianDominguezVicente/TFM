@@ -26,44 +26,44 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
     - rid: 3380476271017328642
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Despu\xE9s de que el t\xEDo Erick llamase a mi padre diciendo que
           estaba todo listo... recuerdo que hubo un momento de calma."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 2
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476271017328643
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Mam\xE1 tambi\xE9n hab\xEDa acabado de trabajar y se hab\xEDa metido
           en el garaje."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 3
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: eeb88ae08834c3d4c8274c6f26366041, type: 3}
     - rid: 3380476271017328644
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Pero recuerdo que hab\xEDa habido movimiento entre los ni\xF1os.
           Incluso Mary se hab\xEDa llegado a levantar."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 4
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: eeb88ae08834c3d4c8274c6f26366041, type: 3}
     - rid: 3380476271017328645
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No recuerdo qu\xE9 hab\xEDa pasado en concreto, la verdad."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: eeb88ae08834c3d4c8274c6f26366041, type: 3}
     - rid: 3380476271017328647
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Cierto. Quiero saber qu\xE9 ocurri\xF3 en aquel momento."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: decf4345696c6904c893685f10425012, type: 3}

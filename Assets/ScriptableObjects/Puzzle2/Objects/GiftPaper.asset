@@ -23,4 +23,4 @@ MonoBehaviour:
         npcText: "Es el papel de regalo en el que hab\xEDan envuelto la bici."
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: ea4a7f8173c7dd148a927e507800cf24, type: 3}

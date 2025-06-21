@@ -26,37 +26,37 @@ MonoBehaviour:
       data:
         npcText: "Al final me hab\xEDan convencido de que fuera a llevarle algo a
           Rachel."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: f4fbebfb21472b64fac9a71ed84845ab, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476288597229648
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No lleg\xF3 a abrir la puerta. Me grit\xF3 todo lo que pudo y m\xE1s,
           as\xED que me fui."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: f4fbebfb21472b64fac9a71ed84845ab, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476288597229651
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 3
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
     - rid: 3380476288597229652
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Rachel siempre tuvo un deje bastante ego\xEDsta. Ella siempre era
           lo primero."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 4
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}
     - rid: 3380476288597229653
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "De todas formas, creo que la cosa pudo haber salido mejor en aquel
           momento. O no, quiz\xE1 no."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 55d36dd7a51a97a40b6a43da74f6ce5d, type: 3}

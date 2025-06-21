@@ -23,17 +23,17 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Unos tiempos m\xE1s felices, \xBFverdad?"
-        image: {fileID: 21300000, guid: d7c062cc2431c564997d0cdbb2674301, type: 3}
+        image: {fileID: 0}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 0}
+        nonSpeakerImage: {fileID: 21300000, guid: 993c14cb8ae15094696afeb26a7f2eb9, type: 3}
     - rid: 3380476085315305584
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Pero no te dejes llevar por la nostalgia. Recuerda qu\xE9 hemos
           venido a hacer. "
-        image: {fileID: 21300000, guid: d7c062cc2431c564997d0cdbb2674301, type: 3}
+        image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: a8b047a1fc2ed17439923e435638ad71, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: 3ff42fd89d117f242a897006c8ece113, type: 3}
     - rid: 3380476085315305587
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
@@ -41,4 +41,4 @@ MonoBehaviour:
           para abrir la puerta.  "
         image: {fileID: 0}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 21300000, guid: d33c9ab92828f51469073addbaadedef, type: 3}

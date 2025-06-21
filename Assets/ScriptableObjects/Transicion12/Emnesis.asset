@@ -23,7 +23,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFQu\xE9? \xBFTe acordabas de todo esto?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476243546472534
@@ -31,13 +31,13 @@ MonoBehaviour:
       data:
         npcText: "\xBFY esto te enciende una luz acerca de todo lo que ocurri\xF3
           despu\xE9s?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476243546472544
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Vamos a verlo entonces. Abre los ojos.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
