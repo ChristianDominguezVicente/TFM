@@ -8,8 +8,10 @@ public class FadeIn : MonoBehaviour
 
     private void Start()
     {
+        // configuration of the fade
         fadeIn.alpha = 1f;
         fadeIn.gameObject.SetActive(true);
+        // configuration of the audio
         audioConfig = (AudioConfig)FindAnyObjectByType(typeof(AudioConfig));
         audioConfig.EnableMusic();
 
@@ -20,7 +22,6 @@ public class FadeIn : MonoBehaviour
 
     private IEnumerator FadeInCoroutine()
     {
-
         float duration = 2f;
         float elapsed = 0f;
 

@@ -108,7 +108,7 @@ public class HintManager : MonoBehaviour, IPossessable
     private bool IsDialogueActive(int index)
     {
         string sceneName = SceneManager.GetActiveScene().name;
-
+        // hints available depending of the ObjectManager's information
         switch (sceneName)
         {
             case "Greybox":
@@ -146,6 +146,7 @@ public class HintManager : MonoBehaviour, IPossessable
 
     private int[] GetPendingDialogues()
     {
+        // obtain pending hints
         List<int> pending = new List<int>();
         for (int i = 0; i < dialogueDataArray.Length; i++)
         {
@@ -155,7 +156,7 @@ public class HintManager : MonoBehaviour, IPossessable
         return pending.ToArray();
     }
 
-
+    // update the pending hints to the player
     private void UpdateDialogue()
     {
         int previousIndex = currentDialogueIndex;

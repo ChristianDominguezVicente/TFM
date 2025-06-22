@@ -22,8 +22,10 @@ public class SceneBeginning : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Final")
         {
             audioConfig.MuteMusic();
+            // obtain Karma value of the Save System
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = ssm.GetKarma();
+            // good Ending
             if (karma >= 0)
             {
                 cinematicDialogue.PlayDialogue();
@@ -33,6 +35,7 @@ public class SceneBeginning : MonoBehaviour
                     yield return null;
                 }
             }
+            // bad Ending
             else if (karma < 0)
             {
                 cinematicDialogue2.PlayDialogue();
@@ -43,6 +46,7 @@ public class SceneBeginning : MonoBehaviour
                 }
             }
         }
+        // normal introduction to the level
         else
         {
             audioConfig.MuteMusic();

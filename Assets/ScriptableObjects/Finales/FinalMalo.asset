@@ -36,14 +36,14 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Ahora te acuerdas mucho mejor de aquel d\xEDa."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712401
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Una vez recordamos todo, lo mejor es reflexionar acerca de lo ocurrido.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712402
@@ -51,14 +51,14 @@ MonoBehaviour:
       data:
         npcText: "Despu\xE9s de todo, tienes que aceptarlo con el tiempo y yo estoy
           aqu\xED para ayudarte a hacerlo."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 3
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712403
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Voy a hacerte algunas preguntas. Piensa bien tu respuesta.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: 4
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712404
@@ -66,14 +66,14 @@ MonoBehaviour:
       data:
         npcText: "Poco antes del inicio de este recuerdo, Rachel subi\xF3 a su habitaci\xF3n
           enfadada."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 5
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712406
       type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFPor qu\xE9 crees que lo hizo?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         responses:
         - playerText: "Porque le molestaba que todos me estuvieran prestando atenci\xF3n."
           nextIndex: 6
@@ -86,14 +86,14 @@ MonoBehaviour:
       data:
         npcText: "A pesar de que t\xFA quer\xEDas una bici y Rachel ya no usaba la
           suya desde hac\xEDa a\xF1os, decidieron comprarte una nueva."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 7
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712409
       type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFPor qu\xE9 crees que lo hicieron?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         responses:
         - playerText: Porque Rachel no quiso que su bici pasase a ser de mi propiedad,.
           nextIndex: 8
@@ -107,14 +107,14 @@ MonoBehaviour:
       data:
         npcText: "Rachel te perdon\xF3 despu\xE9s de salir de su habitaci\xF3n, pero
           no fue as\xED en el caso de tu madre, con quien estuvo enfadada meses."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 9
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712411
       type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFQu\xE9 crees que la hizo odiarla tanto?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         responses:
         - playerText: "Sus ganas de tener siempre la raz\xF3n."
           nextIndex: 10
@@ -126,7 +126,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: ...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: ea8f5005a7650104aba4da6fd0e796e8, type: 3}
         nextIndex: 11
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712413
@@ -134,7 +134,7 @@ MonoBehaviour:
       data:
         npcText: "Creo que t\xFA misma puedes haber sacado unas conclusiones interesantes
           de este recuerdo."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 12
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712414
@@ -142,14 +142,14 @@ MonoBehaviour:
       data:
         npcText: Revivir los recuerdos tal y como ocurrieron es una herramienta que
           te va a ayudar a hacer las paces contigo misma.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 13
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712415
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Todav\xEDa tengo otros cuatro recuerdos guardados para ti."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 14
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712416
@@ -157,7 +157,7 @@ MonoBehaviour:
       data:
         npcText: Tengo pensado guiarte de nuevo por ellos para que consigas tu objetivo
           de entender a Rachel.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 3a955801b34efdb41bab76597ec52295, type: 3}
         nextIndex: 15
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476315606712417
@@ -165,6 +165,6 @@ MonoBehaviour:
       data:
         npcText: "Tienes potencial para esto. Juntos llegaremos a descubrir la verdad,
           tal y como t\xFA has redescubierto tu noveno cumplea\xF1os."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb37024a0219fc48a85efb6dc7ed1ec, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

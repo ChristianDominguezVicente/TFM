@@ -125,6 +125,7 @@ public class NPCNonPossessable : MonoBehaviour, IPossessable
     public void Possess(Transform interactorTransform)
     {
         interactor = interactorTransform;
+        // beginning of the Cinematic Mode
         if (cinematicDialoguePlayer != null && !cinematicFlag && possessionManager.IsPossessing)
         {
             cinematicDialoguePlayer.PlayDialogue();

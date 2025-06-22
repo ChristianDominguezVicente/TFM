@@ -12,6 +12,7 @@ public class DialogueHistory : MonoBehaviour
         {
             // add to the history: "Name: Text"
             history.Add($"{speaker}: {text}");
+            // save history in the Save System
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             ssm.SetHistory(line);
         }
@@ -23,6 +24,7 @@ public class DialogueHistory : MonoBehaviour
         {
             // add a empty line
             history.Add("");
+            // save history in the Save System
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             ssm.SetHistory("");
         }
@@ -42,11 +44,8 @@ public class DialogueHistory : MonoBehaviour
 
     public void OnLoad(string value)
     {
+        // load the history saved in the Save System
         history = new List<string>(value.Split("\n"));
         AddSeparator();
-        foreach (string item in history)
-        {
-            Debug.Log(item);
-        }
     }
 }

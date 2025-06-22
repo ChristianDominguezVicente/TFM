@@ -91,7 +91,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
     {
         var currentNpc = possessionManager.CurrentNPC;
 
-        // if in the puzzle 2 Lia interact with the box that contains the key master, it unlock automatically
+        // if it is the object box and the player is not in Puzzle2
         if (CompareTag("Box") && SceneManager.GetActiveScene().name != "Puzzle2")
         {
             if (cinematicDialogue != null)
@@ -106,25 +106,29 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
                 cinematicDialogue.End = false;
             }
         }
+        // if it is the object box, the player is in Puzzle2 and possess a restricted NPC
         else if (CompareTag("Box") && restrictedNPCs.Contains(currentNpc.NpcName) && SceneManager.GetActiveScene().name == "Puzzle2")
         {
             audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>No hay nada de interés en la estantería</color>"));
             yield break;
         }
+        // if it is the object box, the player is in Puzzle2 and possess Lia
         else if (CompareTag("Box") && possessionManager.CurrentNPC.NpcName == "Lia" && SceneManager.GetActiveScene().name == "Puzzle2")
         {
             audioConfig.SoundEffectSFX(unlockMechanismSound);
             masterKey.SetActive(true);
+            // unlock the box directly, Lia doesn't need the code
             UnlockBox();
         }
-        // if player possess a restricted NPC
+        // if it is the object desk and possess a restricted NPC
         else if (CompareTag("Desk") && currentNpc != null && restrictedNPCs.Contains(currentNpc.NpcName))
         {
             audioConfig.SoundEffectSFX(npcNotAllowedSound);
             StartCoroutine(ShowWarning("<color=red>Jane no te permite tocar el cajón</color>"));
             yield break;
         }
+        // if it is the object diary and it is the first interaction
         else if (CompareTag("Diary") && !first)
         {
             if (cinematicDialogue != null)
@@ -172,6 +176,7 @@ public class CodeInteractuable : MonoBehaviour, IInteractuable
 
     private IEnumerator Diary()
     {
+        // obtain the Karma from the Save System
         SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
         float karma = ssm.GetKarma();
         if (karma == 0)

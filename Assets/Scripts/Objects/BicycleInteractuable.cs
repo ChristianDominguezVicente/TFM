@@ -52,7 +52,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         {
             StartCoroutine(ShowWarning($"<color=red>Esta persona no se atreve a arreglar la bicicleta</color>"));
         }
-        // if valve is not activated
+        // if player doesn't have this objects
         else if (!objectManager.Teddy || !objectManager.ToolBox || objectManager.CurrentObject == null || !objectManager.GiftPaper)
         {
             if (cinematicDialogue2 != null)
@@ -69,6 +69,7 @@ public class BicycleInteractuable : MonoBehaviour, IInteractuable
         }
         else
         {
+            // obtain the Karma of the Save System
             SaveSystemMult ssm = FindFirstObjectByType<SaveSystemMult>();
             float karma = ssm.GetKarma();
             if (karma < 0)

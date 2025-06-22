@@ -87,7 +87,7 @@ public class CinematicDialogue : MonoBehaviour
             {
                 yield return null;
             }
-
+            // stop looking to the speaker
             foreach (var otherEntry in dialogueSequence)
             {
                 if (otherEntry.speaker != entry.speaker)
@@ -102,7 +102,7 @@ public class CinematicDialogue : MonoBehaviour
                 }
             }
         }
-
+        // remove blur at the end of the dialogue
         foreach (var entry in dialogueSequence)
         {
             if (entry.speaker is NPCNonPossessable nonPossessable)
