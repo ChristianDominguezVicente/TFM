@@ -134,7 +134,6 @@ public class NPCPossessable : MonoBehaviour, IPossessable
     {
         // save the blur
         volume.profile.TryGet<DepthOfField>(out blur);
-
         dialogueMap = new Dictionary<string, DialogueData>();
         for (int i = 0; i < Mathf.Min(speakerNames.Length, dialogueDataArray.Length); i++)
         {
@@ -148,6 +147,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         if (navAgent != null)
             navAgent.enabled = false;
         anim = GetComponent<Animator>();
+        anim.SetFloat("MotionSpeed", 1f);
     }
 
     private void SetDialogue()
