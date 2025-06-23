@@ -599,6 +599,7 @@ public class NPCPossessable : MonoBehaviour, IPossessable
         {
             // if NPC is not moving
             anim.SetFloat("Speed", 0f);
+            anim.SetFloat("MotionSpeed", 1f);
         }
     }
 
