@@ -1,6 +1,8 @@
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PossessionManager : MonoBehaviour
@@ -25,8 +27,16 @@ public class PossessionManager : MonoBehaviour
     [Header("Audio System")]
     [SerializeField] private AudioMixer audioMixer;
 
+    [Header("Post Processing")]
+    [SerializeField] private Volume volume;
+
     private float currentTime;
     private float maxTime;
+
+    private ColorCurves colorCurves;
+    private bool defaultColorCurves = false;
+    private ChromaticAberration chromaticAberration;
+    private float defaultAberrationIntensity = 0f;
 
     // bar posses
     public float GetCurrentTime() => currentTime;
@@ -48,6 +58,16 @@ public class PossessionManager : MonoBehaviour
     {
         // set the player controller as the active one
         currentController = player.GetComponent<ThirdPersonController>();
+
+        if (volume != null && volume.profile.TryGet(out chromaticAberration))
+        {
+            defaultAberrationIntensity = chromaticAberration.intensity.value;
+        }
+
+        if (volume != null && volume.profile.TryGet(out colorCurves))
+        {
+            defaultColorCurves = colorCurves.active;
+        }
     }
 
     private void Update()
@@ -79,6 +99,16 @@ public class PossessionManager : MonoBehaviour
         else
         {
             audioMixer.SetFloat("LowPass", 1300);
+        }
+
+        if (chromaticAberration != null)
+        {
+            chromaticAberration.intensity.value = isPossessing ? defaultAberrationIntensity : 0.5f;
+        }
+
+        if (colorCurves != null)
+        {
+            colorCurves.active = !isPossessing;
         }
     }
 
