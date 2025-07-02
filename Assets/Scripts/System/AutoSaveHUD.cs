@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class AutoSaveHUD : MonoBehaviour
 {
-    [SerializeField] private Image autoSaveIcon;
+    [SerializeField] private GameObject autoSaveIcon;
     [SerializeField] private float displayDurationSeconds = 2f; // How long the icon is displayed in seconds
 
     private Coroutine currentDisplayCoroutine; // To control the icon's hiding routine
