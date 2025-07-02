@@ -23,13 +23,13 @@ MonoBehaviour:
       data:
         npcText: Supongo que a alguien como ella solo le hace falta que le den una
           cosa bonita.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: bbf60b34e32ae438897a814e39385324, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576616
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Y ahora quieren que Rachel baje como si nada...
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        image: {fileID: 21300000, guid: bbf60b34e32ae438897a814e39385324, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}

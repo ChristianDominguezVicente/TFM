@@ -24,20 +24,20 @@ MonoBehaviour:
       data:
         npcText: "\xBFNo tienes una curiosidad tremenda por qu\xE9 le van a regalar
           a Helen?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 87c93a845d2244460a5fdebc8e9bc400, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476243546472546
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFY si buscamos los regalos?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: c50e19c3edb4843ffbeb7d64a76f132b, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476243546472547
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xA1No, espera! \xBFY si los boicoteamos?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e372b2a82d7294992bc8ccdc04c87c1b, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

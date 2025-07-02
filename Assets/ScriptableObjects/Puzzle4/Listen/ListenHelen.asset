@@ -23,13 +23,13 @@ MonoBehaviour:
       data:
         npcText: "\xA1No soporto que ella tenga que ser la protagonista de MI cumplea\xF1os!
           \xA1Y no pienso hacer las paces con ella!"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: edb7cd4dee55245b987270a4c473d5ce, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576616
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No dejo de escuchar \"Rachel\" por aqu\xED y \"Rachel\" por all\xE1."
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        image: {fileID: 21300000, guid: edb7cd4dee55245b987270a4c473d5ce, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}

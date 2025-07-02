@@ -23,7 +23,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFQu\xE9 quieres ya?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 0f0bff23502fb41be93e127e952b6d9f, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480181
@@ -31,13 +31,13 @@ MonoBehaviour:
       data:
         npcText: "Te importa tanto el maldito pastel de Helen, pero te importa una
           mierda c\xF3mo me haya sentado a m\xED c\xF3mo me hab\xE9is tratado."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 4af8af9162dd248eaaf4d067bb12b9ab, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480186
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xA1No! \xA1Y t\xFA no vas a entrar en MI habitaci\xF3n!"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 2ff72bf73088a47c3bd8a4e398407096, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

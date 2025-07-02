@@ -24,20 +24,20 @@ MonoBehaviour:
       data:
         npcText: "Todo el mundo sabe que los pasteles est\xE1n hechos de harina y
           que la harina se guarda en la cocina."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 927e3e93bf1b445059e76de841b258cf, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480220
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Digo yo.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 927e3e93bf1b445059e76de841b258cf, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576592
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No entiendo por qu\xE9 hay tanto drama con lo de Rachel."
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        image: {fileID: 21300000, guid: 927e3e93bf1b445059e76de841b258cf, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}

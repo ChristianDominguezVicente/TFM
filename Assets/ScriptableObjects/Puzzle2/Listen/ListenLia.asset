@@ -22,6 +22,6 @@ MonoBehaviour:
       data:
         npcText: La que va a liar Helen... Alguien va a tener que ir a por la llave
           y nos vamos a comer la bronca todos.
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        image: {fileID: 21300000, guid: 927e3e93bf1b445059e76de841b258cf, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}

@@ -22,7 +22,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Bah, seguro que sube a buscarla alguien cuando salgan del garaje.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: f831551e2296349b8903168b407e24ba, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576616
@@ -30,6 +30,6 @@ MonoBehaviour:
       data:
         npcText: "\xBFY qu\xE9 habr\xE1 sido de Rachel? Por mucho que quiera llamar
           la atenci\xF3n, como dice mam\xE1, ya ha pasado un rato..."
-        image: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        image: {fileID: 21300000, guid: f831551e2296349b8903168b407e24ba, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: ce23f506f208ca04cb08a34c55f1fa8e, type: 3}
+        nonSpeakerImage: {fileID: 0}

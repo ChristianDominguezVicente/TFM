@@ -22,7 +22,7 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Qu\xE9 curiosidad por lo que hay detr\xE1s de esa puerta..."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 36481ec84885246a9b6d18f8f52971d4, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480209
@@ -30,6 +30,6 @@ MonoBehaviour:
       data:
         npcText: "Escuch\xE9 que guardan la llave maestra en la oficina. Pero all\xED
           est\xE1 la madre de Helen. L\xE1stima."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 36481ec84885246a9b6d18f8f52971d4, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

@@ -27,28 +27,28 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Te recuerdo que soy tu madre, Rachel.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e6dd599aa69964864a400e5692312ee7, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480179
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: No puedes dirigirme la palabra de esa manera.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e6dd599aa69964864a400e5692312ee7, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480180
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Ni puedes quitarnos la receta del pastel de tu hermana.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e6dd599aa69964864a400e5692312ee7, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480182
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xA1Ojo con esa boca!"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e4a846f591e744fcf92784ea246be32b, type: 3}
         nextIndex: 4
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480183
@@ -56,7 +56,7 @@ MonoBehaviour:
       data:
         npcText: "\xA1Es el cumplea\xF1os de tu hermana, por supuesto que nos importa
           el pastel!"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e4a846f591e744fcf92784ea246be32b, type: 3}
         nextIndex: 5
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480184
@@ -64,13 +64,13 @@ MonoBehaviour:
       data:
         npcText: "\xA1Y por muy celosa que seas, no le vas a quitar este d\xEDa a
           tu hermana!"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e4a846f591e744fcf92784ea246be32b, type: 3}
         nextIndex: 6
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480185
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Me vas a dar ahora mismo esa receta.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e4a846f591e744fcf92784ea246be32b, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

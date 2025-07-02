@@ -24,7 +24,7 @@ MonoBehaviour:
       data:
         npcText: "Menudo caser\xEDo tienen por estar el uno trabajando cuatro horitas
           por la noche y la otra sentada de ma\xF1anas."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: dadc22f3fab334f758fca425cf6d861b, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480216
@@ -32,13 +32,13 @@ MonoBehaviour:
       data:
         npcText: "Si a\xFAn por encima tienen mejores herramientas que las que me
           dan en el curro."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: dadc22f3fab334f758fca425cf6d861b, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480217
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Hay que joderse...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: dadc22f3fab334f758fca425cf6d861b, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

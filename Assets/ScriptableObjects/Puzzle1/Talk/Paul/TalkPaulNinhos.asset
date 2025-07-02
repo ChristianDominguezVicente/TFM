@@ -24,7 +24,7 @@ MonoBehaviour:
       type: {class: DialogueQuestion, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFQu\xE9 tal? \xBFJuegas?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 87c93a845d2244460a5fdebc8e9bc400, type: 3}
         responses:
         - playerText: "\xBFQu\xE9 hay tras esa puerta?\""
           nextIndex: 1
@@ -36,20 +36,20 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "No lo s\xE9. Pero me da mucha curiosidad."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: c50e19c3edb4843ffbeb7d64a76f132b, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480205
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Me pregunto si tendr\xE1n la llave... por ejemplo... en la oficina."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: c50e19c3edb4843ffbeb7d64a76f132b, type: 3}
         nextIndex: 3
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480206
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFT\xFA no tienes curiosidad?"
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: c50e19c3edb4843ffbeb7d64a76f132b, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

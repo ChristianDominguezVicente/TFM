@@ -21,6 +21,6 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Pobre Rachel...
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 90d482a75ac884b04b2d2c29318e35c8, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

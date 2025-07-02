@@ -23,13 +23,13 @@ MonoBehaviour:
       data:
         npcText: "Ahora a\xFAn por encima que no tienen el regalo de la ni\xF1a envuelto.
           Y no vienen a cogerlo al despacho."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: cfa5b919d04f44ca5be7451354c14eda, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480212
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Qu\xE9 estr\xE9s de gente..."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: cfa5b919d04f44ca5be7451354c14eda, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

@@ -24,7 +24,7 @@ MonoBehaviour:
       data:
         npcText: "Se est\xE1 acumulando todo. Ten\xEDa que haber acabado esto hace
           d\xEDas ya."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: cfa5b919d04f44ca5be7451354c14eda, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480211
@@ -32,13 +32,13 @@ MonoBehaviour:
       data:
         npcText: "Y a\xFAn tengo que decirle a Henry que cambi\xE9 el c\xF3digo del
           caj\xF3n por la fecha del cumple de la ni\xF1a..."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: cfa5b919d04f44ca5be7451354c14eda, type: 3}
         nextIndex: 2
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480212
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Qu\xE9 estr\xE9s..."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: cfa5b919d04f44ca5be7451354c14eda, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

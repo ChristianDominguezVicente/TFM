@@ -23,14 +23,14 @@ MonoBehaviour:
       data:
         npcText: "Rachel est\xE1 tan enfadada que todav\xEDa no ha bajado... Estoy
           preocupada."
-        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        image: {fileID: 21300000, guid: fbd940b8f76e64402afc7da0cede2b22, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576614
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Seguro que es porque siempre la est\xE1n ri\xF1endo. \xBFQuiz\xE1
           si le damos algo para que sepa que la queremos como es...?"
-        image: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        image: {fileID: 21300000, guid: fbd940b8f76e64402afc7da0cede2b22, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}

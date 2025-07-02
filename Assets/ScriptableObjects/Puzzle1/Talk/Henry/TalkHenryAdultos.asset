@@ -23,14 +23,14 @@ MonoBehaviour:
       data:
         npcText: Estoy preocupado por Rachel. Es verdad que no pasa nada con lo de
           la receta, que creo que me acuerdo.
-        image: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        image: {fileID: 21300000, guid: 6d0e42caeb9e64dc5853ac49d16fe660, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576596
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "Pero... \xBFpor qu\xE9 habr\xE1 montado semejante esc\xE1ndalo?
           \xBFQu\xE9 le ha dado?"
-        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        image: {fileID: 21300000, guid: 6d0e42caeb9e64dc5853ac49d16fe660, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}

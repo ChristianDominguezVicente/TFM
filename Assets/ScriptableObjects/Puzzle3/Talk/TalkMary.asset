@@ -23,13 +23,13 @@ MonoBehaviour:
       data:
         npcText: "Seguro que tiene contrase\xF1a... No creo que podamos abrirlo sin
           estar investigando toda su habitaci\xF3n... o incluso m\xE1s all\xE1..."
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 18922b6f59b5e4963ba0404c7791c138, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}
     - rid: 8849634281751576589
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: "\xBFIr a investigar el diario de Rachel...?"
-        image: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        image: {fileID: 21300000, guid: 18922b6f59b5e4963ba0404c7791c138, type: 3}
         nextIndex: 1
-        nonSpeakerImage: {fileID: 21300000, guid: 91ac89b1531286d49895ccd0934c4dc2, type: 3}
+        nonSpeakerImage: {fileID: 0}

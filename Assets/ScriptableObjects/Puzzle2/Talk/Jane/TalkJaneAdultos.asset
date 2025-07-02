@@ -22,13 +22,13 @@ MonoBehaviour:
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: No te olvides de envolver el regalo cuando acabes de montarlo.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e6dd599aa69964864a400e5692312ee7, type: 3}
         nextIndex: 1
         nonSpeakerImage: {fileID: 0}
     - rid: 3380476107995480214
       type: {class: DialoguePhrase, ns: , asm: Assembly-CSharp}
       data:
         npcText: Voy pronto.
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: e6dd599aa69964864a400e5692312ee7, type: 3}
         nextIndex: -1
         nonSpeakerImage: {fileID: 0}

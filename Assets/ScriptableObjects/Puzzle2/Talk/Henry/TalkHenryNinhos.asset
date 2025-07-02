@@ -22,6 +22,6 @@ MonoBehaviour:
       data:
         npcText: "Mantened a Helen ocupada, que estamos preparando los regalos. \xA1Que
           no vea nada!"
-        image: {fileID: 21300000, guid: c3379ac556067ad4d83c342a0daca616, type: 3}
+        image: {fileID: 21300000, guid: b145b5a276c2549b8904607a7f9ed1ca, type: 3}
         nextIndex: -1
-        nonSpeakerImage: {fileID: 21300000, guid: 6299e50904ce31f49b434a4aeec6c2b8, type: 3}
+        nonSpeakerImage: {fileID: 0}
